@@ -20,4 +20,24 @@ const sportSchema = new mongoose.Schema({
 });
 
 
-module.export = mongoose.model('Sport', sportSchema, 'sports');
+sportSchema.statics = {
+  async get(id) {
+    try {
+      let sport;
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        sport = await this.findById(id).exec()
+      }
+      if (sport) {
+        return sport;
+      }
+      throw new APIError({
+        message: "Sport does not exist",
+        status: httpStatus.NOT_FOUND
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
+module.exports = mongoose.model('Sport', sportSchema, 'sports');

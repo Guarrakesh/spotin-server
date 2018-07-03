@@ -9,15 +9,21 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
 
-const Competition = require('./competition.model');
-const Competitor = require('./competitor.model');
+const {Competition} = require('./competition.model');
+const {competitorSchema} = require('./competitor.model');
 const Sport = require('./sport.model');
 
 const sportEventSchema = new mongoose.Schema({
 
-  sport: Sport,
-  competition: Competition,
-  competitors: [Competitor],
+  sport: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Sport"
+  },
+  competition: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Competition'
+  },
+  competitors: [competitorSchema],
 
   name: {
 

@@ -2,15 +2,16 @@ const httpStatus = require('http-status');
 const { omit } = require('lodash');
 const SportEvent = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
-
+const bodyParser = require('body-parser');
+const Sport = require('../models/sport.model');
 /**
- * Load user and append to req.
+ * Load sport and append to req.
  * @public
  */
 exports.load = async (req, res, next, id) => {
   try {
-    const user = await User.get(id);
-    req.locals = { user };
+    const sport = await Sport.get(id);
+    req.locals = { sport };
     return next();
   } catch (error) {
     return errorHandler(error, req, res);
@@ -35,6 +36,7 @@ exports.loggedIn = (req, res) => res.json(req.user.transform());
  */
 exports.create = async (req, res, next) => {
   try {
+
     const sportEvent = new SportEvent(req.body);
     const savedSportEvent = await sportEvent.save();
     res.status(httpStatus.CREATED);
@@ -85,7 +87,18 @@ exports.update = (req, res, next) => {
 exports.list = async (req, res, next) => {
 
   try {
+    let query = req.query;
+    query.sport = req.locals.sport._id;
     const events = await SportEvent.find(req.query)
+      .populate([
+        {
+        path: 'sport',
+        select: ['_id','name']
+        },
+        {
+          path: 'competition',
+          select: ['_id','name']
+        }]);
     res.json(events);
   } catch (error) {
     next(error);

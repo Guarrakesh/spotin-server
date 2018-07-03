@@ -2,6 +2,7 @@ const express = require('express');
 const userRoutes = require('./user.route');
 const authRoutes = require('./auth.route');
 const sportEventRoutes = require('./sportevent.route');
+const sportRoutes = require('./sport.route');
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.use('/docs', express.static('docs'));
 
 router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
-router.use('/events', sportEventRoutes);
+router.use('/sports', sportRoutes);
+
 
 module.exports = router;

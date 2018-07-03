@@ -11,7 +11,10 @@ const Sport = require('./sport.model.js');
 
 
 const competitorSchema = new mongoose.Schema({
-  sport: Sport,
+  sport: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Sport"
+  },
   name: {
     type: String,
     trim: true,
@@ -43,4 +46,5 @@ const competitorSchema = new mongoose.Schema({
   }
 });
 
-module.export = mongoose.model('Competitor', competitorSchema)
+exports.competitorSchema = competitorSchema
+exports.Competitor = mongoose.model('Competitor',competitorSchema);

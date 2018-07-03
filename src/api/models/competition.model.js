@@ -12,7 +12,12 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const Sport = require('./sport.model.js');
 
 const competitionSchema = new mongoose.Schema({
-  sport: Sport,
+  sport: {
+    ref: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Sport"
+    }
+  },
   name: {
     type: String,
     required: true,
@@ -21,4 +26,5 @@ const competitionSchema = new mongoose.Schema({
 
 });
 
-module.export = mongoose.model('Competition', competitionSchema);
+exports.Competition = mongoose.model('Competition', competitionSchema);
+exports.competitionSchema = competitionSchema;
