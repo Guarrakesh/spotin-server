@@ -9,8 +9,8 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
 /**
-* User Roles
-*/
+ * User Roles
+ */
 const roles = ['user', 'admin'];
 
 /**
@@ -52,8 +52,8 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
 }, {
-    timestamps: true,
-  });
+  timestamps: true,
+});
 
 /**
  * Add your
