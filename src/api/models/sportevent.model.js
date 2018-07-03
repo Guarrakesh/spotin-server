@@ -35,7 +35,37 @@ const sportEventSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true
+  },
+  start_at: {
+    type: Date,
+    required: true
   }
 });
+
+
+sportEventSchema.statics = {
+
+
+  async getWeekEvents(competitionId) {
+    try {
+      let events;
+      if (mongoose.Types.ObjectId.isValid(competitionId)) {
+        events = await this.find({competition: {_id: competitionId}}).exec();
+
+
+      }
+
+      if (events) {
+        return events;
+      }
+      throw new APIError({
+        message: "No events found",
+        status: httpStatus.NOT_FOUND
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+}
 
 module.exports = mongoose.model('SportEvent', sportEventSchema, 'sport_events');

@@ -26,5 +26,26 @@ const competitionSchema = new mongoose.Schema({
 
 });
 
+
+competitionSchema.statics = {
+  async get(id) {
+    try {
+      let competition;
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        competition = await this.findById(id).exec()
+      }
+      if (competition) {
+        return competition;
+      }
+      throw new APIError({
+        message: "Competition does not exist",
+        status: httpStatus.NOT_FOUND
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
 exports.Competition = mongoose.model('Competition', competitionSchema);
 exports.competitionSchema = competitionSchema;

@@ -37,7 +37,9 @@ sportSchema.statics = {
     } catch (error) {
       throw error;
     }
-  }
+  },
+
+
 }
 
 module.exports = mongoose.model('Sport', sportSchema, 'sports');

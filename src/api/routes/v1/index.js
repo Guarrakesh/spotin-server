@@ -3,6 +3,7 @@ const userRoutes = require('./user.route');
 const authRoutes = require('./auth.route');
 const sportEventRoutes = require('./sportevent.route');
 const sportRoutes = require('./sport.route');
+const competitionRoutes = require('./competition.route');
 
 const router = express.Router();
 
@@ -19,6 +20,6 @@ router.use('/docs', express.static('docs'));
 router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
 router.use('/sports', sportRoutes);
-
+router.use('/competitions',competitionRoutes);
 
 module.exports = router;

@@ -88,7 +88,13 @@ exports.list = async (req, res, next) => {
 
   try {
     let query = req.query;
-    query.sport = req.locals.sport._id;
+
+    //Accetto sia /sports/:id/events che /competitions/:id/events
+    if (req.locals.competition) {
+      query.competition = req.locals.competition._id;
+    } else {
+      query.sport = req.locals.sport._id;
+    }
     const events = await SportEvent.find(req.query)
       .populate([
         {

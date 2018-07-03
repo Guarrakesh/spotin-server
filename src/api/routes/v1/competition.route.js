@@ -12,24 +12,15 @@ const router = express.Router();
 
 
 
-router.param('id', controller.load);
+router.param('id', competitionController.load);
 
-router
-  .route('/')
-  .get(controller.list);
 
 router
   .route('/:id')
-
-  .get(controller.get);
-
-router
-  .route('/:id/competitions')
-  .get(competitionController.list)
+  .get(competitionController.get);
 router
   .route('/:id/events')
-  .get(eventController.list)
-
+  .get(eventController.list);
 
 
 
