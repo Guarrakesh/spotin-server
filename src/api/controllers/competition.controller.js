@@ -22,16 +22,20 @@ exports.get = (req, res) => res.json(req.locals.competition);
 
 exports.list = async (req, res, next) => {
   try {
-    let competitions = await Competition.find();
-
-    competitions = await competitions.map(async comp => {
+    let competitions = await Competition.find().lean().exec();
+    const transformed = competitions.map(async comp => {
+      const obj = Object.assign({},comp);
       let weekEvents = await SportEvent.getWeekEvents(comp._id);
-      comp.weekEvents = weekEvents;
-      return comp;
 
-    })
-    res.json(competitions);
+      obj['week_events'] = weekEvents;
 
+      return obj;
+
+    });
+
+    const results = await Promise.all(transformed);
+
+    res.json(results);
   } catch (error) {
     next(error)
   }

@@ -51,8 +51,6 @@ sportEventSchema.statics = {
       let events;
       if (mongoose.Types.ObjectId.isValid(competitionId)) {
         events = await this.find({competition: {_id: competitionId}}).exec();
-
-
       }
 
       if (events) {

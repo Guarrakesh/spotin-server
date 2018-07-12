@@ -35,9 +35,26 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 128,
-    index: true,
+
     trim: true,
   },
+  username: {
+    type: String,
+    maxlength: 128,
+    index: true,
+    trim: true,
+    required: true,
+  },
+  favorite_sports: {
+    type: [mongoose.Schema.ObjectId],
+    ref: 'Sport'
+
+  },
+  favorite_businesses: {
+    type: [mongoose.Schema.ObjectId],
+    ref: 'Business'
+  },
+
   services: {
     facebook: String,
     google: String,
@@ -64,9 +81,9 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', async function save(next) {
   try {
     if (!this.isModified('password')) return next();
-
     const rounds = env === 'test' ? 1 : 10;
 
+    //Hash password
     const hash = await bcrypt.hash(this.password, rounds);
     this.password = hash;
 

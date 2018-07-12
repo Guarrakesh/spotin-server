@@ -23,6 +23,7 @@ exports.get = (req, res) => res.json(req.locals.sport);
 
 
 exports.list = async (req, res, next) => {
+
   try {
     const sports = await Sport.find({active: true});
     res.json(sports);
