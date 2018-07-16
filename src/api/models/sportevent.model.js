@@ -11,7 +11,7 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
 const {Competition} = require('./competition.model');
 const {competitorSchema} = require('./competitor.model');
-const Sport = require('./sport.model');
+const {Sport} = require('./sport.model');
 
 const sportEventSchema = new mongoose.Schema({
 
@@ -51,10 +51,7 @@ sportEventSchema.statics = {
       let events;
       if (mongoose.Types.ObjectId.isValid(competitionId)) {
         events = await this.find({competition: {_id: competitionId}}).exec();
-
-
       }
-
       if (events) {
         return events;
       }

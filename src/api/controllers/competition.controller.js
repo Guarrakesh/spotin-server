@@ -4,7 +4,7 @@ const SportEvent = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const {Competition} = require('../models/competition.model');
-
+const mongoose = require('mongoose');
 
 
 exports.load = async (req, res, next, id) => {
@@ -22,16 +22,18 @@ exports.get = (req, res) => res.json(req.locals.competition);
 
 exports.list = async (req, res, next) => {
   try {
-    let competitions = await Competition.find();
 
-    competitions = await competitions.map(async comp => {
+    let competitions = await Competition.find({sport_id: mongoose.Types.ObjectId(req.locals.sport._id)}).lean();
+
+    competitions =  competitions.map(async comp => {
       let weekEvents = await SportEvent.getWeekEvents(comp._id);
       comp.weekEvents = weekEvents;
+
       return comp;
 
-    })
-    res.json(competitions);
+    });
 
+    Promise.all(competitions).then((result) => res.json(result));
   } catch (error) {
     next(error)
   }
