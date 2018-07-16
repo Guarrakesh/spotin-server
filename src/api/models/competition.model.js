@@ -9,7 +9,7 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
 
-const Sport = require('./sport.model.js');
+const {Sport} = require('./sport.model.js');
 
 const competitionSchema = new mongoose.Schema({
   sport: {
