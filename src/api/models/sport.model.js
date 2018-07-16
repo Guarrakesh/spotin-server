@@ -52,6 +52,7 @@ sportSchema.statics = {
   },
 
 
+
 }
 exports.sportSchema = sportSchema;
 exports.Sport = mongoose.model('Sport', sportSchema, 'sports');
