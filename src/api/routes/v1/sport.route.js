@@ -1,7 +1,7 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/sport.controller');
-//const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const eventController = require('../../controllers/sportevent.controller');
 const competitionController = require('../../controllers/competition.controller');
 const router = express.Router();
@@ -16,19 +16,19 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list);
+  .get(authorize(LOGGED_USER),controller.list);
 
 router
   .route('/:id')
 
-  .get(controller.get);
+  .get(authorize(LOGGED_USER),controller.get);
 
 router
   .route('/:id/competitions')
-  .get(competitionController.list)
+  .get(authorize(LOGGED_USER),competitionController.list)
 router
   .route('/:id/events')
-  .get(eventController.list)
+  .get(authorize(LOGGED_USER),eventController.list)
 
 
 

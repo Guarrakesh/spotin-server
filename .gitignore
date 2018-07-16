@@ -2,7 +2,11 @@
 package-lock.json
 
 # Environment variables
+<<<<<<< HEAD
 
+=======
+#.env
+>>>>>>> c52100a7e05d1a016f4702fa4dee4c40df3e918a
 
 # Logs
 logs
