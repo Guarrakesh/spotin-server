@@ -2,6 +2,10 @@
 const axios = require('axios');
 
 exports.facebook = async (access_token) => {
+
+
+
+
   const fields = 'id, name, email, picture';
   const url = 'https://graph.facebook.com/me';
   const params = { access_token, fields };
@@ -15,10 +19,13 @@ exports.facebook = async (access_token) => {
     id,
     name,
     email,
+    username: email
   };
 };
 
-exports.google = async (access_token) => {
+  exports.google = async (access_token) => {
+
+
   const url = 'https://www.googleapis.com/oauth2/v3/userinfo';
   const params = { access_token };
   const response = await axios.get(url, { params });
@@ -31,5 +38,6 @@ exports.google = async (access_token) => {
     id: sub,
     name,
     email,
+    username: email,
   };
 };

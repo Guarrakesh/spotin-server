@@ -44,11 +44,13 @@ describe('Users API', async () => {
         password: passwordHashed,
         name: 'Bran Stark',
         role: 'admin',
+        username: "branstark"
       },
       jonSnow: {
         email: 'jonsnow@gmail.com',
         password: passwordHashed,
         name: 'Jon Snow',
+        username: "__jonsnow"
       },
     };
 
@@ -56,6 +58,7 @@ describe('Users API', async () => {
       email: 'sousa.dfs@gmail.com',
       password,
       name: 'Daniel Sousa',
+      username: "daniel_sousa"
     };
 
     admin = {
@@ -63,6 +66,7 @@ describe('Users API', async () => {
       password,
       name: 'Daniel Sousa',
       role: 'admin',
+      username: "daniel__admin"
     };
 
     await User.remove({});
@@ -99,7 +103,6 @@ describe('Users API', async () => {
 
     it('should report error when email already exists', () => {
       user.email = dbUsers.branStark.email;
-
       return request(app)
         .post('/v1/users')
         .set('Authorization', `Bearer ${adminAccessToken}`)
@@ -335,7 +338,6 @@ describe('Users API', async () => {
     it('should report error when email is not provided', async () => {
       const id = (await User.findOne({}))._id;
       delete user.email;
-
       return request(app)
         .put(`/v1/users/${id}`)
         .set('Authorization', `Bearer ${adminAccessToken}`)

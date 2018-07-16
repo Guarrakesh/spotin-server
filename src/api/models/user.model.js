@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
     maxlength: 128,
     index: true,
     trim: true,
-    required: true,
+    required: true
   },
   favorite_sports: {
     type: [mongoose.Schema.ObjectId],
@@ -99,7 +99,7 @@ userSchema.pre('save', async function save(next) {
 userSchema.method({
   transform() {
     const transformed = {};
-    const fields = ['id', 'name', 'email', 'picture', 'role', 'createdAt'];
+    const fields = ['id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
 
     fields.forEach((field) => {
       transformed[field] = this[field];
@@ -231,7 +231,7 @@ userSchema.statics = {
   },
 
   async oAuthLogin({
-    service, id, email, name, picture,
+    service, id, email, name, picture, username
   }) {
     const user = await this.findOne({ $or: [{ [`services.${service}`]: id }, { email }] });
     if (user) {
@@ -242,7 +242,7 @@ userSchema.statics = {
     }
     const password = uuidv4();
     return this.create({
-      services: { [service]: id }, email, password, name, picture,
+      services: { [service]: id }, email, password, name, picture, username
     });
   },
 };
