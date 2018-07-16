@@ -17,6 +17,7 @@ const fakeOAuthRequest = () => Promise.resolve({
   name: 'user',
   email: 'test@test.com',
   picture: 'test.jpg',
+  username: 'test@test.com'
 });
 
 describe('Authentication API', () => {
@@ -30,12 +31,14 @@ describe('Authentication API', () => {
       password: 'mypassword',
       name: 'Bran Stark',
       role: 'admin',
+      username: "branstark"
     };
 
     user = {
       email: 'sousa.dfs@gmail.com',
       password: '123456',
       name: 'Daniel Sousa',
+      username: "daniel01"
     };
 
     refreshToken = {
@@ -199,6 +202,7 @@ describe('Authentication API', () => {
 
     it('should return an accessToken when user already exists', async () => {
       dbUser.email = 'test@test.com';
+      dbUser.username = 'test@test.com';
       await User.create(dbUser);
       sandbox.stub(authProviders, 'facebook').callsFake(fakeOAuthRequest);
       return request(app)
