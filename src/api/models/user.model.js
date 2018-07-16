@@ -36,25 +36,21 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 128,
-
+    required: true,
     trim: true,
+  },
+  lastname: {
+    type: String,
+    maxlength: 45
   },
   username: {
     type: String,
     maxlength: 128,
     index: true,
     trim: true,
-    required: true
   },
-  favorite_sports: {
-    type: [mongoose.Schema.ObjectId],
-    ref: 'Sport'
-
-  },
-  favorite_businesses: {
-    type: [mongoose.Schema.ObjectId],
-    ref: 'Business'
-  },
+  //TODO: Dopo che ho definito il model Business
+ // favorite_businesses:
 
   services: {
     facebook: String,
@@ -69,7 +65,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  favoriteSports: [sportSchema]
+  favorite_sports: [sportSchema],
+
+
 }, {
   timestamps: true,
 });

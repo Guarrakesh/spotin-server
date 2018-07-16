@@ -122,6 +122,7 @@ describe('Authentication API', () => {
           expect(messages).to.include('"email" is required');
         });
     });
+
   });
 
   describe('POST /v1/auth/login', () => {
