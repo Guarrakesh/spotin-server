@@ -8,6 +8,7 @@ const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
+const { sportSchema } = require('./sport.model');
 /**
  * User Roles
  */
@@ -68,6 +69,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  favoriteSports: [sportSchema]
 }, {
   timestamps: true,
 });
