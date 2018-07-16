@@ -16,19 +16,19 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(authorize(LOGGED_USER),controller.list);
+  .get(controller.list);
 
 router
   .route('/:id')
 
-  .get(authorize(LOGGED_USER),controller.get);
+  .get(controller.get);
 
 router
   .route('/:id/competitions')
-  .get(authorize(LOGGED_USER),competitionController.list)
+  .get(competitionController.list)
 router
   .route('/:id/events')
-  .get(authorize(LOGGED_USER),eventController.list)
+  .get(eventController.list)
 
 
 

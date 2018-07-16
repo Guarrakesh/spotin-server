@@ -11,7 +11,6 @@
     "yarn": "*"
   },
   "scripts": {
-    
     "prestart": "yarn docs",
     "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
     "dev": "nodemon ./src/index.js",
@@ -78,6 +77,7 @@
     "joi": "^10.4.1",
     "jwt-simple": "0.5.1",
     "lodash": "^4.17.4",
+    "lodash-addons": "^2.0.1",
     "method-override": "^2.3.8",
     "moment-timezone": "^0.5.13",
     "mongoose": "^4.9.7",

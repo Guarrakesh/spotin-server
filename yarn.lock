@@ -2574,6 +2574,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-addons@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/lodash-addons/-/lodash-addons-2.0.1.tgz#c1bbd64dec5e091e717ae695a2c1b01865800eb3"
+
 lodash._baseassign@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"
