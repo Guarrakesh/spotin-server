@@ -125,7 +125,7 @@ describe('Authentication API', () => {
 
   });
 
-  describe('POST /v1/auth/login', () => {
+  describe('POST /v1/auth/login', () =>{
     it('should return an accessToken and a refreshToken when email and password matches', () => {
       return request(app)
         .post('/v1/auth/login')
