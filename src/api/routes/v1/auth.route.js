@@ -37,6 +37,7 @@ const router = express.Router();
  * @apiSuccess (Created 201) {Date}    user.createdAt  Timestamp
  *
  * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
+ * @apiError (Conflict 409) ConflictError email already exists
  */
 router.route('/register')
   .post(validate(register), controller.register);

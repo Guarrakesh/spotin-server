@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
 const SportEvent = require('../models/sportevent.model');
@@ -22,7 +23,10 @@ exports.get = (req, res) => res.json(req.locals.competition);
 
 exports.list = async (req, res, next) => {
   try {
-    let competitions = await Competition.find().lean().exec();
+
+    let competitions = await Competition.find({
+      sport_id: mongoose.Types.ObjectId(req.locals.sport._id)
+    }).lean().exec();
     const transformed = competitions.map(async comp => {
       const obj = Object.assign({},comp);
       let weekEvents = await SportEvent.getWeekEvents(comp._id);
