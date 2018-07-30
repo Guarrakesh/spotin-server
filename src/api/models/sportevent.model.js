@@ -50,8 +50,18 @@ sportEventSchema.statics = {
     try {
       let events;
       if (mongoose.Types.ObjectId.isValid(competitionId)) {
-        events = await this.find({competition: {_id: competitionId}}).exec();
+        let startDate = Date.now();
+        let endDate = new Date();
+        endDate.setDate(endDate.getDate() + 8); //Week
+        events = await this.find({
+          competition: {_id: competitionId},
+          start_at: { $gte: startDate, $lt: endDate}
+
+        }).lean().exec();
+
       }
+
+
       if (events) {
         return events;
       }
