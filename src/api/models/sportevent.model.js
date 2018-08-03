@@ -42,7 +42,22 @@ const sportEventSchema = new mongoose.Schema({
   }
 });
 
+sportEventSchema.method({
+  transform(req) {
+    const transformed = {};
+    const fields = ['sport','competition','_id','competitors', 'name','description', 'start_at']
+    fields.forEach((field) => {
+      transformed[field] = this[field];
+    });
+    //Check is SportEvent is favorited by user
+    if (!req.locals.user)
+      transformed['isUserFavorite'] = false;
+    //TODO: Cercare nei preferiti dell'utente
 
+
+    return transformed;
+  }
+})
 sportEventSchema.statics = {
 
 

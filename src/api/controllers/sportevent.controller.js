@@ -95,16 +95,22 @@ exports.list = async (req, res, next) => {
     } else {
       query.sport = req.locals.sport._id;
     }
-    const events = await SportEvent.find(req.query)
+    let events = await SportEvent.find(req.query)
       .populate([
         {
-        path: 'sport',
-        select: ['_id','name']
+          path: 'sport',
+          select: ['_id','name']
         },
         {
           path: 'competition',
-          select: ['_id','name']
-        }]);
+          select: ['_id','name', 'image_versions']
+        },
+
+      ]);
+
+    events = events.map(event => {
+      return event.transform(req);
+    });
     res.json(events);
   } catch (error) {
     next(error);

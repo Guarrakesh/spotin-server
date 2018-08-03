@@ -3,6 +3,7 @@ const userRoutes = require('./user.route');
 const authRoutes = require('./auth.route');
 const sportEventRoutes = require('./sportevent.route');
 const sportRoutes = require('./sport.route');
+const s3Routes = require('./s3.route');
 const competitionRoutes = require('./competition.route');
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.get('/status', (req, res) => res.send('OK'));
  */
 router.use('/docs', express.static('docs'));
 
+router.use('/s3', s3Routes);
 router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
 router.use('/sports', sportRoutes);
