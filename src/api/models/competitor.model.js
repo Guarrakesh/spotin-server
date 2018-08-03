@@ -20,6 +20,10 @@ const competitorSchema = new mongoose.Schema({
     trim: true,
     maxlength: 128
   },
+  image_versions: {
+    type: Array,
+
+  },
   slug: {
     type: String,
     trim: true,
