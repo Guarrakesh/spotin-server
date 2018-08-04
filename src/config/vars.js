@@ -10,7 +10,7 @@ require('dotenv').load({
 
 module.exports = {
   env: process.env.NODE_ENV,
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 3001,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpirationInterval: process.env.NODE_ENV == "development" ?  0.5 : process.env.JWT_EXPIRATION_MINUTES,
   mongo: {

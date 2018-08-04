@@ -12,7 +12,7 @@ const { sportSchema } = require('./sport.model');
 /**
  * User Roles
  */
-const roles = ['user', 'admin'];
+const roles = ['user', 'admin', 'business'];
 
 /**
  * User Schema
