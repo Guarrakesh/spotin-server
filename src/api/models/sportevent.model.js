@@ -9,20 +9,17 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
 
-const {Competition} = require('./competition.model');
-const {competitorSchema} = require('./competitor.model');
+const {Competition, competitionSchema} = require('./competition.model');
+const {competitorSchema, Competitor} = require('./competitor.model');
 const {Sport} = require('./sport.model');
 
 const sportEventSchema = new mongoose.Schema({
 
-  sport: {
+  sport_id: {
     type: mongoose.Schema.ObjectId,
     ref: "Sport"
   },
-  competition: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Competition'
-  },
+  competition: competitionSchema,
   competitors: [competitorSchema],
 
   name: {
@@ -42,6 +39,32 @@ const sportEventSchema = new mongoose.Schema({
   }
 });
 
+sportEventSchema.pre('save', async function(next) {
+  //Check if sport exists
+  const sport = await Sport.findById(this.sport_id);
+  const competition = await Competition.findById(this.competition._id);
+
+  const Error = (message) => (new APIError({
+    message,
+    status: httpStatus.BAD_REQUEST
+  }))
+
+  if (!sport) {
+     next(Error("Lo sport specificato non esiste."))
+  }
+  if (!competition) {
+      next(Error("La competizione specificata non esiste."));
+  }
+
+  const ids = this.competitors.map(comp => comp._id);
+  const competitors = await Competitor.find({ _id: { $in: ids }});
+  if (!competitors || competitors.length !== this.competitors.length) {
+    next(Error("Uno o più sfidanti specificati non esistono."));
+
+  }
+
+  next();
+});
 sportEventSchema.method({
   transform(req) {
     const transformed = {};

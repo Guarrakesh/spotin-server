@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 const { createSport, replaceSport, updateSport} = require('../../validations/sport.validation');
-
+const { createCompetition, updateCompetition } = require('../../validations/competition.validation');
 
 /**
  * Load user when API with userId route parameter is hit
@@ -50,30 +50,8 @@ router
 
   .get(controller.get)
 
-  /**
-   * @api {patch} v1/sports/:id Replace Sport
-   * @apiDescription Replace an existing sport
-   * @apiVersion 1.0.0
-   * @apiName ReplaceSport
-   * @apiGroup Sport
-   * @apiPermission admin
-   *
-   * @apiHeader {String} Authorization  User's access token
-   *
-   * @apiParam  {String{6..128}    name       Sport's name
-   * @apiParam  {String{6..128}}   slug       Sport's slug
-   * @apiParam  {Boolean}          active     Sport status
-   *
-   * @apiParam  {String{6..128}    name       Sport's name
-   * @apiParam  {String{6..128}}   slug       Sport's slug
-   * @apiParam  {Boolean}          active     Sport status
-   * @apiParam  {Number}            _id       Sport's ID
-   *
-   * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
-   * @apiError (Unauthorized 401) Unauthorized Only authenticated admin can modify the data
-   * @apiError (Not Found 404)    NotFound     Sport does not exist
-   */
-  .put(authorize(ADMIN), validate(replaceSport), controller.replace)
+
+
   /**
    * @api {patch} v1/sports/:id Update Sport
    * @apiDescription Update some fields of a sport document
@@ -117,7 +95,9 @@ router
   .delete(authorize(ADMIN), controller.remove);
 router
   .route('/:id/competitions')
-  .get(competitionController.list);
+  .get(competitionController.list)
+  .post(authorize(ADMIN), validate(createCompetition), competitionController.create);
+
 router
   .route('/:id/events')
   .get(eventController.list);

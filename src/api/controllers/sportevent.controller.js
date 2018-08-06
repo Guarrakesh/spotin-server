@@ -1,17 +1,18 @@
 const httpStatus = require('http-status');
-const { omit } = require('lodash');
+const { omit, at} = require('lodash');
 const SportEvent = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const Sport = require('../models/sport.model');
+const { Competitor } = require('../models/competitor.model');
 /**
  * Load sport and append to req.
  * @public
  */
 exports.load = async (req, res, next, id) => {
   try {
-    const sport = await Sport.get(id);
-    req.locals = { sport };
+    const event = await SportEvent.get(id);
+    req.locals = { event };
     return next();
   } catch (error) {
     return errorHandler(error, req, res);
@@ -19,65 +20,44 @@ exports.load = async (req, res, next, id) => {
 };
 
 /**
- * Get user
+ * Get SportEvent
  * @public
  */
-exports.get = (req, res) => res.json(req.locals.user.transform());
+exports.get = (req, res) => res.json(req.locals.event);
+
+
 
 /**
- * Get logged in user info
- * @public
- */
-exports.loggedIn = (req, res) => res.json(req.user.transform());
-
-/**
- * Create new user
+ * Create new SportEvent
  * @public
  */
 exports.create = async (req, res, next) => {
   try {
 
     const sportEvent = new SportEvent(req.body);
+
+
     const savedSportEvent = await sportEvent.save();
     res.status(httpStatus.CREATED);
     res.json(savedSportEvent);
   } catch (error) {
+
     next(error);
   }
 };
 
-/**
- * Replace existing user
- * @public
- */
-exports.replace = async (req, res, next) => {
-  try {
-    const { user } = req.locals;
-    const newUser = new User(req.body);
-    const ommitRole = user.role !== 'admin' ? 'role' : '';
-    const newUserObject = omit(newUser.toObject(), '_id', ommitRole);
-
-    await user.update(newUserObject, { override: true, upsert: true });
-    const savedUser = await User.findById(user._id);
-
-    res.json(savedUser.transform());
-  } catch (error) {
-    next(User.checkDuplicateEmail(error));
-  }
-};
 
 /**
- * Update existing user
+ * Update existing SportEvent
  * @public
  */
 exports.update = (req, res, next) => {
-  const ommitRole = req.locals.user.role !== 'admin' ? 'role' : '';
-  const updatedUser = omit(req.body, ommitRole);
-  const user = Object.assign(req.locals.user, updatedUser);
 
-  user.save()
-    .then(savedUser => res.json(savedUser.transform()))
-    .catch(e => next(User.checkDuplicateEmail(e)));
+  const event = Object.assign(req.locals.event, req.body);
+
+  event.save()
+    .then(savedEvent => res.json(savedEvent))
+    .catch(e => next(e));
 };
 
 /**
@@ -91,19 +71,16 @@ exports.list = async (req, res, next) => {
 
     //Accetto sia /sports/:id/events che /competitions/:id/events
     if (req.locals.competition) {
-      query.competition = req.locals.competition._id;
+      query['competition._id'] = req.locals.competition._id;
     } else {
       query.sport = req.locals.sport._id;
     }
+    console.log("query is", query);
     let events = await SportEvent.find(req.query)
       .populate([
         {
           path: 'sport',
           select: ['_id','name']
-        },
-        {
-          path: 'competition',
-          select: ['_id','name', 'image_versions']
         },
 
       ]);
@@ -122,9 +99,9 @@ exports.list = async (req, res, next) => {
  * @public
  */
 exports.remove = (req, res, next) => {
-  const { user } = req.locals;
+  const { event } = req.locals;
 
-  user.remove()
+  event.remove()
     .then(() => res.status(httpStatus.NO_CONTENT).end())
     .catch(e => next(e));
 };

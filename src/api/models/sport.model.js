@@ -26,16 +26,19 @@ const sportSchema = new mongoose.Schema({
     lowercase: true,
     type: String,
     trim: true,
-    default: function() {
-      return slugify(this.name)
-    }
   },
   image_versions: [imageVersionSchema]
 
 
 });
 
+sportSchema.pre('save', function(next) {
 
+  if ((this.isNew && !this.slug) || (!this.isNew && this.isModified('name'))) {
+    this.slug = slugify(this.name);
+  }
+  next();
+});
 sportSchema.statics = {
   async get(id) {
     try {
@@ -59,4 +62,4 @@ sportSchema.statics = {
 
 }
 exports.sportSchema = sportSchema;
-exports.Sport = mongoose.model('Sport', sportSchema, 'sports');
+exports.Sport = mongoose.model('Sport', sportSchema);
