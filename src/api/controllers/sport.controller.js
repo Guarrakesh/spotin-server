@@ -35,6 +35,12 @@ exports.list = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
+  const updatedSport = req.body;
+  const sport = Object.assign(req.locals.sport, updatedSport);
+
+  sport.save()
+    .then(savedSport => res.json(savedSport))
+    .catch(e => (next(e)));
 
 };
 
@@ -49,10 +55,11 @@ exports.create = async (req, res, next) => {
   }
 };
 
-exports.replace = async (req, res, next) => {
-
-};
 
 exports.remove = async (req, res, next) => {
+  const { sport } = req.locals;
 
+  sport.remove()
+    .then(() => res.status(httpStatus.NO_CONTENT).end())
+    .catch(e => next(e));
 };

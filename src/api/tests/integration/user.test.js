@@ -13,7 +13,7 @@ const JWT_EXPIRATION = require('../../../config/vars').jwtExpirationInterval;
 /**
  * root level hooks
  */
-
+const sandbox = sinon.createSandbox();
 async function format(user) {
   const formated = user;
 
@@ -27,17 +27,18 @@ async function format(user) {
   return omitBy(dbUser, isNil);
 }
 
-describe('Users API', async () => {
+describe('Users API', () => {
   let adminAccessToken;
   let userAccessToken;
   let dbUsers;
   let user;
   let admin;
 
-  const password = '123456';
-  const passwordHashed = await bcrypt.hash(password, 1);
+
 
   beforeEach(async () => {
+    const password = '123456';
+    const passwordHashed = await bcrypt.hash(password, 1);
     dbUsers = {
       branStark: {
         email: 'branstark@gmail.com',
@@ -77,6 +78,7 @@ describe('Users API', async () => {
     userAccessToken = (await User.findAndGenerateToken(dbUsers.jonSnow)).accessToken;
   });
 
+  afterEach(async () => { sandbox.restore() });
   describe('POST /v1/users', () => {
     it('should create a new user when request is ok', () => {
       return request(app)

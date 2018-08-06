@@ -29,7 +29,6 @@ const competitorSchema = new mongoose.Schema({
     trim: true,
     maxlenth: 128,
     lowercase: true,
-    required: true,
   },
 
 
@@ -47,8 +46,24 @@ const competitorSchema = new mongoose.Schema({
     type: String,
     maxlength: 256,
     trim: true
+  },
+  isPerson: {
+    type: Boolean,
+    default: false
   }
 });
 
+
+competitorSchema.pre('save', function(next) {
+
+
+  if ((this.isNew && !this.slug) || (this.isPerson && !this.isNew && this.isModified('full_name'))
+  || (!this.isPerson && !this.isNew && this.isModified('name'))) {
+
+    this.slug = slugify(this.isPerson ? this.full_name : this.name);
+
+  }
+  next();
+});
 exports.competitorSchema = competitorSchema
 exports.Competitor = mongoose.model('Competitor',competitorSchema);

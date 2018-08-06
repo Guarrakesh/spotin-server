@@ -1,11 +1,11 @@
 const express = require('express');
 const userRoutes = require('./user.route');
 const authRoutes = require('./auth.route');
-const sportEventRoutes = require('./sportevent.route');
+
 const sportRoutes = require('./sport.route');
 const s3Routes = require('./s3.route');
 const competitionRoutes = require('./competition.route');
-
+const sportEventRoutes = require('./sportevent.route');
 const router = express.Router();
 
 /**
@@ -23,5 +23,5 @@ router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
 router.use('/sports', sportRoutes);
 router.use('/competitions',competitionRoutes);
-
+router.use('/events', sportEventRoutes);
 module.exports = router;
