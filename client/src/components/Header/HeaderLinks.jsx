@@ -1,170 +1,83 @@
-import React from "react";
-import classNames from "classnames";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Hidden from "@material-ui/core/Hidden";
-import Poppers from "@material-ui/core/Popper";
-// @material-ui/icons
-import Person from "@material-ui/icons/Person";
-import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Search from "@material-ui/icons/Search";
-// core components
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import React, { Component } from 'react';
+import {
+    Navbar, Nav, NavItem, NavDropdown, MenuItem,
+    FormGroup, FormControl, InputGroup
+} from 'react-bootstrap';
 
-import headerLinksStyle from "assets/jss/material-dashboard-react/components/headerLinksStyle";
-
-class HeaderLinks extends React.Component {
-  state = {
-    open: false
-  };
-  handleToggle = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
-
-  handleClose = event => {
-    if (this.anchorEl.contains(event.target)) {
-      return;
+class HeaderLinks extends Component{
+    render(){
+        return(
+            <div>
+                <Navbar.Form pullLeft className="navbar-search-form">
+                    <FormGroup>
+                        <InputGroup>
+                            <InputGroup.Addon><i className="fa fa-search"></i></InputGroup.Addon>
+                            <FormControl type="text" placeholder="Search..." />
+                        </InputGroup>
+                    </FormGroup>
+                </Navbar.Form>
+                <Nav pullRight>
+                    <NavItem eventKey={3} href="#">
+                        <i className="fa fa-line-chart"></i>
+                        <p>Stats</p>
+                    </NavItem>
+                    <NavDropdown
+                        eventKey={2}
+                        title={(
+                            <div>
+                                <i className="fa fa-gavel"></i>
+                                <p className="hidden-md hidden-lg">
+                                    Actions
+                                    <b className="caret"></b>
+                                </p>
+                            </div>
+                        )} noCaret id="basic-nav-dropdown-1">
+                        <MenuItem eventKey={2.1}>Create New Post</MenuItem>
+                        <MenuItem eventKey={2.2}>Manage Something</MenuItem>
+                        <MenuItem eventKey={2.3}>Do Nothing</MenuItem>
+                        <MenuItem eventKey={2.4}>Submit to live</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem eventKey={2.5}>Another action</MenuItem>
+                    </NavDropdown>
+                    <NavDropdown
+                        eventKey={3}
+                        title={(
+                            <div>
+                                <i className="fa fa-bell-o"></i>
+                                <span className="notification">5</span>
+                                <p className="hidden-md hidden-lg">
+                                    Notifications
+                                    <b className="caret"></b>
+                                </p>
+                            </div>
+                        )} noCaret id="basic-nav-dropdown-2">
+                        <MenuItem eventKey={3.1}>Notification 1</MenuItem>
+                        <MenuItem eventKey={3.2}>Notification 2</MenuItem>
+                        <MenuItem eventKey={3.3}>Notification 3</MenuItem>
+                        <MenuItem eventKey={3.4}>Notification 4</MenuItem>
+                        <MenuItem eventKey={3.5}>Another notifications</MenuItem>
+                    </NavDropdown>
+                    <NavDropdown
+                        eventKey={4}
+                        title={(
+                            <div>
+                                <i className="fa fa-list"></i>
+                                <p className="hidden-md hidden-lg">
+                                    More
+                                    <b className="caret"></b>
+                                </p>
+                            </div>
+                        )} noCaret id="basic-nav-dropdown-3" bsClass="dropdown-with-icons dropdown">
+                        <MenuItem eventKey={4.1}><i className="pe-7s-mail"></i> Messages</MenuItem>
+                        <MenuItem eventKey={4.2}><i className="pe-7s-help1"></i> Help Center</MenuItem>
+                        <MenuItem eventKey={4.3}><i className="pe-7s-tools"></i> Settings</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem eventKey={4.4}><i className="pe-7s-lock"></i> Lock Screen</MenuItem>
+                        <MenuItem eventKey={4.5}><div className="text-danger"><i className="pe-7s-close-circle"></i> Log out</div></MenuItem>
+                    </NavDropdown>
+                </Nav>
+            </div>
+        );
     }
-
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes } = this.props;
-    const { open } = this.state;
-    return (
-      <div>
-        <div className={classes.searchWrapper}>
-          <CustomInput
-            formControlProps={{
-              className: classes.margin + " " + classes.search
-            }}
-            inputProps={{
-              placeholder: "Search",
-              inputProps: {
-                "aria-label": "Search"
-              }
-            }}
-          />
-          <Button color="white" aria-label="edit" justIcon round>
-            <Search />
-          </Button>
-        </div>
-        <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-label="Dashboard"
-          className={classes.buttonLink}
-        >
-          <Dashboard className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Dashboard</p>
-          </Hidden>
-        </Button>
-        <div className={classes.manager}>
-          <Button
-            buttonRef={node => {
-              this.anchorEl = node;
-            }}
-            color={window.innerWidth > 959 ? "transparent" : "white"}
-            justIcon={window.innerWidth > 959}
-            simple={!(window.innerWidth > 959)}
-            aria-owns={open ? "menu-list-grow" : null}
-            aria-haspopup="true"
-            onClick={this.handleToggle}
-            className={classes.buttonLink}
-          >
-            <Notifications className={classes.icons} />
-            <span className={classes.notifications}>5</span>
-            <Hidden mdUp implementation="css">
-              <p onClick={this.handleClick} className={classes.linkText}>
-                Notification
-              </p>
-            </Hidden>
-          </Button>
-          <Poppers
-            open={open}
-            anchorEl={this.anchorEl}
-            transition
-            disablePortal
-            className={
-              classNames({ [classes.popperClose]: !open }) +
-              " " +
-              classes.pooperNav
-            }
-          >
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                id="menu-list-grow"
-                style={{
-                  transformOrigin:
-                    placement === "bottom" ? "center top" : "center bottom"
-                }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                    <MenuList role="menu">
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        Mike John responded to your email
-                      </MenuItem>
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        You have 5 new tasks
-                      </MenuItem>
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        You're now friend with Andrew
-                      </MenuItem>
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        Another Notification
-                      </MenuItem>
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        Another One
-                      </MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Poppers>
-        </div>
-        <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-label="Person"
-          className={classes.buttonLink}
-        >
-          <Person className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
-        </Button>
-      </div>
-    );
-  }
 }
-
-export default withStyles(headerLinksStyle)(HeaderLinks);
+export default HeaderLinks;

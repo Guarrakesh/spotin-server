@@ -113,6 +113,7 @@ userSchema.method({
       exp: moment().add(jwtExpirationInterval, 'minutes').unix(),
       iat: moment().unix(),
       sub: this._id,
+      role: this.role
     };
     return jwt.encode(playload, jwtSecret);
   },

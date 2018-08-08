@@ -1,65 +1,76 @@
-import React from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Hidden from "@material-ui/core/Hidden";
-// @material-ui/icons
-import Menu from "@material-ui/icons/Menu";
-// core components
-import HeaderLinks from "./HeaderLinks";
-import Button from "components/CustomButtons/Button";
+import React, { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
 
-import headerStyle from "assets/jss/material-dashboard-react/components/headerStyle.jsx";
+// links that appear in navbar - they are separated from this component (navbar) so that we can redner them on responsive in sidebar as well
 
-function Header({ ...props }) {
-  function makeBrand() {
-    var name;
-    props.routes.map((prop, key) => {
-      if (prop.path === props.location.pathname) {
-        name = prop.navbarName;
-      }
-      return null;
-    });
-    return name;
-  }
-  const { classes, color } = props;
-  const appBarClasses = classNames({
-    [" " + classes[color]]: color
-  });
-  return (
-    <AppBar className={classes.appBar + appBarClasses}>
-      <Toolbar className={classes.container}>
-        <div className={classes.flex}>
-          {/* Here we create navbar brand, based on route name */}
-          <Button color="transparent" href="#" className={classes.title}>
-            {makeBrand()}
-          </Button>
-        </div>
-        <Hidden smDown implementation="css">
-          <HeaderLinks />
-        </Hidden>
-        <Hidden mdUp implementation="css">
-          <IconButton
-            className={classes.appResponsive}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={props.handleDrawerToggle}
-          >
-            <Menu />
-          </IconButton>
-        </Hidden>
-      </Toolbar>
-    </AppBar>
-  );
+import HeaderLinks from './HeaderLinks.jsx'
+
+// we import here the routes for dashboard pages (links that appear in sidebar) to set navbar's name
+
+import dashRoutes from 'routes/dash.jsx';
+
+class Header extends Component{
+    constructor(props){
+        super(props);
+        this.handleMinimizeSidebar = this.handleMinimizeSidebar.bind(this);
+        this.mobileSidebarToggle = this.mobileSidebarToggle.bind(this);
+    }
+    makeBrand(){
+        var name;
+        dashRoutes.map((prop,key) => {
+            if(prop.collapse){
+                 prop.views.map((prop,key) => {
+                    if(prop.path === this.props.location.pathname){
+                        name = prop.name;
+                    }
+                    return null;
+                })
+            } else {
+                if(prop.redirect){
+                    if(prop.path === this.props.location.pathname){
+                        name = prop.name;
+                    }
+                }else{
+                    if(prop.path === this.props.location.pathname){
+                        name = prop.name;
+                    }
+                }
+            }
+            return null;
+        })
+        return name;
+    }
+    // function that makes the sidebar from normal to mini and vice-versa
+    handleMinimizeSidebar(){
+        document.body.classList.toggle('sidebar-mini');
+    }
+    // function for responsive that hides/shows the sidebar
+    mobileSidebarToggle(e){
+        document.documentElement.classList.toggle('nav-open');
+    }
+    render(){
+        return (
+            <Navbar fluid>
+                <div className="navbar-minimize">
+                    <button id="minimizeSidebar" className="btn btn-default btn-fill btn-round btn-icon" onClick={this.handleMinimizeSidebar}>
+                        <i className="fa fa-ellipsis-v visible-on-sidebar-regular"></i>
+                        <i className="fa fa-navicon visible-on-sidebar-mini"></i>
+                    </button>
+                </div>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        {/* Here we create navbar brand, based on route name */}
+                        <a href="#pablo">{this.makeBrand()}</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle onClick={this.mobileSidebarToggle} />
+                </Navbar.Header>
+
+                    {/* Here we import the links that appear in navbar */}
+                    { window.innerWidth > 992 ? (<Navbar.Collapse><HeaderLinks /></Navbar.Collapse>):null }
+
+            </Navbar>
+        );
+    }
 }
 
-Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
-};
-
-export default withStyles(headerStyle)(Header);
+export default Header;
