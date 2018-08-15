@@ -27,7 +27,7 @@
         "react-notification-system": "^0.2.15",
         "react-redux": "*",
         "react-router-dom": "^4.1.2",
-        "react-scripts": "1.0.10",
+        "react-scripts": "2.0.0-rc1",
         "react-select": "^1.0.0-rc.10",
         "react-simple-maps": "^0.8.4",
         "react-stepzilla": "^4.6.3",
