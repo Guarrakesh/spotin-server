@@ -4,6 +4,7 @@ import {
   REQUEST_ERROR,
   SENDING_REQUEST,
   FETCH_COMPETITIONS,
+  SAVE_SPORT
 } from '../actions/types';
 
 
@@ -16,15 +17,20 @@ let initialState = {
 
 };
 
-export default function sportsReducer(state = initialState, action) {
+export default function entitiesReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_ALL_SPORTS.SUCCESS:
     case FETCH_FAVORITE_SPORTS.SUCCESS:
       return {...state, error:'', sports: action.sports};
 
-
-    case FETCH_COMPETITIONS.SUCCESS:
+    case SAVE_SPORT.SUCCESS:
       let sports = state.sports.map((sport) => {
+        if (sport._id == action.sportId) return action.sport;
+        return sport;
+      });
+      return {...state, error:'', sports: sports};
+    case FETCH_COMPETITIONS.SUCCESS:
+      sports = state.sports.map((sport) => {
 
         if (sport._id == action.sportId)
           sport['competitions'] = action.competitions;

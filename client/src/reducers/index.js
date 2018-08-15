@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
 import authReducer from './authReducer';
-import sportsReducer  from './sportsReducer';
+import entitiesReducer  from './entitiesReducer';
 const rootReducer = combineReducers({
     auth: authReducer,
-    sports: sportsReducer
+    entities: entitiesReducer
 
 });
 

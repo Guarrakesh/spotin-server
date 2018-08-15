@@ -7,7 +7,7 @@ export const fetchApi = (endPoint, payload = {}, method = 'get', header = {}) =>
 
 export async function request(url, payload, method: 'GET', accessToken = null) {
     let config = {
-        method: payload.method,
+        method,
         headers: { 'Content-Type': 'application/json' },
 
     };
