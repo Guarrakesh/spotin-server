@@ -1,11 +1,7 @@
 const path = require('path');
 
 // import .env variables
-<<<<<<< HEAD
 if (process.env.NODE_ENV !== 'production') {
-=======
-if (process.env.NODE_ENV === 'production') {
->>>>>>> 673d0aec6b974102dbe416c799a1d72d723982bf
   require('dotenv').load({
     allowEmptyValues: true,
     path: path.join(__dirname, '../../.env'),
