@@ -1,6 +1,6 @@
 # Use yarn.lock instead
 package-lock.json
-
+client/yarn.lock
 # Environment variables
 <<<<<<< HEAD
 

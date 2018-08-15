@@ -19,7 +19,8 @@ import VectorMap from 'pages/Maps/VectorMap.jsx';
 import Charts from 'pages/Charts/Charts.jsx';
 import Calendar from 'pages/Calendar/Calendar.jsx';
 import UserPage from 'pages/Dashboard/UserPage.jsx';
-import SportsPage from 'pages/Sports/SportsPage.jsx';
+import SportsPage from 'pages/Sports/SportsPage.jsx'
+import SportPage from 'pages/Sports/SportPage.jsx';
 import withAuthorization from 'hocs/withAuthorization';
 import pagesRoutes from './auth.jsx';
 //High order components per gestire l'autorizzazione alle varie route
@@ -33,6 +34,7 @@ var pages = [{ path: "/pages/user-page", name: "User Page", mini: "UP", componen
 
 var dashRoutes = [
   { path: "/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
+  { path: '/sports/:id', name: "Sport", state: 'sport', icon: "", component: Admin(SportPage), sidebarHidden:true},
   { path: '/sports', name: "Sports", state: "openSports", icon: "", component: Admin(SportsPage)},
   /*{ collapse: true, path: "/components", name: "Components", state: "openComponents", icon: "pe-7s-plugin", views:[
    { path: "/components/buttons", name: "Buttons", mini: "B", component: Buttons },

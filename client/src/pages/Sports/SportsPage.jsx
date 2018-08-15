@@ -26,7 +26,9 @@ class SportsPage extends React.Component {
 
   }
   handleItemPress(item) {
-
+    this.props.history.push(`/sports/${item._id}`, {
+      sport: item
+    });
   }
   render() {
 
@@ -52,8 +54,8 @@ SportsPage.propTypes = {
 
 const mapStateToProps = state => {
   return({
-    currentlySending: state.sports.currentlySending,
-    sports: state.sports.sports,
+    currentlySending: state.entities.currentlySending,
+    sports: state.entities.sports,
     loggedIn: state.auth.loggedIn
   })
 }

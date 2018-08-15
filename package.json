@@ -17,6 +17,7 @@
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "heroku": "node ./src/index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build",
     "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
     "lint:watch": "yarn lint -- --watch",
