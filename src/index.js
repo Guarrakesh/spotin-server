@@ -4,6 +4,7 @@ const { port, env } = require('./config/vars');
 const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 const express = require('express');
+const path = require('path');
 // open mongoose connection
 mongoose.connect();
 
