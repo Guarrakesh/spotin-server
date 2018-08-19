@@ -3,7 +3,7 @@ import {
     FETCH_ALL_SPORTS,
     FETCH_FAVORITE_SPORTS,
     FETCH_COMPETITIONS,
-
+    DELETE_SPORT,
     SAVE_SPORT
 
 } from './types';
@@ -46,6 +46,17 @@ export function saveSportFailure({errors, code, message}) {
   return {
     type: SAVE_SPORT.FAILURE,
     errors, code, message
+  };
+}
+export function deleteSportRequest(sport) {
+  return {
+    type: DELETE_SPORT.REQUEST,
+    sport
+  };
+}
+export function deleteSportSuccess(sport) {
+  return {
+    type: DELETE_SPORT.SUCCESS,
   };
 }
 export function getFavoriteSportsSuccess(sports) {
