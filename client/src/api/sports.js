@@ -36,6 +36,7 @@ const sports = {
     },
     async create(sport, accessToken) {
       try {
+        delete sport._id;
         const response = await request(`${vars.apiUrl}/sports`, sport, 'POST', accessToken);
         const data = await response.json();
         return data;

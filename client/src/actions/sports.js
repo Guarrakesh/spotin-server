@@ -57,6 +57,7 @@ export function deleteSportRequest(sport) {
 export function deleteSportSuccess(sport) {
   return {
     type: DELETE_SPORT.SUCCESS,
+    sport,
   };
 }
 export function getFavoriteSportsSuccess(sports) {
