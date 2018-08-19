@@ -5,7 +5,7 @@ import {
   SENDING_REQUEST,
   FETCH_COMPETITIONS,
   SAVE_SPORT,
-  DELETE_SPORT
+  DELETE_SPORT,
 } from '../actions/types';
 
 
@@ -41,9 +41,8 @@ export default function entitiesReducer(state = initialState, action) {
         delete error.type;
         return {...state, error: error};
     case DELETE_SPORT.SUCCESS:
-      sports = state.sports.filter(sport => sport._id == action.sport._id);
-      return {...state, error: '', sports: sports};
-
+        sports = state.sports.filter(sport => sport._id !== action.sport._id);
+        return {...state, sports: sports, error: ''};
     case FETCH_COMPETITIONS.SUCCESS:
       sports = state.sports.map((sport) => {
 

@@ -61,7 +61,7 @@ function* fetchSports(forceFetch = false) {
 function* saveSport(action) {
   yield put(sendingRequest(true));
   const token = yield select(selectAccessToken);
-  console.log(token);
+
   try {
     const response = (action.isNew)
       ? yield call(sports.create, action.sport,token)
@@ -85,7 +85,8 @@ function* saveSport(action) {
     yield put(sendingRequest(false));;
   }
 }
-function* deleteSport(sport) {
+function* deleteSport(action) {
+  const { sport } = action;
   yield put(sendingRequest(true));
   const token = yield select(selectAccessToken);
 
@@ -93,11 +94,11 @@ function* deleteSport(sport) {
     const response = yield call(sports.delete, sport, token);
     if (response.status === 204) {
       successNotification.message = 'Lo sport è stato eliminato';
-      yield put({ type: DELETE_SPORT.SUCCESS});
-      yield put(Notifications.success(successNotification));
+      yield put({ type: DELETE_SPORT.SUCCESS, sport});
+      yield put(Notifications.info(successNotification));
       history.push('/sports');
     } else {
-      yield call(handleRequestError(response, {type: DELETE_SPORT.FAILURE}));
+      yield call(handleRequestError, response, {type: DELETE_SPORT.FAILURE});
     }
 
   } catch (err) {
