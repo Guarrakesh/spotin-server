@@ -8,18 +8,17 @@ import SportForm from 'components/Sports/SportForm.jsx';
 class NewSportPage extends React.Component {
 
   onSubmit(sport) {
-    this.props.dispatch(saveSportRequest(this.state, true));
+    this.props.dispatch(saveSportRequest(sport, true));
   }
 
   render() {
-
-
-    const { sport } =  this.props.location.state;
+    const sport = {};
+    const error = this.props.error;
     return (
       <div className="main-content">
         <Row>
           <Col md={12}>
-            <SportForm {...sport} onSubmit={this.onSubmit.bind(this)}/>
+            <SportForm sport={sport} error={error} onSubmit={this.onSubmit.bind(this)}/>
           </Col>
         </Row>
       </div>
@@ -30,15 +29,14 @@ class NewSportPage extends React.Component {
 
 NewSportPage.propTypes = {
   currentlySending: PropTypes.bool,
-  sports: PropTypes.array.isRequired,
+
   loggedIn: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return({
+    error: state.entities.error,
     currentlySending: state.entities.currentlySending,
-
-    sports: state.entities.sports,
     loggedIn: state.auth.loggedIn
   })
 }

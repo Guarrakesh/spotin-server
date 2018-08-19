@@ -14,11 +14,11 @@ export async function request(url, payload, method: 'GET', accessToken = null) {
     if (accessToken) {
         config.headers.Authorization = `Bearer ${accessToken}`;
     }
-    if (method ==! 'HEAD' && method ==! 'GET') {
-        config.body = payload;
+    if (method !== 'HEAD' && method !== 'GET') {
+        config.body = JSON.stringify(payload);
     }
 
-
+    console.log(config);
     let response = await fetch(url, config);
 
     return response;

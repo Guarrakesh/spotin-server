@@ -7,7 +7,7 @@ module.exports = {
   createSport: {
     body: {
       name: Joi.string().min(6).max(128).required(),
-      slug: Joi.string().min(6).max(128),
+      slug: Joi.string().max(128),
       active: Joi.boolean(),
     }
   },
@@ -15,7 +15,7 @@ module.exports = {
   replaceSport: {
     body: {
       name: Joi.string().min(6).max(128).required(),
-      slug: Joi.string().min(6).max(128),
+      slug: Joi.string().max(128),
       active: Joi.boolean(),
     },
     params: {
@@ -26,7 +26,7 @@ module.exports = {
   updateSport: {
     body: {
       name: Joi.string().min(6).max(128),
-      slug: Joi.string().min(6).max(128),
+      slug: Joi.string().max(128),
       active: Joi.boolean(),
     },
     params: {

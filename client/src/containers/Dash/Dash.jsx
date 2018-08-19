@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import * as Ps from 'perfect-scrollbar';
 import 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css';
 // react component that creates notifications (like some alerts with messages)
-import NotificationSystem from 'react-notification-system';
+import Notifications from 'react-notification-system-redux';
 
 import Sidebar from 'components/Sidebar/Sidebar.jsx';
 import Header from 'components/Header/Header.jsx';
@@ -26,51 +26,17 @@ import { style } from "variables/Variables.jsx";
 class Dash extends Component{
   constructor(props){
     super(props);
-    this.handleNotificationClick = this.handleNotificationClick.bind(this);
-    this.state = {
-      _notificationSystem: null
-    };
+
   }
   componentDidMount(){
 
 
-    this.setState({_notificationSystem: this.refs.notificationSystem});
+
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       Ps.initialize(this.refs.mainPanel, { wheelSpeed: 2, suppressScrollX: true });
     }
   }
-  // function that shows/hides notifications - it was put here, because the wrapper div has to be outside the main-panel class div
-  handleNotificationClick(position){
-    var color = Math.floor((Math.random() * 4) + 1);
-    var level;
-    switch (color) {
-      case 1:
-        level = 'success';
-        break;
-      case 2:
-        level = 'warning';
-        break;
-      case 3:
-        level = 'error';
-        break;
-      case 4:
-        level = 'info';
-        break;
-      default:
-        break;
-    }
-    this.state._notificationSystem.addNotification({
-      title: (<span data-notify="icon" className="pe-7s-gift"></span>),
-      message: (
-        <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer.
-        </div>
-      ),
-      level: level,
-      position: position,
-      autoDismiss: 15,
-    });
-  }
+
   // function that creates perfect scroll bar for windows users (it creates a scrollbar that looks like the one from apple devices)
   isMac(){
     let bool = false;
@@ -93,10 +59,11 @@ class Dash extends Component{
     }
   }
   render(){
-
+    const { notifications } = this.props;
     return (
       <div className="wrapper">
-        <NotificationSystem ref="notificationSystem" style={style}/>
+        <Notifications ref="notificationSystem" style={style}
+          notifications={notifications}/>
         <Sidebar {...this.props} />
         <div className={"main-panel"+(this.props.location.pathname === "/maps/full-screen-maps" ? " main-panel-maps":"")} ref="mainPanel">
           <Header {...this.props}/>
@@ -105,24 +72,11 @@ class Dash extends Component{
               dashRoutes.map((prop,key) => {
                 if(prop.collapse){
                   return prop.views.map((prop,key) => {
-                    if(prop.name === "Notifications"){
-                      return (
-                        <Route
-                          path={prop.path}
-                          key={key}
-                          render={routeProps =>
-                            <prop.component
-                              {...routeProps}
-                              handleClick={this.handleNotificationClick}
-                            />}
-                        />
-                      );
-                    } else {
-                      return (
+                    return (
                         <Route path={prop.path} component={prop.component} key={key}/>
                       );
-                    }
-                  })
+                  });
+
                 } else {
                   if(prop.redirect)
                     return (
@@ -143,9 +97,12 @@ class Dash extends Component{
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    notifications: state.notifications,
+
   }
 }
 export default withRouter(connect(mapStateToProps)(Dash));
