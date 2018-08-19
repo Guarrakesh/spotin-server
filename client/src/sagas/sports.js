@@ -5,6 +5,7 @@ import history from '../history.js';
 import  sports  from '../api/sports';
 import  events from '../api/events';
 import { selectSports } from '../selectors/sports';
+import { selectAccessToken } from '../selectors/auth';
 import {
     FETCH_FAVORITE_SPORTS,
     FETCH_ALL_SPORTS,
@@ -16,7 +17,9 @@ import {
 import {
     getAllSportsSuccess,
     getFavoriteSportsSuccess,
-    getSportCompetitionsSuccess
+    getSportCompetitionsSuccess,
+    saveSportSuccess,
+    saveSportFailure
 } from '../actions/sports';
 import {
     sendingRequest,
@@ -24,7 +27,11 @@ import {
 } from '../actions';
 import {getEventsSuccess} from "../actions/events";
 
-
+import Notifications from 'react-notification-system-redux';
+let successNotification = {
+  position: 'br',
+  autoDismiss: 7
+};
 
 // ==================
 // WORKERS
@@ -35,12 +42,10 @@ import {getEventsSuccess} from "../actions/events";
 */
 function* fetchSports(forceFetch = false) {
 
-
-    yield put(sendingRequest(true));
-    const sports = yield select(selectSports);
-    if (sports.length === 0 || forceFetch) {
+    const stateSports = yield select(selectSports);
+    if (stateSports.length === 0 || forceFetch) {
+      yield put(sendingRequest(true));
       try {
-
           const response = yield call(sports.fetchAll);
           yield put(getAllSportsSuccess(response));
 
@@ -52,13 +57,25 @@ function* fetchSports(forceFetch = false) {
     }
 }
 
-function* saveSport(action, isNew) {
+function* saveSport(action) {
   yield put(sendingRequest(true));
-  try {
+  const token = yield select(selectAccessToken);
 
-    const response = (isNew) ? yield call(sports.save(action.sport)) : yield call(sports.create(action.sport));
-    yield put(SAVE_SPORT.SUCCESS);
-    history.push('/sports');
+  try {
+    const response = (action.isNew)
+      ? yield call(sports.create, action.sport,token)
+      : yield call(sports.save, action.sport, token);
+      //TODO: Verificare che non ci siano stati errori di validazione
+    if (response.code == 400) {
+      yield put(saveSportFailure(response));
+      return;
+    }
+    yield put(saveSportSuccess(response, action.isNew));
+    //display success notification
+    successNotification.message = action.isNew ? "Sport creato con successo." : "Le informazioni sono state aggiornate.";
+    yield put(Notifications.show(successNotification));
+    if (action.isNew)
+      history.push('/sports');
   } catch (err) {
     yield put(requestError(err));
   } finally {
@@ -111,6 +128,7 @@ function* watchGetSports() {
 
     while(true) {
         const action = yield take(FETCH_ALL_SPORTS.REQUEST);
+
         // let token = yield select(getToken);
         yield call(fetchSports, action.forceFetch);
 
@@ -134,10 +152,7 @@ function* watchGetEvents() {
     }
 }
 function* watchSaveSport() {
-  while (true) {
-    yield takeLatest(SAVE_SPORT.REQUEST, saveSport);
-
-  }
+  yield takeLatest(SAVE_SPORT.REQUEST, saveSport);
 }
 export default function* root() {
     /*//Non proseguo finché non ho un token. Posso farlo perché la login saga (./login.js), se non trova una token

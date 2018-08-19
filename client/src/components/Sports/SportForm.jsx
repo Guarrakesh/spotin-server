@@ -15,7 +15,8 @@ class SportForm extends Component {
     this.state = {
       name: props.name || "",
       slug: props.slug || "",
-      active: props.active || ""
+      active: props.active || true,
+      _id: props._id || null
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -31,21 +32,26 @@ class SportForm extends Component {
   }
   handleSubmit() {
     const { name, slug, active } = this.state;
-    if (!name || !slug || active === undefined)
+    if (!name || active === undefined)
       return;
 
     this.props.onSubmit(this.state);
   }
   componentWillReceiveProps() {
     this.state = {
-      name: this.props.name,
-      slug: this.props.slug,
-      active: this.props.active
+      name: this.props.name || "",
+      slug: this.props.slug || "",
+      active: this.props.active || true,
+      _id: this.props._id || ""
     }
   }
   render() {
-    const { name, slug, active } = this.state;
 
+    const { name, slug, active } = this.state;
+    const { error } = this.props;
+    let fieldsWithError = [];
+    if (error.errors)
+      fieldsWithError = error.errors.map(err => err.field);
     return (
       <Card
         content={
@@ -53,15 +59,17 @@ class SportForm extends Component {
             <form>
             <Row>
               <Col md={5}>
-                <FormGroup>
+                <FormGroup validationState={fieldsWithError.includes('name') ? "error" : null}>
                   <ControlLabel> Nome </ControlLabel>
                   <FormControl value={name} placeholder="nome" type="textCenter" name="name"  onChange={this.handleInputChange}/>
-                </FormGroup>
+                    {fieldsWithError.includes('name') ? (<HelpBlock>{error.errors[0].messages[0]}</HelpBlock>) : null}
+                  </FormGroup>
               </Col>
               <Col md={5}>
-                <FormGroup>
+                <FormGroup  validationState={fieldsWithError.includes('slug') ? "error" : null}>
                   <ControlLabel>Slug</ControlLabel>
                   <FormControl value={slug} placeholder="slug" type="text" name="slug"  onChange={this.handleInputChange}/>
+                  {fieldsWithError.includes('slug') ? (<HelpBlock>{error.errors[1].messages[0]}</HelpBlock>) : null}
                 </FormGroup>
               </Col>
               <Col md={2}>

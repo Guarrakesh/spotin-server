@@ -15,20 +15,31 @@ let initialState = {
   currentlySending: false,
   error: ''
 
+
 };
 
 export default function entitiesReducer(state = initialState, action) {
+  let sports;
   switch (action.type) {
     case FETCH_ALL_SPORTS.SUCCESS:
     case FETCH_FAVORITE_SPORTS.SUCCESS:
       return {...state, error:'', sports: action.sports};
 
     case SAVE_SPORT.SUCCESS:
-      let sports = state.sports.map((sport) => {
-        if (sport._id == action.sportId) return action.sport;
-        return sport;
-      });
+      if (!action.isNew) {
+        sports = state.sports.map((sport) => {
+          if (sport._id == action.sport._id) return action.sport;
+          return sport;
+        });
+      } else {
+        sports = state.sports.concat(action.sport);
+      }
       return {...state, error:'', sports: sports};
+    case SAVE_SPORT.FAILURE:
+        let error = action;
+        delete error.type;
+        return {...state, error: error};
+
     case FETCH_COMPETITIONS.SUCCESS:
       sports = state.sports.map((sport) => {
 

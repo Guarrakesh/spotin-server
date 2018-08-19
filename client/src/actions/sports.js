@@ -35,11 +35,18 @@ export function saveSportRequest(sport, isNew = false) {
   };
 }
 
-export function saveSportSucces(sport) {
+export function saveSportSuccess(sport, isNew) {
   return {
     type: SAVE_SPORT.SUCCESS,
-    sport
+    sport,
+    isNew
   }
+}
+export function saveSportFailure({errors, code, message}) {
+  return {
+    type: SAVE_SPORT.FAILURE,
+    errors, code, message
+  };
 }
 export function getFavoriteSportsSuccess(sports) {
     return {
