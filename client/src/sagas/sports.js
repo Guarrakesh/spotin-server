@@ -6,12 +6,13 @@ import  sports  from '../api/sports';
 import  events from '../api/events';
 import { selectSports } from '../selectors/sports';
 import { selectAccessToken } from '../selectors/auth';
+import { handleRequestError } from './index';
 import {
     FETCH_FAVORITE_SPORTS,
     FETCH_ALL_SPORTS,
     SET_AUTH,
     FETCH_COMPETITIONS, FETCH_EVENTS,
-    SAVE_SPORT
+    SAVE_SPORT, DELETE_SPORT,
 
 } from '../actions/types';
 import {
@@ -60,26 +61,50 @@ function* fetchSports(forceFetch = false) {
 function* saveSport(action) {
   yield put(sendingRequest(true));
   const token = yield select(selectAccessToken);
-
+  console.log(token);
   try {
     const response = (action.isNew)
       ? yield call(sports.create, action.sport,token)
       : yield call(sports.save, action.sport, token);
       //TODO: Verificare che non ci siano stati errori di validazione
     if (response.code == 400) {
-      yield put(saveSportFailure(response));
-      return;
+      yield call(handleRequestError, response, saveSportFailure(response));
+    } else if (response.name !== undefined) {
+      yield put(saveSportSuccess(response, action.isNew));
+      //display success notification
+      successNotification.message = action.isNew ? "Sport creato con successo." : "Le informazioni sono state aggiornate.";
+      yield put(Notifications.show(successNotification));
+      if (action.isNew)
+        history.push('/sports');
+    } else {
+      yield call(handleRequestError, response, saveSportFailure(response));
     }
-    yield put(saveSportSuccess(response, action.isNew));
-    //display success notification
-    successNotification.message = action.isNew ? "Sport creato con successo." : "Le informazioni sono state aggiornate.";
-    yield put(Notifications.show(successNotification));
-    if (action.isNew)
-      history.push('/sports');
   } catch (err) {
     yield put(requestError(err));
   } finally {
     yield put(sendingRequest(false));;
+  }
+}
+function* deleteSport(sport) {
+  yield put(sendingRequest(true));
+  const token = yield select(selectAccessToken);
+
+  try {
+    const response = yield call(sports.delete, sport, token);
+    if (response.status === 204) {
+      successNotification.message = 'Lo sport è stato eliminato';
+      yield put({ type: DELETE_SPORT.SUCCESS});
+      yield put(Notifications.success(successNotification));
+      history.push('/sports');
+    } else {
+      yield call(handleRequestError(response, {type: DELETE_SPORT.FAILURE}));
+    }
+
+  } catch (err) {
+    yield put(requestError(err));
+  } finally {
+    yield put(sendingRequest(false));
+
   }
 }
 function* fetchCompetitions(sport) {
@@ -154,6 +179,11 @@ function* watchGetEvents() {
 function* watchSaveSport() {
   yield takeLatest(SAVE_SPORT.REQUEST, saveSport);
 }
+function* watchDeleteSport() {
+  yield takeLatest(DELETE_SPORT.REQUEST, deleteSport);
+}
+
+
 export default function* root() {
     /*//Non proseguo finché non ho un token. Posso farlo perché la login saga (./login.js), se non trova una token
     //Rimanda al login. In questo modo blocco il generatore finché non ho una otken
@@ -168,6 +198,7 @@ export default function* root() {
 
     yield all([
         fork(watchGetSports),
+        fork(watchDeleteSport),
         fork(watchGetCompetitions),
         fork(watchGetEvents),
         fork(watchSaveSport),

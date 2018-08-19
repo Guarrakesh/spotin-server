@@ -24,3 +24,4 @@ export const FETCH_FAVORITE_SPORTS = createRequestTypes('GET_FAVORITE_SPORTS');
 export const FETCH_COMPETITIONS = createRequestTypes('GET_COMPETITIONS');
 export const FETCH_EVENTS = createRequestTypes('GET_EVENTS');
 export const SAVE_SPORT = createRequestTypes('SAVE_SPORT');
+export const DELETE_SPORT = createRequestTypes('DELETE_SPORT');

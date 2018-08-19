@@ -36,10 +36,25 @@ const sports = {
     },
     async create(sport, accessToken) {
       try {
-
         const response = await request(`${vars.apiUrl}/sports`, sport, 'POST', accessToken);
         const data = await response.json();
         return data;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+
+
+    /**
+    ** @return response | Object the response returned from fetch (NOT PARSED FROM JSON)
+    **/
+    async delete(sport, accessToken) {
+      try {
+        const response = await fetch(`${vars.apiUrl}/sports/${sport._id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization' : `Bearer ${accessToken}`}
+        });
+        return response;
       } catch (err) {
         throw new Error(err);
       }

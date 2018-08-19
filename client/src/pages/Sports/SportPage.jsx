@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveSportRequest, getAllSports } from 'actions/sports';
+import { saveSportRequest, getAllSports, deleteSportRequest } from 'actions/sports';
 
 import PropTypes from 'prop-types';
+import Button from 'elements/CustomButton/CustomButton.jsx';
 import {Row, Col} from 'react-bootstrap';
 import SportForm from 'components/Sports/SportForm.jsx';
 
@@ -15,6 +16,9 @@ class SportPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(getAllSports());
   }
+  onDelete(sport) {
+    this.props.dispatch(deleteSportRequest(sport));
+  }
   render() {
 
 
@@ -24,6 +28,7 @@ class SportPage extends React.Component {
       <div className="main-content">
         <Row>
           <Col md={12}>
+            <Button onClick={() => this.onDelete(sport)}>Elimina</Button>
             <SportForm {...sport} error={error}
                onSubmit={this.onSubmit.bind(this)}/>
           </Col>
