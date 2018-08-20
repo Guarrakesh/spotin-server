@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { getAllSports, getFavoriteSports } from 'actions/sports';
 import SportList from 'components/Sports/SportList';
 import PropTypes from 'prop-types';
-
-
 class SportsPage extends React.Component {
 
   constructor() {

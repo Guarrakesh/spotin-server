@@ -11,6 +11,7 @@
  *
  * ========================================================= */
 /*      light colors         */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,700,700i,800,900");
 @keyframes spin {
   from {
     transform: rotate(0deg); }
@@ -183,7 +184,7 @@ Copyright (c) 2015 Daniel Eden
 
 .sweet-alert {
   background-color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   border-radius: 5px;
   box-sizing: border-box;
   text-align: center;
@@ -4170,11 +4171,11 @@ td,
 button.close {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
-  font-weight: 400; }
+  font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
+  font-weight: 500; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-  font-weight: 300;
+  font-weight: 600;
   margin: 30px 0 15px; }
 
 h1, .h1 {
@@ -7239,11 +7240,14 @@ form label.radio, form label.checkbox {
       border-radius: 0; }
   .card .content-full-width {
     padding: 15px 0; }
-  .card .header {
+  .card .header, .card .sub-header {
     padding: 15px 15px 0px;
     color: #333333;
     font-weight: 300;
-    font-size: 22px; }
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
   .card .category,
   .card .form-group > label {
     font-size: 14px;
@@ -7262,9 +7266,16 @@ form label.radio, form label.checkbox {
     margin-bottom: 5px;
     text-transform: uppercase; }
   .card .title {
+    flex-grow: 2;
+    flex-basis: 50%;
     margin: 0;
     color: #333333;
     font-weight: 300; }
+  .card .category {
+    width: 100%; }
+  .card .actions {
+    align-self: flex-end;
+    margin: 0; }
   .card .avatar {
     width: 30px;
     height: 30px;

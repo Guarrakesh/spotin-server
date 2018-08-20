@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveSportRequest, getAllSports, deleteSportRequest } from 'actions/sports';
+import { saveSportRequest,
+    getAllSports,
+    getSportCompetitionsRequest,
+    deleteSportRequest } from 'actions/sports';
 
 import PropTypes from 'prop-types';
 import Button from 'elements/CustomButton/CustomButton.jsx';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, PanelGroup, Panel } from 'react-bootstrap';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import SportForm from 'components/Sports/SportForm.jsx';
+import CompetitionList from 'components/Sports/CompetitionList.jsx';
 
 import { selectById } from 'selectors/sports.js';
 class SportPage extends React.Component {
@@ -17,11 +21,11 @@ class SportPage extends React.Component {
       show: false
     };
 
-
+    this.handleRefresh = this.handleRefresh.bind(this);
     this.successDelete = this.successDelete.bind(this);
-
     this.showDeleteWarning = this.showDeleteWarning.bind(this);
   }
+
 
   successDelete() {
     this.setState({alert: (
@@ -58,6 +62,15 @@ class SportPage extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(getAllSports());
+    if (this.props.sport) {
+      this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    const { sport } = this.props;
+    if (sport && (!sport.competitions )) {
+      this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
+    }
   }
   onDelete(sport) {
     this.showDeleteWarning(() => {
@@ -67,21 +80,35 @@ class SportPage extends React.Component {
 
 
   }
+  handleRefresh() {
+    this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
+  }
   render() {
 
 
-    const { sport, error } =  this.props;
-
+    const { sport, error, currentlySending } =  this.props;
+    if (!sport) return null;
     return (
       <div className="main-content">
         {this.state.alert}
         <Row>
+          <Col md={10}><h2 style={{marginTop:0}}>{sport.name}</h2></Col>
+          <Col md={2}>
+            <Button className="pull-right" fill onClick={() => this.onDelete(sport)} bsStyle="danger">Elimina</Button>
+
+          </Col>
+        </Row>
+        <Row>
           <Col md={12}>
-            <Button onClick={() => this.onDelete(sport)}>Elimina</Button>
             <SportForm {...sport} error={error}
                onSubmit={this.onSubmit.bind(this)}/>
           </Col>
         </Row>
+
+            <CompetitionList onRefresh={this.handleRefresh} currentlySending={currentlySending}
+              onItemPress={() => {}} competitions={sport.competitions}
+              onNew={() => {}} />
+
       </div>
 
     )

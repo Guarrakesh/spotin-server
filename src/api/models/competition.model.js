@@ -26,6 +26,10 @@ const competitionSchema = new mongoose.Schema({
   competitorsHaveLogo: {
     type: Boolean,
     default: true
+  },
+  country: {
+    type: String,
+    trim: true,
   }
 
 });
