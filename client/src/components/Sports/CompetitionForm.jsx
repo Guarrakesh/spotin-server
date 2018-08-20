@@ -9,14 +9,13 @@ import Switch from 'react-bootstrap-switch';
 import Card from 'components/Card/Card.jsx';
 import Button from 'elements/CustomButton/CustomButton.jsx';
 
-class SportForm extends Component {
+class CompetitionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: props.name || "",
-      slug: props.slug || "",
-      active: props.active || true,
-      _id: props._id || null
+      country: props.country || "",
+      competitorsHaveLogo: props.competitorsHaveLogo || true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,13 +25,13 @@ class SportForm extends Component {
     if (e.target) {
       this.setState({[e.target.name] : e.target.value});
     } else if (e.state) {
-      this.setState({active: e.state.value});
+      this.setState({competitorsHaveLogo: e.state.value});
     }
 
   }
   handleSubmit() {
-    const { name, slug, active } = this.state;
-    if (!name || active === undefined)
+    const { name, country, competitorsHaveLogo } = this.state;
+    if (!name || country === undefined)
       return;
 
     this.props.onSubmit(this.state);
@@ -40,44 +39,46 @@ class SportForm extends Component {
   componentWillReceiveProps() {
     this.state = {
       name: this.props.name || "",
-      slug: this.props.slug || "",
-      active: this.props.active || true,
+      country: this.props.country || "",
+      competitorsHaveLogo: this.props.competitorsHaveLogo || true,
       _id: this.props._id || null
     }
   }
   render() {
 
-    const { name, slug, active, _id} = this.state;
-    const { error } = this.props;
-    let fieldsWithError = [];
-    if (error.errors)
-      fieldsWithError = error.errors.map(err => err.field);
+    const { name, country, competitorsHaveLogo, _id} = this.state;
+
+
     return (
-      <Card
-        title={_id !== undefined ? "Aggiorna informazioni" : "Compila i seguenti dati"}
-        content={
+
           <div>
             <form>
             <Row>
 
-              <Col md={5}>
-                <FormGroup validationState={fieldsWithError.includes('name') ? "error" : null}>
+              <Col md={12}>
+                <FormGroup >
                   <ControlLabel> Nome </ControlLabel>
                   <FormControl value={name} placeholder="nome" type="textCenter" name="name"  onChange={this.handleInputChange}/>
-                    {fieldsWithError.includes('name') ? (<HelpBlock>{error.errors[0].messages[0]}</HelpBlock>) : null}
+
                   </FormGroup>
               </Col>
-              <Col md={5}>
-                <FormGroup  validationState={fieldsWithError.includes('slug') ? "error" : null}>
-                  <ControlLabel>Slug</ControlLabel>
-                  <FormControl value={slug} placeholder="slug" type="text" name="slug"  onChange={this.handleInputChange}/>
-                  {fieldsWithError.includes('slug') ? (<HelpBlock>{error.errors[1].messages[0]}</HelpBlock>) : null}
+            </Row>
+            <Row>
+              <Col md={12}>
+                <FormGroup>
+                  <ControlLabel>Nazione</ControlLabel>
+                  <FormControl value={country} placeholder="nazione" type="text" name="country"  onChange={this.handleInputChange}/>
+
                 </FormGroup>
               </Col>
-              <Col md={2}>
-                <p>Attivo</p>
-                <Switch defaultValue={true} value={active} onChange={this.handleInputChange}/>
+            </Row>
+            <Row>
+              <Col md={12}>
+                <p>Mostra i loghi dei competitor</p>
+                <Switch defaultValue={true} value={competitorsHaveLogo} onChange={this.handleInputChange}/>
               </Col>
+            </Row>
+            <Row>
               <Col md={12}>
                 <Button onClick={this.handleSubmit}
                   bsStyle="primary" fill wd className="pull-right">Salva</Button>
@@ -85,9 +86,9 @@ class SportForm extends Component {
             </Row>
             </form>
           </div>
-        } />
+
     )
   }
 }
 
-export default SportForm;
+export default CompetitionForm;

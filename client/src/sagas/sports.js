@@ -71,6 +71,7 @@ function* saveSport(action) {
       yield call(handleRequestError, response, saveSportFailure(response));
     } else if (response.name !== undefined) {
       yield put(saveSportSuccess(response, action.isNew));
+
       //display success notification
       successNotification.message = action.isNew ? "Sport creato con successo." : "Le informazioni sono state aggiornate.";
       yield put(Notifications.show(successNotification));

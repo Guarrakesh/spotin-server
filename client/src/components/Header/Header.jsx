@@ -31,9 +31,8 @@ class Header extends Component{
                         name = prop.name;
                     }
                 }else{
-                    name = prop.name;
                     if(prop.path === this.props.location.pathname){
-                        name = prop.name;
+                      name = prop.name;
                     }
                 }
             }
