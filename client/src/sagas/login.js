@@ -194,7 +194,7 @@ function* authentication() {
             if (expired) {
 
                 token = yield call(refresh, storedUser.email, token.refreshToken);
-
+// XXX: 
                 if (!token) {
                     //Refresh fallito, logout dell'utente
                     userSignedOut = true;

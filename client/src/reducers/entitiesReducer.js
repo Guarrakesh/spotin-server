@@ -20,7 +20,7 @@ let initialState = {
 };
 
 export default function entitiesReducer(state = initialState, action) {
-  let sports;
+  let sports, competitions;
   switch (action.type) {
     case FETCH_ALL_SPORTS.SUCCESS:
     case FETCH_FAVORITE_SPORTS.SUCCESS:
@@ -40,10 +40,38 @@ export default function entitiesReducer(state = initialState, action) {
         let error = action;
         delete error.type;
         return {...state, error: error};
+    case SAVE_SPORT.SUCCESS:
+        //aggiorno la competizione negli sport
+        sports = state.sports.map((sport) => {
+          if (sport._id === action.competition.sport_id) {
+            if (action.isNew) {
+              if (!sport.competitions)
+              //lo sport non aveva competizioni, creo l'array e infilo l'elemento
+                sport['competitions'] = [action.competition];
+                //lo sport ha gia' array di competizioni, pusho l'array
+              else sport.competition.push(action.competition)
+            } else {
+              //La competizione è stata aggiornata, devo modificarla
+              competitions = sport.competitions.map(comp => (
+                 (comp._id === action.competition._id) ? action.competition : comp));
+              sport.competitions = competitions;
+            }
+        }
+        return sport;
+      });
+      return {...state, sports: sports, error: ''};
     case DELETE_SPORT.SUCCESS:
       sports = state.sports.filter(sport => sport._id == action.sport._id);
       return {...state, error: '', sports: sports};
-
+    case DELETE_COMPETITION.SUCCESS:
+      sports = state.sports.map((sport) => {
+        if (sport._id === action.competition._id) {
+          if (!sport.competitions) return sport;
+          competitions = sport.competitions.filter(comp => return comp._id !== action.competition._id);
+          sport.competitions = competitions;
+        }
+      });
+      return {...state, error: '', sports: sports};
     case FETCH_COMPETITIONS.SUCCESS:
       sports = state.sports.map((sport) => {
 

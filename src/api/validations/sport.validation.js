@@ -6,16 +6,16 @@ module.exports = {
   // POST /v1/sports
   createSport: {
     body: {
-      name: Joi.string().min(6).max(128).required(),
-      slug: Joi.string().max(128),
+      name: Joi.string().min(3).max(128).required(),
+      slug: Joi.string().max(128).allow(''),
       active: Joi.boolean(),
     }
   },
   // PUT /v1/sports/:sportId
   replaceSport: {
     body: {
-      name: Joi.string().min(6).max(128).required(),
-      slug: Joi.string().max(128),
+      name: Joi.string().min(3).max(128).required(),
+      slug: Joi.string().max(128).allow(),
       active: Joi.boolean(),
     },
     params: {
@@ -25,8 +25,8 @@ module.exports = {
   // PATCH /v1/sports/:sportId
   updateSport: {
     body: {
-      name: Joi.string().min(6).max(128),
-      slug: Joi.string().max(128),
+      name: Joi.string().min(3).max(128),
+      slug: Joi.string().max(128).allow(''),
       active: Joi.boolean(),
     },
     params: {

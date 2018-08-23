@@ -3,15 +3,16 @@ const { Sport } = require('../models/sport.model');
 
 
 module.exports = {
-  // POST /v1/sports
+  // POST /v1/competitions
   createCompetition: {
     body: {
       name: Joi.string().min(6).max(128).required(),
-      country: Joi.string().max(128)
+      country: Joi.string().max(128),
+      sport_id: Joi.string().required(),
     }
   },
 
-  // PATCH /v1/sports/:sportId
+  // PATCH /v1/competition/:id
   updateCompetition: {
     body: {
 

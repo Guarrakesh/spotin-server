@@ -17,13 +17,30 @@ class CompetitionList extends React.Component {
     };
 
     this.onNew = this.onNew.bind(this);
+    this.onItemPress = this.onItemPress.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  onItemPress(comp) {
+    this.setState({
+      currentCompetition: comp,
+      showCompForm: true
+    });
+  }
+  handleDelete(comp) {
+    if (window.confirm(`Sicuro di cancellare ${comp.name}? Tutti gli eventi ad essa collegati non saranno più raggiungibili`)) {
+      this.props.onDelete(comp);
+    }
   }
   onRefresh(e) {
     e.preventDefault();
     this.props.onRefresh();
   }
   onNew() {
-    this.setState({showCompForm: true});
+
+    this.setState({
+      showCompForm: true,
+      currentCompetition: {}
+    });
   }
   render() {
     const props = this.props;
@@ -38,7 +55,10 @@ class CompetitionList extends React.Component {
 
     const competitionList = competitions.map((comp) =>
       (<Col md={4}><li>
-        <CompetitionCard key={comp._id} {...comp}/>
+        <CompetitionCard
+          key={comp._id} {...comp}
+          onPress={() => this.onItemPress(comp)}
+          onDelete={() => this.handleDelete(comp)}/>
       </li></Col>
       )
     );
@@ -73,10 +93,17 @@ class CompetitionList extends React.Component {
             <Row>  {competitionList} </Row>
           </ul>
 
-          <Modal show={this.state.showCompForm}>
+          <Modal keyboard={true} show={this.state.showCompForm}
+             onHide={() => this.setState({showCompForm:false})}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                {currentCompetition._id  ? "Aggiorna competizione" : "Crea nuova competizione"}
+              </Modal.Title>
+            </Modal.Header>
             <Modal.Body>
-              <CompetitionForm {...currentCompetition}/>
+              <CompetitionForm {...currentCompetition} onSubmit={props.onNew}/>
             </Modal.Body>
+
           </Modal>
 
       </div>
@@ -87,10 +114,11 @@ class CompetitionList extends React.Component {
 
 CompetitionList.propTypes = {
     competitions: PropTypes.array.isRequired,
-    onItemPress: PropTypes.func.isRequired,
-    onRefresh: PropTypes.func.isRequired,
+    onItemPress: PropTypes.func,
+    onRefresh: PropTypes.func,
     currentlySending: PropTypes.bool,
-    onNew: PropTypes.func.isRequired,
+    onNew: PropTypes.func,
+    onDelete: PropTypes.func
 };
 
 

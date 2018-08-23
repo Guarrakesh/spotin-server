@@ -34,7 +34,6 @@ class SportForm extends Component {
     const { name, slug, active } = this.state;
     if (!name || active === undefined)
       return;
-
     this.props.onSubmit(this.state);
   }
   componentWillReceiveProps() {

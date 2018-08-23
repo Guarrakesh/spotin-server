@@ -5,6 +5,7 @@ const images = {
       basket: require('assets/img/sports/basket.png'),
       tennis: require('assets/img/sports/tennis.png'),
       rugby: require('assets/img/sports/rugby.png'),
+      football: require('assets/img/sports/football.png'),
       martial: require('assets/img/sports/martial-arts.png'),
       formula: require('assets/img/sports/formula-1.png'),
       golf: require('assets/img/sports/golf.png'),

@@ -3,8 +3,8 @@ import {
     FETCH_ALL_SPORTS,
     FETCH_FAVORITE_SPORTS,
     FETCH_COMPETITIONS,
-    DELETE_SPORT,
-    SAVE_SPORT
+    DELETE_SPORT, DELETE_COMPETITION,
+    SAVE_SPORT, SAVE_COMPETITION
 
 } from './types';
 
@@ -79,4 +79,12 @@ export function getSportCompetitionsSuccess(sportId, competitions) {
         competitions,
         sportId
     }
+}
+
+export function saveCompetitionRequest(competition, isNew = false) {
+  return {
+    type: SAVE_COMPETITION.REQUEST,
+    competition,
+    isNew
+  };
 }
