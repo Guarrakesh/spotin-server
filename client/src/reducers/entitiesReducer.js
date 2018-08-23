@@ -5,7 +5,9 @@ import {
   SENDING_REQUEST,
   FETCH_COMPETITIONS,
   SAVE_SPORT,
-  DELETE_SPORT
+  DELETE_SPORT,
+  DELETE_COMPETITION,
+
 } from '../actions/types';
 
 
@@ -67,7 +69,7 @@ export default function entitiesReducer(state = initialState, action) {
       sports = state.sports.map((sport) => {
         if (sport._id === action.competition._id) {
           if (!sport.competitions) return sport;
-          competitions = sport.competitions.filter(comp => return comp._id !== action.competition._id);
+          competitions = sport.competitions.filter(comp => comp._id !== action.competition._id);
           sport.competitions = competitions;
         }
       });
