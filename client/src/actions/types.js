@@ -25,3 +25,5 @@ export const FETCH_COMPETITIONS = createRequestTypes('GET_COMPETITIONS');
 export const FETCH_EVENTS = createRequestTypes('GET_EVENTS');
 export const SAVE_SPORT = createRequestTypes('SAVE_SPORT');
 export const DELETE_SPORT = createRequestTypes('DELETE_SPORT');
+export const SAVE_COMPETITION = createRequestTypes('SAVE_COMPETITION');
+export const DELETE_COMPETITION = createRequestTypes('DELETE_COMPETITION');

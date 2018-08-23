@@ -21,7 +21,8 @@ class SportPage extends React.Component {
       show: false
     };
 
-    this.handleRefresh = this.handleRefresh.bind(this);
+    this.handleRefreshCompetitions = this.handleRefreshCompetitions.bind(this);
+    this.handleNewCompetition = this.handleNewCompetition.bind(this);
     this.successDelete = this.successDelete.bind(this);
     this.showDeleteWarning = this.showDeleteWarning.bind(this);
   }
@@ -80,7 +81,10 @@ class SportPage extends React.Component {
 
 
   }
-  handleRefresh() {
+  handleNewCompetition() {
+
+  }
+  handleRefreshCompetitions() {
     this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
   }
   render() {
@@ -105,9 +109,9 @@ class SportPage extends React.Component {
           </Col>
         </Row>
 
-            <CompetitionList onRefresh={this.handleRefresh} currentlySending={currentlySending}
-              onItemPress={() => {}} competitions={sport.competitions}
-              onNew={() => {}} />
+            <CompetitionList onRefresh={this.handleRefreshCompetitions} currentlySending={currentlySending}
+              competitions={sport.competitions}
+              onNew={this.handleNewCompetition} />
 
       </div>
 
