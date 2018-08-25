@@ -63,13 +63,14 @@ class SportPage extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(getAllSports());
-    if (this.props.sport) {
+    if (this.props.sport && !this.props.currentlySending) {
       this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
     }
   }
-  componentWillReceiveProps(nextProps) {
-    const { sport } = this.props;
-    if (sport && (!sport.competitions )) {
+  componentDidUpdate(prevProps, prevState) {
+    const { sport, currentlySending } = this.props;
+    //controllo currentlySending sia nello stato precedente che in quello corrente, per evitare un loop di richiesta
+    if (sport && !sport.competitions && !prevProps.currentlySending && !currentlySending) {
       this.props.dispatch(getSportCompetitionsRequest(this.props.sport));
     }
   }

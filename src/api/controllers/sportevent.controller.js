@@ -13,6 +13,7 @@ exports.load = async (req, res, next, id) => {
   try {
     const event = await SportEvent.get(id);
     req.locals = { event };
+
     return next();
   } catch (error) {
     return errorHandler(error, req, res);
@@ -75,11 +76,10 @@ exports.list = async (req, res, next) => {
     } else {
       query.sport = req.locals.sport._id;
     }
-    console.log("query is", query);
     let events = await SportEvent.find(req.query)
       .populate([
         {
-          path: 'sport',
+          path: 'sport_id',
           select: ['_id','name']
         },
 
@@ -88,6 +88,7 @@ exports.list = async (req, res, next) => {
     events = events.map(event => {
       return event.transform(req);
     });
+
     res.json(events);
   } catch (error) {
     next(error);

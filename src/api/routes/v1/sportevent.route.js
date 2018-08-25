@@ -4,13 +4,13 @@ const controller = require('../../controllers/sportevent.controller');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {createEvent, updateEvent } = require('../../validations/sportevent.validation');
 const router = express.Router();
-
+const broadcastController = require('../../controllers/broadcast.controller');
 /**
  * Load user when API with userId route parameter is hit
  */
 
 
-router.param('sportId', controller.load);
+router.param('id', controller.load);
 
 router
   .route('/')
@@ -24,6 +24,12 @@ router
   .patch(authorize(ADMIN), validate(updateEvent), controller.update)
   .delete(authorize(ADMIN), controller.remove);
 
+
+/*
+router
+  .route('/:id/broadcasts')
+    .get(broadcastController.list);
+*/
 
 
 

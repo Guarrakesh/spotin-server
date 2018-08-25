@@ -24,9 +24,18 @@ exports.get = (req, res) => res.json(req.locals.competition);
 exports.list = async (req, res, next) => {
   try {
 
-    let competitions = await Competition.find({
-      sport_id: mongoose.Types.ObjectId(req.locals.sport._id)
-    }).lean().exec();
+
+    const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
+    let query;
+    if (req.locals && req.locals.sport)
+      query.sport_id = req.locals.sport._id;
+
+    let competitions = Competition.find(filterQuery);
+
+    //handle sort
+    if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order.toLowerCase()});
+
+    competitions = await competitions.lean().exec();
     const transformed = competitions.map(async comp => {
       const obj = Object.assign({},comp);
       let weekEvents = await SportEvent.getWeekEvents(comp._id);
@@ -38,18 +47,17 @@ exports.list = async (req, res, next) => {
     });
 
     const results = await Promise.all(transformed);
-
+    res.set("X-Total-Count", results.length);
     res.json(results);
   } catch (error) {
     next(error)
   }
 };
 
-
 exports.create = async (req, res, next) => {
   try {
     const competition = new Competition(req.body);
-    competition.sport = req.locals.sport;
+
     const savedComp = await competition.save();
     res.status(httpStatus.CREATED);
     res.json(savedComp);
@@ -62,7 +70,6 @@ exports.create = async (req, res, next) => {
 exports.update = (req, res, next) => {
 
     const updatedComp = Object.assign(req.locals.competition, req.body);
-
 
     updatedComp.save()
       .then(savedComp => res.json(savedComp))

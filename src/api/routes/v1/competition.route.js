@@ -15,7 +15,10 @@ const { createCompetition, updateCompetition } = require('../../validations/comp
 
 router.param('id', competitionController.load);
 
-
+router
+  .route('/')
+  .get(competitionController.list)
+  .post(authorize(ADMIN), validate(createCompetition), competitionController.create);
 router
   .route('/:id')
   .get(competitionController.get)

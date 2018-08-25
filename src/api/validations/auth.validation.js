@@ -28,7 +28,7 @@ module.exports = {
     },
   },
 
-  // POST /v1/auth/refresh
+  // POST /v1/auth/refresh-token
   refresh: {
     body: {
       email: Joi.string().email().required(),
