@@ -18,7 +18,7 @@
     "admin": "cd admin && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn admin\"",
     "heroku": "node ./src/index.js",
-    "heroku-postbuild": "cd admin©© && yarn && yarn run build",
+    "heroku-postbuild": "cd admin && yarn && yarn run build",
     "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
     "lint:watch": "yarn lint -- --watch",
