@@ -11,10 +11,10 @@ mongoose.connect();
 
 if (process.env.NODE_ENV === 'production') {
   //Serve static files
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../admin/build')));
 
   app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname,'../client/build', 'index.html'))
+    res.sendFile(path.join(__dirname,'../admin/build', 'index.html'))
   });
 }
 // listen to requests
