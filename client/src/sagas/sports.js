@@ -8,23 +8,25 @@ import { selectSports } from '../selectors/sports';
 import { selectAccessToken } from '../selectors/auth';
 import { handleRequestError } from './index';
 import {
-    FETCH_FAVORITE_SPORTS,
-    FETCH_ALL_SPORTS,
-    SET_AUTH,
-    FETCH_COMPETITIONS, FETCH_EVENTS,
-    SAVE_SPORT, DELETE_SPORT,
+  FETCH_FAVORITE_SPORTS,
+  FETCH_ALL_SPORTS,
+  SET_AUTH,
+  FETCH_COMPETITIONS, FETCH_EVENTS,
+  SAVE_SPORT, DELETE_SPORT,
+  SAVE_COMPETITION, DELETE_COMPETITION,
+
 
 } from '../actions/types';
 import {
-    getAllSportsSuccess,
-    getFavoriteSportsSuccess,
-    getSportCompetitionsSuccess,
-    saveSportSuccess,
-    saveSportFailure
+  getAllSportsSuccess,
+  getFavoriteSportsSuccess,
+  getSportCompetitionsSuccess,
+  saveSportSuccess,
+  saveSportFailure
 } from '../actions/sports';
 import {
-    sendingRequest,
-    requestError
+  sendingRequest,
+  requestError
 } from '../actions';
 import {getEventsSuccess} from "../actions/events";
 
@@ -39,23 +41,23 @@ let successNotification = {
 // ==================
 
 /**
-* @param forceFetch boolean | Se e' true, forza il fetch degli sport anche se ce ne sono gia' nello state
-*/
+ * @param forceFetch boolean | Se e' true, forza il fetch degli sport anche se ce ne sono gia' nello state
+ */
 function* fetchSports(forceFetch = false) {
 
-    const stateSports = yield select(selectSports);
-    if (stateSports.length === 0 || forceFetch) {
-      yield put(sendingRequest(true));
-      try {
-          const response = yield call(sports.fetchAll);
-          yield put(getAllSportsSuccess(response));
+  const stateSports = yield select(selectSports);
+  if (stateSports.length === 0 || forceFetch) {
+    yield put(sendingRequest(true));
+    try {
+      const response = yield call(sports.fetchAll);
+      yield put(getAllSportsSuccess(response));
 
-      } catch (err) {
-          yield put(requestError(err));
-      } finally {
-          yield put(sendingRequest(false));
-      }
+    } catch (err) {
+      yield put(requestError(err));
+    } finally {
+      yield put(sendingRequest(false));
     }
+  }
 }
 
 function* saveSport(action) {
@@ -66,7 +68,7 @@ function* saveSport(action) {
     const response = (action.isNew)
       ? yield call(sports.create, action.sport,token)
       : yield call(sports.save, action.sport, token);
-      //TODO: Verificare che non ci siano stati errori di validazione
+    //TODO: Verificare che non ci siano stati errori di validazione
     if (response.code == 400) {
       yield call(handleRequestError, response, saveSportFailure(response));
     } else if (response.name !== undefined) {
@@ -109,101 +111,100 @@ function* deleteSport(action) {
 
   }
 }
-function* fetchCompetitions(sport) {
+function* fetchCompetitions(action) {
+  const { sport } = action;
 
-    yield put(sendingRequest(true));
-    try {
-        const response = yield call(sports.fetchCompetitions, sport);
-        yield put(getSportCompetitionsSuccess(sport._id, response));
-    } catch (err) {
-        yield put(requestError(err));
+  yield put(sendingRequest(true));
+  try {
+    const response = yield call(sports.fetchCompetitions, sport);
+    yield put(getSportCompetitionsSuccess(sport._id, response));
+  } catch (err) {
+    yield put(requestError(err));
 
-    } finally  {
-        yield put(sendingRequest(false));
+  } finally  {
+    yield put(sendingRequest(false));
+  }
+}
+
+function* saveCompetition(action) {
+  yield put(sendingRequest(true));
+  const token = yield select(selectAccessToken);
+
+  try {
+    const response = (action.isNew)
+      ? yield call(sports.create, action.sport,token)
+      : yield call(sports.save, action.sport, token);
+    //TODO: Verificare che non ci siano stati errori di validazione
+    if (response.code == 400) {
+      yield call(handleRequestError, response, saveSportFailure(response));
+    } else if (response.name !== undefined) {
+      yield put(saveSportSuccess(response, action.isNew));
+
+      //display success notification
+      successNotification.message = action.isNew ? "Sport creato con successo." : "Le informazioni sono state aggiornate.";
+      yield put(Notifications.show(successNotification));
+      if (action.isNew)
+        history.push('/sports');
+    } else {
+      yield call(handleRequestError, response, saveSportFailure(response));
     }
+  } catch (err) {
+    yield put(requestError(err));
+  } finally {
+    yield put(sendingRequest(false));;
+  }
 }
 
-function* fetchEvents(competitionId) {
+function* deleteCompetition(action) {
 
-    yield put(sendingRequest(true));
+}
+function* fetchEvents(action) {
+  const { competitionId } = action;
+  yield put(sendingRequest(true));
 
-    try {
+  try {
 
-        let response;
+    let response;
 
-        if (competitionId)
-            response = yield call(events.fetchByCompetition, competitionId);
-        else
-            response = yield call(events.fetchAll);
+    if (competitionId)
+      response = yield call(events.fetchByCompetition, competitionId);
+    else
+      response = yield call(events.fetchAll);
 
 
-        yield put(getEventsSuccess(response));
+    yield put(getEventsSuccess(response));
 
-    } catch (err) {
-        yield put(requestError(err));
-    } finally {
-        yield put(sendingRequest(false));
-    }
+  } catch (err) {
+    yield put(requestError(err));
+  } finally {
+    yield put(sendingRequest(false));
+  }
 }
 
-// ==================
-// WATCHERS
-// ==================
-
-
-function* watchGetSports() {
-
-    while(true) {
-        const action = yield take(FETCH_ALL_SPORTS.REQUEST);
-
-        // let token = yield select(getToken);
-        yield call(fetchSports, action.forceFetch);
-
-
-    }
-}
-
-function* watchGetCompetitions() {
-    while (true) {
-        const req = yield take(FETCH_COMPETITIONS.REQUEST);
-        //let token = yield select(getToken);
-        yield call(fetchCompetitions, req.sport);
-    }
-}
-
-function* watchGetEvents() {
-    while (true) {
-        const req = yield take(FETCH_EVENTS.REQUEST);
-
-        const response = yield call(fetchEvents, req.competitionId);
-    }
-}
-function* watchSaveSport() {
-  yield takeLatest(SAVE_SPORT.REQUEST, saveSport);
-}
-function* watchDeleteSport() {
-  yield takeLatest(DELETE_SPORT.REQUEST, deleteSport);
-}
 
 
 export default function* root() {
-    /*//Non proseguo finché non ho un token. Posso farlo perché la login saga (./login.js), se non trova una token
-    //Rimanda al login. In questo modo blocco il generatore finché non ho una otken
-    let token = null;
-    while (token == null) {
-        //Aspetto l'azione SET_AUTH, che verrà impostata su true se avrò una token. Se viene impostata su false
-        //la login saga rimanda direttamente al Login
-        let logged = yield take(SET_AUTH);
-        token = (logged) ? yield select(getToken) : null;
-    }
-*/
+  /*//Non proseguo finché non ho un token. Posso farlo perché la login saga (./login.js), se non trova una token
+   //Rimanda al login. In questo modo blocco il generatore finché non ho una otken
+   let token = null;
+   while (token == null) {
+   //Aspetto l'azione SET_AUTH, che verrà impostata su true se avrò una token. Se viene impostata su false
+   //la login saga rimanda direttamente al Login
+   let logged = yield take(SET_AUTH);
+   token = (logged) ? yield select(getToken) : null;
+   }
+   */
 
-    yield all([
-        fork(watchGetSports),
-        fork(watchDeleteSport),
-        fork(watchGetCompetitions),
-        fork(watchGetEvents),
-        fork(watchSaveSport),
+  yield [
 
-    ])
+    takeLatest(FETCH_ALL_SPORTS.REQUEST, fetchSports),
+    takeLatest(DELETE_SPORT.REQUEST, deleteSport),
+    takeLatest(SAVE_SPORT.REQUEST, saveSport),
+    takeLatest(FETCH_COMPETITIONS.REQUEST, fetchCompetitions),
+    takeLatest(SAVE_COMPETITION.REQUEST, saveCompetition),
+    takeLatest(DELETE_COMPETITION.REQUEST, deleteCompetition),
+    takeLatest(FETCH_EVENTS.REQUEST, fetchEvents),
+
+
+  ];
 }

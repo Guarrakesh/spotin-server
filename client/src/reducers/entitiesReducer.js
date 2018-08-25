@@ -7,6 +7,7 @@ import {
   SAVE_SPORT,
   DELETE_SPORT,
   DELETE_COMPETITION,
+  SAVE_COMPETITION,
 
 } from '../actions/types';
 
@@ -39,25 +40,25 @@ export default function entitiesReducer(state = initialState, action) {
       }
       return {...state, error:'', sports: sports};
     case SAVE_SPORT.FAILURE:
-        let error = action;
-        delete error.type;
-        return {...state, error: error};
-    case SAVE_SPORT.SUCCESS:
-        //aggiorno la competizione negli sport
-        sports = state.sports.map((sport) => {
-          if (sport._id === action.competition.sport_id) {
-            if (action.isNew) {
-              if (!sport.competitions)
-              //lo sport non aveva competizioni, creo l'array e infilo l'elemento
-                sport['competitions'] = [action.competition];
-                //lo sport ha gia' array di competizioni, pusho l'array
-              else sport.competition.push(action.competition)
-            } else {
-              //La competizione è stata aggiornata, devo modificarla
-              competitions = sport.competitions.map(comp => (
-                 (comp._id === action.competition._id) ? action.competition : comp));
-              sport.competitions = competitions;
-            }
+      let error = action;
+      delete error.type;
+      return {...state, error: error};
+    case SAVE_COMPETITION.SUCCESS:
+      //aggiorno la competizione negli sport
+      sports = state.sports.map((sport) => {
+        if (sport._id === action.competition.sport_id) {
+          if (action.isNew) {
+            if (!sport.competitions)
+            //lo sport non aveva competizioni, creo l'array e infilo l'elemento
+              sport['competitions'] = [action.competition];
+            //lo sport ha gia' array di competizioni, pusho l'array
+            else sport.competition.push(action.competition)
+          } else {
+            //La competizione è stata aggiornata, devo modificarla
+            competitions = sport.competitions.map(comp => (
+              (comp._id === action.competition._id) ? action.competition : comp));
+            sport.competitions = competitions;
+          }
         }
         return sport;
       });
@@ -67,13 +68,15 @@ export default function entitiesReducer(state = initialState, action) {
       return {...state, error: '', sports: sports};
     case DELETE_COMPETITION.SUCCESS:
       sports = state.sports.map((sport) => {
-        if (sport._id === action.competition._id) {
+        if (sport._id === action.competition.sport_id) {
           if (!sport.competitions) return sport;
           competitions = sport.competitions.filter(comp => comp._id !== action.competition._id);
           sport.competitions = competitions;
         }
       });
       return {...state, error: '', sports: sports};
+
+
     case FETCH_COMPETITIONS.SUCCESS:
       sports = state.sports.map((sport) => {
 

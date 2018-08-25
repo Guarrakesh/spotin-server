@@ -96,7 +96,6 @@ router
 router
   .route('/:id/competitions')
   .get(competitionController.list)
-  .post(authorize(ADMIN), validate(createCompetition), competitionController.create);
 
 router
   .route('/:id/events')
