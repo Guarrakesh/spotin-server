@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
-const httpStatus = require('http-status');
-const { omitBy, isNil } = require('lodash');
-const bcrypt = require('bcryptjs');
 const moment = require('moment-timezone');
 const jwt = require('jwt-simple');
-const uuidv4 = require('uuid/v4');
+
 const APIError = require('../utils/APIError');
-const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
+const mongoosePaginate = require('mongoose-paginate');
 
 
 const addressSchema = require('./address.schema');
@@ -17,7 +14,10 @@ const types = [
   'Trattoria', 'Bar', 'Centro scommesse'
 ];
 const providers = [
-  "Sky", "Mediaset Premium", "DAZN", "Digitale Terrestre"
+  {id: "sky", name: "Sky"},
+  {id: "mediaset-premium", name:"Mediaset Premium"},
+  {id: "dazn", name: "DAZN"},
+  {id: "digitale-terrestre", name: "Digitale Terrestre"},
 ];
 //Gli orari dei apertura e chiusura possono essere al massimo 2
 const businessHoursSchema = new mongoose.Schema({
@@ -36,7 +36,8 @@ const businessSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxLength: 45,
   },
   address: addressSchema,
   type: {
@@ -51,12 +52,12 @@ const businessSchema = new mongoose.Schema({
   wifi: Boolean,
   seats: Number,
   forFamilies: Boolean,
-  target: [String],
+  target: String,
   tvs: Number,
 
   providers: {
-    type: [{type: String, enum: providers}],
-    required: true,
+    type: [String],
+    required: true
   },
   businessHours: businessDaysSchema,
   cover: imageVersionSchema,
@@ -69,11 +70,23 @@ const businessSchema = new mongoose.Schema({
   },
   tradeName: {
     //required: true,
+    type: String,
+    trim: true
+  },
+
+  spots: {
     type: Number,
-    trum: true
+    required: true,
+    default: 0,
+  },
+
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User'
   }
 
 });
 
+businessSchema.plugin(mongoosePaginate);
 exports.Business = mongoose.model('Business', businessSchema, "businesses");
 exports.businessSchema = businessSchema;

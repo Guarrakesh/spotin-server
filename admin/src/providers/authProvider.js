@@ -61,7 +61,8 @@ export default (type, params) => {
         const request = new Request(refreshUri, {
           method: 'POST',
           body: JSON.stringify({email, refreshToken}),
-          headers: new Headers({'Content-Type': 'application/json'})});
+          headers: new Headers({'Content-Type': 'application/json'})
+        });
         return fetch(request)
           .then(response => {
             if (response.status < 200 || response.status >= 300) {

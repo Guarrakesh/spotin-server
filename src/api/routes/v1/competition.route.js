@@ -22,7 +22,7 @@ router
 router
   .route('/:id')
   .get(competitionController.get)
-  .patch(authorize(ADMIN), validate(createCompetition), competitionController.update)
+  .patch(authorize(ADMIN), validate(updateCompetition), competitionController.update)
   .delete(authorize(ADMIN), competitionController.remove);
 router
   .route('/:id/events')

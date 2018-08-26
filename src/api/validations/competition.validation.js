@@ -6,7 +6,7 @@ module.exports = {
   // POST /v1/competitions
   createCompetition: {
     body: {
-      name: Joi.string().min(6).max(128).required(),
+      name: Joi.string().min(3).max(128).required(),
       country: Joi.string().max(128),
       sport_id: Joi.string().required(),
     }
@@ -16,7 +16,7 @@ module.exports = {
   updateCompetition: {
     body: {
 
-      name: Joi.string().min(6).max(128),
+      name: Joi.string().min(3).max(128),
       country: Joi.string().max(128)
     },
     params: {

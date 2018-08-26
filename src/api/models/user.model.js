@@ -7,7 +7,7 @@ const jwt = require('jwt-simple');
 const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
-
+const mongoosePaginate = require('mongoose-paginate');
 const { sportSchema } = require('./sport.model');
 /**
  * User Roles
@@ -98,14 +98,14 @@ userSchema.pre('save', async function save(next) {
  */
 userSchema.method({
   transform() {
-    const transformed = {};
-    const fields = ['id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
+   /* const transformed = {};
+    const fields = ['_id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
 
     fields.forEach((field) => {
       transformed[field] = this[field];
-    });
+    });*/
 
-    return transformed;
+    return this;
   },
 
   token() {
@@ -197,15 +197,17 @@ userSchema.statics = {
    * @returns {Promise<User[]>}
    */
   list({
-    page = 1, perPage = 30, name, email, role,
+    _end = 10, _order = "DESC", _sort="createdAt", _start = 0, name, email, role,
   }) {
     const options = omitBy({ name, email, role }, isNil);
 
-    return this.find(options)
-      .sort({ createdAt: -1 })
-      .skip(perPage * (page - 1))
-      .limit(perPage)
-      .exec();
+    return this.paginate(options, {
+      sort: {[_sort]: _order.toLowerCase()},
+      offset: parseInt(_start),
+      limit: parseInt(_end - _start)
+
+    });
+
   },
 
   /**
@@ -248,7 +250,7 @@ userSchema.statics = {
     });
   },
 };
-
+userSchema.plugin(mongoosePaginate);
 /**
  * @typedef User
  */

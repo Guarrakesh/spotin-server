@@ -78,10 +78,10 @@ describe('Competitions API', () => {
   });
 
 
-  describe('GET /v1/sports/:id/competitions', () => {
+  describe('GET /v1/competitions', () => {
     it('Should return competitions of a given sport', async () => {
       return request(app)
-        .get(`/v1/sports/${sportId}/competitions`)
+        .get(`/v1/competitions?sport_id=${sportId}`)
         .expect(httpStatus.OK)
         .then((res) => {
           const includesSerieA = some(res.body, dbComps.serieA);
@@ -94,10 +94,10 @@ describe('Competitions API', () => {
     })
   });
 
-  describe('POST /v1/sports/:id/competitions', () => {
+  describe('POST /v1/competitions', () => {
     it('Should create a new competition if request is ok', async() => {
       return request(app)
-        .post(`/v1/sports/${sportId}/competitions`)
+        .post(`/v1/competitions?sport_id=${sportId}`)
         .set('Authorization', `Bearer ${adminAccessToken}`)
         .send(comp)
         .expect(httpStatus.CREATED)
@@ -117,7 +117,7 @@ describe('Competitions API', () => {
 
     it('Should return Unauthorized if access token is not provided', async () => {
       return request(app)
-        .post(`/v1/sports/${sportId}/competitions`)
+        .post(`/v1/competitions?sport_id=${sportId}`)
         .send(comp)
         .expect(httpStatus.UNAUTHORIZED)
 
