@@ -15,6 +15,7 @@ export const UserList = (props) => (
       <TextField source="name" />
       <TextField source="username" />
       <EmailField source="email" />
+      <EditButton/>
     </Datagrid>
   </List>
 );
