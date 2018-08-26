@@ -35,6 +35,7 @@ exports.list = async (req, res, next) => {
     //handle sort
     if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order.toLowerCase()});
 
+
     competitions = await competitions.lean().exec();
     const transformed = competitions.map(async comp => {
       const obj = Object.assign({},comp);

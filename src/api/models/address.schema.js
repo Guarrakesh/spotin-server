@@ -2,14 +2,8 @@ const mongoose = require('mongoose');
 
 
 const addressSchema = new mongoose.Schema({
-  latitude: {
-    type: String,
-    requied: true,
-  },
-  longitude: {
-    type: String,
-    required: true
-  },
+  latitude: String,
+  longitude: String,
 
   street: {
     type: String,

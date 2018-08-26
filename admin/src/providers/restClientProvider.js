@@ -105,20 +105,39 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
       case GET_LIST:
       case GET_MANY:
       case GET_MANY_REFERENCE:
-        if (!headers.has('x-total-count')) {
-          throw new Error(
-            'The X-Total-Count header is missing in the HTTP Response. The jsonServer Data Provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare X-Total-Count in the Access-Control-Expose-Headers header?'
-          );
-        }
-        return {
-          data: json.map(res => ({ ...res, id: res._id})),
-          total: parseInt(
+        let data, total;
+        if (!json.docs) {
+          data = json.map(res => ({ ...res, id: res._id}));
+          if (!headers.has('x-total-count')) {
+            throw new Error(
+              'The X-Total-Count headers is missing. '
+            );
+          }
+          total = parseInt(
             headers
               .get('x-total-count')
               .split('/')
               .pop(),
             10
-          ),
+          );
+
+        } else {
+          data = json.docs.map(res => ({ ...res, id: res._id}));
+          total = parseInt(json.total);
+        }
+
+
+        return {
+          data,
+          total
+
+         /* total: parseInt(
+            headers
+              .get('x-total-count')
+              .split('/')
+              .pop(),
+            10
+          ),*/
         };
       case UPDATE:
       case GET_ONE:
