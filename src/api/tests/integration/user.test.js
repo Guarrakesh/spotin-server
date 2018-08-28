@@ -179,15 +179,15 @@ describe('Users API', () => {
           const bran = format(dbUsers.branStark);
           const john = format(dbUsers.jonSnow);
 
-          const includesBranStark = some(res.body, bran);
-          const includesjonSnow = some(res.body, john);
-
+          const includesBranStark = some(res.body.docs, bran);
+          const includesjonSnow = some(res.body.docs, john);
+          expect(res.body).to.be.an('object');
           // before comparing it is necessary to convert String to Date
-          res.body[0].createdAt = new Date(res.body[0].createdAt);
-          res.body[1].createdAt = new Date(res.body[1].createdAt);
+          res.body.docs[0].createdAt = new Date(res.body.docs[0].createdAt);
+          res.body.docs[1].createdAt = new Date(res.body.docs[1].createdAt);
 
-          expect(res.body).to.be.an('array');
-          expect(res.body).to.have.lengthOf(2);
+          expect(res.body.docs).to.be.an('array');
+          expect(res.body.docs).to.have.lengthOf(2);
           expect(includesBranStark).to.be.true;
           expect(includesjonSnow).to.be.true;
         });
@@ -197,7 +197,7 @@ describe('Users API', () => {
       return request(app)
         .get('/v1/users')
         .set('Authorization', `Bearer ${adminAccessToken}`)
-        .query({ page: 2, perPage: 1 })
+        .query({ _start: 1,  _end: 2 })
         .expect(httpStatus.OK)
         .then((res) => {
           delete dbUsers.jonSnow.password;
@@ -205,14 +205,13 @@ describe('Users API', () => {
           const includesjonSnow = some(res.body, john);
 
           // before comparing it is necessary to convert String to Date
-          res.body[0].createdAt = new Date(res.body[0].createdAt);
+          res.body.docs[0].createdAt = new Date(res.body.docs[0].createdAt);
 
-          expect(res.body).to.be.an('array');
-          expect(res.body).to.have.lengthOf(1);
+          expect(res.body.docs).to.be.an('array');
+          expect(res.body.docs).to.have.lengthOf(1);
           expect(includesjonSnow).to.be.true;
         });
     });
-
     it('should filter users', () => {
       return request(app)
         .get('/v1/users')
@@ -225,10 +224,10 @@ describe('Users API', () => {
           const includesjonSnow = some(res.body, john);
 
           // before comparing it is necessary to convert String to Date
-          res.body[0].createdAt = new Date(res.body[0].createdAt);
+          res.body.docs[0].createdAt = new Date(res.body.docs[0].createdAt);
 
-          expect(res.body).to.be.an('array');
-          expect(res.body).to.have.lengthOf(1);
+          expect(res.body.docs).to.be.an('array');
+          expect(res.body.docs).to.have.lengthOf(1);
           expect(includesjonSnow).to.be.true;
         });
     });
@@ -237,24 +236,24 @@ describe('Users API', () => {
       return request(app)
         .get('/v1/users')
         .set('Authorization', `Bearer ${adminAccessToken}`)
-        .query({ page: '?', perPage: 'whaat' })
+        .query({ _end: '?', _start: 'whaat' })
         .expect(httpStatus.BAD_REQUEST)
         .then((res) => {
           const { field } = res.body.errors[0];
           const { location } = res.body.errors[0];
           const { messages } = res.body.errors[0];
-          expect(field).to.be.equal('page');
+          expect(field).to.be.equal('_end');
           expect(location).to.be.equal('query');
-          expect(messages).to.include('"page" must be a number');
+          expect(messages).to.include('"_end" must be a number');
           return Promise.resolve(res);
         })
         .then((res) => {
           const { field } = res.body.errors[1];
           const { location } = res.body.errors[1];
           const { messages } = res.body.errors[1];
-          expect(field).to.be.equal('perPage');
+          expect(field).to.be.equal('_start');
           expect(location).to.be.equal('query');
-          expect(messages).to.include('"perPage" must be a number');
+          expect(messages).to.include('"_start" must be a number');
         });
     });
 

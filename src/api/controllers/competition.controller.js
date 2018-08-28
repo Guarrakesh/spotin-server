@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
-const SportEvent = require('../models/sportevent.model');
+const {SportEvent} = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const {Competition} = require('../models/competition.model');

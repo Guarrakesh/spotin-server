@@ -8,6 +8,9 @@ const mongoosePaginate = require('mongoose-paginate');
 
 const addressSchema = require('./address.schema');
 const { imageVersionSchema } = require('./imageVersion');
+const { intersection } = require('lodash');
+const { googleMapsClient } = require('../utils/google');
+
 
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
@@ -87,6 +90,82 @@ const businessSchema = new mongoose.Schema({
 
 });
 
+businessSchema.pre('save', async function save(next) {
+  try {
+
+
+    if (this.modifiedPaths().includes('address') || this.isNew) {
+      //Uno o piu campi dell'indirizzo sono cambiati, eseguo geocoding
+      const { address } = this;
+      const compactAddress = `${address.street} ${address.number}, ${address.zip} ${address.city}, ${address.province}`;
+
+      googleMapsClient.geocode({address: compactAddress}).asPromise()
+        .then(res => {
+
+
+          const response = res.json;
+
+          if (response.results.length > 0) {
+            const {location} = response.results[0].geometry;
+
+            this.address = {
+              ...this.address, location: {
+                type: 'Point',
+                coordinates: [location.lng, location.lat]
+              }
+            };
+          }
+          next();
+        })
+        .catch(err => {
+          next(err);
+        })
+
+
+    } else { return next() }
+  } catch (err) {
+
+    return next(err);
+  }
+});
+
+businessSchema.statics = {
+  async findNear(lat, lng, radius, options) {
+
+    const {_end = 10, _start = 0, _order = 1, _sort = "_id"} = options;
+    radius = parseFloat(radius) * 1000; //km to meters
+    lat = parseFloat(lat); lng = parseFloat(lng);
+    const count = await this.count({'address.location': {
+      $near: {$maxDistance: radius, $geometry: {type: 'Point', coordinates: [lng, lat]}}
+    }}).exec();
+
+
+    const docs = await this.aggregate([
+      {
+        '$geoNear': {
+          near: {type: 'Point', coordinates: [(lng), (lat)]},
+          distanceField: "dist.calculated",
+          distanceMultiplier: 1/1000, //meters to km
+          spherical: true,
+          maxDistance: (radius),
+          query: options,
+          includeLocs: "dist.location",
+        },
+      },
+      { $skip: _start },
+      { $limit: _end - _start},
+      { $sort: { [_sort]: _order }}
+
+    ]);
+
+    return {
+      docs,
+      total: count,
+      offset: _start,
+    }
+  }
+};
+businessSchema.index({ 'address.location': '2dsphere'});
 businessSchema.plugin(mongoosePaginate);
 exports.Business = mongoose.model('Business', businessSchema, "businesses");
 exports.businessSchema = businessSchema;
