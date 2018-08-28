@@ -1,6 +1,6 @@
 const httpStatus = require('http-status');
 const { omit, at} = require('lodash');
-const SportEvent = require('../models/sportevent.model');
+const {SportEvent} = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const Sport = require('../models/sport.model');

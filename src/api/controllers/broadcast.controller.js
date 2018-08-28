@@ -23,13 +23,24 @@ exports.list = async (req, res, next) => {
   try {
 
     //TODO: Gestire geolocalizzazione
+    let broadcasts;
     let query = req.query;
+    const { latitude, longitude, radius } = query;
+
     if (req.locals && req.locals.event) {
       query['event_id'] = req.locals.event._id;
 
     }
-    let broadcasts = await Broadcast.find(req.query)
-      .populate('business_id').populate('event_id');
+    if (latitude && longitude && radius) {
+      const business = await Business.findNear(latitude, longitude, radius, {});
+      const ids = business.docs.map(bus => bus._id);
+      broadcasts = await Broadcast.find({business: {$in: ids}});
+    } else {
+      let broadcasts = await Broadcast.find(req.query)
+        .populate('business').populate('event');
+    }
+
+
 
     res.json(broadcasts);
 

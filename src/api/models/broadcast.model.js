@@ -13,11 +13,11 @@ const reservationSchema = new mongoose.Schema({
 
 const broadcastSchema = new mongoose.Schema({
 
-  business_id: {
+  business: {
     ref: "Business",
     type: mongoose.Schema.ObjectId,
   },
-  event_id: {
+  event: {
     ref: "SportEvent",
     type: mongoose.Schema.ObjectId
   },
@@ -41,7 +41,11 @@ broadcastSchema.method({
     const transformed = {};
 
   }
-})
+});
+
+broadcastSchema.statics = {
+
+};
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");
 

@@ -113,4 +113,5 @@ sportEventSchema.statics = {
   }
 }
 
-module.exports = mongoose.model('SportEvent', sportEventSchema, 'sport_events');
+exports.sportEventSchema = sportEventSchema;
+exports.SportEvent = mongoose.model('SportEvent', sportEventSchema, 'sport_events');

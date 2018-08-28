@@ -23,17 +23,38 @@ exports.get = (req, res) => res.json(req.locals.business);
 exports.list = async (req, res, next) => {
   try {
 
-    const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
+    const filterQuery = omit(req.query, ['latitude', 'longitude','radius']);
     const {_end, _start, _order, _sort } = req.query;
-
+    const { latitude, longitude, radius } = req.query;
+/*
+    let data;
+    if (latitude && longitude && radius) {
+      filterQuery['address.location'] = {
+        $near: {
+          $maxDistance: parseInt(radius),
+          $geometry: {type: 'Point', coordinates: [parseFloat(longitude), parseFloat(latitude)]}
+        }
+      };
+    }
     let data = await Business.paginate(filterQuery, {
       sort: _sort ? {[_sort]: _order ? _order.toLowerCase() : 1} : "",
       offset: (_start) ? parseInt(_start) : 0,
       limit: (_end && _start) ? parseInt(_end - _start) : 10,
       populate: ['business_id', 'event_id']
 
-    });
+    });*/
+    if (latitude && longitude && radius) {
+      data = await Business.findNear(latitude, longitude, radius, filterQuery);
 
+    } else {
+      data = await Business.paginate(filterQuery, {
+        sort: _sort ? {[_sort]: _order ? _order.toLowerCase() : 1} : "",
+        offset: (_start) ? parseInt(_start) : 0,
+        limit: (_end && _start) ? parseInt(_end - _start) : 10,
+
+
+      });
+    }
     res.json(data);
 
   } catch (error) {
