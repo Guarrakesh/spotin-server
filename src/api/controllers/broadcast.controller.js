@@ -27,10 +27,7 @@ exports.list = async (req, res, next) => {
     let query = req.query;
     const { latitude, longitude, radius } = query;
 
-    if (req.locals && req.locals.event) {
-      query['event_id'] = req.locals.event._id;
-
-    }
+    res.json({ds: 'ss'});
     if (latitude && longitude && radius) {
       const business = await Business.findNear(latitude, longitude, radius, {});
       const ids = business.docs.map(bus => bus._id);
@@ -48,6 +45,3 @@ exports.list = async (req, res, next) => {
     next(error);
   }
 };
-
-
-

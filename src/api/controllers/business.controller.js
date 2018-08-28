@@ -43,11 +43,13 @@ exports.list = async (req, res, next) => {
       populate: ['business_id', 'event_id']
 
     });*/
+
     if (latitude && longitude && radius) {
       data = await Business.findNear(latitude, longitude, radius, filterQuery);
-
     } else {
-      data = await Business.paginate(filterQuery, {
+      const query = omit(filterQuery, ['_end','_sort','_order','_start']);
+
+      data = await Business.paginate(query, {
         sort: _sort ? {[_sort]: _order ? _order.toLowerCase() : 1} : "",
         offset: (_start) ? parseInt(_start) : 0,
         limit: (_end && _start) ? parseInt(_end - _start) : 10,
@@ -84,4 +86,3 @@ exports.create = async (req, res, next) => {
      next(error);
    }
 }
-
