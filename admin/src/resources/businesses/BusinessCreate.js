@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Create,
-  DisabledInput, SelectInput, TextInput, NumberInput, BooleanInput, SelectArrayInput} from 'react-admin';
+  DisabledInput, SelectInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput } from 'react-admin';
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -34,6 +34,13 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
           <TextInput source="name"/>
           <SelectInput choices={types} source="type" label="Business Type"/>
           <TextInput source="phone"/>
+          <ReferenceInput source="user"
+                          reference="users"
+                          filter={{role: "business"}}
+                          allowEmpty={false}
+          >
+            <AutocompleteInput optionText="email"/>
+          </ReferenceInput>
         </FormTab>
         <FormTab label="Address">
           <TextInput source="address.street" label="Street"/>
