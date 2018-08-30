@@ -44,7 +44,7 @@ export const CompetitionCreate = (props) => (
 
       <TextInput source="name"/>
       <TextInput source="country"/>
-      <ReferenceInput label="Sport" source="sport_id" reference="sports">
+      <ReferenceInput label="Sport" source="sport" reference="sports">
         <SelectInput source="name"/>
       </ReferenceInput>
 
