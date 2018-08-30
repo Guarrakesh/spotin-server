@@ -8,7 +8,7 @@ module.exports = {
     body: {
       name: Joi.string().min(6).max(128).required(),
       sport: Joi.string().required(),
-      competition: Joi.string().required(),
+      competition: Joi.string(),
       description: Joi.string().min(8).max(255),
       competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})).required(),
 
