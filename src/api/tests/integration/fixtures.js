@@ -63,14 +63,14 @@ let dbCompetitors = {
 let dbCompetitions = {
   serieA: {
     name: "Serie A",
-    sport_id: undefined,
+    sport: undefined,
     country: "Italia",
     competitorsHaveLogo: true,
   },
 
   wimbledon: {
     name: "Wimbledon",
-    sport_id: undefined,
+    sport: undefined,
     competitorsHaveLogo: false,
   }
 };
@@ -81,18 +81,18 @@ exports.dbEvents = [
     name: "Juventus Napoli",
     description: "Prova",
     competitors: [dbCompetitors.juventus, dbCompetitors.napoli],
-    sport_id: undefined,
+    sport: undefined,
     start_at: (currentDate.toISOString()),
-    competition: dbCompetitions.serieA,
+    competition: dbCompetitions.serieA._id,
 
   },
   {
     name: "Wimbledon - Finale",
     description: "La finale più attesa di sempre",
-    competitors: [dbCompetitors.federer, dbCompetitors.nadal],
+    competitors: [dbCompetitors.federer._id, dbCompetitors.nadal._id],
     competition: dbCompetitions.wimbledon,
     start_at: (currentDate.toISOString()),
-    sport_id: undefined,
+    sport: undefined,
   }
 ];
 

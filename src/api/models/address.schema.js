@@ -13,9 +13,6 @@ const pointSchema = new mongoose.Schema({
 });
 const addressSchema = new mongoose.Schema({
 
-  location: {
-    type: pointSchema,
-  },
 
   street: {
     type: String,
@@ -28,7 +25,7 @@ const addressSchema = new mongoose.Schema({
   country: String,
 
   location: {
-    type: {}
+    type: pointSchema,
   }
 
 

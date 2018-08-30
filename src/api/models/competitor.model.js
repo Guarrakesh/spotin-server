@@ -8,7 +8,8 @@ const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const Sport = require('./sport.model.js');
-
+const mongoosePaginate = require('mongoose-paginate');
+const { slugify }  = require('lodash-addons');
 
 const competitorSchema = new mongoose.Schema({
   sport: {
@@ -65,5 +66,7 @@ competitorSchema.pre('save', function(next) {
   }
   next();
 });
+
+competitorSchema.plugin(mongoosePaginate);
 exports.competitorSchema = competitorSchema
 exports.Competitor = mongoose.model('Competitor',competitorSchema);

@@ -26,15 +26,21 @@ exports.list = async (req, res, next) => {
 
 
     const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
-    let query;
+
     if (req.locals && req.locals.sport)
-      query.sport_id = req.locals.sport._id;
+      filterQuery.sport = req.locals.sport._id;
+
+    if (req.query.id_like) {
+      filterQuery._id = { $in: req.query.id_like.split('|')};
+      delete filterQuery['id_like'];
+    }
 
     let competitions = Competition.find(filterQuery);
 
     //handle sort
     if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order.toLowerCase()});
 
+    //handle GET_MANY, dove il campo {field}_like contiene valori multipli separati da |
 
     competitions = await competitions.lean().exec();
     const transformed = competitions.map(async comp => {

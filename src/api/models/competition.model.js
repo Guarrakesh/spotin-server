@@ -12,7 +12,7 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const {Sport} = require('./sport.model.js');
 
 const competitionSchema = new mongoose.Schema({
-  sport_id: {
+  sport: {
 
       type: mongoose.Schema.Types.ObjectId,
       ref: "Sport"

@@ -8,19 +8,26 @@ const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 
-
+const mongoosePaginate = require('mongoose-paginate');
 const {Competition, competitionSchema} = require('./competition.model');
 const {competitorSchema, Competitor} = require('./competitor.model');
 const {Sport} = require('./sport.model');
 
 const sportEventSchema = new mongoose.Schema({
 
-  sport_id: {
+  sport: {
     type: mongoose.Schema.ObjectId,
     ref: "Sport"
   },
-  competition: competitionSchema,
-  competitors: [competitorSchema],
+  competition: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Competition"
+  },
+  competitors: [
+    {
+      _id: { type: mongoose.Schema.ObjectId,ref: "Competitor"}
+
+    }],
 
   name: {
 
@@ -36,13 +43,18 @@ const sportEventSchema = new mongoose.Schema({
   start_at: {
     type: Date,
     required: true
+  },
+  //Il prezzo (in spot) dell'evento
+  spots: {
+    type: Number,
+    default: 0
   }
 });
 
 sportEventSchema.pre('save', async function(next) {
   //Check if sport exists
-  const sport = await Sport.findById(this.sport_id);
-  const competition = await Competition.findById(this.competition._id);
+  const sport = await Sport.findById(this.sport);
+  const competition = await Competition.findById(this.competition);
 
   const Error = (message) => (new APIError({
     message,
@@ -57,7 +69,9 @@ sportEventSchema.pre('save', async function(next) {
   }
 
   const ids = this.competitors.map(comp => comp._id);
+
   const competitors = await Competitor.find({ _id: { $in: ids }});
+  console.log(competitors);
   if (!competitors || competitors.length !== this.competitors.length) {
     next(Error("Uno o più sfidanti specificati non esistono."));
 
@@ -73,8 +87,11 @@ sportEventSchema.method({
       transformed[field] = this[field];
     });
     //Check is SportEvent is favorited by user
-    if (!req.locals.user)
-      transformed['isUserFavorite'] = false;
+    const { locals } = req;
+    if (locals && locals.user) {
+      //transformed['isUserFavorite'] = false;
+    }
+
     //TODO: Cercare nei preferiti dell'utente
 
 
@@ -113,5 +130,6 @@ sportEventSchema.statics = {
   }
 }
 
+sportEventSchema.plugin(mongoosePaginate);
 exports.sportEventSchema = sportEventSchema;
 exports.SportEvent = mongoose.model('SportEvent', sportEventSchema, 'sport_events');
