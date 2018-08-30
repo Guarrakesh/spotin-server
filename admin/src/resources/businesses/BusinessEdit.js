@@ -5,6 +5,9 @@ import { TabbedForm, FormTab, Edit,
   DisabledInput, SelectInput, TextInput, NumberInput,
   ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput} from 'react-admin';
 
+import BusinessMapField from './BusinessMapField';
+
+
 const types = [
   {id:'Pub', name: 'Pub'},
   {id:'Pizzeria', name: 'Pizzeria'},
@@ -30,6 +33,7 @@ const Title = ({record}) => {
   return <span>{record ? record.name : ''}</span>
 }
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
+
     return (
       <Edit title={<Title/>} { ...props}>
         <TabbedForm>
@@ -53,8 +57,9 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <TextInput source="address.province" label="Province"/>
             <TextInput source="address.country" label="Country"/>
             <NumberInput source="address.zip" label="Zip"/>
-            <DisabledInput source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
-            <DisabledInput source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
+            <DisabledInput source="address.location.coordinates[1]" formClassName={classes.inlineBlock} label="Latitude"/>
+            <DisabledInput source="address.location.coordinates[0]" formClassName={classes.inlineBlock} label="Longitude"/>
+            <BusinessMapField isMarkerShown source="address.location.coordinates"/>
           </FormTab>
 
           <FormTab label="Billing">

@@ -27,19 +27,32 @@ exports.list = async (req, res, next) => {
     let query = req.query;
     const { latitude, longitude, radius } = query;
 
-    res.json({ds: 'ss'});
+
     if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius, {});
+      const business = await Business.findNear(latitude, longitude, radius);
       const ids = business.docs.map(bus => bus._id);
-      broadcasts = await Broadcast.find({business: {$in: ids}});
+      broadcasts = await Broadcast.find({business: {$in: ids}}).populate('event').lean().exec();
+      broadcasts = broadcasts.map(broadcast => {
+
+        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
+
+        broadcast['business'] = currentBusiness;
+        return broadcast;
+      });
+      res.json({
+        docs: broadcasts,
+        offset: req.query._start,
+
+      })
+
     } else {
       let broadcasts = await Broadcast.find(req.query)
-        .populate('business').populate('event');
+        .populate('business').populate('event')
     }
 
 
 
-    res.json(broadcasts);
+
 
   } catch (error) {
     next(error);

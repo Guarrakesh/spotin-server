@@ -11,7 +11,7 @@ const { Competitor } = require('../models/competitor.model');
  */
 exports.load = async (req, res, next, id) => {
   try {
-    const event = await SportEvent.get(id);
+    const event = await SportEvent.findById(id);
     req.locals = { event };
 
     return next();
@@ -68,24 +68,27 @@ exports.update = (req, res, next) => {
 exports.list = async (req, res, next) => {
 
   try {
-    let query = req.query;
-
-    //Accetto sia /sports/:id/events che /competitions/:id/events
-    if (req.locals.competition) {
+    let query = omit(req.query, ['competition_id', 'sport', '_end', '_start', '_order', '_sort']);
+    const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
+    const { locals } = req;
+    //Accetto sia /sports/:id/events che /competitions/:id/events che /events
+    if (locals && locals.competition) {
       query['competition._id'] = req.locals.competition._id;
-    } else {
+    } else if (locals && locals.sport) {
       query.sport = req.locals.sport._id;
+    } else if (req.query.competition_id) {
+      console.log(req.query.competition_id);
+      query['competition._id'] = req.query.competition_id;
     }
-    let events = await SportEvent.find(req.query)
-      .populate([
-        {
-          path: 'sport_id',
-          select: ['_id','name']
-        },
 
-      ]);
+    let events = await SportEvent.paginate(query, {
+      sort: _sort,
+      offset: parseInt(_start),
+      limit: parseInt(_end - _start),
+      populate: ['sport', 'competition','competitors._id'],
+    });
 
-    events = events.map(event => {
+    events.docs = events.docs.map(event => {
       return event.transform(req);
     });
 

@@ -9,8 +9,8 @@ module.exports = {
       address: Joi.object({
         street: Joi.string().required(),
         number: Joi.string().required(),
-        zip: Joi.number().required(),
-        city: Joi.string(),
+        zip: Joi.number(),
+        city: Joi.string().required(),
         province: Joi.string(),
         country: Joi.string(),
       }),
@@ -40,7 +40,7 @@ module.exports = {
       address: Joi.object({
         street: Joi.string(),
         number: Joi.string(),
-        zip: Joi.number(),
+        zip: Joi.number().allow(null),
         city: Joi.string(),
         province: Joi.string(),
         country: Joi.string(),

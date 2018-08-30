@@ -7,34 +7,27 @@ module.exports = {
   createEvent: {
     body: {
       name: Joi.string().min(6).max(128).required(),
-      sport_id: Joi.string().required(),
-      competition: Joi.object({
-        name: Joi.string().required(), _id: Joi.string().required(), competitorsHaveLogo: Joi.boolean(),
-        image_versions: Joi.array()
-      }).required(),
+      sport: Joi.string().required(),
+      competition: Joi.string().required(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({
-        _id: Joi.string().required(), name: Joi.string().required(), image_versions: Joi.array()
-      })).required(),
+      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})).required(),
+
       start_at: Joi.date().iso().required(),
 
-
+      spots: Joi.number()
     }
   },
   // PUT /v1/Events/:EventId
   replaceEvent: {
     body: {
       name: Joi.string().min(6).max(128).required(),
-      sport_id: Joi.string().required(),
-      competition: Joi.object({
-        name: Joi.string(), _id: Joi.string(), competitorsHaveLogo: Joi.boolean(),
-        image_versions: Joi.array()
-      }).required(),
+      sport: Joi.string().required(),
+      competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({
-        _id: Joi.string().required(), name: Joi.string().required(), image_versions: Joi.array()
-      })).required(),
+      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
       start_at: Joi.date().iso().required(),
+
+      spots: Joi.number()
     },
     params: {
       id: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
@@ -43,17 +36,14 @@ module.exports = {
   // PATCH /v1/Events/:EventId
   updateEvent: {
     body: {
+      sport:Joi.string(),
       name: Joi.string().min(6).max(128),
-      sport_id:Joi.string(),
-      competition: Joi.object({
-        name: Joi.string(), _id: Joi.string(), competitorsHaveLogo: Joi.boolean(),
-        image_versions: Joi.array()
-      }),
+      competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({
-        _id: Joi.string().required(), name: Joi.string().required(), image_versions: Joi.array()
-      })),
-      start_at: Joi.date().iso()
+      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
+      start_at: Joi.date().iso(),
+
+      spots: Joi.number()
     },
     params: {
       id: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

@@ -83,10 +83,10 @@ describe('SportEvent API', () => {
     event = {
       name: "Napoli Juventus",
       description: "Gara di ritorno",
-      competitors: [dbCompetitors.napoli, dbCompetitors.juventus],
-      sport_id: dbSports.calcio._id,
+      competitors: [dbCompetitors.napoli._id, dbCompetitors.juventus._id],
+      sport: dbSports.calcio._id,
       start_at:(currentDate).toISOString(),
-      competition: dbCompetitions.serieA
+      competition: dbCompetitions.serieA._id,
     };
 
 

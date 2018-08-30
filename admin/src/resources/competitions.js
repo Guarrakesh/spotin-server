@@ -9,7 +9,7 @@ export const CompetitionList = (props) => (
 
       <TextField source="name"/>
       <TextField source="country"/>
-      <ReferenceField label="Sport" source="sport_id" reference="sports">
+      <ReferenceField label="Sport" source="sport" reference="sports">
         <TextField source="name"/>
       </ReferenceField>
       <EditButton/>
@@ -26,7 +26,7 @@ export const CompetitionEdit = (props) => (
   <Edit title={<CompetitionTitle/>} {...props}>
     <SimpleForm>
       <DisabledInput source="_id" />
-      <ReferenceInput label="Sport" source="sport_id" reference="sports">
+      <ReferenceInput label="Sport" source="sport" reference="sports">
         <SelectInput source="name"/>
       </ReferenceInput>
       <TextInput source="name"/>

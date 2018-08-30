@@ -11,7 +11,6 @@ const { imageVersionSchema } = require('./imageVersion');
 const { intersection } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
-
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
   'Trattoria', 'Bar', 'Centro scommesse'
@@ -90,7 +89,7 @@ const businessSchema = new mongoose.Schema({
 
 });
 
-businessSchema.pre('save', async function save(next) {
+businessSchema.pre('save', async function(next) {
   try {
 
 
@@ -99,21 +98,18 @@ businessSchema.pre('save', async function save(next) {
       const { address } = this;
       const compactAddress = `${address.street} ${address.number}, ${address.zip} ${address.city}, ${address.province}`;
 
-      googleMapsClient.geocode({address: compactAddress}).asPromise()
+      return googleMapsClient.geocode({address: compactAddress}).asPromise()
         .then(res => {
-
-
           const response = res.json;
-
           if (response.results.length > 0) {
             const {location} = response.results[0].geometry;
-
-            this.address = {
-              ...this.address, location: {
+            this.address.location = {
                 type: 'Point',
                 coordinates: [location.lng, location.lat]
               }
-            };
+
+            console.log(this.address);
+
           }
           next();
         })
@@ -130,16 +126,15 @@ businessSchema.pre('save', async function save(next) {
 });
 
 businessSchema.statics = {
-  async findNear(lat, lng, radius, options) {
+  async findNear(lat, lng, radius, options = {}) {
 
-    const {_end = 10, _start = 0, _order = 1, _sort = "_id"} = options;
+    let {_end = 10, _start = 0, _order = 1, _sort = "dist.calculated"} = options;
     radius = parseFloat(radius) * 1000; //km to meters
     lat = parseFloat(lat); lng = parseFloat(lng);
     const count = await this.count({'address.location': {
       $near: {$maxDistance: radius, $geometry: {type: 'Point', coordinates: [lng, lat]}}
     }}).exec();
-
-
+    _sort = _sort == "distance" ? "dist.calculated" : _sort; //accetto anche distance come parametro di _sort
     const docs = await this.aggregate([
       {
         '$geoNear': {
@@ -148,13 +143,14 @@ businessSchema.statics = {
           distanceMultiplier: 1/1000, //meters to km
           spherical: true,
           maxDistance: (radius),
-          query: options,
           includeLocs: "dist.location",
         },
       },
-      { $skip: _start },
-      { $limit: _end - _start},
-      { $sort: { [_sort]: _order }}
+      { $sort: { [_sort]: parseFloat(_order) }},
+      { $skip: parseInt(_start) },
+      { $limit: parseInt(_end - _start)},
+
+
 
     ]);
 
