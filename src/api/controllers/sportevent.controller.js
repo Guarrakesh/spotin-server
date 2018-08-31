@@ -71,20 +71,22 @@ exports.list = async (req, res, next) => {
     let query = omit(req.query, ['competition_id', 'sport', '_end', '_start', '_order', '_sort']);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { locals } = req;
+
     //Accetto sia /sports/:id/events che /competitions/:id/events che /events
     if (locals && locals.competition) {
-      query['competition._id'] = req.locals.competition._id;
+      query['competition'] = req.locals.competition._id;
     } else if (locals && locals.sport) {
       query.sport = req.locals.sport._id;
     } else if (req.query.competition_id) {
       console.log(req.query.competition_id);
-      query['competition._id'] = req.query.competition_id;
+      query['competition'] = req.query.competition_id;
     }
 
+    const limit = parseInt(_end - _start);
     let events = await SportEvent.paginate(query, {
       sort: _sort,
       offset: parseInt(_start),
-      limit: parseInt(_end - _start),
+      limit: limit,
       populate: ['sport', 'competition','competitors._id'],
     });
 
