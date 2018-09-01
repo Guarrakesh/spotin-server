@@ -2,35 +2,33 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Admin, Resource } from 'react-admin';
+import { Resource, AUTH_GET_PERMISSIONS } from 'react-admin';
+import Admin from './containers/admin';
+import Business from './containers/business';
 
-import dataProvider from './providers/dataProvider';
 import authProvider from './providers/authProvider';
 
 
-import AdminRoutes from './containers/admin';
-import BusinessRoutes from './containers/business';
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {rootComponent: null};
+  }
+  componentWillMount(props) {
+    this.init();
+  }
+  init = async props => {
+    return authProvider(AUTH_GET_PERMISSIONS).then((role) => {
+      if (role === "admin")
+        this.setState({rootComponent: <Admin/>});
+      else if (role === "business")
+        this.setState({rootComponent: <Business/>});
+    });
+  }
+  render() {
+    return this.state.rootComponent;
+  }
 
 
-import history from './history';
-import theme from './theme';
-
-const App = () => (
-
-  <Admin
-    title="SpotIn - Dashboard"
-    theme={theme}
-    history={history}
-    dataProvider={dataProvider} authProvider={authProvider} >
-
-    {permissions =>
-      permissions === "admin" ? AdminRoutes : BusinessRoutes
-    }
-
-
-
-  </Admin>
-
-
-);
+}
 export default App;
