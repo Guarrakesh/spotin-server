@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
+
 
 const { imageVersionSchema } = require('./imageVersion');
 
@@ -27,7 +29,7 @@ const broadcastSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  image_url: imageVersionSchema,
+  image_url: [imageVersionSchema],
   offer: offerSchema,
   reservations: [reservationSchema],
 
@@ -46,6 +48,8 @@ broadcastSchema.method({
 broadcastSchema.statics = {
 
 };
+
+broadcastSchema.plugin(mongoosePaginate);
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");
 

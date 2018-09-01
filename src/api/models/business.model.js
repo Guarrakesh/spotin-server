@@ -125,6 +125,13 @@ businessSchema.pre('save', async function(next) {
   }
 });
 
+
+businessSchema.method({
+  async paySpots(spots) {
+    this.spots -= spots;
+    await this.save();
+  },
+});
 businessSchema.statics = {
   async findNear(lat, lng, radius, options = {}) {
 
