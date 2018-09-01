@@ -8,6 +8,7 @@ import { CompetitionList, CompetitionEdit, CompetitionCreate } from './resources
 import { BusinessList, BusinessEdit, BusinessCreate } from './resources/businesses';
 import { EventList, EventEdit, EventCreate } from './resources/events';
 import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/competitors';
+import { BroadcastList, BroadcastCreate } from './resources/broadcasts';
 
 import {Admin as AdminBase} from 'react-admin';
 
@@ -23,7 +24,12 @@ const AdminRoutes = [
     <Resource name="competitors" list={CompetitorList} edit={CompetitorEdit} create={CompetitorCreate}/>,
     <Resource name="businesses" list={BusinessList} options={{label: "Locali"}} create={BusinessCreate} edit={BusinessEdit}/>,
     <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
+<<<<<<< HEAD
     <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />
+=======
+    <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
+    <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} />
+>>>>>>> 245338725bcb8f8241182255b3b40dfe2ff3fae9
 ];
 
 const Admin = () => (

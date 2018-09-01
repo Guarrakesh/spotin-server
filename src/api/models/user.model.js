@@ -9,10 +9,15 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const mongoosePaginate = require('mongoose-paginate');
 const { sportSchema } = require('./sport.model');
+const { ADMIN, BUSINESS, LOGGED_USER } = require('../middlewares/auth');
+
+const { Business } = require('./business.model');
 /**
  * User Roles
  */
-const roles = ['user', 'admin', 'business'];
+
+
+const roles = [LOGGED_USER, ADMIN, BUSINESS];
 
 /**
  * User Schema
@@ -121,6 +126,15 @@ userSchema.method({
   async passwordMatches(password) {
     return bcrypt.compare(password, this.password);
   },
+  getIsBusiness() {
+    return this.role === "business";
+
+  },
+  async businesses() {
+    const businesses = await Business.find({user: this._id});
+
+    return businesses || null;
+  }
 });
 
 /**
