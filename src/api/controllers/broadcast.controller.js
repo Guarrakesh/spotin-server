@@ -88,10 +88,8 @@ exports.list = async (req, res, next) => {
       })
 
     } else {
-<<<<<<< HEAD
-      let broadcasts = await Broadcast.find(req.query)
-        .populate('business').populate('event')
-=======
+
+
       let broadcasts = await Broadcast.paginate(filterQuery, {
         sort: {[_sort]: _order},
         offset: parseInt(_start),
@@ -101,7 +99,6 @@ exports.list = async (req, res, next) => {
       res.json(broadcasts);
 
 
->>>>>>> 245338725bcb8f8241182255b3b40dfe2ff3fae9
     }
   } catch (error) {
     next(error);

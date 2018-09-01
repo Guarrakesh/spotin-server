@@ -3,8 +3,8 @@ import { List, Datagrid, TextField, ReferenceField, EmailField, Edit, Create, Ed
   DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput,
   required,
   email,
-  minValue,
-  maxValue,
+  minLength,
+  maxLength,
   number} from 'react-admin';
 
 
@@ -22,10 +22,10 @@ export const UserList = (props) => (
 
 
 const validateEmail = [required(), email()];
-const validateName = [required(), minValue(3), maxValue(45)];
-const validateLastName = [minValue(3), maxValue(3)];
-const validateUsername = [minValue(6), maxValue(6)];
-const validatePass = [required(), minValue(6), maxValue(128)];
+const validateName = [required(), minLength(3), maxLength(45)];
+const validateLastName = [minLength(3), maxLength(45)];
+const validateUsername = [minLength(3), maxLength(45)];
+const validatePass = [required(), minLength(6), maxLength(128)];
 let roles = [
   {id: "admin", name: "Admin"},
   {id: "business", name: "Business"},

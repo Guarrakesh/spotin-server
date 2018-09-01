@@ -24,12 +24,9 @@ const AdminRoutes = [
     <Resource name="competitors" list={CompetitorList} edit={CompetitorEdit} create={CompetitorCreate}/>,
     <Resource name="businesses" list={BusinessList} options={{label: "Locali"}} create={BusinessCreate} edit={BusinessEdit}/>,
     <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
-<<<<<<< HEAD
-    <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />
-=======
+
     <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
     <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} />
->>>>>>> 245338725bcb8f8241182255b3b40dfe2ff3fae9
 ];
 
 const Admin = () => (
