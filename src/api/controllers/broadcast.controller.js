@@ -49,11 +49,6 @@ exports.list = async (req, res, next) => {
       let broadcasts = await Broadcast.find(req.query)
         .populate('business').populate('event')
     }
-
-
-
-
-
   } catch (error) {
     next(error);
   }
