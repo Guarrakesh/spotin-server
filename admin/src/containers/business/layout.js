@@ -9,11 +9,12 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
 
-import { setSidebarVisibility, Notification, Error, Menu, defaultTheme } from 'react-admin';
+import { setSidebarVisibility, Notification, Error, defaultTheme } from 'react-admin';
 
 import businessStyle from './assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx';
 import AppBar from './components/AppBar';
 import Sidebar from './components/Sidebar';
+import Menu from './components/Menu';
 
 import sidebarImage from "./assets/img/sidebar-4.jpg";
 const sanitizeRestProps = ({
