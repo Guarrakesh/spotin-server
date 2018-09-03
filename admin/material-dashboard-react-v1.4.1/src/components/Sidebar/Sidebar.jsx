@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Drawer from "@material-ui/core/Drawer";
@@ -10,7 +10,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Icon from "@material-ui/core/Icon";
+
 // core components
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 
