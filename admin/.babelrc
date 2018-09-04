@@ -5,9 +5,8 @@
     "transform-react-jsx",
     "transform-object-rest-spread",
     ["module-resolver", {
-      "root": ["./src"],
       "alias": {
-        business: "./src/containers/business/"
+        "business": "./src/containers/business/"
       },
       "extensions": [".js", ".jsx"]
     }],

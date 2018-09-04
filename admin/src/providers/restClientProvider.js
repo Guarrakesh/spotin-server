@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { stringify } from 'query-string';
 import {
   fetchUtils,
@@ -104,10 +106,10 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
     switch (type) {
       case GET_LIST:
       case GET_MANY:
-      case GET_MANY_REFERENCE:
+      case GET_MANY_REFERENCE: {
         let data, total;
         if (!json.docs) {
-          data = json.map(res => ({ ...res, id: res._id}));
+          data = json.map(res => ({...res, id: res._id}));
           if (!headers.has('x-total-count')) {
             throw new Error(
               'The X-Total-Count headers is missing. '
@@ -122,7 +124,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
           );
 
         } else {
-          data = json.docs.map(res => ({ ...res, id: res._id}));
+          data = json.docs.map(res => ({...res, id: res._id}));
           total = parseInt(json.total);
         }
 
@@ -131,14 +133,15 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
           data,
           total
 
-         /* total: parseInt(
-            headers
-              .get('x-total-count')
-              .split('/')
-              .pop(),
-            10
-          ),*/
+          /* total: parseInt(
+           headers
+           .get('x-total-count')
+           .split('/')
+           .pop(),
+           10
+           ),*/
         };
+      }
       case UPDATE:
       case GET_ONE:
         return { data: {...json, id: json._id }  };

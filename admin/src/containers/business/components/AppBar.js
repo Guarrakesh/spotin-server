@@ -5,30 +5,29 @@ import { compose } from 'recompose';
 import { connect } from 'react-redux';
 
 // @material-ui/core components
+/* eslint-disable */
 import withStyles from "@material-ui/core/styles/withStyles";
 import MuiAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
+
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
+/* eslint-enable */
 // core components
-import {LoadingIndicator} from 'react-admin';
-import { toggleSidebar as toggleSidebarAction } from 'ra-core';
-import appBarStyle from "../assets/jss/material-dashboard-react/components/headerStyle.jsx";
+import {LoadingIndicator, toggleSidebar as toggleSidebarAction} from 'react-admin';
+import appBarStyle from "business/assets/jss/material-dashboard-pro-react/components/headerStyle";
 
 const AppBar = ({
     classes,
-   className,
-   logout,
-   open,
+
    title,
    toggleSidebar,
    color,
-   ...rest
 }) => {
-  const makeBrand = () => {
+  /*const makeBrand = () => {
     // var name;
     // props.routes.map((prop, key) => {
     //   if (prop.path === props.location.pathname) {
@@ -38,7 +37,7 @@ const AppBar = ({
     // });
     // return name;
     return "Dashboard";
-  }
+  }*/
 
   const appBarClasses = classNames({
     [" " + classes[color]]: color
@@ -49,7 +48,7 @@ const AppBar = ({
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
           <Button color="transparent" href="#" className={classes.title}>
-            //{makeBrand()}
+            {/* makeBrand() */}
             {title}
           </Button>
         </div>
@@ -94,4 +93,4 @@ const enhance = compose(
   withStyles(appBarStyle)
 )
 
-export default withStyles(appBarStyle)(AppBar);
+export default enhance(AppBar);

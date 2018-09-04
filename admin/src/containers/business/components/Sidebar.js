@@ -1,20 +1,20 @@
 import React from 'react';
-import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; //eslint-disable import/no-extraneous-dependencies
 import compose from 'recompose/compose';
 // React-admin components
-import { Responsive } from 'react-admin';
-import { setSidebarVisibility } from 'ra-core';
+import { Responsive, setSidebarVisibility } from 'react-admin';
+
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import withWidth from '@material-ui/core/withWidth';
-import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
+import sidebarStyle from  "business/assets/jss/material-dashboard-pro-react/components/sidebarStyle";
 
-import sidebarStyle from  "../assets/jss/material-dashboard-react/components/sidebarStyle.jsx";
+
 class Sidebar extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { width, setSidebarVisibility } = this.props;
     if (width !== 'xs' && width !== 'sm') {
       setSidebarVisibility(true);
@@ -28,8 +28,6 @@ class Sidebar extends React.Component {
       children,
       classes,
       open,
-      setSidebarVisibility,
-      width,
       image,
       ...rest
     } = this.props;

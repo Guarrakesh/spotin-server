@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput, TextInput, NumberInput,
-  BooleanInput, ReferenceInput, AutocompleteInput, LongTextInput, FormDataConsumer,
+import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
+  TextInput, NumberInput, ReferenceInput,
+  LongTextInput, FormDataConsumer,
   ArrayInput, SimpleFormIterator} from 'react-admin';
 import { DateTimeInput } from 'react-admin-date-inputs';
 
@@ -16,7 +17,7 @@ const EventEdit = (props) => (
           <SelectInput optionText="name"/>
         </ReferenceInput>
         <FormDataConsumer>
-          {({formData, ...reset}) =>
+          {({formData}) =>
             <ReferenceInput source="competition._id" reference="competitions"
                             filter={{sport: formData.sport}}>
               <SelectInput optionText="name"/>
@@ -30,7 +31,7 @@ const EventEdit = (props) => (
       </FormTab>
       <FormTab label="Competitors">
         <FormDataConsumer>
-          {({formData, ...rest}) =>
+          {({formData}) =>
             <ArrayInput source="competitors">
               <SimpleFormIterator>
                 <ReferenceInput

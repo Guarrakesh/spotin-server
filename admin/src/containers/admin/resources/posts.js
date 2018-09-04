@@ -17,9 +17,10 @@ export const PostList = (props) => (
 );
 
 
-const PostTitle = ({ record }) => {
+const PostTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>Post {record ? `"${record.title}"` : ''}</span>;
 };
+
 
 export const PostEdit = (props) => (
   <Edit title={<PostTitle/>} {...props}>

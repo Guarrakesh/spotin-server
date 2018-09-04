@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import inflection from 'inflection';
+import { connect } from 'react-redux'; //eslint-disable-line import/no-extraneous-dependencies
+import inflection from 'inflection'; //eslint-disable-line import/no-extraneous-dependencies
 import compose from 'recompose/compose';
-import { withStyles } from '@material-ui/core/styles';
-import classnames from 'classnames';
+import { withStyles } from '@material-ui/core/styles'; //eslint-disable-line import/no-extraneous-dependencies
+import { NavLink } from "react-router-dom";
 
 
 import classNames from "classnames";
-import {DashboardMenuItem, from, MenuItemLink, Responsive,  getResources, translate } from 'react-admin';
+import {Responsive,  getResources, translate } from 'react-admin';
+import DashboardMenuItem from './DashboardMenuItem';
 // @material-ui/core components
+/* eslint-disable */
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DefaultIcon from '@material-ui/icons/ViewList';
 import Icon from "@material-ui/core/Icon";
+import sidebarStyle from "business/assets/jss/material-dashboard-pro-react/components/sidebarStyle";
+/* eslint-enable */
 
 
-import { NavLink } from "react-router-dom";
-import sidebarStyle from "../assets/jss/material-dashboard-react/components/sidebarStyle.jsx";
+
 
 
 const translatedResourceName = (resource, translate) =>
@@ -29,14 +32,14 @@ const translatedResourceName = (resource, translate) =>
       resource.options && resource.options.label
         ? translate(resource.options.label, {
         smart_count: 2,
-        _: resource.options.label,
+        _: resource.options.lab,
       })
         : inflection.humanize(inflection.pluralize(resource.name)),
   });
 
 const Menu = ({
   classes,
-  className,
+
   dense,
   hasDashboard,
   onMenuClick,
@@ -45,7 +48,8 @@ const Menu = ({
   translate,
   logout,
   color,
-  ...rest
+  ...rest // eslint-disable-line no-unused-vars
+
 }) => {
 
   function activeRoute(routeName) {
@@ -60,7 +64,18 @@ const Menu = ({
   }
   return (
     <List className={classes.list}>
-      {hasDashboard && <DashboardMenuItem onClick={onMenuClick} />}
+      {hasDashboard &&
+
+        <DashboardMenuItem
+          onClick={onMenuClick}
+          className={classes.itemLink + classNames({[" " + classes[color]]: pathname === "/"})}
+          linkClassName={classes.item}
+          iconClassName={classes.itemIcon + classNames({[" " + classes.whiteFont]: pathname === "/"})}
+          textClassName={classes.itemText + classNames({[" " + classes.whiteFont]: pathname ===  "/"})}
+          dense
+          pathname={pathname}/>
+
+      }
       {resources
         .filter(r => r.hasList)
         .map(resource => (
@@ -74,7 +89,7 @@ const Menu = ({
             <ListItem button
                       onClick={onMenuClick}
                       className={classes.itemLink + listItemClass(resource.name)}
-                      dense>
+                      dense={dense}>
 
               <ListItemIcon button className={classes.itemIcon + classNames({[" " + classes.whiteFont]: activeRoute(resource.name)})}>
                 {typeof resource.icon === "string" ? (
@@ -109,6 +124,7 @@ Menu.propTypes = {
   pathname: PropTypes.string,
   resources: PropTypes.array.isRequired,
   translate: PropTypes.func.isRequired,
+  color: PropTypes.string
 };
 
 Menu.defaultProps = {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { AUTH_GET_PERMISSIONS } from 'react-admin';
 import './App.css';
 
-import { Resource, AUTH_GET_PERMISSIONS } from 'react-admin';
+
 import Admin from './containers/admin';
 import Business from './containers/business';
 
@@ -14,16 +14,19 @@ class App extends React.Component {
     super();
     this.state = {rootComponent: null};
   }
-  componentWillMount(props) {
+  componentDidMount() {
     this.init();
   }
-  init = async props => {
+  init = async () => {
     return authProvider(AUTH_GET_PERMISSIONS).then((role) => {
       if (role === "admin")
         this.setState({rootComponent: <Admin/>});
       else if (role === "business")
         this.setState({rootComponent: <Business/>});
+    }).catch( () => {
+        this.setState({rootComponent: <Admin/>}); //Di default, reindirizzo a Business
     });
+
   }
   render() {
     return this.state.rootComponent;

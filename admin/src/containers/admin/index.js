@@ -1,7 +1,6 @@
 import React from 'react';
+import {Admin as AdminBase, Resource} from 'react-admin';
 
-import { Resource } from 'react-admin';
-import { PostList, PostEdit, PostCreate } from './resources/posts';
 import { UserList, UserEdit, UserCreate } from './resources/users';
 import { SportList, SportEdit, SportCreate } from './resources/sports';
 import { CompetitionList, CompetitionEdit, CompetitionCreate } from './resources/competitions';
@@ -10,14 +9,14 @@ import { EventList, EventEdit, EventCreate } from './resources/events';
 import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/competitors';
 import { BroadcastList, BroadcastCreate } from './resources/broadcasts';
 
-import {Admin as AdminBase} from 'react-admin';
+
 
 
 import dataProvider from '../../providers/dataProvider';
 import authProvider from '../../providers/authProvider';
 import history from '../../history';
 import theme from './theme';
-
+/* eslint-disable */
 const AdminRoutes = [
     <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
     <Resource name="competitions" list={CompetitionList} edit={CompetitionEdit} create={CompetitionCreate}/>,
@@ -28,7 +27,7 @@ const AdminRoutes = [
     <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
     <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} />
 ];
-
+/* eslint-enable */
 const Admin = () => (
   <AdminBase dataProvider={dataProvider}
      authProvider={authProvider}
