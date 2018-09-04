@@ -12,10 +12,32 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ["react"],
+  plugins: ["react", "module-resolver"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ]
+  ],
+  rules: {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "no-console": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "extensions": [".js", ".jsx"],
+        "alias": {
+          "business": "./src/containers/business"
+        },
+
+      },
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    },
+    "import/extensions": [".js", ".jsx"]
+  }
 };

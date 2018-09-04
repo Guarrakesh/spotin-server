@@ -1,7 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField,
-  Edit, Create, EditButton, BooleanField, BooleanInput,
-  DisabledInput, LongTextInput, ReferenceInput,
+import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput,
   SelectInput, SimpleForm, TextInput, NumberInput,
   RadioButtonGroupInput } from 'react-admin';
 

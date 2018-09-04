@@ -1,7 +1,467 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Set up Business Panel">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/bg-pricing.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/card-1.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/card-2.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/card-3.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/default-avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/faces/avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/faces/card-profile1-square.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/faces/card-profile2-square.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/AU.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/BE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/BF.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/BG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/BO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/BR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CH.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/CZ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/DE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/DJ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/DK.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/DZ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/EE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/EG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/ES.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/FI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/FR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/GA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/GB.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/GM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/GT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/HN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/HT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/HU.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/ID.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IQ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/IT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/JM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/JO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/JP.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KP.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KW.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/KZ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LB.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LC.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LS.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LU.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/LV.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/MG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/MK.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/ML.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/MM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/MT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/MX.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/NO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/OM.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PK.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PT.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/PY.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/QA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/RO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/RU.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/RW.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SG.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/SV.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/TD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/TJ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/TL.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/TR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/TZ.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/UA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/US.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/VE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/VN.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/flags/YE.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/header-doc.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/image_placeholder.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/lock.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/login.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/placeholder.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/product1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/product2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/product3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/register.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/sidebar-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/sidebar-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/sidebar-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/sidebar-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/logo-white.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/badgeStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/cardBodyStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/cardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/cardTextStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/footerStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/headingStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/infoStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/tableStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/tasksStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/timelineStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/components/wizardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/layouts/pagesStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/layouts/rtlStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/buttonsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/dashboardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/extendedFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/extendedTablesStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/gridSystemStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/iconsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/lockScreenPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/notificationsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/pricingPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/registerPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/regularFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/sweetAlertStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/userProfileStyles.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react/views/validationFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Calendar/Calendar.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Charts/Charts.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/Buttons.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/GridSystem.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/Icons.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/Notifications.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/Panels.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/SweetAlert.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Components/Typography.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Dashboard/Dashboard.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/ExtendedForms.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/RegularForms.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/ValidationForms.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/Wizard.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/WizardSteps/Step1.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/WizardSteps/Step2.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/WizardSteps/Step3.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Maps/FullScreenMap.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Maps/GoogleMaps.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Maps/VectorMap.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/LockScreenPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/LoginPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/PricingPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/RTLSupport.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/RegisterPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/Timeline.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Pages/UserProfile.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Tables/ExtendedTables.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Tables/ReactTables.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Tables/RegularTables.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Widgets/Widgets.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/actions/business.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/buttonGroupStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/badgeStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardAvatarStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardBodyStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardFooterStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardHeaderStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardTextStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customDropdownStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customInputStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customLinearProgressStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customTabsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/footerStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerLinksStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headingStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/infoStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/instructionStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/pagesHeaderStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/paginationStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/snackbarContentStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/tableStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/tasksStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/timelineStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/typographyStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/wizardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/customSelectStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/hoverCardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/pagesStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/rtlStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/modalStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/buttonsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/dashboardStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/extendedFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/extendedTablesStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/gridSystemStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/iconsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/lockScreenPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/notificationsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/pricingPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/registerPageStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/regularFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/sweetAlertStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/userProfileStyles.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/validationFormsStyle.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardText.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/CustomButtons/Button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Table/Table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Danger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Info.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Muted.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Primary.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Quote.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Success.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Warning.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.babelrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.eslintignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.eslintrc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/ISSUE_TEMPLATE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/__MACOSX/._.env" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/__MACOSX/src/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/__MACOSX/src/assets/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/__MACOSX/src/assets/github/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/css/demo-documentation.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/css/material-dashboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/cover.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/new_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/reactlogo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/sidebar-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/sidebar-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/sidebar-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/sidebar-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/js/jquery-3.2.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/tutorial-components.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/public/apple-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/public/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/public/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/public/manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/css/material-dashboard-react.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/angular.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/chrome.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/dashboard.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/edge.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/firefox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/html.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/map.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/md-react.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/notifications.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/opera.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/opt_md_angular_thumbnail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/opt_md_thumbnail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/opt_md_vue_thumbnail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/opt_mdr_thumbnail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/react.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/safari.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/tables.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/userprofile.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/github/vuejs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/apple-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/cover.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/faces/marc.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/favicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/mask.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/new_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/reactlogo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/sidebar-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/sidebar-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/sidebar-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/sidebar-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/img/tim_80x80.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/checkboxAdnRadioStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/buttonStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardAvatarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardBodyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardFooterStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardHeaderStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardIconStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/customInputStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/customTabsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/footerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/headerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/sidebarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/snackbarContentStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/tableStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/tasksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/typographyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/dropdownStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/tooltipStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/views/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/views/iconsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/Card.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/CardAvatar.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/CardBody.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/CardFooter.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/CardHeader.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Card/CardIcon.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/CustomButtons/Button.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/CustomInput/CustomInput.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/CustomTabs/CustomTabs.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Footer/Footer.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Header/Header.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Header/HeaderLinks.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Sidebar/Sidebar.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Snackbar/Snackbar.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Snackbar/SnackbarContent.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Table/Table.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Tasks/Tasks.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Danger.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Info.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Muted.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Primary.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Quote.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Success.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Typography/Warning.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/layouts/Dashboard/Dashboard.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/logo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/routes/dashboard.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/routes/index.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/variables/charts.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/variables/general.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Dashboard/Dashboard.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Icons/Icons.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Maps/Maps.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Notifications/Notifications.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/TableList/TableList.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Typography/Typography.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/UpgradeToPro/UpgradeToPro.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/UserProfile/UserProfile.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/cardImagesStyles.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/checkboxAdnRadioStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/buttonStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardAvatarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardBodyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardFooterStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardHeaderStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardIconStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/cardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/customInputStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/customTabsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/footerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/headerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/sidebarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/snackbarContentStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/tableStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/tasksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/typographyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/dropdownStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/tooltipStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/views/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/views/iconsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridContainer.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridItem.jsx" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/apple-icon.png" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/apple-icon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/faces/marc.jpg" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/faces/marc.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/favicon.png" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/favicon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/mask.png" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/mask.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/documentation/assets/img/tim_80x80.png" afterPath="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/img/new_logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/cardImagesStyles.jsx" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/cardImagesStyles.jsx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Grid/GridContainer.jsx" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridContainer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Grid/GridItem.jsx" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridItem.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/.babelrc" afterPath="$PROJECT_DIR$/admin/.babelrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/.eslintrc.js" afterPath="$PROJECT_DIR$/admin/.eslintrc.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/package.json" afterPath="$PROJECT_DIR$/admin/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/App.js" afterPath="$PROJECT_DIR$/admin/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/competitions.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/competitions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/competitors/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/competitors/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/posts.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/posts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/sports.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/sports.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/theme.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/layout.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/layout.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/theme.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/history.js" afterPath="$PROJECT_DIR$/admin/src/history.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/providers/authProvider.js" afterPath="$PROJECT_DIR$/admin/src/providers/authProvider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" afterPath="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/registerServiceWorker.js" afterPath="$PROJECT_DIR$/admin/src/registerServiceWorker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/yarn.lock" afterPath="$PROJECT_DIR$/admin/yarn.lock" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,91 +485,115 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Menu.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/Menu.js">
+          <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="115" column="16" lean-forward="false" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="16" />
+                <state relative-caret-position="310">
+                  <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#449#491#0" expanded="true" />
+                    <element signature="e#421#482#0" expanded="true" />
+                    <element signature="e#595#677#0" expanded="true" />
+                    <element signature="e#901#975#0" expanded="true" />
+                    <element signature="e#1266#1342#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CardAvatar.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.jsx">
+          <file leaf-file-name="business.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/actions/business.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+                <state relative-caret-position="105">
+                  <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CardBody.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.jsx">
+          <file leaf-file-name="layout.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/layout.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="96" lean-forward="false" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+                <state relative-caret-position="105">
+                  <caret line="14" column="70" lean-forward="false" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CardFooter.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.jsx">
+          <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CardHeader.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CardIcon.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="96" lean-forward="false" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="material-dashboard-react.jsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="855">
-                  <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+                <state relative-caret-position="270">
+                  <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
                   <folding>
-                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#0#26#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Dashboard.jsx" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Dashboard/Dashboard.jsx">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+                <state relative-caret-position="195">
+                  <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".eslintrc.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#204#260#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="dataProvider.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/providers/dataProvider.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="authProvider.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/providers/authProvider.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1410">
+                  <caret line="94" column="60" lean-forward="false" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="App.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/App.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#164#225#0" expanded="true" />
-                    <element signature="e#291#336#0" expanded="true" />
-                    <element signature="e#884#936#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -119,105 +603,119 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js">
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                <state relative-caret-position="30">
+                  <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EventList.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/resources/events/EventList.js">
+          <file leaf-file-name="DashboardMenuItem.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+                <state relative-caret-position="319">
+                  <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AppBar.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="19" column="7" lean-forward="false" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Dashboard.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Dashboard/Dashboard.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="195">
+                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="26" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#97#125#0" expanded="false" />
+                    <element signature="e#263#324#0" expanded="true" />
+                    <element signature="e#608#657#0" expanded="true" />
+                    <element signature="e#1194#1256#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.babelrc">
+          <file leaf-file-name="Dashboard.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/layouts/Dashboard.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                <state relative-caret-position="120">
+                  <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#185#234#0" expanded="true" />
+                    <element signature="e#404#454#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="accordionStyle.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="78" lean-forward="false" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/.babelrc">
+          <file leaf-file-name="headerStyle.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="60">
+                  <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#91#286#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".eslintrc.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
+          <file leaf-file-name="cardHeaderStyle.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardHeaderStyle.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="105">
+                  <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+                  <folding>
+                    <element signature="e#0#185#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/package.json">
+          <file leaf-file-name="cardIconStyle.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="15">
+                  <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#185#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/package.json">
+          <file leaf-file-name="customDropdownStyle.jsx" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customDropdownStyle.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1262">
+                <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".eslintrc.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.eslintrc.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-                  <folding />
+                  <folding>
+                    <element signature="e#0#117#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -228,15 +726,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectors</find>
-      <find>fill</find>
-      <find>{image}</find>
-      <find>/img</find>
-      <find>loginUri</find>
-      <find>hasOwn</find>
-      <find>3000</find>
-      <find>business.js</find>
-      <find>list</find>
       <find>dbSports</find>
       <find>dbCompetitors</find>
       <find>currentDate</find>
@@ -255,15 +744,28 @@
       <find>Bsines</find>
       <find>card</find>
       <find>color</find>
-      <find>Menu</find>
       <find>whiteF</find>
+      <find>sanitize</find>
+      <find>Comment</find>
+      <find>Menu</find>
       <find>className</find>
+      <find>redux</find>
+      <find>classNames</find>
+      <find>/components/</find>
+      <find>.jsx&quot;</find>
+      <find>Warning</find>
+      <find>.jsx&quot;;</find>
+      <find>&quot;assets/</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
       <replace>pages/</replace>
       <replace>assets/img</replace>
       <replace>/img/sports/</replace>
+      <replace>/components/material-ui/</replace>
+      <replace>&quot;</replace>
+      <replace>&quot;;</replace>
+      <replace>&quot;business/assets/</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/api/controllers</dir>
@@ -276,6 +778,8 @@
       <dir>$PROJECT_DIR$/admin/node_modules/ra-ui-materialui</dir>
       <dir>$PROJECT_DIR$/admin/node_modules/ra-data-json-server</dir>
       <dir>$PROJECT_DIR$/src/api</dir>
+      <dir>$PROJECT_DIR$/admin/src/containers/business/assets/jss</dir>
+      <dir>$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -290,57 +794,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/models/competition.model.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/competition.validation.js" />
-        <option value="$PROJECT_DIR$/src/api/tests/integration/fixtures.js" />
-        <option value="$PROJECT_DIR$/admin/src/resources/events/index.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/competition.route.js" />
-        <option value="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/competition.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
-        <option value="$PROJECT_DIR$/admin/src/resources/events/EventEdit.js" />
-        <option value="$PROJECT_DIR$/admin/src/resources/events/EventCreate.js" />
-        <option value="$PROJECT_DIR$/admin/src/resources/competitions.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/sportevent.validation.js" />
-        <option value="$PROJECT_DIR$/admin/src/resources/admin/index.js" />
-        <option value="$PROJECT_DIR$/admin/src/App.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/reservation.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/sportevent.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/offer.schema.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/broadcast.validation.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcast.route.js" />
-        <option value="$PROJECT_DIR$/src/api/middlewares/auth.js" />
-        <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" />
-        <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/broadcast.controller.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/sports.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" />
+        <option value="$PROJECT_DIR$/admin/src/registerServiceWorker.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
+        <option value="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.babelrc" />
+        <option value="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/headerStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/sidebarStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$USER_HOME$/Downloads/[IRAKI.NET] Collection Premium Bootstrap Themes By Creative Tim/[Iraki.net] material-dashboard-pro-html-v1.2.1/examples/dashboard.html" />
-        <option value="$PROJECT_DIR$/admin/src/containers/business/resources/events/EventList.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/business/layout.js" />
-        <option value="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Sidebar/Sidebar.jsx" />
-        <option value="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" />
+        <option value="$PROJECT_DIR$/admin/.babelrc" />
+        <option value="$PROJECT_DIR$/admin/src/history.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.jsx" />
-        <option value="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Dashboard/Dashboard.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardText.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/layout.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/badgeStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardHeaderStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Danger.jsx" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Info.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Danger.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/index.js" />
-        <option value="$PROJECT_DIR$/admin/src/.babelrc" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" />
-        <option value="$PROJECT_DIR$/admin/.eslintrc" />
         <option value="$PROJECT_DIR$/admin/.eslintrc.js" />
-        <option value="$PROJECT_DIR$/admin/package.json" />
-        <option value="$PROJECT_DIR$/admin/.babelrc" />
-        <option value="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/package.json" />
-        <option value="$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.gitignore" />
+        <option value="$PROJECT_DIR$/admin/src/App.js" />
+        <option value="$PROJECT_DIR$/admin/src/providers/authProvider.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/actions/business.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" />
       </list>
     </option>
   </component>
@@ -358,7 +862,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="2560" />
-    <option name="height" value="1321" />
+    <option name="height" value="1325" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -389,6 +893,168 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="material-dashboard-pro-react-v1.3.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -405,21 +1071,22 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="js.eslint.eslintPackage" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin/src/containers/business/components/material-ui" />
       <recent name="$PROJECT_DIR$/admin" />
       <recent name="$PROJECT_DIR$/admin/src/resources/admin/resources" />
       <recent name="$PROJECT_DIR$/admin/src/resources/admin" />
       <recent name="$PROJECT_DIR$/src/api/utils" />
-      <recent name="$PROJECT_DIR$/admin/src/resources/users" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/admin/src" />
       <recent name="$PROJECT_DIR$/admin/src/containers/business/components/material-ui" />
+      <recent name="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Card" />
+      <recent name="$PROJECT_DIR$/admin/src/containers/business/assets" />
+      <recent name="$PROJECT_DIR$/admin/src" />
       <recent name="$PROJECT_DIR$/admin/src/containers/business" />
-      <recent name="$PROJECT_DIR$/client/src/components" />
-      <recent name="$PROJECT_DIR$/client/src/helpers" />
     </key>
   </component>
   <component name="RunManager">
@@ -542,7 +1209,10 @@
       <workItem from="1535669503775" duration="632000" />
       <workItem from="1535716217151" duration="14056000" />
       <workItem from="1535829719352" duration="7193000" />
-      <workItem from="1535976613567" duration="4681000" />
+      <workItem from="1535976613567" duration="10835000" />
+      <workItem from="1535992831146" duration="1002000" />
+      <workItem from="1535999608472" duration="9980000" />
+      <workItem from="1536066935826" duration="259000" />
     </task>
     <task id="LOCAL-00001" summary="Set first SportEvent API's">
       <created>1530619835139</created>
@@ -786,7 +1456,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319073000" />
+    <option name="totallyTimeSpent" value="336468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,20 +1468,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1321" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="2560" height="1325" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14927137" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1480898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46099913" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32927817" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28234336" sideWeight="0.49192595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270952" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39788446" sideWeight="0.50807405" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24493106" sideWeight="0.50807405" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19982472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="103" y="123" width="2360" height="1120" />
@@ -819,7 +1489,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270952" sideWeight="0.48905995" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32656378" sideWeight="0.48905995" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -854,7 +1524,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Competitions APIS" />
     <MESSAGE value="Removed AuthToken requirement from Sport APIS" />
     <MESSAGE value="Register APIS" />
     <MESSAGE value="FIX: /sports/:id/competitions restituiva tutte le competizioni invece che solo quelle dello sport relativo. Sistemato." />
@@ -879,312 +1548,265 @@
     <MESSAGE value="Rimosso yarn.lock" />
     <MESSAGE value="Added card components" />
     <MESSAGE value="Ignored some" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ignored some" />
+    <MESSAGE value="Set up Business Panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up Business Panel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/admin/src/containers/admin/resources/posts.js</url>
-          <line>24</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/admin/.eslintrc.js</url>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/broadcast.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/iconsStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.jsx" />
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardText.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="57" lean-forward="false" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+        <state relative-caret-position="465">
+          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/App.js">
+    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/CustomButtons/Button.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        <state relative-caret-position="-15">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/CustomButtons/Button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="3" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/[IRAKI.NET] Collection Premium Bootstrap Themes By Creative Tim/[Iraki.net] material-dashboard-pro-html-v1.2.1/assets/sass/material-dashboard/_tables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Table/Table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/[IRAKI.NET] Collection Premium Bootstrap Themes By Creative Tim/[Iraki.net] material-dashboard-pro-html-v1.2.1/examples/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="401" column="66" lean-forward="false" selection-start-line="388" selection-start-column="44" selection-end-line="388" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/[IRAKI.NET] Collection Premium Bootstrap Themes By Creative Tim/[Iraki.net] material-dashboard-pro-html-v1.2.1/assets/sass/material-dashboard/_cards.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10026">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="80" lean-forward="false" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardFooterStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="104" lean-forward="false" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="104" lean-forward="false" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="100" lean-forward="false" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="104" lean-forward="false" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="100" lean-forward="false" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/node_modules/classnames/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/routes/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/routes/dashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardStyle.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardBodyStyle.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Header/Header.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/assets/jss/material-dashboard-react/components/cardFooterStyle.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react/components/sidebarStyle.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="201" column="25" lean-forward="false" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#204#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/layouts/Dashboard/Dashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="69" column="12" lean-forward="false" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/badgeStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="96" lean-forward="false" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+        <state relative-caret-position="705">
+          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Muted.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="96" lean-forward="false" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/components/Sidebar/Sidebar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="false" />
-            <element signature="e#133#194#0" expanded="false" />
-            <element signature="e#521#581#0" expanded="false" />
+            <element signature="e#96#157#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-react.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Primary.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+        <state relative-caret-position="60">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
+            <element signature="e#96#157#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Info.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+        <state relative-caret-position="75">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/Menu.js">
+    <entry file="file://$PROJECT_DIR$/admin/yarn-error.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="115" column="16" lean-forward="false" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Danger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+            <element signature="e#96#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="147" column="54" lean-forward="false" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#449#491#0" expanded="true" />
+            <element signature="e#421#482#0" expanded="true" />
+            <element signature="e#595#677#0" expanded="true" />
+            <element signature="e#901#975#0" expanded="true" />
+            <element signature="e#1266#1342#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridContainer.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/actions/business.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="e#59#120#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridItem.jsx">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="105">
+          <caret line="14" column="70" lean-forward="false" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
           <folding>
-            <element signature="e#59#120#0" expanded="false" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/.babelrc">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1194,130 +1816,157 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/business/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="30">
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding>
-            <element signature="e#0#26#0" expanded="false" />
+            <element signature="e#204#260#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/src/views/Dashboard/Dashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#164#225#0" expanded="true" />
-            <element signature="e#291#336#0" expanded="true" />
-            <element signature="e#884#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/bower.json">
+    <entry file="file://$PROJECT_DIR$/admin/src/providers/dataProvider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1262">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.eslintrc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/resources/events/EventList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#97#125#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/.babelrc">
+    <entry file="file://$PROJECT_DIR$/admin/src/providers/authProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="60" lean-forward="false" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/App.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="122" column="4" lean-forward="false" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+          <folding>
+            <element signature="e#318#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#251#291#0" expanded="true" />
+            <element signature="e#659#701#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="7" lean-forward="false" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Dashboard/Dashboard.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#263#324#0" expanded="true" />
+            <element signature="e#608#657#0" expanded="true" />
+            <element signature="e#1194#1256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/layouts/Dashboard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding>
+            <element signature="e#185#234#0" expanded="true" />
+            <element signature="e#404#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="78" lean-forward="false" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/package.json">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#91#286#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardHeaderStyle.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customDropdownStyle.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/package.json">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/material-dashboard-react-v1.4.1/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
           <folding />
         </state>
       </provider>

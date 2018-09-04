@@ -29,7 +29,7 @@ const styles = {
 };
 
 
-const Title = ({record}) => {
+const Title = ({record}) => { //eslint-disable-line react/prop-types
   return <span>{record ? record.name : ''}</span>
 }
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {

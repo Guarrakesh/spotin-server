@@ -1,11 +1,11 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, EmailField, Edit, Create, EditButton,
-  DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput,
+import { List, Datagrid, TextField, EmailField, Edit, Create, EditButton,
+  DisabledInput, SelectInput, SimpleForm, TextInput,
   required,
   email,
   minLength,
   maxLength,
-  number} from 'react-admin';
+  } from 'react-admin';
 
 
 export const UserList = (props) => (
@@ -32,7 +32,7 @@ let roles = [
   {id: "user", name: "User"}
 ];
 
-const UserTitle = ({ record }) => {
+const UserTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>User {record ? `"${record.name}"` : ''}</span>;
 };
 

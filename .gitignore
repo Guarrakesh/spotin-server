@@ -49,3 +49,4 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 yarn.lock
+/admin/material-dashboard-pro-react-v1.3.0/

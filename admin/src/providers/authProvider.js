@@ -1,13 +1,13 @@
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR, AUTH_GET_PERMISSIONS  } from 'react-admin';
+import {AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR, AUTH_GET_PERMISSIONS} from "react-admin";
 
-
+const AUTH_GET_USER = 'AUTH_GET_USER';
 const loginUri = process.env.NODE_ENV === "production" ? "/v1/auth/login" : "http://localhost:3001/v1/auth/login";
 const refreshUri = process.env.NODE_ENV === "production" ? "/v1/auth/refresg" : "http://localhost:3001/v1/auth/refresh-token";
 
 
 export default (type, params) => {
   switch (type) {
-    case AUTH_LOGIN:
+    case AUTH_LOGIN: {
 
       const {username, password} = params;
       const request = new Request(loginUri, {
@@ -28,22 +28,22 @@ export default (type, params) => {
           localStorage.setItem('user', JSON.stringify(user));
         });
 
-
-    case AUTH_LOGOUT:
+    }
+    case AUTH_LOGOUT: {
       localStorage.removeItem('token');
       break;
-    case AUTH_ERROR:
+    }
+    case AUTH_ERROR: {
       if (401 === params.status || 403 === params.status) {
         localStorage.removeItem('token');
         return Promise.reject();
       }
       return Promise.resolve();
 
-      break;
 
 
-
-    case AUTH_CHECK:
+    }
+    case AUTH_CHECK: {
       const token = JSON.parse(localStorage.getItem('token'));
       if (!token) Promise.reject();
       //Controllo se la token ha bisogno di refresh
@@ -52,10 +52,9 @@ export default (type, params) => {
       //Dopo di ché refresho la token (se fallisce il refresh, faccio il logout (reject) )
       const dateNow = Date.now();
       const tokenExpire = Date.parse(token.expiresIn);
-      console.log(tokenExpire);
       if (tokenExpire < dateNow) {
 
-        const { email } = JSON.parse(localStorage.getItem('user'));
+        const {email} = JSON.parse(localStorage.getItem('user'));
         const refreshToken = token.refreshToken;
         if (!email) Promise.reject();
         const request = new Request(refreshUri, {
@@ -78,14 +77,26 @@ export default (type, params) => {
 
         Promise.resolve();
       }
+      break;
+    }
+    case AUTH_GET_PERMISSIONS: {
+      const user = localStorage.getItem('user');
 
+      if (!user) return Promise.reject();
 
-    case AUTH_GET_PERMISSIONS:
-      const { role } = JSON.parse(localStorage.getItem('user'));
+      const role = JSON.parse(user).role;
       return role ? Promise.resolve(role) : Promise.reject();
 
+    }
     default:
       return Promise.resolve();
+
+    case AUTH_GET_USER: {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (!user) return Promise.reject();
+
+      return Promise.resolve(user);
+    }
   }
 
 

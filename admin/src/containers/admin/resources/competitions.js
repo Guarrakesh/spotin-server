@@ -1,6 +1,6 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton, BooleanField, BooleanInput,
-  DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
+  DisabledInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
 
 export const CompetitionList = (props) => (
   <List {...props}>
@@ -18,7 +18,7 @@ export const CompetitionList = (props) => (
 );
 
 
-const CompetitionTitle = ({ record }) => {
+const CompetitionTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>{record ? `${record.name}` : ''}</span>;
 };
 

@@ -1,11 +1,7 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, EmailField, Edit, Create, EditButton,
-  DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput, BooleanInput,
-  required,
-  email,
-  minValue,
-  maxValue,
-  number} from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
+  DisabledInput, ReferenceInput, SelectInput, SimpleForm, TextInput, BooleanInput,
+} from 'react-admin';
 
 
 export const CompetitorList = (props) => (
@@ -24,7 +20,7 @@ export const CompetitorList = (props) => (
 );
 
 
-const CompTitle = ({ record }) => {
+const CompTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>User {record ? `"${record.name || record.full_name}"` : ''}</span>;
 };
 

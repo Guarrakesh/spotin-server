@@ -4,26 +4,28 @@ import {
     MuiThemeProvider,
     createMuiTheme,
     withStyles,
-} from '@material-ui/core/styles';
-import { connect } from 'react-redux';
+} from '@material-ui/core/styles'; //eslint-disable-line import/no-extraneous-dependencies
+import { connect } from 'react-redux'; //eslint-disable-line import/no-extraneous-dependencies
 import { compose } from 'recompose';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router'; //eslint-disable-line import/no-extraneous-dependencies
 
-import { setSidebarVisibility, Notification, Error, defaultTheme } from 'react-admin';
 
-import businessStyle from './assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx';
+import { Notification, Error, defaultTheme } from 'react-admin';
+
+import businessStyle from 'business/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
 import AppBar from './components/AppBar';
 import Sidebar from './components/Sidebar';
 import Menu from './components/Menu';
-
 import sidebarImage from "./assets/img/sidebar-4.jpg";
-const sanitizeRestProps = ({
+
+
+/*const sanitizeRestProps = ({
     staticContext,
     history,
     location,
     match,
     ...props
-}) => props;
+}) => props;*/
 
 class BusinessLayout extends React.Component {
   state = { hasError: false, errorMessage: null, errorInfo: null };
@@ -47,16 +49,13 @@ class BusinessLayout extends React.Component {
           appBar,
           children,
           classes,
-          className,
-          customRoutes,
           error,
           dashboard,
           logout,
           menu,
-          notification,
           open,
           title,
-          ...props
+          notification
         } = this.props;
      const { hasError, errorMessage, errorInfo } = this.state;
      return (
@@ -67,7 +66,7 @@ class BusinessLayout extends React.Component {
           hasDashboard: !! dashboard
         })}
       </Sidebar>
-      <div className={classes.mainPanel} ref="mainPanel">
+      <div className={classes.mainPanel}>
           {createElement(appBar, { title, open, logout})}
           <div className={classes.content}>
             <div className={classes.container}>
@@ -90,6 +89,8 @@ const componentPropType = PropTypes.oneOfType([
     PropTypes.string,
 ]);
 BusinessLayout.propTypes = {
+  appBar: componentPropType,
+  classes: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   dashboard: PropTypes.oneOfType([
     PropTypes.func,
@@ -104,6 +105,7 @@ BusinessLayout.propTypes = {
   menu: componentPropType,
   history: PropTypes.object.isRequired,
   error: componentPropType,
+  notification: componentPropType
 
 };
 
@@ -133,14 +135,14 @@ class LayoutWithTheme extends React.Component {
     super(props);
     this.theme = createMuiTheme(props.theme);
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.theme !== this.props.theme) {
       this.theme = createMuiTheme(nextProps.theme);
     }
   }
 
   render() {
-    const { theme, ...rest} = this.props;
+    const {...rest} = this.props;
     return (
       <MuiThemeProvider theme={this.theme}>
         <EnhancedLayout {...rest}/>
