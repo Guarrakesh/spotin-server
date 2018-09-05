@@ -43,7 +43,10 @@ exports.list = async (req, res, next) => {
       populate: ['business_id', 'event_id']
 
     });*/
-
+    if (req.query.id_like) {
+      filterQuery._id = { $in: req.query.id_like.split('|')};
+      delete filterQuery['id_like'];
+    }
     if (latitude && longitude && radius) {
       data = await Business.findNear(latitude, longitude, radius, filterQuery);
     } else {
