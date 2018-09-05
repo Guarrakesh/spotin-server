@@ -40,8 +40,9 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
                           allowEmpty={false}
           >
             <AutocompleteInput optionText="email"/>
-            <NumberInput source="spots"/>
+
           </ReferenceInput>
+          <NumberInput source="spots"/>
         </FormTab>
         <FormTab label="Address">
           <TextInput source="address.
