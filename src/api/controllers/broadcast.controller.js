@@ -66,7 +66,7 @@ exports.list = async (req, res, next) => {
     //TODO: Gestire geolocalizzazione
     let broadcasts;
 
-    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_sort']);
+    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
     const { latitude, longitude, radius } = req.query;
 
@@ -94,7 +94,7 @@ exports.list = async (req, res, next) => {
         sort: {[_sort]: _order},
         offset: parseInt(_start),
         limit: parseInt(_end - _start),
-        populate: ['business']
+
       });
       res.json(broadcasts);
 

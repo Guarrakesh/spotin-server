@@ -81,7 +81,10 @@ exports.list = async (req, res, next) => {
       console.log(req.query.competition_id);
       query['competition'] = req.query.competition_id;
     }
-
+    if (req.query.id_like) {
+      query._id = { $in: req.query.id_like.split('|')};
+      delete query['id_like'];
+    }
     const limit = parseInt(_end - _start);
     let events = await SportEvent.paginate(query, {
       sort: _sort,
