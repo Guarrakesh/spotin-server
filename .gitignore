@@ -50,3 +50,5 @@ jspm_packages
 .node_repl_history
 yarn.lock
 admin/material-dashboard-pro-react-v1.3.0/*
+admin/material-dashboard-react-v1.4.1/*
+
