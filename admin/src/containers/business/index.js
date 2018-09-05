@@ -15,10 +15,17 @@ import Layout from './layout';
 
 import EventList from './resources/events/EventList';
 import Dashboard from './views/Dashboard';
+import customSaga from './sagas';
+
+
+import businessReducer from './reducers/business';
+
 
 /* eslint-disable*/
 const BusinessRoutes = [
-  <Resource name="events" list={EventList}/>
+  <Resource name="events" list={EventList}/>,
+
+
 ];
 
 class Business extends React.Component {
@@ -26,6 +33,8 @@ class Business extends React.Component {
   render() {
     return (
       <AdminBase theme={theme}
+                 customSagas={[customSaga(authProvider, dataProvider)]}
+                 customReducers={{ business: businessReducer}}
                  dataProvider={dataProvider}
                  authProvider={authProvider}
                  history={history}
@@ -39,3 +48,5 @@ class Business extends React.Component {
 
 }
 export default Business;
+
+/* eslint-enable */

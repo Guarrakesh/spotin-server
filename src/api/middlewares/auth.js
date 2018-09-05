@@ -21,7 +21,7 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
   try {
     if (error || !user) throw error;
     await logIn(user, { session: false });
-    req.locals = Object.assign({}, req.locals, {user});
+    req.locals = Object.assign({}, req.locals, {loggedUser: user});
   } catch (e) {
     return next(apiError);
   }

@@ -5,9 +5,9 @@ import inflection from 'inflection'; //eslint-disable-line import/no-extraneous-
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core/styles'; //eslint-disable-line import/no-extraneous-dependencies
 import { NavLink } from "react-router-dom";
+import cx from 'classnames';
 
 
-import classNames from "classnames";
 import {Responsive,  getResources, translate } from 'react-admin';
 import DashboardMenuItem from './DashboardMenuItem';
 // @material-ui/core components
@@ -48,6 +48,8 @@ const Menu = ({
   translate,
   logout,
   color,
+  rtlActive,
+  sidebarOpen,
   ...rest // eslint-disable-line no-unused-vars
 
 }) => {
@@ -56,42 +58,65 @@ const Menu = ({
 
     return pathname.indexOf(routeName) > -1 ? true : false;
   }
-
+/*
   function listItemClass(routeName) {
     return classNames({
       [" " + classes[color]]: activeRoute(routeName)
     });
-  }
+  }*/
+  const navLinkClasses = (routename) =>
+    classes.itemLink +
+    " " +
+    cx({
+      [" " + classes[color]]: activeRoute(routename)
+    });
+  const itemText =
+    classes.itemText +
+    " " +
+    cx({
+      [classes.itemTextMini]: !sidebarOpen,
+      [classes.itemTextMiniRTL]: !sidebarOpen,
+      [classes.itemTextRTL]: rtlActive
+    });
+  const itemIcon =
+    classes.itemIcon +
+    " " +
+    cx({
+      [classes.itemIconRTL]: rtlActive
+    });
+
   return (
+
     <List className={classes.list}>
       {hasDashboard &&
 
-        <DashboardMenuItem
-          onClick={onMenuClick}
-          className={classes.itemLink + classNames({[" " + classes[color]]: pathname === "/"})}
-          linkClassName={classes.item}
-          iconClassName={classes.itemIcon + classNames({[" " + classes.whiteFont]: pathname === "/"})}
-          textClassName={classes.itemText + classNames({[" " + classes.whiteFont]: pathname ===  "/"})}
-          dense
-          pathname={pathname}/>
+      <DashboardMenuItem
+        onClick={onMenuClick}
+        className={classes.itemLink + cx({[" " + classes[color]]: pathname === "/"})}
+        linkClassName={classes.item}
+        iconClassName={classes.itemIcon + cx({[" " + classes.whiteFont]: pathname === "/"})}
+        textClassName={itemText + cx({[" " + classes.whiteFont]: pathname ===  "/"})}
+        dense
+        pathname={pathname}/>
 
       }
       {resources
         .filter(r => r.hasList)
         .map(resource => (
-          <NavLink
-            to={`/${resource.name}`}
-            className={classes.item}
-            activeClassName="active"
-            key={resource.name}
-          >
 
-            <ListItem button
-                      onClick={onMenuClick}
-                      className={classes.itemLink + listItemClass(resource.name)}
-                      dense={dense}>
 
-              <ListItemIcon button className={classes.itemIcon + classNames({[" " + classes.whiteFont]: activeRoute(resource.name)})}>
+          <ListItem button
+                    key={resource.name}
+                    onClick={onMenuClick}
+                    className={classes.item}
+                    dense={dense}>
+            <NavLink
+              to={`/${resource.name}`}
+              className={navLinkClasses(resource.name)}
+              activeClassName="active"
+              key={resource.name}
+            >
+              <ListItemIcon button className={itemIcon}>
                 {typeof resource.icon === "string" ? (
                   <Icon>{resource.icon}</Icon>
                 ) : (
@@ -100,12 +125,13 @@ const Menu = ({
               </ListItemIcon>
               <ListItemText
                 primary={translatedResourceName(resource, translate)}
-                className={classes.itemText + classNames({[" " + classes.whiteFont]: activeRoute(resource.name)})}
+                className={itemText }
                 disableTypography={true}
               />
 
-            </ListItem>
-          </NavLink>
+            </NavLink>
+          </ListItem>
+
         ))
       }
       <Responsive xsmall={logout} medium={null} />
@@ -124,12 +150,15 @@ Menu.propTypes = {
   pathname: PropTypes.string,
   resources: PropTypes.array.isRequired,
   translate: PropTypes.func.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
+  sidebarOpen: PropTypes.bool,
+  rtlActive: PropTypes.bool,
 };
 
 Menu.defaultProps = {
   onMenuClick: () => null,
-  color: "purple"
+  color: "purple",
+
 };
 
 const mapStateToProps = state => ({

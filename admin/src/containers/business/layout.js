@@ -55,12 +55,15 @@ class BusinessLayout extends React.Component {
           menu,
           open,
           title,
-          notification
+          business,
+          notification,
+          businesses
         } = this.props;
      const { hasError, errorMessage, errorInfo } = this.state;
+     if (!business) return null;
      return (
     <div className={classes.wrapper}>
-      <Sidebar image={sidebarImage}>
+      <Sidebar image={sidebarImage} business={business} businesses={businesses}>
         {createElement(menu, {
           logout,
           hasDashboard: !! dashboard
@@ -105,7 +108,9 @@ BusinessLayout.propTypes = {
   menu: componentPropType,
   history: PropTypes.object.isRequired,
   error: componentPropType,
-  notification: componentPropType
+  notification: componentPropType,
+  business: PropTypes.object,
+  businesses: PropTypes.array,
 
 };
 
@@ -117,6 +122,8 @@ BusinessLayout.defaultProps = {
 }
 
 const mapStateToProps = state => ({
+  business: state.business.data ? state.business.data.find(bus => bus._id === state.business.current) : null,
+  businesses: state.business.data,
   isLoading: state.admin.loading > 0,
   open: state.admin.ui.sidebarOpen
 });

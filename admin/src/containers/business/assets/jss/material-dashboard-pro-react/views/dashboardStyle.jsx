@@ -5,7 +5,8 @@
 import {
   successColor,
   tooltip,
-  cardTitle
+  cardTitle,
+  dangerColor
 } from "business/assets/jss/material-dashboard-pro-react";
 
 import hoverCardStyle from "business/assets/jss/material-dashboard-pro-react/hoverCardStyle";
@@ -59,6 +60,12 @@ const dashboardStyle = {
       fontSize: "16px",
       marginRight: "3px"
     }
+  },
+  spotFooterText: {
+    color: dangerColor,
+    fontSize: 14,
+    fontWeight: 500,
+    textTransform: 'uppercase',
   },
   productStats: {
     paddingTop: "7px",
