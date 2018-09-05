@@ -71,16 +71,18 @@ exports.list = async (req, res, next) => {
     const { latitude, longitude, radius } = req.query;
 
     if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius);
+      const business = await Business.findNear(latitude, longitude, radius, { _sort, _order });
       const ids = business.docs.map(bus => bus._id);
-      broadcasts = await Broadcast.find({business: {$in: ids}}).populate('event').lean().exec();
+      broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).lean().exec();
       broadcasts = broadcasts.map(broadcast => {
 
         const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
 
         broadcast['business'] = currentBusiness;
+
         return broadcast;
       });
+      broadcasts = broadcasts.sort((a,b) => a.business.dist.calculated > b.business.dist.calculated);
       res.json({
         docs: broadcasts,
         offset: req.query._start,

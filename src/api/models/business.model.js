@@ -135,12 +135,13 @@ businessSchema.method({
 businessSchema.statics = {
   async findNear(lat, lng, radius, options = {}) {
 
-    let {_end = 10, _start = 0, _order = 1, _sort = "dist.calculated"} = options;
+    let {_end = 10, _start = 0, _order = -1, _sort = "dist.calculated"} = options;
     radius = parseFloat(radius) * 1000; //km to meters
     lat = parseFloat(lat); lng = parseFloat(lng);
     const count = await this.count({'address.location': {
       $near: {$maxDistance: radius, $geometry: {type: 'Point', coordinates: [lng, lat]}}
     }}).exec();
+
     _sort = _sort == "distance" ? "dist.calculated" : _sort; //accetto anche distance come parametro di _sort
     const docs = await this.aggregate([
       {
