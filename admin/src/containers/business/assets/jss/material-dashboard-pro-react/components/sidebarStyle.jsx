@@ -96,6 +96,12 @@ const sidebarStyle = theme => ({
       opacity: ".93"
     }
   },
+  purpleBackground: {
+    color: "#FFFFFF",
+    "&:after": {
+      background: primaryColor,
+    }
+  },
   whiteAfter: {
     "&:after": {
       backgroundColor: "hsla(0,0%,71%,.3) !important"
@@ -180,7 +186,8 @@ const sidebarStyle = theme => ({
     left: "0",
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    transition: "all 300ms linear"
+    transition: "all 300ms linear",
+
   },
   list: {
     marginTop: "15px",

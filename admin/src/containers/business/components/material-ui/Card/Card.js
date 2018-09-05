@@ -71,7 +71,8 @@ Card.propTypes = {
   ]),
   product: PropTypes.bool,
   chart: PropTypes.bool,
-  login: PropTypes.bool
+  login: PropTypes.bool,
+  children: PropTypes.element
 };
 
 export default withStyles(cardStyle)(Card);

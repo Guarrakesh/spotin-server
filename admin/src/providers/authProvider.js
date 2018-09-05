@@ -88,15 +88,18 @@ export default (type, params) => {
       return role ? Promise.resolve(role) : Promise.reject();
 
     }
-    default:
-      return Promise.resolve();
-
     case AUTH_GET_USER: {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) return Promise.reject();
 
+
+
       return Promise.resolve(user);
     }
+    default:
+      return Promise.resolve();
+
+
   }
 
 

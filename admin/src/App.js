@@ -24,7 +24,7 @@ class App extends React.Component {
       else if (role === "business")
         this.setState({rootComponent: <Business/>});
     }).catch( () => {
-        this.setState({rootComponent: <Admin/>}); //Di default, reindirizzo a Business
+        this.setState({rootComponent: <Business/>}); //Di default, reindirizzo a Business
     });
 
   }

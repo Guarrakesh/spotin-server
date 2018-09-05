@@ -4,6 +4,7 @@
     "transform-class-properties",
     "transform-react-jsx",
     "transform-object-rest-spread",
+    "transform-regenerator",
     ["module-resolver", {
       "alias": {
         "business": "./src/containers/business/"

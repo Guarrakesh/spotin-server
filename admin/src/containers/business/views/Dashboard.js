@@ -9,6 +9,7 @@ import { getUserBusinesses as getUserBusinessAction} from '../actions/business';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
+import SpotIcon from 'business/assets/img/SpotinIcon-outline.png';
 
 // core components
 import GridContainer from "business/components/material-ui/Grid/GridContainer.js";
@@ -21,9 +22,15 @@ import CardHeader from "business/components/material-ui/Card/CardHeader.js";
 import CardIcon from "business/components/material-ui/Card/CardIcon.js";
 //import CardBody from "business/components/material-ui/Card/CardBody.js";
 import CardFooter from "business/components/material-ui/Card/CardFooter.js";
+
 import Warning from "@material-ui/icons/Warning";
 import authProvider from '../../../providers/authProvider';
 import dashboardStyle from "business/assets/jss/material-dashboard-pro-react/views/dashboardStyle";
+import {dangerColor} from "business/assets/jss/material-dashboard-pro-react.jsx";
+
+
+import { IoMdArrowDropupCircle } from 'react-icons/io';
+
 /* eslint-enable */
 
 
@@ -37,7 +44,7 @@ class Dashboard extends React.Component {
 
   }
   componentDidUpdate() {
-    const { businesses, getUserBusinesses, loading } = this.props;
+    /*const { businesses, getUserBusinesses, loading } = this.props;
 
     if (Object.keys(businesses.data).length <= 1 && !loading && this.state.attempts < 2) {
 
@@ -49,11 +56,13 @@ class Dashboard extends React.Component {
         userLogoutAction();
       });
 
-    }
+    }*/
 
   }
   render() {
-    const { classes } = this.props;
+    const { classes, business } = this.props;
+
+
     return (
       <div>
         <GridContainer>
@@ -61,20 +70,22 @@ class Dashboard extends React.Component {
             <Card>
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
-                  <Icon>content_copy</Icon>
+
+                  <img src={SpotIcon} widht="32" height="32"/>
+
+
                 </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
+                <p className={classes.cardCategory}>Spots</p>
                 <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
+                  {business.spots}
                 </h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <Danger>
-                    <Warning />
-                  </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
+
+
+                  <a href="#pablo" className={classes.spotFooterText} onClick={e => e.preventDefault()}>
+                  <IoMdArrowDropupCircle/> Acquista Spot
                   </a>
                 </div>
               </CardFooter>
@@ -90,13 +101,13 @@ class Dashboard extends React.Component {
 
 Dashboard.propTypes = {
   registerResource: PropTypes.object,
-  businesses: PropTypes.object,
+  business: PropTypes.object,
   crudGetAll: PropTypes.func,
   loading: PropTypes.number,
   getUserBusinesses: PropTypes.func
 }
 const mapStateToProps = state => ({
-  businesses: state.admin.resources.businesses,
+  business: state.business.data ? state.business.data.find(bus => bus._id == state.business.current) : null,
   loading: state.admin.loading,
 
 });

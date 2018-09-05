@@ -26,7 +26,7 @@ exports.create = async (req, res, next) => {
 
 
     const broadcast = new Broadcast(req.body);
-    const {user} = req.locals;
+    const {loggedUser} = req.locals;
     // Prima di tutto controllo se l'utente è un admin o un business
     // Se è un admin, tutto ok
     // Se è un business, allora devo controllare ulteriormente che req.body.business coincida
@@ -35,8 +35,8 @@ exports.create = async (req, res, next) => {
     // ad altri locali
 
     let business = {};
-    if (user.role === BUSINESS) {
-      const userBusinesses = await user.businesses();
+    if (loggedUser.role === BUSINESS) {
+      const userBusinesses = await loggedUser.businesses();
       const business = userBusinesses.find(bus => bus._id === req.body.business);
 
       if (!business);
