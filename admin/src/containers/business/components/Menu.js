@@ -50,6 +50,7 @@ const Menu = ({
   color,
   rtlActive,
   sidebarOpen,
+  miniActive,
   ...rest // eslint-disable-line no-unused-vars
 
 }) => {
@@ -74,8 +75,8 @@ const Menu = ({
     classes.itemText +
     " " +
     cx({
-      [classes.itemTextMini]: !sidebarOpen,
-      [classes.itemTextMiniRTL]: !sidebarOpen,
+      [classes.itemTextMini]: !sidebarOpen && miniActive,
+      [classes.itemTextMiniRTL]: !sidebarOpen && miniActive,
       [classes.itemTextRTL]: rtlActive
     });
   const itemIcon =
@@ -116,7 +117,7 @@ const Menu = ({
               activeClassName="active"
               key={resource.name}
             >
-              <ListItemIcon button className={itemIcon}>
+              <ListItemIcon className={itemIcon}>
                 {typeof resource.icon === "string" ? (
                   <Icon>{resource.icon}</Icon>
                 ) : (
@@ -153,6 +154,7 @@ Menu.propTypes = {
   color: PropTypes.string,
   sidebarOpen: PropTypes.bool,
   rtlActive: PropTypes.bool,
+  miniActive: PropTypes.bool //Attivo quando la sidebar è in espansione momentanea (quando ci passi il mouse sopra)
 };
 
 Menu.defaultProps = {

@@ -16,12 +16,15 @@ function business(authProvider, dataProvider) {
 
     const businessState = yield select(businessStateSelector);
     try {
+
       user = yield call(authProvider, 'AUTH_GET_USER');
     } catch (e) {
 
       yield take(USER_LOGIN_SUCCESS);
       user = yield call(authProvider, 'AUTH_GET_USER');
     }
+    if (user.role !== "business") return;
+
     try {
       if (businessState.current === null) {
 
@@ -32,12 +35,12 @@ function business(authProvider, dataProvider) {
           filter: {user: user._id}
         });
 
-        yield put({type: GET_USER_BUSINESSES_SUCCESS, response});
+          yield put({type: GET_USER_BUSINESSES_SUCCESS, response});
 
 
       }
     } catch (e) {
-      console.log(e);
+      console.log("ERRORE IN SAGA: ", e);
     }
 
 

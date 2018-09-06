@@ -45,8 +45,7 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
           <NumberInput source="spots"/>
         </FormTab>
         <FormTab label="Address">
-          <TextInput source="address.
-          street" label="Street"/>
+          <TextInput source="address.street" label="Street"/>
           <TextInput source="address.number" label="Number"/>
           <TextInput source="address.city" label="City"/>
           <TextInput source="address.province" label="Province"/>

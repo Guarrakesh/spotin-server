@@ -23,7 +23,7 @@ import businessReducer from './reducers/business';
 
 /* eslint-disable*/
 const BusinessRoutes = [
-  <Resource name="events" list={EventList}/>,
+  <Resource key="events" name="events" list={EventList}/>,
 
 
 ];

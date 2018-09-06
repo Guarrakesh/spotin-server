@@ -32,12 +32,12 @@ const DashboardMenuItem = ({
       exact
     >
 
-      <ListItem button
+      <ListItem button={true}
                 onClick={onClick}
                 className={className}
                 dense={dense}>
 
-        <ListItemIcon button className={iconClassName}>
+        <ListItemIcon className={iconClassName}>
           <DashboardIcon/>
         </ListItemIcon>
         <ListItemText

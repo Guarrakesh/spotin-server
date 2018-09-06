@@ -11,44 +11,66 @@ import MuiAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
-import Button from "@material-ui/core/Button";
+
 
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
+import MoreVert from "@material-ui/icons/MoreVert";
+import ViewList from "@material-ui/icons/ViewList";
 /* eslint-enable */
 // core components
 import {LoadingIndicator, toggleSidebar as toggleSidebarAction} from 'react-admin';
+import Button from "business/components/material-ui/CustomButtons/Button";
 import appBarStyle from "business/assets/jss/material-dashboard-pro-react/components/headerStyle";
 
 const AppBar = ({
-    classes,
-
-   title,
-   toggleSidebar,
-   color,
+  classes,
+  rtlActive,
+  open,
+  title,
+  toggleSidebar,
+  color,
 }) => {
   /*const makeBrand = () => {
-    // var name;
-    // props.routes.map((prop, key) => {
-    //   if (prop.path === props.location.pathname) {
-    //     name = prop.navbarName;
-    //   }
-    //   return null;
-    // });
-    // return name;
-    return "Dashboard";
-  }*/
+   // var name;
+   // props.routes.map((prop, key) => {
+   //   if (prop.path === props.location.pathname) {
+   //     name = prop.navbarName;
+   //   }
+   //   return null;
+   // });
+   // return name;
+   return "Dashboard";
+   }*/
 
   const appBarClasses = classNames({
     [" " + classes[color]]: color
   });
+  const sidebarMinimize =
+    classes.sidebarMinimize +
+    " " +
+    classNames({
+      [classes.sidebarMinimizeRTL]: rtlActive
+    });
   return (
     <MuiAppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
+        <Hidden smDown implementation="css">
+          <div className={sidebarMinimize}>
+
+            <Button
+              justIcon
+              round
+              color="white"
+              onClick={toggleSidebar}>
+                {!open ? <ViewList className={classes.sidebarMiniIcon}/> : <MoreVert className={classes.sidebarMiniIcon}/> }
+
+            </Button>
+          </div>
+        </Hidden>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
           <Button color="transparent" href="#" className={classes.title}>
-            {/* makeBrand() */}
             {title}
           </Button>
         </div>
@@ -56,28 +78,35 @@ const AppBar = ({
           {/*<HeaderLinks />*/}
         </Hidden>
         <Hidden mdUp implementation="css">
-          <IconButton
-            color="inherit"
+          <Button
+            className={classes.appResponsive}
+            color="transparent"
+            justIcon
             aria-label="open drawer"
             onClick={toggleSidebar}
           >
             <Menu />
-          </IconButton>
+          </Button>
         </Hidden>
       </Toolbar>
       <LoadingIndicator className={classes.loadingIndicator} />
     </MuiAppBar>
   );
 }
+
+AppBar.defaultProps = {
+  rtlActive: false,
+};
 AppBar.propTypes = {
-    classes: PropTypes.object,
-    className: PropTypes.string,
-    logout: PropTypes.element,
-    open: PropTypes.bool,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        .isRequired,
-    toggleSidebar: PropTypes.func.isRequired,
-    color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  logout: PropTypes.element,
+  open: PropTypes.bool,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+  rtlActive: PropTypes.bool,
+  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
 
 };
 
