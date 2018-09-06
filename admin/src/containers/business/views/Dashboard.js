@@ -36,13 +36,7 @@ import { IoMdArrowDropupCircle } from 'react-icons/io';
 
 
 class Dashboard extends React.Component {
-  state = {attempts: 0}
-  componentDidMount() {
-    this.props.registerResource({
-      name: 'businesses'
-    });
 
-  }
   componentDidUpdate() {
     /*const { businesses, getUserBusinesses, loading } = this.props;
 
@@ -61,7 +55,7 @@ class Dashboard extends React.Component {
   }
   render() {
     const { classes, business } = this.props;
-
+    if (!business) return null;
 
     return (
       <div>
@@ -71,7 +65,7 @@ class Dashboard extends React.Component {
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
 
-                  <img src={SpotIcon} widht="32" height="32"/>
+                  <img src={SpotIcon} width="32" height="32"/>
 
 
                 </CardIcon>
@@ -100,11 +94,12 @@ class Dashboard extends React.Component {
 
 
 Dashboard.propTypes = {
-  registerResource: PropTypes.object,
+
   business: PropTypes.object,
   crudGetAll: PropTypes.func,
   loading: PropTypes.number,
-  getUserBusinesses: PropTypes.func
+  getUserBusinesses: PropTypes.func,
+  classes: PropTypes.object,
 }
 const mapStateToProps = state => ({
   business: state.business.data ? state.business.data.find(bus => bus._id == state.business.current) : null,
@@ -124,8 +119,5 @@ const enhance = compose(
   ),
   withStyles(dashboardStyle)
 )
-Dashboard.propTypes = {
-  classes: PropTypes.string,
 
-}
 export default enhance(Dashboard);

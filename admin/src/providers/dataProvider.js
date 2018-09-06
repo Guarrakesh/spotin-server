@@ -9,6 +9,7 @@ const httpClient = (url, options = {}) => {
   }
 
   const token = JSON.parse(localStorage.getItem('token'));
+  if (!token) return Promise.reject("No Auth Token");
   options.headers.set('Authorization', `Bearer ${token.accessToken}`);
   return fetchUtils.fetchJson(url, options);
 

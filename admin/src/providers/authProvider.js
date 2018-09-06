@@ -31,11 +31,13 @@ export default (type, params) => {
     }
     case AUTH_LOGOUT: {
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       break;
     }
     case AUTH_ERROR: {
       if (401 === params.status || 403 === params.status) {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         return Promise.reject();
       }
       return Promise.resolve();

@@ -8,7 +8,9 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
 
-import buttonStyle from "assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx";
+import buttonStyle from "business/assets/jss/material-dashboard-pro-react/components/buttonStyle";
+
+
 function RegularButton({ ...props }) {
   const {
     classes,
@@ -78,7 +80,8 @@ RegularButton.propTypes = {
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
   className: PropTypes.string,
-  muiClasses: PropTypes.object
+  muiClasses: PropTypes.object,
+  children: PropTypes.node,
 };
 
 export default withStyles(buttonStyle)(RegularButton);

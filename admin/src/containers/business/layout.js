@@ -8,6 +8,7 @@ import {
 import { connect } from 'react-redux'; //eslint-disable-line import/no-extraneous-dependencies
 import { compose } from 'recompose';
 import { withRouter } from 'react-router'; //eslint-disable-line import/no-extraneous-dependencies
+import cx from 'classnames';
 
 
 import { Notification, Error, defaultTheme } from 'react-admin';
@@ -28,7 +29,7 @@ import sidebarImage from "./assets/img/sidebar-4.jpg";
 }) => props;*/
 
 class BusinessLayout extends React.Component {
-  state = { hasError: false, errorMessage: null, errorInfo: null };
+  state = { hasError: false, errorMessage: null, errorInfo: null};
 
   constructor(props) {
     super(props);
@@ -45,6 +46,7 @@ class BusinessLayout extends React.Component {
 
 
   render() {
+
     const {
           appBar,
           children,
@@ -54,13 +56,20 @@ class BusinessLayout extends React.Component {
           logout,
           menu,
           open,
-          title,
           business,
           notification,
           businesses
         } = this.props;
+    const mainPanel =
+      classes.mainPanel +
+      " " +
+      cx({
+        [classes.mainPanelSidebarMini]: !open,
+        [classes.mainPanelWithPerfectScrollbar]:
+        navigator.platform.indexOf("Win") > -1
+      });
      const { hasError, errorMessage, errorInfo } = this.state;
-     if (!business) return null;
+
      return (
     <div className={classes.wrapper}>
       <Sidebar image={sidebarImage} business={business} businesses={businesses}>
@@ -69,8 +78,8 @@ class BusinessLayout extends React.Component {
           hasDashboard: !! dashboard
         })}
       </Sidebar>
-      <div className={classes.mainPanel}>
-          {createElement(appBar, { title, open, logout})}
+      <div className={mainPanel}>
+          {createElement(appBar, { title: (business ? business.name : ""), open, logout})}
           <div className={classes.content}>
             <div className={classes.container}>
               {hasError
@@ -90,6 +99,7 @@ class BusinessLayout extends React.Component {
 const componentPropType = PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.string,
+    PropTypes.element
 ]);
 BusinessLayout.propTypes = {
   appBar: componentPropType,
@@ -101,7 +111,6 @@ BusinessLayout.propTypes = {
   ]),
   isLoading: PropTypes.bool.isRequired,
   logout: componentPropType,
-  setSidebarVisibility: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   customRoutes: PropTypes.array,
   open: PropTypes.bool,

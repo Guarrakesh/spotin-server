@@ -18,11 +18,10 @@ import Drawer from '@material-ui/core/Drawer';
 import sidebarStyle from  "business/assets/jss/material-dashboard-pro-react/components/sidebarStyle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-
 import ListItemText from "@material-ui/core/ListItemText";
-
 import Collapse from "@material-ui/core/Collapse";
 
+import SpotInLogo from 'business/assets/img/SpotinIcon-outline.png';
 
 
 class SidebarWrapper extends React.Component  {
@@ -40,7 +39,7 @@ class SidebarWrapper extends React.Component  {
    }
    }*/
 
-  propTypes = {
+  static propTypes = {
     className: PropTypes.string,
     business: PropTypes.node,
     headerLinks: PropTypes.node,
@@ -82,6 +81,7 @@ class SidebarBusinessArea extends React.Component {
       open,
       businesses,
       handleBusinessChange,
+      miniActive,
       business} = this.props;
 
     const { avatarOpen } = this.state;
@@ -89,16 +89,16 @@ class SidebarBusinessArea extends React.Component {
       classes.itemText +
       " " +
       cx({
-        [classes.itemTextMini]: !open,
-        [classes.itemTextMiniRTL]: rtlActive && !open,
+        [classes.itemTextMini]: !open && miniActive,
+        [classes.itemTextMiniRTL]: rtlActive && !open && miniActive,
         [classes.itemTextRTL]: rtlActive
       });
     const collapseItemText =
       classes.collapseItemText +
       " " +
       cx({
-        [classes.collapseItemTextMini]: !open,
-        [classes.collapseItemTextMiniRTL]: rtlActive && !open,
+        [classes.collapseItemTextMini]: !open && miniActive,
+        [classes.collapseItemTextMiniRTL]: rtlActive && !open && miniActive,
         [classes.collapseItemTextRTL]: rtlActive
       });
     const userWrapperClass =
@@ -125,7 +125,6 @@ class SidebarBusinessArea extends React.Component {
       cx({
         [classes.photoRTL]: rtlActive
       });
-    console.log("aaa", open);
     return (
       <div className={userWrapperClass}>
         <div className={photo}>
@@ -194,6 +193,7 @@ class SidebarBusinessArea extends React.Component {
 
 SidebarBusinessArea.propTypes = {
   rtlActive: PropTypes.bool,
+  miniActive: PropTypes.bool,
   classes: PropTypes.object,
   business: PropTypes.object,
   bgColor: PropTypes.string,
@@ -220,6 +220,8 @@ class Sidebar extends React.Component {
     super(props);
     this.state = {
       openAvatar: false,
+      miniActive: true, //Si attiva quando il mouse passa sopra la miniSidebar, è uno stato interno, che non ha effetto
+      //quando la sidebar è fissata
     }
   }
   componentDidMount() {
@@ -230,6 +232,7 @@ class Sidebar extends React.Component {
   }
   handleClose = () => this.props.setSidebarVisibility(false);
   toggleSidebar = () => this.props.setSidebarVisibility(!this.props.open);
+
 
   render() {
     const {
@@ -245,6 +248,7 @@ class Sidebar extends React.Component {
       ...rest
     } = this.props;
 
+    const { miniActive } = this.state;
     if (!business) return null;
 
 
@@ -262,15 +266,15 @@ class Sidebar extends React.Component {
       classes.logoNormal +
       " " +
       cx({
-        [classes.logoNormalSidebarMini]: !open,
-        [classes.logoNormalSidebarMiniRTL]: rtlActive && !open,
+        [classes.logoNormalSidebarMini]: !open && miniActive,
+        [classes.logoNormalSidebarMiniRTL]: rtlActive && !open && miniActive,
         [classes.logoNormalRTL]: rtlActive
       });
     const logoMini =
       classes.logoMini +
       " " +
       cx({
-        [classes.logoMiniRTL]: rtlActive
+        [classes.logoMiniRTL]: rtlActive && miniActive
       });
     const logoClasses =
       classes.logo +
@@ -281,7 +285,7 @@ class Sidebar extends React.Component {
     var brand = (
       <div className={logoClasses}>
         <a href="/" className={logoMini}>
-          <img src="/" alt="logo" className={classes.img} />
+          <img src={SpotInLogo} alt="logo" className={classes.img} />
         </a>
         <a href="/" className={logoNormal}>
           {"Spot IN"}
@@ -292,14 +296,14 @@ class Sidebar extends React.Component {
       classes.drawerPaper +
       " " +
       cx({
-        [classes.drawerPaperMini]: !open,
+        [classes.drawerPaperMini]: !open && miniActive,
         [classes.drawerPaperRTL]: rtlActive
       });
     const sidebarWrapper =
       classes.sidebarWrapper +
       " " +
       cx({
-        [classes.drawerPaperMini]: !open,
+        [classes.drawerPaperMini]: !open && miniActive,
         [classes.sidebarWrapperWithPerfectScrollbar]:
         navigator.platform.indexOf("Win") > -1
       });
@@ -323,6 +327,7 @@ class Sidebar extends React.Component {
               className={sidebarWrapper}
               headerLinks={null}
               business={<SidebarBusinessArea
+                miniActive={miniActive}
                 classes={classes}
                 business={business} //Locale corrente
                 businesses={businesses} //Altri locali
@@ -346,8 +351,9 @@ class Sidebar extends React.Component {
 
         medium={
           <Drawer
-            onMouseOver={() => this.props.setSidebarVisibility(true)}
-            onMouseOut={() => this.props.setSidebarVisibility(false)}
+            onMouseOver={() => this.setState({ miniActive: false })}
+            onMouseOut={() =>  this.setState({ miniActive: true })}
+            //Perché c'è da gestire il caso in cui la sidebar sia fissata e quindi questi due eventi non devono influiscono
             anchor={rtlActive ? "right" : "left"}
             variant="permanent"
             open={false}
@@ -361,6 +367,7 @@ class Sidebar extends React.Component {
               headerLinks={null}
               business={<SidebarBusinessArea
                 classes={classes}
+                miniActive={miniActive}
                 business={business}
                 businesses={businesses}
                 handleBusinessChange={changeBusiness}
@@ -372,6 +379,7 @@ class Sidebar extends React.Component {
                 rtlActive: rtlActive,
                 dense: true,
                 sidebarOpen: open,
+                miniActive: miniActive
               })}
             />
             {image !== undefined ? (
