@@ -49,7 +49,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
                             >
               <AutocompleteInput optionText="email"/>
             </ReferenceInput>
-            <NumberInput source="spots"/>   q
+            <NumberInput source="spots"/>
           </FormTab>
           <FormTab label="Address">
             <TextInput source="address.street" label="Street"/>
