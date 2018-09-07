@@ -441,20 +441,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/variables/images.jsx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/vars.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/actions/business.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/actions/business.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" afterPath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/CustomButtons/Button.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/CustomButtons/Button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/layout.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/layout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/sagas/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/sagas/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" afterPath="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/providers/authProvider.js" afterPath="$PROJECT_DIR$/admin/src/providers/authProvider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/providers/dataProvider.js" afterPath="$PROJECT_DIR$/admin/src/providers/dataProvider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -547,7 +534,7 @@
           <file leaf-file-name="AppBar.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="676">
+                <state relative-caret-position="795">
                   <caret line="57" column="8" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
                   <folding>
                     <element signature="e#230#291#0" expanded="true" />
@@ -632,7 +619,7 @@
           <file leaf-file-name="Header.jsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Header/Header.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="872">
+                <state relative-caret-position="1245">
                   <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
@@ -644,7 +631,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BusinessCreate.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="BusinessCreate.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="302">
@@ -654,11 +641,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BusinessEdit.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="BusinessEdit.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="615">
-                  <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+                  <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -790,7 +777,6 @@
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/broadcast.controller.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" />
         <option value="$PROJECT_DIR$/admin/src/App.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/index.js" />
@@ -810,6 +796,7 @@
         <option value="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Sidebar/Sidebar.jsx" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
       </list>
     </option>
   </component>
@@ -844,7 +831,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -1213,120 +1199,6 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="material-dashboard-pro-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="material-dashboard-pro-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1456,6 +1328,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1615,7 +1488,8 @@
       <workItem from="1536148701295" duration="16505000" />
       <workItem from="1536173998909" duration="5836000" />
       <workItem from="1536185245646" duration="2155000" />
-      <workItem from="1536228587694" duration="53000" />
+      <workItem from="1536228587694" duration="818000" />
+      <workItem from="1536337714225" duration="1123000" />
     </task>
     <task id="LOCAL-00001" summary="Set first SportEvent API's">
       <created>1530619835139</created>
@@ -1918,11 +1792,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536174123892</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fixato campo Street in BusinessCreate">
+      <created>1536228783157</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1536228783157</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375835000" />
+    <option name="totallyTimeSpent" value="377723000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1935,9 +1816,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1323" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14651437" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14612052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31305757" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28234336" sideWeight="0.49192595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270952" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
@@ -1990,7 +1871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ADMIN: Login e Schermata Sport" />
     <MESSAGE value="ADMIN: Fix entitiesReducer.js" />
     <MESSAGE value="ADMIN: Struttura completamente cambiata -- Passato a React Admin" />
     <MESSAGE value="Fix: Package.json" />
@@ -2015,7 +1895,8 @@
     <MESSAGE value="FIX: Controller nel server e package.json" />
     <MESSAGE value="Cose" />
     <MESSAGE value="Fix schermata creazione locali" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix schermata creazione locali" />
+    <MESSAGE value="Fixato campo Street in BusinessCreate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixato campo Street in BusinessCreate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2324,7 +2205,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
+        <state relative-caret-position="795">
           <caret line="57" column="8" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
           <folding>
             <element signature="e#230#291#0" expanded="true" />
@@ -2391,7 +2272,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Header/Header.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
+        <state relative-caret-position="1245">
           <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -2399,6 +2280,14 @@
             <element signature="e#352#395#0" expanded="true" />
             <element signature="e#520#560#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2421,15 +2310,7 @@
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
           <folding />
         </state>
       </provider>
