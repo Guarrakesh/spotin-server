@@ -27,7 +27,7 @@ exports.list = async (req, res, next) => {
     const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
     const competitors = await Competitor.paginate(filterQuery, {
       sort: { [_sort]: _order },
-      skip: parseInt(_start),
+      offset: parseInt(_start),
       limit: parseInt(_end - _start)
     });
 
