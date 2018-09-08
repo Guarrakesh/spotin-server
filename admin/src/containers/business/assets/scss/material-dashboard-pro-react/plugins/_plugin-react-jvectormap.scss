@@ -1,7 +1,3 @@
-svg {
-    touch-action: none;
-}
-
 .jvectormap-container {
     width: 100%;
     height: 100%;
@@ -11,15 +7,16 @@ svg {
 }
 
 .jvectormap-tip {
+    // design changed by www.creative-tim.com
     position: absolute;
     display: none;
-    border: solid 1px #CDCDCD;
-    border-radius: 3px;
-    background: #292929;
-    color: white;
-    font-family: sans-serif, Verdana;
-    font-size: smaller;
-    padding: 3px;
+    color: $white-color;
+    line-height: 1.5em;
+    background: $gray;
+    border: none;
+    border-radius: $border-radius-extreme;
+    padding: 5px 10px;
+    z-index: 1040;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {

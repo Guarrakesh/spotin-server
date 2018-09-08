@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={6} md={6} lg={3}>
+          <GridItem xs={12} sm={6} md={6} lg={4}>
             <Card>
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">

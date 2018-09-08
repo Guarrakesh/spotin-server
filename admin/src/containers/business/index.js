@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { Admin as AdminBase, Resource } from 'react-admin';
-
+import "business/assets/scss/material-dashboard-pro-react.css";
 
 import "./assets/css/material-dashboard-react.css"; /* eslint-disable-line import/no-extraneous-dependencies */
+
+
 
 
 import dataProvider from '../../providers/dataProvider';
@@ -23,7 +25,7 @@ import businessReducer from './reducers/business';
 
 /* eslint-disable*/
 const BusinessRoutes = [
-  <Resource key="events" name="events" list={EventList}/>,
+  <Resource key="events" name="events" list={EventList} options={{label:"Eventi in programma"}}/>,
 
 
 ];
