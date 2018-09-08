@@ -5,7 +5,6 @@ const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const eventController = require('../../controllers/sportevent.controller');
 const competitionController = require('../../controllers/competition.controller');
 const router = express.Router();
-
 const { createCompetition, updateCompetition } = require('../../validations/competition.validation');
 /**
  * Load user when API with userId route parameter is hit

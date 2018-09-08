@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabbedForm, FormTab, Create, SelectInput, TextInput, NumberInput, ReferenceInput, LongTextInput, FormDataConsumer,
-ArrayInput, SimpleFormIterator} from 'react-admin';
+ArrayInput, SimpleFormIterator,AutocompleteInput} from 'react-admin';
 import { DateTimeInput } from 'react-admin-date-inputs';
 
 
@@ -37,7 +37,7 @@ const EventCreate = (props) => (
                   source="_id"
                   filter={{sport: formData.sport}}
                   reference="competitors">
-                  <SelectInput source="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
+                  <AutocompleteInput source="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
                 </ReferenceInput>
 
 

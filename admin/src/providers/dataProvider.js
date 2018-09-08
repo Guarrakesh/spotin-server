@@ -1,5 +1,6 @@
 import { fetchUtils } from 'react-admin';
 import restClientProvider from './restClientProvider';
+import addUploadFeature from './fileUpload';
 
 
 const apiUrl = process.env.NODE_ENV === "production" ? "/v1" : "http://localhost:3001/v1";
@@ -15,6 +16,6 @@ const httpClient = (url, options = {}) => {
 
 };
 
-const dataProvider = restClientProvider(apiUrl, httpClient);
+const dataProvider = addUploadFeature(restClientProvider(apiUrl, httpClient));
 
 export default dataProvider;
