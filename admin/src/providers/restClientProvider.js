@@ -70,6 +70,12 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
       case UPDATE:
         url = `${apiUrl}/${resource}/${params.id}`;
         options.method = 'PATCH';
+        if (params.data instanceof(FormData)) {
+          options.body = params.data;
+        //  options.headers = new Headers({'Content-Type': false});
+          break;
+        }
+
         options.body = JSON.stringify(params.data);
         break;
       case CREATE:

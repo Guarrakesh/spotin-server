@@ -1,7 +1,8 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput,
-  SelectInput, SimpleForm, TextInput, NumberInput,
+  SelectInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
   RadioButtonGroupInput } from 'react-admin';
+
 
 export const BroadcastList = (props) => (
   <List {...props}>
@@ -30,7 +31,7 @@ export const BroadcastCreate = (props) => (
     <SimpleForm>
 
       <ReferenceInput reference="events" source="event">
-        <SelectInput source="name"/>
+        <AutocompleteInput source="name"/>
       </ReferenceInput>
       <ReferenceInput reference="businesses" source="business">
         <SelectInput source="name"/>

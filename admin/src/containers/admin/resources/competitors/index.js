@@ -1,6 +1,7 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
   DisabledInput, ReferenceInput, SelectInput, SimpleForm, TextInput, BooleanInput,
+  ImageInput, ImageField
 } from 'react-admin';
 
 
@@ -8,12 +9,14 @@ export const CompetitorList = (props) => (
   <List {...props}>
     <Datagrid>
       <TextField source="_id" />
+
       <ReferenceField reference="sports" source="sport">
         <TextField source="name"/>
       </ReferenceField>
 
       <TextField source="name" />
       <TextField source="full_name" />
+
       <EditButton/>
     </Datagrid>
   </List>
@@ -35,6 +38,9 @@ export const CompetitorEdit = (props) => (
       <TextInput source="first_name"/>
       <TextInput source="last_name"/>
       <TextInput source="full_name"/>
+        <ImageInput source="picture" accept="image/*">
+          <ImageField source="src" title="title"/>
+        </ImageInput>
       <BooleanInput source="isPerson" label="Is a person"/>
 
 
@@ -44,7 +50,7 @@ export const CompetitorEdit = (props) => (
 );
 export const CompetitorCreate = (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm enctype="multipart/form-data">
       <ReferenceInput label="Sport" reference="sports" source="sport">
         <SelectInput optionText="name"/>
       </ReferenceInput>
@@ -52,6 +58,9 @@ export const CompetitorCreate = (props) => (
       <TextInput source="first_name"/>
       <TextInput source="last_name"/>
       <TextInput source="full_name"/>
+        <ImageInput source="picture" accept="image/*">
+          <ImageField source="src" title="title"/>
+        </ImageInput>
       <BooleanInput source="isPerson" label="Is a person"/>
     </SimpleForm>
   </Create>
