@@ -83,6 +83,7 @@
     "geolib": "^2.0.24",
     "helmet": "^3.5.0",
     "http-status": "^1.0.1",
+    "image-size": "^0.6.3",
     "inflection": "^1.12.0",
     "joi": "^10.4.1",
     "jwt-simple": "0.5.1",
@@ -104,6 +105,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
     "request-promise": "^4.2.2",
+    "sharp": "^0.20.8",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

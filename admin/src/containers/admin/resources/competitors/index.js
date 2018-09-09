@@ -1,15 +1,41 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+
 import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
   DisabledInput, ReferenceInput, SelectInput, SimpleForm, TextInput, BooleanInput,
-  ImageInput, ImageField
+  ImageInput, ImageField, Filter, AutocompleteInput
 } from 'react-admin';
+import StyledImageField from '../fields/StyledImageField'; //eslint-disable-line
 
 
-export const CompetitorList = (props) => (
-  <List {...props}>
+const styles = {
+  pictureImg: {
+    width: '32px',
+    height: 'auto'
+  },
+  idCell: { width: '10%'},
+  pictureCell: { width: '10%'}
+};
+
+
+
+
+const CompetitorFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Nome" source="name" />
+    <ReferenceInput reference="sports" source="sport">
+      <SelectInput label="Sport" source="name" />
+    </ReferenceInput>
+  </Filter>
+);
+
+
+
+export const CompetitorList = withStyles(styles)(({classes, ...props}) => (
+  <List {...props} filters={<CompetitorFilter/>}>
     <Datagrid>
+      <StyledImageField label="" source="image_versions" src="url" cellClassName={classes.pictureCell} imgClassName={classes.pictureImg} />
       <TextField source="_id" />
-
       <ReferenceField reference="sports" source="sport">
         <TextField source="name"/>
       </ReferenceField>
@@ -20,8 +46,7 @@ export const CompetitorList = (props) => (
       <EditButton/>
     </Datagrid>
   </List>
-);
-
+));
 
 const CompTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>User {record ? `"${record.name || record.full_name}"` : ''}</span>;
@@ -32,15 +57,19 @@ export const CompetitorEdit = (props) => (
     <SimpleForm>
       <DisabledInput source="_id" />
       <ReferenceInput label="Sport" source="sport" reference="sports">
-        <SelectInput source="name"/>
+        <AutocompleteInput source="name"/>
       </ReferenceInput>
       <TextInput source="name" />
       <TextInput source="first_name"/>
       <TextInput source="last_name"/>
       <TextInput source="full_name"/>
-        <ImageInput source="picture" accept="image/*">
-          <ImageField source="src" title="title"/>
-        </ImageInput>
+      <ImageInput source="picture" accept="image/*">
+        <ImageField source="src"/>
+      </ImageInput>
+      <ImageField source="image_versions" src="url" title="title"/>
+
+
+
       <BooleanInput source="isPerson" label="Is a person"/>
 
 
@@ -49,10 +78,10 @@ export const CompetitorEdit = (props) => (
   </Edit>
 );
 export const CompetitorCreate = (props) => (
-  <Create {...props}>
-    <SimpleForm enctype="multipart/form-data">
+  <Create {...props} >
+    <SimpleForm redirect="list">
       <ReferenceInput label="Sport" reference="sports" source="sport">
-        <SelectInput optionText="name"/>
+        <AutocompleteInput optionText="name"/>
       </ReferenceInput>
       <TextInput source="name" />
       <TextInput source="first_name"/>

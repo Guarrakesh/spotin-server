@@ -81,6 +81,10 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
       case CREATE:
         url = `${apiUrl}/${resource}`;
         options.method = 'POST';
+        if (params.data instanceof(FormData)) {
+          options.body = params.data;
+          break;
+        }
         options.body = JSON.stringify(params.data);
         break;
       case DELETE:

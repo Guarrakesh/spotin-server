@@ -5,10 +5,7 @@ const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const {Competitor} = require('../models/competitor.model');
 const { Sport } = require('../models/sport.model');
-const { uploadImage } = require('../utils/amazon.js');
-const { slugify } = require('lodash-addons');
 
-const mime = require('mime-to-extensions');
 exports.load = async (req, res, next, id) => {
   try {
     const competitor = await Competitor.findById(id);
@@ -45,6 +42,10 @@ exports.create = async (req, res, next) => {
     const competitor = new Competitor(req.body);
 
     const savedComp = await competitor.save();
+    if (req.file && req.file.fieldname === "picture") {
+      await savedComp.uploadPicture(req.file);
+    }
+
     res.status(httpStatus.CREATED);
     res.json(savedComp);
 
@@ -55,18 +56,21 @@ exports.create = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
 
-  if (req.file && req.file.fieldname == "picture") {
-    const ext = mime.extension(req.file.mimeType);
-    console.log(req.file, ext);
+  const body = omit(req.body, ['picture', 'image_versions']);
 
-    uploadImage(req.file, `images/competitor-logos/${slugify(req.body.name)}.${ext}`)
-    .then(e => console.log(e))
-    .catch(e => console.log(e));
+  const updatedComp = req.locals.competitor;
+
+  try {
+
+    let savedComp = await updatedComp.save();
+    if (req.file && req.file.fieldname == "picture") {
+      await savedComp.uploadPicture(req.file);
+    }
+    res.json(savedComp);
+  } catch (error) {
+    next(error);
   }
-  const updatedComp = Object.assign(req.locals.competitor, req.body);
-  updatedComp.save()
-    .then(savedComp => res.json(savedComp))
-    .catch(e => next(e));
+
 
 };
 

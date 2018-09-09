@@ -25,11 +25,13 @@ const addUploadFeature = requestHandler => (type, resource, params) => {
       Object.keys(params.data).forEach(key => {
         if (key !== 'picture');
           formData.append(key, params.data[key]);
-      })
+      });
+
       return convertToFileObject(params.data.picture)
         .then(fileObject => {
   
           formData.append('picture', fileObject);
+
           return requestHandler(type, resource, {
           ...params,
           data: formData
