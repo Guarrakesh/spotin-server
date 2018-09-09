@@ -31,6 +31,10 @@ let roles = [
   {id: "business", name: "Business"},
   {id: "user", name: "User"}
 ];
+const validateEqualPass = (value, allValues) => {
+  console.log(value, allValues);
+  return (value !== allValues.password) ? "Le password non coincidono." : undefined;
+}
 
 const UserTitle = ({ record }) => { //eslint-disable-line react/prop-types
   return <span>User {record ? `"${record.name}"` : ''}</span>;
@@ -57,7 +61,9 @@ export const UserCreate = (props) => (
     <TextInput source="name" validate={validateName}/>
     <TextInput source="lastname" validate={validateLastName}/>
     <TextInput source="username"  validate={validateUsername}/>
-    <TextInput source="password" validate={validatePass} />
+    <TextInput source="password" validate={validatePass} type="password"/>
+    <TextInput source="confirm_password" validate={validateEqualPass} type="password"/>
+
     <SelectInput source="role" choices={roles} />
   </SimpleForm>
 </Create>

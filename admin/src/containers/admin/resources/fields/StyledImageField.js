@@ -87,7 +87,7 @@ export const StyledImageField = ({
         title={titleValue}
         alt={titleValue}
         src={sourceValue}
-        className={classes.image}
+        className={classnames(classes.image, imgClassName)}
       />
     </div>
   );
