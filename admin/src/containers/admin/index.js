@@ -7,7 +7,7 @@ import { CompetitionList, CompetitionEdit, CompetitionCreate } from './resources
 import { BusinessList, BusinessEdit, BusinessCreate } from './resources/businesses';
 import { EventList, EventEdit, EventCreate } from './resources/events';
 import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/competitors';
-import { BroadcastList, BroadcastCreate } from './resources/broadcasts';
+import { BroadcastList, BroadcastCreate, BroadcastEdit } from './resources/broadcasts';
 
 
 
@@ -25,7 +25,7 @@ const AdminRoutes = [
     <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
 
     <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
-    <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} />
+    <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} edit={BroadcastEdit} />
 ];
 /* eslint-enable */
 const Admin = () => (

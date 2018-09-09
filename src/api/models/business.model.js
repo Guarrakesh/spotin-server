@@ -43,8 +43,11 @@ const businessSchema = new mongoose.Schema({
   },
   address: addressSchema,
   type: {
-    type: String,
-    enum: types,
+    type: [{
+      type: String,
+      enum: types,
+    }],
+
     required: true
   },
   phone: {

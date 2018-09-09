@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import { List, Datagrid, ChipField, TextField, EditButton } from 'react-admin';
 
 
 export {default as BusinessEdit} from './BusinessEdit';
@@ -9,7 +9,8 @@ export const BusinessList = (props) => (
     <Datagrid>
 
       <TextField source="name" label="Nome"/>
-      <TextField source="type" label="Tipo"/>
+
+      <ChipField source="type" label="Tipo"/>
       <TextField source="address.street" label="Indirizzo"/>
       <EditButton/>
     </Datagrid>

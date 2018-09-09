@@ -1,7 +1,6 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput,
-  SelectInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
-  RadioButtonGroupInput } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
+  RadioButtonGroupInput, Edit, DisabledInput, SelectInput } from 'react-admin';
 
 
 export const BroadcastList = (props) => (
@@ -31,7 +30,7 @@ export const BroadcastCreate = (props) => (
     <SimpleForm>
 
       <ReferenceInput reference="events" source="event">
-        <AutocompleteInput source="name"/>
+        <AutocompleteInput source="name" />
       </ReferenceInput>
       <ReferenceInput reference="businesses" source="business">
         <SelectInput source="name"/>
@@ -51,3 +50,31 @@ export const BroadcastCreate = (props) => (
     </SimpleForm>
   </Create>
 );
+
+
+export const BroadcastEdit = (props) => (
+  <Edit {...props}>
+    <SimpleForm>
+      <DisabledInput source="_id"/>
+      <ReferenceInput reference="events" source="event">
+        <SelectInput source="name"/>
+      </ReferenceInput>
+      <ReferenceInput reference="businesses" source="business">
+        <AutocompleteInput source="name"/>
+      </ReferenceInput>
+
+      <NumberInput source="newsfeed"/>
+      <TextInput source="offer.title"/>
+      <TextInput source="offer.description"/>
+      <RadioButtonGroupInput source="offer.type" choices={[
+        {id: "0", name: 'Prezzo fisso'},
+        {id: "1", name: 'Sconto in percentuale'},
+        {id: "2", name: 'Sconto assoluto'},
+      ]}/>
+      <NumberInput source="offer.value"/>
+
+
+    </SimpleForm>
+  </Edit>
+);
+

@@ -13,7 +13,7 @@ router.param('id', controller.load);
 router
   .route('/')
   .get(authorize(ADMIN), validate(listCompetitors), controller.list)
-  .post(authorize(ADMIN), validate(createCompetitor), controller.create)
+  .post(authorize(ADMIN), [upload.single('picture'), validate(createCompetitor)], controller.create)
 ;
 router
   .route('/:id')

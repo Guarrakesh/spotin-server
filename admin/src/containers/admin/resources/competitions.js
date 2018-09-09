@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
-  DisabledInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+  DisabledInput, ReferenceInput, SimpleForm, AutocompleteInput, TextInput } from 'react-admin';
 
 export const CompetitionList = (props) => (
   <List {...props}>
@@ -27,7 +27,7 @@ export const CompetitionEdit = (props) => (
     <SimpleForm>
       <DisabledInput source="_id" />
       <ReferenceInput label="Sport" source="sport" reference="sports">
-        <SelectInput source="name"/>
+        <AutocompleteInput source="name"/>
       </ReferenceInput>
       <TextInput source="name"/>
       <TextInput source="country"/>
@@ -45,7 +45,7 @@ export const CompetitionCreate = (props) => (
       <TextInput source="name"/>
       <TextInput source="country"/>
       <ReferenceInput label="Sport" source="sport" reference="sports">
-        <SelectInput source="name"/>
+        <AutocompleteInput source="name"/>
       </ReferenceInput>
 
     </SimpleForm>

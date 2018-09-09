@@ -10,6 +10,11 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const Sport = require('./sport.model.js');
 const mongoosePaginate = require('mongoose-paginate');
 const { slugify }  = require('lodash-addons');
+const { imageVersionSchema } = require('./imageVersion');
+
+const { uploadImage } = require('../utils/amazon.js');
+const sizeOf = require('image-size');
+const mime = require('mime-to-extensions');
 
 const competitorSchema = new mongoose.Schema({
   sport: {
@@ -22,8 +27,8 @@ const competitorSchema = new mongoose.Schema({
     maxlength: 128
   },
   image_versions: {
-    type: Array,
-
+    type: [imageVersionSchema],
+    default: []
   },
   slug: {
     type: String,
@@ -55,11 +60,31 @@ const competitorSchema = new mongoose.Schema({
 });
 
 
+competitorSchema.method({
+  async uploadPicture(file) {
+
+    const ext = mime.extension(file.mimetype);
+
+    try {
+      const data = await uploadImage(file.buffer, `images/competitor-logos/${this.slug}.${ext}`);
+      const {width, height} = await sizeOf(file.buffer);
+      //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
+      this.image_versions = [{url: data.Location, width, height}];
+      await this.save();
+      //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
+    } catch (error) {
+      console.log(error);
+      throw Error(error);
+    }
+
+  }
+
+});
 competitorSchema.pre('save', function(next) {
 
 
   if ((this.isNew && !this.slug) || (this.isPerson && !this.isNew && this.isModified('full_name'))
-  || (!this.isPerson && !this.isNew && this.isModified('name'))) {
+    || (!this.isPerson && !this.isNew && this.isModified('name'))) {
 
     this.slug = slugify(this.isPerson ? this.full_name : this.name);
 

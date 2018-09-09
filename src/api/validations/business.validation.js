@@ -5,7 +5,7 @@ module.exports = {
   // POST /v1/businesses
   createBusiness: {
     body: {
-      type: Joi.string().required(),
+      type: Joi.array().items(Joi.string()).required(),
       address: Joi.object({
         street: Joi.string().required(),
         number: Joi.string().required(),
@@ -36,7 +36,7 @@ module.exports = {
   // PATCH /v1/businesses/:id
   updateBusiness: {
     body: {
-      type: Joi.string(),
+      type: Joi.array().items(Joi.string()),
       address: Joi.object({
         street: Joi.string(),
         number: Joi.string(),

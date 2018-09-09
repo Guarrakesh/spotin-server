@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Edit,
-  DisabledInput, SelectInput, TextInput, NumberInput,
+  DisabledInput, TextInput, NumberInput,
   ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput} from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
@@ -40,7 +40,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
           <FormTab label="General">
             <DisabledInput label="id" source="_id"/>
             <TextInput source="name"/>
-            <SelectInput choices={types} source="type" label="Business Type"/>
+            <SelectArrayInput choices={types} source="type" label="Business Type"/>
             <TextInput source="phone"/>
             <ReferenceInput source="user"
                             reference="users"

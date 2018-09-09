@@ -7,7 +7,7 @@ const jwt = require('jwt-simple');
 const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
-
+const { imageVersionSchema } = require('./imageVersion');
 
 const {Sport} = require('./sport.model.js');
 
@@ -30,8 +30,8 @@ const competitionSchema = new mongoose.Schema({
   country: {
     type: String,
     trim: true,
-  }
-
+  },
+  image_versions: [imageVersionSchema]
 });
 
 
