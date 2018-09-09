@@ -11,6 +11,7 @@ const { imageVersionSchema } = require('./imageVersion');
 const { intersection } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
+
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
   'Trattoria', 'Bar', 'Centro scommesse'
@@ -136,6 +137,8 @@ businessSchema.method({
   },
 });
 businessSchema.statics = {
+
+
   async findNear(lat, lng, radius, options = {}) {
 
     let {_end = 10, _start = 0, _order = -1, _sort = "dist.calculated"} = options;

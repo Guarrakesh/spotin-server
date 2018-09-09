@@ -12,10 +12,24 @@ const mongoosePaginate = require('mongoose-paginate');
 const { slugify }  = require('lodash-addons');
 const { imageVersionSchema } = require('./imageVersion');
 
+
+/* Endpoint per ottenere, on the fly, le immagini ridimensionate */
+const { s3WebsiteEndpoint } = require('../../config/vars');
+
 const { uploadImage } = require('../utils/amazon.js');
 const sizeOf = require('image-size');
 const mime = require('mime-to-extensions');
 
+
+/* Versioni dell'immagine (oltre quella originale) che andranno inserite nel documento
+ * (Amazon s3/Lambda si occuperà del resize)
+ */
+const imageSizes = [
+  {width: 32, height: 32},
+  {width: 64, height: 64},
+  {width: 128, height: 128},
+  {width: 256, height: 256},
+];
 const competitorSchema = new mongoose.Schema({
   sport: {
     type: mongoose.Schema.ObjectId,
@@ -70,6 +84,19 @@ competitorSchema.method({
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
       this.image_versions = [{url: data.Location, width, height}];
+
+
+      const basePath = s3WebsiteEndpoint + "/images/competitor-logos";
+
+      imageSizes.forEach(({width, height}) => {
+
+        this.image_versions.push({
+          url: `${basePath}/${width}x${height}/${this.slug}.${ext}`,
+          width: width,
+          height: height
+        });
+
+      });
       await this.save();
       //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
     } catch (error) {
