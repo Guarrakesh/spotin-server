@@ -1,42 +1,29 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
 
-import { ListController, getListControllerProps, Title, ListToolbar , DefaultPagination, DefaultBulkActionButtons,BulkActionsToolbar, DefaultActions } from 'react-admin';
+import { ListController, getListControllerProps, Title, ListToolbar , DefaultPagination, DefaultBulkActionButtons, BulkActionsToolbar, DefaultActions } from 'react-admin';
 
 // core components
 //import Button from "business/components/material-ui/CustomButtons/Button.js";
 
 import Card from "business/components/material-ui/Card/Card";
 import CardHeader from "business/components/material-ui/Card/CardHeader";
-
 //import CardBody from "business/components/material-ui/Card/CardBody.js";
 import CardBody from "business/components/material-ui/Card/CardBody";
 
-const styles = {
-  root: {},
-  card: {
-    position: 'relative',
-  },
-  actions: {
-    zIndex: 2,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    flexWrap: 'wrap',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignSelf: 'flex-start',
-  },
-  noResults: { padding: 20 },
-};
+import dashStyles from "business/assets/jss/material-dashboard-pro-react/views/dashboardStyle";
 
-/* eslint-disable */
+const styles = {
+  headerTitle: {
+    color: '#fff !important'
+  },
+  ...dashStyles
+}
 const sanitizeRestProps = ({
   actions,
   basePath,
@@ -95,20 +82,17 @@ const sanitizeRestProps = ({
   version,
   ...rest
 }) => rest;
-/* eslint-enable */
+
 
 export const ListView = ({
   // component props
-  actions = <DefaultActions />,
-  filters,
   bulkActions, // deprecated
   bulkActionButtons = <DefaultBulkActionButtons />,
-  pagination = <DefaultPagination />,
+
   // overridable by user
   children,
   className,
   classes = {},
-  exporter,
   title,
   ...rest
 }) => {
@@ -123,41 +107,21 @@ export const ListView = ({
     >
 
       <Card>
-        <CardHeader color="success" stats icon>
-          <h3 className={classes.cardTitle}>
+        <CardHeader color="primary">
+          <h3 className={classnames([classes.cardTitle, classes.headerTitle])}>
             <Title title={title} defaultTitle={defaultTitle} />
           </h3>
-
-
-        {bulkActions !== false &&
-        bulkActionButtons !== false &&
-        bulkActionButtons &&
-        !bulkActions && (
-          <BulkActionsToolbar {...controllerProps}>
-            {bulkActionButtons}
-          </BulkActionsToolbar>
-        )}
-        {(filters || actions) && (
-          <ListToolbar
-            filters={filters}
-            {...controllerProps}
-            actions={actions}
-            bulkActions={bulkActions}
-            exporter={exporter}
-          />
-        )}
         </CardHeader>
         <CardBody key={version}>
 
-            {children &&
+            {children ?
             React.cloneElement(children, {
               ...controllerProps,
               hasBulkActions:
               bulkActions !== false &&
               bulkActionButtons !== false,
-            })}
-            {pagination &&
-            React.cloneElement(pagination, controllerProps)}
+            }) : null}
+
 
         </CardBody>
       </Card>

@@ -37,6 +37,7 @@ function CardBody({ ...props }) {
     [classes.cardBodyCalendar]: calendar,
     [className]: className !== undefined
   });
+
   return (
     <div className={cardBodyClasses} {...rest}>
       {children}
