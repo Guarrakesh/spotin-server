@@ -58,7 +58,7 @@ exports.update = async (req, res, next) => {
 
   const body = omit(req.body, ['picture', 'image_versions']);
 
-  const updatedComp = req.locals.competitor;
+  const updatedComp = Object.assign(req.locals.competitor, body);
 
   try {
 
