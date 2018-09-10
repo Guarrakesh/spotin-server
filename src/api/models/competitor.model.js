@@ -109,10 +109,9 @@ competitorSchema.method({
 });
 competitorSchema.pre('save', function(next) {
 
-
+  
   if ((this.isNew && !this.slug) || (this.isPerson && !this.isNew && this.isModified('full_name'))
     || (!this.isPerson && !this.isNew && this.isModified('name'))) {
-
     this.slug = slugify(this.isPerson ? this.full_name : this.name);
 
   }
