@@ -54,7 +54,8 @@ CardBody.propTypes = {
   signup: PropTypes.bool,
   color: PropTypes.bool,
   profile: PropTypes.bool,
-  calendar: PropTypes.bool
+  calendar: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default withStyles(cardBodyStyle)(CardBody);

@@ -22,7 +22,7 @@ const styles = {
 
 const CompetitorFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Nome" source="name" />
+    <TextInput label="Nome" source="name" alwaysOn />
     <ReferenceInput reference="sports" source="sport">
       <SelectInput label="Sport" source="name" />
     </ReferenceInput>
@@ -34,7 +34,7 @@ const CompetitorFilter = (props) => (
 export const CompetitorList = withStyles(styles)(({classes, ...props}) => (
   <List {...props} filters={<CompetitorFilter/>}>
     <Datagrid>
-      <StyledImageField label="" source="image_versions[0].url" cellClassName={classes.pictureCell} imgClassName={classes.pictureImg} />
+      <StyledImageField label="" source="image_versions[1].url" cellClassName={classes.pictureCell} imgClassName={classes.pictureImg} />
       <TextField source="_id" />
       <ReferenceField reference="sports" source="sport">
         <TextField source="name"/>
