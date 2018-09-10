@@ -66,6 +66,11 @@ exports.create = async (req, res, next) => {
     const competition = new Competition(req.body);
 
     const savedComp = await competition.save();
+
+    if (req.file && req.file.fieldname === "picture") {
+      await savedComp.uploadPicture(req.file);
+    }
+
     res.status(httpStatus.CREATED);
     res.json(savedComp);
 
@@ -74,13 +79,15 @@ exports.create = async (req, res, next) => {
   }
 };
 
-exports.update = (req, res, next) => {
+exports.update = async (req, res, next) => {
 
-    const updatedComp = Object.assign(req.locals.competition, req.body);
-
-    updatedComp.save()
-      .then(savedComp => res.json(savedComp))
-      .catch(e => next(e));
+  const updatedComp = Object.assign(req.locals.competition, req.body);
+  if (req.file && req.file.fieldname == "picture") {
+    await updatedComp.uploadPicture(req.file);
+  }
+  updatedComp.save()
+    .then(savedComp => res.json(savedComp))
+    .catch(e => next(e));
 
 };
 
