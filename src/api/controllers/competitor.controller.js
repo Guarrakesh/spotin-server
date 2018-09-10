@@ -23,7 +23,11 @@ exports.list = async (req, res, next) => {
   try {
 
     const { _end = 10, _start = 0, _sort = "_id", _order = 1} = req.query;
-    const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
+    const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start', 'q']);
+    if (req.query.q) {
+      filterQuery['name'] = { "$regex": req.query.q, "$options": "i"};
+    }
+
     const competitors = await Competitor.paginate(filterQuery, {
       sort: { [_sort]: _order },
       offset: parseInt(_start),
