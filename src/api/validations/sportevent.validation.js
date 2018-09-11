@@ -10,7 +10,7 @@ module.exports = {
       sport: Joi.string().required(),
       competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})).required(),
+      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
 
       start_at: Joi.date().iso().required(),
 
