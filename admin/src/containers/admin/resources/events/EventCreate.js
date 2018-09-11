@@ -44,7 +44,7 @@ const EventCreate = (props) => (
               <SimpleFormIterator resource="competitors">
                 <ReferenceInput
                   filter={{sport: formData.sport}}
-                  reference="competitors" source="_id">
+                  reference="competitors" source="competitor">
                   <AutocompleteInput optionValue="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
                 </ReferenceInput>
 
