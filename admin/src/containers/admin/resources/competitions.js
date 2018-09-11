@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
+import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton, BooleanInput,
   DisabledInput, ReferenceInput, SimpleForm, AutocompleteInput, TextInput, ImageField, ImageInput, Filter, SelectInput} from 'react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import StyledImageField from './fields/StyledImageField'; //eslint-disable-line
@@ -53,6 +53,7 @@ export const CompetitionEdit = (props) => (
       </ReferenceInput>
       <TextInput source="name"/>
       <TextInput source="country"/>
+      <BooleanInput source="competitorsHaveLogo"/>
       <ImageInput source="picture" accept="image/*">
         <ImageField source="src"/>
       </ImageInput>
@@ -73,6 +74,7 @@ export const CompetitionCreate = (props) => (
       <ReferenceInput label="Sport" source="sport" reference="sports">
         <AutocompleteInput source="name"/>
       </ReferenceInput>
+      <BooleanInput source="competitorsHaveLogo"/>
       <ImageInput source="picture" accept="image/*">
         <ImageField source="src" title="title"/>
       </ImageInput>

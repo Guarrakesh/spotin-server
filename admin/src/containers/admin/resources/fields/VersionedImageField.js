@@ -73,7 +73,7 @@ export const VersionedImageField = ({
       <img
         title={titleValue}
         alt={titleValue}
-        src={sourceValue}
+        src={version.url}
         className={classnames(classes.image)}
       />
     </div>
