@@ -5,13 +5,36 @@ const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const Sport = require('../models/sport.model');
 const { Competitor } = require('../models/competitor.model');
+
+
+const sanitizeQueryParams = ({
+  competition_id,
+  sport,
+  _end,
+  _start,
+  _order,
+  _sort,
+  id_like,
+  extend,
+  ...rest
+}) => rest;
+
+
 /**
  * Load sport and append to req.
  * @public
  */
 exports.load = async (req, res, next, id) => {
   try {
-    const event = await SportEvent.findById(id);
+    let query = SportEvent.findById(id);
+    if (req._extend) {
+      const populates = req._extends.split(',');
+      [].concat(populates).forEach(p => {
+        query.populate(p);
+      });
+    }
+    const event = await query.exec();
+
     req.locals = { event };
 
     return next();
@@ -68,29 +91,35 @@ exports.update = (req, res, next) => {
 exports.list = async (req, res, next) => {
 
   try {
-    let query = omit(req.query, ['competition_id', 'sport', '_end', '_start', '_order', '_sort']);
+    let filter = sanitizeQueryParams(req.query);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { locals } = req;
 
     //Accetto sia /sports/:id/events che /competitions/:id/events che /events
     if (locals && locals.competition) {
-      query['competition'] = req.locals.competition._id;
+      filter['competition'] = req.locals.competition._id;
     } else if (locals && locals.sport) {
-      query.sport = req.locals.sport._id;
+      filter.sport = req.locals.sport._id;
     } else if (req.query.competition_id) {
       console.log(req.query.competition_id);
-      query['competition'] = req.query.competition_id;
+      filter['competition'] = req.query.competition_id;
     }
+
+
     if (req.query.id_like) {
-      query._id = { $in: req.query.id_like.split('|')};
-      delete query['id_like'];
+      filter._id = { $in: req.query.id_like.split('|')};
     }
+    //Accetta il parametro Extend, per popolare i subdocument
+    const populates = req.query.extend ? req.query.extend.split(',') : null;
+
+
     const limit = parseInt(_end - _start);
-    let events = await SportEvent.paginate(query, {
+
+    let events = await SportEvent.paginate(filter, {
       sort: _sort,
       offset: parseInt(_start),
       limit: limit,
-      populate: ['sport', 'competition','competitors._id'],
+      populate: populates || null
     });
 
     events.docs = events.docs.map(event => {

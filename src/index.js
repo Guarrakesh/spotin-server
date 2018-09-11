@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 // listen to requests
-app.listen(port, '0.0.0.0', () => console.info(`server started on port ${port} (${env})`));
+app.listen(port, '127.0.0.1', () => console.info(`server started on port ${port} (${env})`));
 
 /**
 * Exports express
