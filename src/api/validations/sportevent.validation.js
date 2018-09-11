@@ -10,7 +10,7 @@ module.exports = {
       sport: Joi.string().required(),
       competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
+      competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
 
       start_at: Joi.date().iso().required(),
 
@@ -24,7 +24,7 @@ module.exports = {
       sport: Joi.string().required(),
       competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
+      competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
       start_at: Joi.date().iso().required(),
 
       spots: Joi.number()
@@ -40,7 +40,7 @@ module.exports = {
       name: Joi.string().min(6).max(128),
       competition: Joi.string(),
       description: Joi.string().min(8).max(255),
-      competitors: Joi.array().items(Joi.object({_id: Joi.string().required()})),
+      competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
       start_at: Joi.date().iso(),
 
       spots: Joi.number()

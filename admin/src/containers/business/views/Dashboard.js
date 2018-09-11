@@ -9,7 +9,7 @@ import { getUserBusinesses as getUserBusinessAction} from '../actions/business';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
-import SpotIcon from 'business/assets/img/SpotinIcon-outline.png';
+import SpotIcon from 'business/assets/img/SpotinIcon-outline';
 
 // core components
 import GridContainer from "business/components/material-ui/Grid/GridContainer.js";
@@ -65,7 +65,7 @@ class Dashboard extends React.Component {
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
 
-                  <img src={SpotIcon} width="32" height="32"/>
+                  <SpotIcon color="white" width="36px" height="36x"/>
 
 
                 </CardIcon>

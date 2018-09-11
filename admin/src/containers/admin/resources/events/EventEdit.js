@@ -48,7 +48,7 @@ const EventEdit = (props) => (
             <SimpleFormIterator>
               <ReferenceInput
                 filter={{sport: formData.sport || record.sport}}
-                reference="competitors" source="_id">
+                reference="competitors" source="competitor">
                 <AutocompleteInput optionValue="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
               </ReferenceInput>
 
