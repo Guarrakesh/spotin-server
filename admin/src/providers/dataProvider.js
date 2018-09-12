@@ -3,7 +3,7 @@ import restClientProvider from './restClientProvider';
 import addUploadFeature from './fileUpload';
 
 
-const apiUrl = process.env.NODE_ENV === "production" ? "/v1" : "http://localhost:3001/v1";
+const apiUrl = process.env.NODE_ENV === "production" ? "/v1" : "http://192.168.1.51:3001/v1";
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
     options.headers = new Headers({Accept: 'application/json'});
