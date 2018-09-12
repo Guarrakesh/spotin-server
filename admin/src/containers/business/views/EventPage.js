@@ -4,8 +4,10 @@ import classnames from 'classnames';
 
 import { whithStyles } from '@material-ui/core/styles';
 
-import {Card, CardHeader, CardBody} from 'business/components';
+import {Card, CardHeader, CardIcon CardBody} from 'business/components';
 import { ShowController } from 'ra-core';
+import styles from "business/assets/jss/material-dashboard-pro-react/views/eventPageStyle";
+
 
 const sanitizeRestProps = ({
     actions,
@@ -45,7 +47,11 @@ export const EventPage = ({
   return (
     <div className={classnames('show-page', className)}
       {...sanitizeRestProps(rest)}
-
+        <Card>
+          <CardHeader>
+            <CardIcon
+          </CardHeader>
+        </Card>
 
     </div>
   )
