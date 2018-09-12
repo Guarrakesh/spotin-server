@@ -1,13 +1,21 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, EditButton,
 } from 'react-admin';
+import moment from 'moment';
+import { get } from 'lodash';
 
 export { default as EventEdit } from './EventEdit';
 export { default as EventCreate } from './EventCreate';
 
 
+/* eslint-disable*/
+export const DateTimeField = ({record, source}) => {
+  const sourceValue = get(record, source);
 
-
+  const dateTime = moment(sourceValue).locale('IT').format('D-MM - HH:mm').toUpperCase();
+  return (<span>{dateTime}</span>)
+}
+/* eslint-enable*/
 export const EventList = (props) => (
   <List {...props}>
     <Datagrid>
@@ -17,7 +25,7 @@ export const EventList = (props) => (
       <ReferenceField reference="competitions" source="competition">
         <TextField source="name"/>
       </ReferenceField>
-
+      <DateTimeField source="start_at"/>
       <TextField source="name"/>
       <EditButton/>
 
