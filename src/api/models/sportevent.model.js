@@ -68,7 +68,7 @@ sportEventSchema.pre('save', async function(next) {
       next(Error("La competizione specificata non esiste."));
   }
 
-  const ids = this.competitors.map(comp => comp._id);
+  const ids = this.competitors.map(comp => comp.competitor);
 
   const competitors = await Competitor.find({ _id: { $in: ids }});
   console.log(competitors);
