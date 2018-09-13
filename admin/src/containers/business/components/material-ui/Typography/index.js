@@ -1,4 +1,4 @@
-export Table from './Table';
+
 export Danger from './Danger';
 export Info from './Info';
 export Muted from './Muted';

@@ -8,7 +8,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
 // core components
-import cardTextStyle from "business/assets/jss/material-dashboard-pro-react/components/cardTextStyle.jsx";
+import cardTextStyle from "business/assets/jss/material-dashboard-pro-react/components/cardTextStyle";
 
 function CardText({ ...props }) {
   const { classes, className, children, color, ...rest } = props;
@@ -27,6 +27,7 @@ function CardText({ ...props }) {
 CardText.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
+    children: PropTypes.element,
   color: PropTypes.oneOf([
     "warning",
     "success",

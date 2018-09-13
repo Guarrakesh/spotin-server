@@ -5,6 +5,7 @@
     "transform-react-jsx",
     "transform-object-rest-spread",
     "transform-regenerator",
+    "transform-export-default",
     ["module-resolver", {
       "alias": {
         "business": "./src/containers/business/"

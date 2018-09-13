@@ -16,6 +16,7 @@ import Layout from './layout';
 
 
 import EventList from './resources/events/EventList';
+import EventPage from './views/EventPage'
 import Dashboard from './views/Dashboard';
 import customSaga from './sagas';
 
@@ -25,7 +26,9 @@ import businessReducer from './reducers/business';
 
 /* eslint-disable*/
 const BusinessRoutes = [
-  <Resource key="events" name="events" list={EventList} options={{label:"Eventi in programma"}}/>,
+  <Resource key="events" name="events"
+    show={EventPage}
+    list={EventList} options={{label:"Eventi in programma"}}/>,
 
 
 ];
