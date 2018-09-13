@@ -22,7 +22,7 @@ module.exports = {
   },
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
-  s3WebsiteEndpoint: 'http://spotinapp.s3-website.eu-central-1.amazonaws.com'
+  s3WebsiteEndpoint: 'https://dockaddkf7nie.cloudfront.net'
 };
 
 
