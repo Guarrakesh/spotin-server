@@ -16,9 +16,13 @@ const upload = multer({limits: {fileSize: 10*1024*1024}});
 
 
 router.param('id', competitionController.load);
+
+router.route('/updateImageUrls')
+  .get(competitionController.updateUrl);
 router
   .route('/')
   .get(competitionController.list)
+
   .post(authorize(ADMIN), [upload.single('picture'),validate(createCompetition)], competitionController.create);
 
 router

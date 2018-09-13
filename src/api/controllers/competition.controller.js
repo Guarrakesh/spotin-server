@@ -5,8 +5,10 @@ const {SportEvent} = require('../models/sportevent.model');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const {Competition} = require('../models/competition.model');
+
 const { Sport } = require('../models/sport.model');
 
+const { Competitor } = require('../models/competitor.model');
 
 exports.load = async (req, res, next, id) => {
   try {
@@ -97,4 +99,32 @@ exports.remove = (req,res, next) => {
   competition.remove()
     .then(() => res.status(httpStatus.NO_CONTENT).end())
     .catch(e => next(e));
+}
+
+exports.updateUrl = async (req, res, next) => {
+
+  const comps = Competitor.find({}).exec((err, docs) => {
+    res.json();
+    let i = 0;
+    docs.forEach(comp => {
+
+      if (comp.image_versions && comp.image_versions.length > 1) {
+        comp.image_versions = comp.image_versions.map(version => {
+        if (version.url && version.url.includes('http://spotinapp.s3-website.eu-central-1.amazonaws.com'));
+          version.url = version.url.replace('http://spotinapp.s3-website.eu-central-1.amazonaws.com', 'https://dockaddkf7nie.cloudfront.net');
+        return version;
+
+        });
+        comp.save(function(err) {
+          i++;
+        })
+
+      }
+    });
+    res.json({total: i});
+  });
+
+
+
+
 }
