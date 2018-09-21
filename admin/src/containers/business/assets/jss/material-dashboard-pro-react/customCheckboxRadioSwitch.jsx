@@ -3,7 +3,7 @@ import {
   dangerColor,
   roseColor,
   grayColor
-} from "business/assets/jss/material-dashboard-pro-react";
+} from "business/assets/jss/material-dashboard-pro-react.jsx";
 
 const customCheckboxRadioSwitch = {
   checkboxAndRadio: {

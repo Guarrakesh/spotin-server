@@ -52,7 +52,6 @@ export const VersionedImageField = ({
   //Posto che il source dato in ingresso sia un'array, trovo la versione dell'immagine con la dimensione più prossima a quella data (minSize)
 
   const sourceValue = get(record, source);
-
   if (!sourceValue || sourceValue.length === 0)
     return <div className={className} {...sanitizeRestProps(rest)} />;
   let version; //oggetto con { url, width, height }
@@ -74,6 +73,7 @@ export const VersionedImageField = ({
   }
 
 
+
   const titleValue = get(record, title) || title;
   return (
     <div className={className} {...sanitizeRestProps(rest)}>
@@ -85,6 +85,7 @@ export const VersionedImageField = ({
       />
     </div>
   );
+
 
 
 }

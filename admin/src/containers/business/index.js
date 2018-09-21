@@ -16,7 +16,9 @@ import Layout from './layout';
 
 
 import EventList from './resources/events/EventList';
-import EventPage from './views/EventPage'
+
+import BroadcastCreate from './resources/broadcasts/BroadcastCreate';
+
 import Dashboard from './views/Dashboard';
 import customSaga from './sagas';
 
@@ -26,9 +28,11 @@ import businessReducer from './reducers/business';
 
 /* eslint-disable*/
 const BusinessRoutes = [
+  <Resource key="competitions" name="competitions"/>,
+  <Resource key="competitors" name="competitors"/>,
   <Resource key="events" name="events"
-    show={EventPage}
     list={EventList} options={{label:"Eventi in programma"}}/>,
+  <Resource key="broadcasts" name="broadcasts" create={BroadcastCreate}/>
 
 
 ];

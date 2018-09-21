@@ -1,7 +1,7 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/competitor.controller.js');
-const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 const { createCompetitor, updateCompetitor, listCompetitors } = require('../../validations/competitor.validation');
 const multer = require('multer');
 
@@ -12,7 +12,7 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(authorize(ADMIN), validate(listCompetitors), controller.list)
+  .get(authorize([ADMIN, BUSINESS]), validate(listCompetitors), controller.list)
   .post(authorize(ADMIN), [upload.single('picture'), validate(createCompetitor)], controller.create)
 ;
 router

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { TextField, Responsive, SimpleList, linkToRecord } from 'react-admin';
+import { TextField, Responsive, SimpleList, ReferenceField } from 'react-admin';
 import ReactTable from 'react-table'; //eslint-disable-line
 import PropTypes from 'prop-types';
 import List from 'business/views/list/SimpleList';
@@ -16,7 +16,7 @@ import { VersionedImageField } from '../../components/fields/VersionedImageField
 
 /* eslint-disable */
 const EventList = (props) => (
-  <List title={"Eventi in programma"} {...props} filter={{extend: 'competition'}}>
+  <List title={"Eventi in programma"}  {...props}>
     <Responsive
       medium={<EventTable/>}
       small={ <SimpleList
@@ -37,6 +37,24 @@ const EventList = (props) => (
 
 );
 
+/**
+ *
+ * @param record
+ * Il tasto crea un link alla pagina di acquisto dell'evento (che sarebbe la creazione di una risorsa Braodcast)
+ * e si premura di passare il parametro event
+ * come prefill in CreateBroadcast (tutto sarà gestito da CreateController di react-admin)
+ */
+const CreateBroadcastButton = ({record}) => (
+  <Link
+    to={{
+      pathname: '/broadcasts/create',
+      state: { record: { event: record }}
+    }}
+    >
+    <Button color="primary" simple>Acquista</Button>
+  </Link>
+
+)
 
 const styles = {
   pictureImg: {
@@ -66,70 +84,84 @@ const styles = {
   }
 };
 
+
+const CompetitionCell = ({classes, record,  ...rest}) => (
+  <div className={classes.competitionCell}>
+    <VersionedImageField
+      record={record}
+      source="image_versions"
+      imgClassName={classes.pictureImg}
+      minSize={{width: 128, height: 128}}/>
+      <TextField source="name"/>
+  </div>
+);
+
 const EventTable = withStyles(styles)(
   ({  ids,
-      data,
-      classes,
-      basePath}) => {
+    data,
+    classes,
+    basePath}) => {
 
 
-  return (
-  <ReactTable
-    data={
+    return (
+      <ReactTable
+        data={
 
-      ids.map(id => {
-        const dateTime = moment(data[id].start_at).locale('').format('d MMM - HH:mm').toUpperCase();
-        return ({
-          competitionImage: <div className={classes.competitionCell}><VersionedImageField
-            record={data[id]} source="competition.image_versions"
-            imgClassName={classes.pictureImg}
-            minSize={{width: 128, height: 128}}/> {data[id].competition.name}</div>,
-          name: <TextField record={data[id]} source="name"/>,
-          date: <span>{dateTime}</span>,
-          spots: <div className={classes.spotCell}>{data[id].spots}<SpotIcon width="15" height="15" color={dangerColor}/></div>,
-          actions: <Link to={`${linkToRecord(basePath, id)}/show`}><Button color="primary" simple>Acquista</Button></Link>
+          ids.map(id => {
+            const dateTime = moment(data[id].start_at).locale('').format('d MMM - HH:mm').toUpperCase();
+            return ({
+              competitionImage:
+                <ReferenceField basePath={basePath} record={data[id]} reference="competitions" source="competition">
+                  <CompetitionCell classes={classes} />
+                </ReferenceField>,
 
-        })
-      })
-    }
-    columns={[
-      {
-        Header: 'Competizione',
-        accessor: 'competitionImage'
-      },
-      {
-        Header: 'Nome',
-        accessor: 'name'
-      },
-      {
-        Header: 'Data',
-        accessor: 'date'
-      },
-      {
-        Header: 'Spots',
-        accessor: 'spots',
-        headerStyle: {
-          textAlign: 'right'
-        },
-        style: {'textAlign': 'right'}
-      },
-      {
-        Header: '',
-        resizable: false,
-        sortable: false,
-        filterable: false,
-        accessor: 'actions',
-        style: {'textAlign': 'right'}
-      }
-    ]}
-    defaultPageSize={10}
-    showPaginationTop
-    showPaginationBottom={false}
-    className="-highlight"
 
-  />);
+              name: <TextField record={data[id]} source="name"/>,
+              date: <span>{dateTime}</span>,
+              spots: <div className={classes.spotCell}>{data[id].spots}<SpotIcon width="15" height="15" color={dangerColor}/></div>,
+              actions: <CreateBroadcastButton record={data[id]}/>
 
-});
+            })
+          })
+        }
+        columns={[
+          {
+            Header: 'Competizione',
+            accessor: 'competitionImage'
+          },
+          {
+            Header: 'Nome',
+            accessor: 'name'
+          },
+          {
+            Header: 'Data',
+            accessor: 'date'
+          },
+          {
+            Header: 'Spots',
+            accessor: 'spots',
+            headerStyle: {
+              textAlign: 'right'
+            },
+            style: {'textAlign': 'right'}
+          },
+          {
+            Header: '',
+            resizable: false,
+            sortable: false,
+            filterable: false,
+            accessor: 'actions',
+            style: {'textAlign': 'right'}
+          }
+        ]}
+        defaultPageSize={10}
+        showPaginationTop
+        showPaginationBottom={false}
+        className="-highlight"
+
+      />);
+
+  });
 EventTable.defaultProps = {
   ids: [],
   data: {},
