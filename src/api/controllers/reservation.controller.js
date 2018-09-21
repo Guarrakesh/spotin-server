@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
-const ApiError = require('../utils/ApiError');
+const ApiError = require('../utils/APIError');
 const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
 const { Reservation } = require('../models/reservation.model');
