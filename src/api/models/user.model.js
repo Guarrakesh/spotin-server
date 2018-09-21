@@ -9,6 +9,9 @@ const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const mongoosePaginate = require('mongoose-paginate');
 const { sportSchema } = require('./sport.model');
+const { reservationSchema } = require('./reservation.model');
+const { broadcastSchema } = require('./broadcast.model');
+
 const { ADMIN, BUSINESS, LOGGED_USER } = require('../middlewares/auth');
 
 const { Business } = require('./business.model');
@@ -71,6 +74,10 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   favorite_sports: [sportSchema],
+  reservations: [
+    {type: mongoose.Schema.ObjectId, ref: "Broadcast"}
+  ],
+
 
 
 }, {

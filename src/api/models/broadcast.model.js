@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
-
+const {reservationSchema} = require('./reservation.model');
 
 const { imageVersionSchema } = require('./imageVersion');
 
 const offerSchema = require('./offer.schema');
 
 
-const reservationSchema = new mongoose.Schema({
-  user_id: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-  date: Date
-});
 
 
 const broadcastSchema = new mongoose.Schema({
@@ -52,6 +48,3 @@ broadcastSchema.statics = {
 broadcastSchema.plugin(mongoosePaginate);
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");
-
-
-
