@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, EditButton,
+import { List, ChipField, Datagrid, TextField, ReferenceField, EditButton,
 } from 'react-admin';
 import moment from 'moment';
 import { get } from 'lodash';
@@ -25,7 +25,9 @@ export const EventList = (props) => (
       <ReferenceField reference="competitions" source="competition">
         <TextField source="name"/>
       </ReferenceField>
+      <ChipField source="providers[0]" label="Providers"/>
       <DateTimeField source="start_at"/>
+
       <TextField source="name"/>
       <EditButton/>
 

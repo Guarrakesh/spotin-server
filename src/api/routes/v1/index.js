@@ -9,7 +9,7 @@ const sportEventRoutes = require('./sportevent.route');
 const broadcastRoutes = require('./broadcast.route');
 const businessRoute = require('./business.route');
 const competitorRoutes = require('./competitor.route');
-
+const reservationRoutes = require('./reservation.route');
 const router = express.Router();
 
 /**
@@ -31,5 +31,7 @@ router.use('/events', sportEventRoutes);
 router.use('/broadcasts', broadcastRoutes);
 router.use('/businesses', businessRoute);
 router.use('/competitors', competitorRoutes);
+router.use('/reservations', reservationRoutes);
+
 
 module.exports = router;
