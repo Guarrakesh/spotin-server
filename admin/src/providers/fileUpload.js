@@ -1,3 +1,4 @@
+
 // in addUploadFeature.js
 /**
  * Convert a `File` object returned by the upload input into a base 64 string.
@@ -18,6 +19,7 @@
 const addUploadFeature = requestHandler => (type, resource, params) => {
   if (type === "UPDATE" || type === "CREATE") {
     // only freshly dropped pictures are instance of File
+    params.data && console.log(Object.keys(params.data));
     if (params.data.picture) {
       // C'e' un upload, quindi converto il body in un FormData;
       let formData = new FormData();
@@ -29,7 +31,7 @@ const addUploadFeature = requestHandler => (type, resource, params) => {
 
       return convertToFileObject(params.data.picture)
         .then(fileObject => {
-  
+
           formData.append('picture', fileObject);
 
           return requestHandler(type, resource, {

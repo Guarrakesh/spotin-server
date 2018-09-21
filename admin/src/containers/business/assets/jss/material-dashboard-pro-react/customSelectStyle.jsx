@@ -1,7 +1,7 @@
 import {
   primaryColor,
   primaryBoxShadow
-} from "business/assets/jss/material-dashboard-pro-react";
+} from "business/assets/jss/material-dashboard-pro-react.jsx";
 
 const customSelectStyle = {
   select: {
