@@ -3,7 +3,7 @@ import React from 'react';
 import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
   TextInput, NumberInput, ReferenceInput,
   LongTextInput, FormDataConsumer,AutocompleteInput,
-  ArrayInput, SimpleFormIterator,
+  ArrayInput, SimpleFormIterator, SelectArrayInput,
   required,
 
   minLength,
@@ -11,6 +11,12 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
   maxLength} from 'react-admin';
 import { DateTimeInput } from 'react-admin-date-inputs';
 
+const providers = [
+  {id: "sky", name: "Sky"},
+  {id: "mediaset-premium", name:"Mediaset Premium"},
+  {id: "dazn", name: "DAZN"},
+  {id: "digitale-terrestre", name: "Digitale Terrestre"},
+];
 
 const validateName = [required(), minLength(6), maxLength(128)];
 const validateDesc = [minLength(8), maxLength(255)];
@@ -39,7 +45,8 @@ const EventEdit = (props) => (
         <DateTimeInput label="Data evento" validate={validateDate}
                        source="start_at" options={{ format: 'DD/MM/YYYY, HH:mm:ss', ampm: false, clearable: true }}/>
         <NumberInput source="spots"  validate={[required(), number()]}/>
-      </FormTab>
+          <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
+    </FormTab>
       <FormTab label="Competitors">
         <FormDataConsumer>
         {({formData, record}) => {

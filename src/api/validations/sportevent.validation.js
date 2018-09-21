@@ -11,7 +11,7 @@ module.exports = {
       competition: Joi.string(),
       description: Joi.string().min(8).max(255),
       competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
-
+      providers: Joi.array().items(Joi.string()),
       start_at: Joi.date().iso().required(),
 
       spots: Joi.number()
@@ -42,6 +42,7 @@ module.exports = {
       description: Joi.string().min(8).max(255),
       competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
       start_at: Joi.date().iso(),
+      providers: Joi.array().items(Joi.string()),
 
       spots: Joi.number()
     },
