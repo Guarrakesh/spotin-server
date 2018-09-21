@@ -48,7 +48,8 @@ const sportEventSchema = new mongoose.Schema({
   spots: {
     type: Number,
     default: 0
-  }
+  },
+  providers: [String]
 });
 
 sportEventSchema.pre('save', async function(next) {
