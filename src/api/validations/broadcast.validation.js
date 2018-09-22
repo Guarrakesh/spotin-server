@@ -8,8 +8,8 @@ module.exports = {
       start_at: Joi.date(),
       end_at: Joi.date(),
       offer: Joi.object({
-        title: Joi.string().required(),
-        description: Joi.string().required(),
+        title: Joi.string(),
+        description: Joi.string(),
         value: Joi.number().default(10),
         type: Joi.number().default(1)
       }).required()

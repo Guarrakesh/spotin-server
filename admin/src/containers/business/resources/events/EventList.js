@@ -26,7 +26,7 @@ const EventList = (props) => (
 
         secondaryText={record => record.name}
         tertiaryText={record => {
-          const dateTime = moment(record.start_at).locale('').format('d MMM - HH:mm').toUpperCase();
+          const dateTime = moment(record.start_at).locale('').format('D MMM - HH:mm').toUpperCase();
           return dateTime;
         }}
       />}
@@ -108,7 +108,7 @@ const EventTable = withStyles(styles)(
         data={
 
           ids.map(id => {
-            const dateTime = moment(data[id].start_at).locale('').format('d MMM - HH:mm').toUpperCase();
+            const dateTime = moment(data[id].start_at).locale('').format('D MMM - HH:mm').toUpperCase();
             return ({
               competitionImage:
                 <ReferenceField basePath={basePath} record={data[id]} reference="competitions" source="competition">

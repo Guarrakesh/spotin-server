@@ -42,7 +42,31 @@ broadcastSchema.method({
 });
 
 broadcastSchema.statics = {
+  /**
+   * Get broadcast
+   *
+   * @param {ObjectId} id - The objectId of broadcast.
+   * @returns {Promise<User, APIError>}
+   */
+  async get(id) {
+    try {
+      let broadcast;
 
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        broadcast = await this.findById(id).exec();
+      }
+      if (broadcast) {
+        return broadcast;
+      }
+
+      throw new APIError({
+        message: 'Brodcast does not exist',
+        status: httpStatus.NOT_FOUND,
+      });
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 broadcastSchema.plugin(mongoosePaginate);
