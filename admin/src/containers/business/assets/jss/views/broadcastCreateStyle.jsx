@@ -130,7 +130,7 @@ const eventPageStyle = theme => ({
     fontSize: '21px',
     fontWeight: 500,
     color: grayColor,
-
+    textAlign: 'center'
   },
   totalSpots: {
     fontSize: '32px',
@@ -150,6 +150,9 @@ const eventPageStyle = theme => ({
     [theme.breakpoints.down("md")]: {
       flexDirection: 'column'
     },
+  },
+  offerTitleFormControl: {
+    display: 'block'
   },
   center: {
     textAlign: "center"

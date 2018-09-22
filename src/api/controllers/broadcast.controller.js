@@ -11,6 +11,7 @@ const { BUSINESS, ADMIN } = require('../middlewares/auth');
 exports.load = async(req, res, next, id) => {
   try {
     const broadcast = await Broadcast.get(id);
+
     req.locals = { broadcast };
     return next();
   } catch (error) {
@@ -105,4 +106,12 @@ exports.list = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+exports.remove = (req, res, next) => {
+  const { broadcast } = req.locals;
+
+  broadcast.remove()
+    .then(() => res.status(200).end())
+    .catch(e => next(e));
 };

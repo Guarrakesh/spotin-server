@@ -56,6 +56,9 @@ class CreateBroadcastView extends React.Component {
   }
   handleModalClose(submit = false) {
     if (submit) {
+      let record = this.state.record;
+      record.event = record.event._id;
+      record.business = this.props.business._id;
 
       this.props.save(this.state.record, "/events/list");
     }
@@ -108,7 +111,7 @@ class CreateBroadcastView extends React.Component {
           className={classes.modalBody}>
           <h5>Comprare questo evento?</h5>
           <p>{finalRecord.event.name}</p>
-          <p>{finalRecord.offer && finalRecord.offer.type}</p>
+          <p>{finalRecord.offer && finalRecord.offer.title}</p>
         </DialogContent>
 
           <DialogActions
@@ -157,7 +160,11 @@ class CreateBroadcastView extends React.Component {
           </GridItem>
 
           <GridItem xs={12} sm={12} >
-           <BroadcastCreateForm save={save} onSubmit={this.handleSubmit} record={record}/>
+           <BroadcastCreateForm
+
+             save={save}
+             defaultValue={{event: record.event, offer: {type: "1", value: 10}}}
+             onSubmit={this.handleSubmit} record={record}/>
 
           </GridItem>
         </GridContainer>
@@ -178,6 +185,7 @@ const CreateBroadcast = props => (
 
 
 CreateBroadcast.propTypes = {
+  business: PropTypes.object,
   actions: PropTypes.element,
   classes: PropTypes.element,
   children: PropTypes.element,
@@ -193,10 +201,10 @@ CreateBroadcast.propTypes = {
 
 const enhance = compose(
   connect((state, props) => ({
+    business: state.business.data ? state.business.data.find(bus => bus._id == state.business.current) : null,
     saving: props.saving || state.admin.saving
   })),
 
   withStyles(styles)
 );
 export default enhance(CreateBroadcast);
-
