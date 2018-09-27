@@ -64,7 +64,7 @@ exports.list = async (req, res, next) => {
   try {
 
     //TODO: Gestire geolocalizzazione
-    let broadcasts;
+    let broadcasts, near = {};
 
     const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
@@ -72,21 +72,28 @@ exports.list = async (req, res, next) => {
 
     if (latitude && longitude && radius) {
       const business = await Business.findNear(latitude, longitude, radius, { _sort, _order });
+
+      //Faccio paginazione sui broadcast e non sui locali
       const ids = business.docs.map(bus => bus._id);
-      broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).lean().exec();
+      const total = await Broadcast.count({business: {$in: ids}, ...filterQuery});
+      broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).skip(parseInt(_start)).limit(parseInt(_end - _start)).lean().exec();
+
       broadcasts = broadcasts.map(broadcast => {
 
         const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
 
-        broadcast['business'] = currentBusiness;
+        broadcast['business'] = currentBusiness._id;
+        Object.assign(near, { [broadcast._id]: currentBusiness.dist});
 
         return broadcast;
       });
-      broadcasts = broadcasts.sort((a,b) => a.business.dist.calculated > b.business.dist.calculated);
+
+      broadcasts = broadcasts.sort((a,b) => _order === 1 ? near[a._id].calculated > near[b._id].calculated: near[a._id].calculated < near[b._id].calculated);
       res.json({
         docs: broadcasts,
-        offset: req.query._start,
-
+        offset: _start,
+        near,
+        total
       })
 
     } else {

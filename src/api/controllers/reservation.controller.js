@@ -10,21 +10,20 @@ const User = require('../models/user.model');
 
 exports.create = async (req, res, next) => {
   try {
-    const {loggedUser} = req.locals;
-    if (!loggedUser)
+    const { user } = req;
+    if (!user)
       throw new ApiError({status: 401});
     const { broadcast } = req.body;
     const reservation = new Reservation({
-      user: loggedUser._id,
+      user: user._id,
       broadcast: broadcast,
       created_at: (new Date()).toISOString()
     });
 
     await Broadcast.update({_id: broadcast},
     { $push: {reservations: reservation}});
-    await User.update({_id: loggedUser._id},
+    await User.update({_id: user._id},
     { $push: {reservations: new mongoose.mongo.ObjectId(broadcast)}}, function(err, res){
-      console.log(err, res);
     });
 
     res.status = httpStatus.CREATED;

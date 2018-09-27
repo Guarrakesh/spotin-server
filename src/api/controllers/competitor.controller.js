@@ -22,7 +22,7 @@ exports.get = (req, res) => res.json(req.locals.competitor);
 exports.list = async (req, res, next) => {
   try {
 
-    const { _end = 10, _start = 0, _sort = "_id", _order = 1} = req.query;
+    const { _end = 25, _start = 0, _sort = "_id", _order = 1} = req.query;
     const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start', 'q', 'id_like']);
     if (req.query.q) {
       filterQuery['name'] = { "$regex": req.query.q, "$options": "i"};

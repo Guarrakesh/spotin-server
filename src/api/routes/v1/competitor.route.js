@@ -12,7 +12,7 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(authorize([ADMIN, BUSINESS]), validate(listCompetitors), controller.list)
+  .get(validate(listCompetitors), controller.list)
   .post(authorize(ADMIN), [upload.single('picture'), validate(createCompetitor)], controller.create)
 ;
 router
