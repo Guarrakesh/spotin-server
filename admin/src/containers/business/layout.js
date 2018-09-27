@@ -65,8 +65,8 @@ class BusinessLayout extends React.Component {
       " " +
       cx({
         [classes.mainPanelSidebarMini]: !open,
-        [classes.mainPanelWithPerfectScrollbar]:
-        navigator.platform.indexOf("Win") > -1
+        // [classes.mainPanelWithPerfectScrollbar]:
+        // navigator.platform.indexOf("Win") > -1
       });
      const { hasError, errorMessage, errorInfo } = this.state;
 
