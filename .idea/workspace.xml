@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/broadcast.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/broadcast.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/competitor.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/competitor.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/reservation.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/reservation.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/middlewares/auth.js" afterPath="$PROJECT_DIR$/src/api/middlewares/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/routes/v1/competitor.route.js" afterPath="$PROJECT_DIR$/src/api/routes/v1/competitor.route.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,8 +28,8 @@
       <file leaf-file-name="broadcast.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/controllers/broadcast.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+            <state relative-caret-position="522">
+              <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -55,7 +50,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1538054038559" expanded="true" signature="3078:4160" ph="{...}" />
+                <marker date="1538054038559" expanded="true" signature="3131:4158" ph="{...}" />
+                <marker date="1538054038559" expanded="true" signature="3356:3474" ph="{...}" />
+                <marker date="1538054038559" expanded="true" signature="3377:3473" ph="{...}" />
+                <marker date="1538054038559" expanded="true" signature="3633:4078" ph="[...]" />
+                <marker date="1538054038559" expanded="true" signature="3641:3942" ph="{...}" />
+                <marker date="1538054038559" expanded="true" signature="3663:3933" ph="{&quot;distanceField&quot;: &quot;dist.calculated&quot;...}" />
+                <marker date="1538054038559" expanded="true" signature="4093:4154" ph="{&quot;docs&quot;: docs...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -590,14 +594,7 @@
       <workItem from="1537959931293" duration="2585000" />
       <workItem from="1537966292374" duration="5103000" />
       <workItem from="1538043799244" duration="1434000" />
-      <workItem from="1538053950270" duration="1000" />
-    </task>
-    <task id="LOCAL-00013" summary="FIX: /sports/:id/competitions restituiva tutte le competizioni invece che solo quelle dello sport relativo. Sistemato.">
-      <created>1532384530301</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1532384530301</updated>
+      <workItem from="1538053950270" duration="123000" />
     </task>
     <task id="LOCAL-00014" summary="Sistemato metodo weekEvents, prendeva tutti gli eventi invece che quelli settimanali">
       <created>1532968466834</created>
@@ -935,11 +932,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537562116110</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Refactoring di alcune API">
+      <created>1538053978862</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1538053978863</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="524273000" />
+    <option name="totallyTimeSpent" value="524395000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -954,26 +958,26 @@
     <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16541946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16541946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31305757" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21318145" sideWeight="0.49822766" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26525632" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24918832" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37012988" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19982472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32927817" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="103" y="123" width="2360" height="1120" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2298944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32628152" sideWeight="0.48759353" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19982472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33060557" sideWeight="0.49389523" order="6" side_tool="false" content_ui="tabs" />
@@ -1026,7 +1030,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Ignored some" />
     <MESSAGE value="Set up Business Panel" />
     <MESSAGE value="Fix package.json&#10;" />
     <MESSAGE value="Added config files" />
@@ -1051,7 +1054,8 @@
     <MESSAGE value="Business: Working on business panel" />
     <MESSAGE value="ADMIN: competitors have logo sulle competizioni" />
     <MESSAGE value="FIX: material-ui dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX: material-ui dependency" />
+    <MESSAGE value="Refactoring di alcune API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring di alcune API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1355,8 +1359,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/broadcast.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+        <state relative-caret-position="522">
+          <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1373,7 +1377,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1538054038559" expanded="true" signature="3078:4160" ph="{...}" />
+            <marker date="1538054038559" expanded="true" signature="3131:4158" ph="{...}" />
+            <marker date="1538054038559" expanded="true" signature="3356:3474" ph="{...}" />
+            <marker date="1538054038559" expanded="true" signature="3377:3473" ph="{...}" />
+            <marker date="1538054038559" expanded="true" signature="3633:4078" ph="[...]" />
+            <marker date="1538054038559" expanded="true" signature="3641:3942" ph="{...}" />
+            <marker date="1538054038559" expanded="true" signature="3663:3933" ph="{&quot;distanceField&quot;: &quot;dist.calculated&quot;...}" />
+            <marker date="1538054038559" expanded="true" signature="4093:4154" ph="{&quot;docs&quot;: docs...}" />
+          </folding>
         </state>
       </provider>
     </entry>
