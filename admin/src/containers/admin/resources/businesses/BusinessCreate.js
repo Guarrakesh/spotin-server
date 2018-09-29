@@ -2,7 +2,8 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Create,
-  DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput } from 'react-admin';
+  DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
+ImageInput } from 'react-admin';
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -43,6 +44,11 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
 
           </ReferenceInput>
           <NumberInput source="spots"/>
+            <ImageInput source="picture" accept="image/*">
+              <ImageField source="src"/>
+            </ImageInput>
+            <ImageField source="cover_versions[0].url" src="url" title="title"/>
+
         </FormTab>
         <FormTab label="Address">
           <TextInput source="address.street" label="Street"/>

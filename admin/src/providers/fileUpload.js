@@ -19,14 +19,19 @@
 const addUploadFeature = requestHandler => (type, resource, params) => {
   if (type === "UPDATE" || type === "CREATE") {
     // only freshly dropped pictures are instance of File
-    params.data && console.log(Object.keys(params.data));
     if (params.data.picture) {
       // C'e' un upload, quindi converto il body in un FormData;
       let formData = new FormData();
 
       Object.keys(params.data).forEach(key => {
-        if (key !== 'picture');
-          formData.append(key, params.data[key]);
+        if (key !== 'picture') {
+          if (typeof params.data[key] === "object") {
+            formData.append(key, JSON.stringify(params.data[key]));
+          } else {
+            formData.append(key, params.data[key]);
+
+          }
+        }
       });
 
       return convertToFileObject(params.data.picture)

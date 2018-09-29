@@ -18,7 +18,7 @@ import Layout from './layout';
 import EventList from './resources/events/EventList';
 
 import BroadcastCreate from './resources/broadcasts/BroadcastCreate';
-
+//import BroadcastEdit from './resources/broadcasts/BroadcastEdit'
 import Dashboard from './views/Dashboard';
 import customSaga from './sagas';
 
@@ -32,7 +32,9 @@ const BusinessRoutes = [
   <Resource key="competitors" name="competitors"/>,
   <Resource key="events" name="events"
     list={EventList} options={{label:"Eventi in programma"}}/>,
-  <Resource key="broadcasts" name="broadcasts" create={BroadcastCreate}/>
+  <Resource key="broadcasts" name="broadcasts"
+    
+    create={BroadcastCreate}/>
 
 
 ];

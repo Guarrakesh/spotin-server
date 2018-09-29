@@ -3,7 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Edit,
   DisabledInput, TextInput, NumberInput,
-  ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput} from 'react-admin';
+  ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput, ImageField,
+ImageInput } from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
 
@@ -50,6 +51,11 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
               <AutocompleteInput optionText="email"/>
             </ReferenceInput>
             <NumberInput source="spots"/>
+              <ImageInput source="picture" accept="image/*">
+                <ImageField source="src"/>
+              </ImageInput>
+              <ImageField source="cover_versions[0].url" src="url" title="title"/>
+
           </FormTab>
           <FormTab label="Address">
             <TextInput source="address.street" label="Street"/>

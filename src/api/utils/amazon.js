@@ -25,4 +25,14 @@ exports.uploadImage = function(buffer, destFileName) {
       });
     });
 
+};
+
+exports.deleteImage = function(key) {
+  return new Promise(function(resolve, reject) {
+    s3.deleteObject({ Bucket: 'spotinapp', Key: key}, function (err, data) {
+      if (err) reject(err);
+
+      else resolve(data);
+    })
+  });
 }
