@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const moment = require('moment-timezone');
 const jwt = require('jwt-simple');
-
+const uuidv1 = require('uuid/v1');
 const APIError = require('../utils/APIError');
 const mongoosePaginate = require('mongoose-paginate');
+const sizeOf = require('image-size');
+const mime = require('mime-to-extensions');
 
 
 const addressSchema = require('./address.schema');
@@ -11,6 +13,13 @@ const { imageVersionSchema } = require('./imageVersion');
 const { intersection } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
+const { s3WebsiteEndpoint } = require('../../config/vars');
+const { uploadImage } = require('../utils/amazon.js');
+const imageSizes = [
+  {width: 640, height: 350},
+  {width: 768, height: 432},
+  {width: 320, height: 180},
+];
 
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
@@ -66,8 +75,7 @@ const businessSchema = new mongoose.Schema({
     required: true
   },
   businessHours: businessDaysSchema,
-  cover: imageVersionSchema,
-  photos: [imageVersionSchema],
+  //photos: [imageVersionSchema],
 
   vat: {
     required: true,
@@ -85,7 +93,7 @@ const businessSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
-
+  cover_versions: [imageVersionSchema],
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'
@@ -135,6 +143,36 @@ businessSchema.method({
     this.spots -= spots;
     await this.save();
   },
+  async uploadCover(file) {
+    const ext = mime.extension(file.mimetype);
+
+    try {
+      const coverId = uuidv1();
+      const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
+      const {width, height} = await sizeOf(file.buffer);
+      //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
+
+      this.cover_versions = [{url: data.Location, width, height}];
+
+
+      const basePath = s3WebsiteEndpoint + "/businesses/";
+
+      imageSizes.forEach(({width, height}) => {
+        this.cover_versions.push({
+          url: `${basePath}/${width}x${height}/${this._id.toString()}/cover.${ext}`,
+          width: width,
+          height: height
+        });
+
+      });
+      await this.save();
+      //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
+    } catch (error) {
+      console.log(error);
+      throw Error(error);
+    }
+
+  }
 });
 businessSchema.statics = {
 
