@@ -14,6 +14,11 @@ const reservationSchema = new mongoose.Schema({
 
   created_at: Date,
 
+  used: {
+    type: Boolean,
+    default: false,
+    required: true,
+  }
 
 
 });
