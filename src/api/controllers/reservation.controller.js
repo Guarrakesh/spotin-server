@@ -24,12 +24,10 @@ exports.create = async (req, res, next) => {
     const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcast},
       { $push: {reservations: reservation}}, );
     //Prendo l'id della reservation generata da mongoose e la pusho nell'oggetto reservations dell'utente
-    console.log(updatedBroadcast);
-    const reservationId = updatedBroadcast.reservations[updatedBroadcast.reservations.length-1]._id;
 
-    await User.update({_id: user._id},
-      { $push: {reservations: new mongoose.mongo.ObjectId(reservationId)}});
-
+    const updatedUser = await User.findOneAndUpdate({_id: user._id},
+      { $push: {reservations: new mongoose.mongo.ObjectId(broadcast)}});
+  console.log(updatedBroadcast, updatedUser);
 
     res.status = httpStatus.CREATED;
     res.json(reservation);
@@ -45,32 +43,30 @@ exports.list = async (req, res, next) => {
     const { userId, broadcastId, _end = 10, _start = 0, _order = 1, _sort = "_id", id_like } = req.query;
 
 
-    let reservations = {};
+    let reservations = {docs: []};
     if (loggedUser.role === 'user') {
-      const userReservationIds = loggedUser.reservations;
-      let userReservations = { docs: [] };
-      for (let i = _start; i < userReservationIds.length ; i++) {
 
-        if (i > _end) break;
 
-        const broadcastWithReservation = await Broadcast.findOne({'reservations._id': userReservationIds[i]}).lean();
-
-        if (!broadcastWithReservation) continue;
-        const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
-
-        console.log(reservationDoc, broadcastWithReservation.reservations);
-
-        const reservation = { ...reservationDoc, broadcast: omit(broadcastWithReservation, "reservations")};
-        userReservations.docs.push(reservation)
-        i++;
+      const broadcastsWithReservation = await Broadcast.find({_id: { $in: loggedUser.reservations }, 'reservations.user': loggedUser._id})
+        .limit(parseInt(_end - _start))
+        .skip(parseInt(_start))
+        .lean();
+      if (broadcastsWithReservation) {
+          reservations.docs = broadcastsWithReservation.map (broadcast => {
+            const reservationObj = broadcast.reservations.find(res => res.user.toString() === loggedUser._id.toString());
+            return { ...reservationObj, broadcast: omit(broadcast, "reservations")}
+          });
       }
-      userReservations.docs = userReservations.docs.sort((a, b) =>
-        _order * (new Date(a.created_at)) - (new Date(b.created_at)) )
-      userReservations.offset = _start;
-      userReservations.total = loggedUser.reservations.length || 0;
 
-      reservations = userReservations;
+      reservations.docs = reservations.docs.sort((a, b) =>
+      _order * (new Date(a.created_at)) - (new Date(b.created_at)) );
+      reservations.offset = _start;
+      reservations.total = loggedUser.reservations.length || 0;
+      //  const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
+
     }
+
+
     //TODO: Gestire prenotazioni da business (dato un broadcastId)
 
 
