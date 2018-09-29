@@ -44,7 +44,7 @@ exports.list = async (req, res, next) => {
 
     });*/
     if (req.query.id_like) {
-      filterQuery._id = { $in: req.query.id_like.split('|')};
+      filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
       delete filterQuery['id_like'];
     }
     if (latitude && longitude && radius) {
