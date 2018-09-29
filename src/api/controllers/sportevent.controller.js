@@ -107,7 +107,7 @@ exports.list = async (req, res, next) => {
 
 
     if (req.query.id_like) {
-      filter._id = { $in: req.query.id_like.split('|')};
+      filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
     }
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : null;
