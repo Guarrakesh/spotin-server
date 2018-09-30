@@ -22,6 +22,14 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
   const validateDesc = [minLength(8), maxLength(255)];
   const validateDate = [required()];
 
+  // const dateParser = value => {
+  //   const date = new Date(value);
+  //   if (!date) return value;
+  //   try {
+  //     var utcDate = new Date( date.getTime() + (date.getTimezoneOffset() * 60000));
+  //     return utcDate.toISOString();
+  //   } catch (error) { return value; }
+  // }
   const EventEdit = (props) => (
     <Edit {...props}>
       <TabbedForm>
@@ -43,6 +51,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
 
         <LongTextInput source="description"  validate={validateDesc}/>
         <TextInput type="datetime-local"
+      //    parse={dateParser}
           InputLabelProps={{
             shrink: true,
           }}

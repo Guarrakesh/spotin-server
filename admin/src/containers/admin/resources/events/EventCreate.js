@@ -20,6 +20,13 @@ const providers = [
 const validateName = [required(), minLength(6), maxLength(128)];
 const validateDesc = [minLength(8), maxLength(255)];
 const validateDate = [required()];
+// const dateParser = value => {
+//   const date = new Date(value);
+//   if (!date) return value;
+//   try {
+//     return date.toISOString();
+//   } catch (error) { return value; }
+// }
 
 const EventCreate = (props) => (
   <Create {...props}>
@@ -40,7 +47,10 @@ const EventCreate = (props) => (
         </FormDataConsumer>
 
         <LongTextInput source="description" validate={validateDesc}/>
-          <TextInput type="datetime-local"
+          <TextInput
+            //parse={dateParser}
+            type="datetime-local"
+
             InputLabelProps={{
               shrink: true,
             }}
