@@ -25,29 +25,17 @@ exports.list = async (req, res, next) => {
     const filterQuery = omit(req.query, ['latitude', 'longitude','radius']);
     const {_end, _start, _order, _sort } = req.query;
     const { latitude, longitude, radius } = req.query;
-/*
-    let data;
-    if (latitude && longitude && radius) {
-      filterQuery['address.location'] = {
-        $near: {
-          $maxDistance: parseInt(radius),
-          $geometry: {type: 'Point', coordinates: [parseFloat(longitude), parseFloat(latitude)]}
-        }
-      };
-    }
-    let data = await Business.paginate(filterQuery, {
-      sort: _sort ? {[_sort]: _order ? _order.toLowerCase() : 1} : "",
-      offset: (_start) ? parseInt(_start) : 0,
-      limit: (_end && _start) ? parseInt(_end - _start) : 10,
-      populate: ['business_id', 'event_id']
-
-    });*/
+    let data, near = {};
     if (req.query.id_like) {
       filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
       delete filterQuery['id_like'];
     }
     if (latitude && longitude && radius) {
       data = await Business.findNear(latitude, longitude, radius, filterQuery);
+      data.docs = data.docs.map(business => {
+        Object.assign(near, { [business._id]: business.dist });
+        return omit(business, "dist");
+      });
     } else {
       const query = omit(filterQuery, ['_end','_sort','_order','_start']);
 
@@ -55,11 +43,10 @@ exports.list = async (req, res, next) => {
         sort: _sort ? {[_sort]: _order ? _order.toLowerCase() : 1} : "",
         offset: (_start) ? parseInt(_start) : 0,
         limit: (_end && _start) ? parseInt(_end - _start) : 10,
-
-
       });
     }
-    res.json(data);
+
+    res.json({...data, near});
 
   } catch (error) {
     next(error);

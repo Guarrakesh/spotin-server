@@ -4,7 +4,7 @@ const User = require('../models/user.model');
 const APIError = require('../utils/APIError');
 
 const ADMIN = 'admin';
-const LOGGED_USER = '_loggedUser';
+const APP_USER = 'user';
 const BUSINESS = 'business';
 
 
@@ -27,14 +27,14 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
   }
 
 
-  //Role check
-  if (roles === LOGGED_USER || (typeof roles === "object" && roles.includes(LOGGED_USER))) {
-    if (req.params.userId && req.params.userId !== user._id.toString()) {
-      apiError.status = httpStatus.FORBIDDEN;
-      apiError.message = 'Forbidden';
-      return next(apiError);
-    }
-  } else if (typeof roles === "object" && !roles.includes(user.role)) {
+  const { loggedUser } = req.locals;
+  if (loggedUser.role === ADMIN) {
+    req.user = user;
+    return next();
+  }
+
+  if ((typeof roles === "object" && !roles.includes(loggedUser.role)) ||
+      (typeof roles === "string" && roles !== loggedUser.role)) {
     apiError.status = httpStatus.FORBIDDEN;
     apiError.message = 'Forbidden';
     return next(apiError);
@@ -42,13 +42,15 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
     return next(apiError);
   }
 
+
+
   req.user = user;
 
   return next();
 };
 
 exports.ADMIN = ADMIN;
-exports.LOGGED_USER = LOGGED_USER;
+exports.LOGGED_USER = APP_USER;
 exports.BUSINESS = BUSINESS;
 
 

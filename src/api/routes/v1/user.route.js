@@ -79,7 +79,7 @@ router
    * @apiGroup User
    * @apiPermission user
    *
-   * @apiHeader {String} Athorization  User's access token
+   * @apiHeader {String} Authorization  User's access token
    *
    * @apiSuccess {String}  id         User's id
    * @apiSuccess {String}  name       User's name
@@ -89,7 +89,7 @@ router
    *
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated Users can access the data
    */
-  .get(authorize(), controller.loggedIn);
+  .get(authorize(LOGGED_USER), controller.loggedIn);
 
 
 router
