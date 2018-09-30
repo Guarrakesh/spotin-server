@@ -124,9 +124,10 @@ exports.list = async (req, res, next) => {
 
 
     events.docs = events.docs.map(event => {
+
       return event.transform(req);
     });
-
+console.log("EEE", events.docs[0]);
     res.json(events);
   } catch (error) {
     next(error);

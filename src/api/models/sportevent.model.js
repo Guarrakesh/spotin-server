@@ -101,6 +101,7 @@ sportEventSchema.method({
         transformed[field] = this[field];
       }
     });
+    
     if (req) {
       //Check is SportEvent is favorited by user
       const { locals } = req;
