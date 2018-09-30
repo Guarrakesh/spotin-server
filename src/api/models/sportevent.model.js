@@ -81,18 +81,33 @@ sportEventSchema.pre('save', async function(next) {
   next();
 });
 sportEventSchema.method({
-  transform(req) {
+  transform(req = null) {
     const transformed = {};
     const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
     fields.forEach((field) => {
-      transformed[field] = this[field];
-    });
-    //Check is SportEvent is favorited by user
-    const { locals } = req;
-    if (locals && locals.user) {
-      //transformed['isUserFavorite'] = false;
-    }
 
+      if (field === "competitors" && typeof this.competitors === "object") {
+
+        transformed[field] = this.competitors.map(competitor => {
+
+          return {
+            _id: competitor._id,
+            competitor: competitor._id,
+            _links: [{
+            image_versions: competitor.competitor.image_versions}
+          ]}
+        })
+      } else {
+        transformed[field] = this[field];
+      }
+    });
+    if (req) {
+      //Check is SportEvent is favorited by user
+      const { locals } = req;
+      if (locals && locals.user) {
+        //transformed['isUserFavorite'] = false;
+      }
+    }
     //TODO: Cercare nei preferiti dell'utente
 
 

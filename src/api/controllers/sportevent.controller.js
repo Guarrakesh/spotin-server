@@ -26,7 +26,7 @@ const sanitizeQueryParams = ({
  */
 exports.load = async (req, res, next, id) => {
   try {
-    let query = SportEvent.findById(id);
+    let query = SportEvent.findById(id).populate('competitors.competitor');
     if (req._extend) {
       const populates = req._extends.split(',');
       [].concat(populates).forEach(p => {
@@ -47,7 +47,7 @@ exports.load = async (req, res, next, id) => {
  * Get SportEvent
  * @public
  */
-exports.get = (req, res) => res.json(req.locals.event);
+exports.get = (req, res) => res.json(req.locals.event.transform());
 
 
 
@@ -101,7 +101,6 @@ exports.list = async (req, res, next) => {
     } else if (locals && locals.sport) {
       filter.sport = req.locals.sport._id;
     } else if (req.query.competition_id) {
-      console.log(req.query.competition_id);
       filter['competition'] = req.query.competition_id;
     }
 
@@ -110,7 +109,8 @@ exports.list = async (req, res, next) => {
       filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
     }
     //Accetta il parametro Extend, per popolare i subdocument
-    const populates = req.query.extend ? req.query.extend.split(',') : null;
+    const populates = req.query.extend ? req.query.extend.split(',') : [];
+    populates.push('competitors.competitor');
 
 
     const limit = parseInt(_end - _start);
@@ -121,6 +121,7 @@ exports.list = async (req, res, next) => {
       limit: limit,
       populate: populates || null
     });
+
 
     events.docs = events.docs.map(event => {
       return event.transform(req);
