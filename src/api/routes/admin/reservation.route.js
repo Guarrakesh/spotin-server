@@ -1,6 +1,6 @@
 const express = require('express');
 const validate = require('express-validation');
-const controller = require('../../controllers/v1/reservation.controller.js');
+const controller = require('../../controllers/admin/reservation.controller.js');
 const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 
 const { createReservation, listReservations } = require('../../validations/reservation.validation');

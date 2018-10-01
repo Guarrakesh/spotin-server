@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
-const ApiError = require('../utils/APIError');
-const { handler: errorHandler } = require('../middlewares/error');
+const ApiError = require('../../utils/APIError');
+const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
-const { Reservation } = require('../models/reservation.model');
-const { Broadcast } = require('../models/broadcast.model');
+const { Reservation } = require('../../models/reservation.model.js');
+const { Broadcast } = require('../../models/broadcast.model.js');
 const { omit } = require('lodash');
-const User = require('../models/user.model');
+const User = require('../../models/user.model.js');
 
 
 exports.create = async (req, res, next) => {

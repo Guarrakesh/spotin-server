@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
-const User = require('../models/user.model');
-const { handler: errorHandler } = require('../middlewares/error');
+const User = require('../../models/user.model.js');
+const { handler: errorHandler } = require('../../middlewares/error');
 
 /**
  * Load user and append to req.

@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
-const { handler: errorHandler } = require('../middlewares/error');
+const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
-const {Competitor} = require('../models/competitor.model');
-const { Sport } = require('../models/sport.model');
+const {Competitor} = require('../../models/competitor.model.js');
+const { Sport } = require('../../models/sport.model.js');
 
 exports.load = async (req, res, next, id) => {
   try {
+
     const competitor = await Competitor.findById(id);
+
     req.locals = { competitor };
     return next();
   } catch (error) {
@@ -37,7 +39,6 @@ exports.list = async (req, res, next) => {
       offset: parseInt(_start),
       limit: parseInt(_end - _start)
     });
-
 
     res.json(competitors);
   } catch (error) {

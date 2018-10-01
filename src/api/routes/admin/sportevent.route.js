@@ -1,10 +1,10 @@
 const express = require('express');
 const validate = require('express-validation');
-const controller = require('../../controllers/v1/sportevent.controller.js');
+const controller = require('../../controllers/admin/sportevent.controller.js');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {createEvent, updateEvent } = require('../../validations/sportevent.validation');
 const router = express.Router();
-const broadcastController = require('../../controllers/v1/broadcast.controller.js');
+const broadcastController = require('../../controllers/admin/broadcast.controller.js');
 /**
  * Load user when API with userId route parameter is hit
  */

@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
-const {SportEvent} = require('../models/sportevent.model');
-const { handler: errorHandler } = require('../middlewares/error');
+const {SportEvent} = require('../../models/sportevent.model.js');
+const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
-const {Competition} = require('../models/competition.model');
+const {Competition} = require('../../models/competition.model.js');
 
-const { Sport } = require('../models/sport.model');
+const { Sport } = require('../../models/sport.model.js');
 
-const { Competitor } = require('../models/competitor.model');
+const { Competitor } = require('../../models/competitor.model.js');
 
 exports.load = async (req, res, next, id) => {
   try {

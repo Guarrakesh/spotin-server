@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../../controllers/v1/business.controller.js');
+const controller = require('../../controllers/admin/business.controller.js');
 const validate = require('express-validation');
 const multer = require('multer');
 

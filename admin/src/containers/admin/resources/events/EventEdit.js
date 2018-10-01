@@ -64,7 +64,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
         <FormDataConsumer>
           {({formData, record}) => {
             return (
-              <ArrayInput source="competitors" >
+              <ArrayInput source="competitors">
                 <SimpleFormIterator>
                   <ReferenceInput
                     filter={{sport: formData.sport || record.sport}}

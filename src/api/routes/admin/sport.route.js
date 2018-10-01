@@ -1,9 +1,9 @@
 const express = require('express');
 const validate = require('express-validation');
-const controller = require('../../controllers/v1/sport.controller.js');
+const controller = require('../../controllers/admin/sport.controller.js');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
-const eventController = require('../../controllers/v1/sportevent.controller.js');
-const competitionController = require('../../controllers/v1/competition.controller.js');
+const eventController = require('../../controllers/admin/sportevent.controller.js');
+const competitionController = require('../../controllers/admin/competition.controller.js');
 const router = express.Router();
 
 
@@ -78,7 +78,7 @@ router
    */
   .patch(authorize(ADMIN), validate(updateSport), controller.update)
   /**
-   * @api {delete} /v1/sports/:sportId Delete sport
+   * @api {delete} /admin/sports/:sportId Delete sport
    * @apiDescription Delete a sport
    * @apiVersion 1.0.0
    * @apiName DeleteSport
