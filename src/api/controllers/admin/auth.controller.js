@@ -1,8 +1,8 @@
 const httpStatus = require('http-status');
-const User = require('../models/user.model');
-const RefreshToken = require('../models/refreshToken.model');
+const User = require('../../models/user.model.js');
+const RefreshToken = require('../../models/refreshToken.model.js');
 const moment = require('moment-timezone');
-const { jwtExpirationInterval } = require('../../config/vars');
+const { jwtExpirationInterval } = require('../../../config/vars');
 
 /**
 * Returns a formated object with tokens

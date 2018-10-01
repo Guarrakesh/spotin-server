@@ -1,4 +1,4 @@
-const APIError = require('../utils/APIError');
+const APIError = require('../../utils/APIError');
 
 
 const aws = require('aws-sdk');

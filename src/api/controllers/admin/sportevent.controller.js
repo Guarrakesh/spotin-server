@@ -1,10 +1,10 @@
 const httpStatus = require('http-status');
 const { omit, at} = require('lodash');
-const {SportEvent} = require('../models/sportevent.model');
-const { handler: errorHandler } = require('../middlewares/error');
+const {SportEvent} = require('../../models/sportevent.model.js');
+const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
-const Sport = require('../models/sport.model');
-const { Competitor } = require('../models/competitor.model');
+const Sport = require('../../models/sport.model.js');
+const { Competitor } = require('../../models/competitor.model.js');
 
 
 const sanitizeQueryParams = ({
@@ -26,7 +26,7 @@ const sanitizeQueryParams = ({
  */
 exports.load = async (req, res, next, id) => {
   try {
-    let query = SportEvent.findById(id).populate('competitors.competitor');
+    let query = SportEvent.findById(id);
     if (req._extend) {
       const populates = req._extends.split(',');
       [].concat(populates).forEach(p => {
@@ -93,16 +93,6 @@ exports.list = async (req, res, next) => {
   try {
     let filter = sanitizeQueryParams(req.query);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
-    const { locals } = req;
-
-    //Accetto sia /sports/:id/events che /competitions/:id/events che /events
-    if (locals && locals.competition) {
-      filter['competition'] = req.locals.competition._id;
-    } else if (locals && locals.sport) {
-      filter.sport = req.locals.sport._id;
-    } else if (req.query.competition_id) {
-      filter['competition'] = req.query.competition_id;
-    }
 
 
     if (req.query.id_like) {
@@ -110,7 +100,6 @@ exports.list = async (req, res, next) => {
     }
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
-    populates.push('competitors.competitor');
 
 
     const limit = parseInt(_end - _start);
@@ -124,10 +113,8 @@ exports.list = async (req, res, next) => {
 
 
     events.docs = events.docs.map(event => {
-
       return event.transform(req);
     });
-console.log("EEE", events.docs[0]);
     res.json(events);
   } catch (error) {
     next(error);

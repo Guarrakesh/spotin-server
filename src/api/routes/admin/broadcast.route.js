@@ -8,7 +8,7 @@ const validate = require('express-validation');
 
 const { createBroadcast } = require('../../validations/broadcast.validation');
 
-const controller = require('../../controllers/v1/broadcast.controller.js');
+const controller = require('../../controllers/admin/broadcast.controller.js');
 
 router.param('id', controller.load);
 

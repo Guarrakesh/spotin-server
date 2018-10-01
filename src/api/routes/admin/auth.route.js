@@ -1,6 +1,6 @@
 const express = require('express');
 const validate = require('express-validation');
-const controller = require('../../controllers/v1/auth.controller.js');
+const controller = require('../../controllers/admin/auth.controller.js');
 const oAuthLogin = require('../../middlewares/auth').oAuth;
 const {
   login,
@@ -98,7 +98,7 @@ router.route('/refresh-token')
 
 
 /**
- * TODO: POST /v1/auth/reset-password
+ * TODO: POST /admin/auth/reset-password
  */
 
 

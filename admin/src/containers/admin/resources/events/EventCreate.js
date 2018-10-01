@@ -67,7 +67,7 @@ const EventCreate = (props) => (
                 <ReferenceInput
                   filter={{sport: formData.sport}}
                   reference="competitors" source="competitor">
-                  <AutocompleteInput optionValue="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
+                  <AutocompleteInput optionValue="competitor" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
                 </ReferenceInput>
 
 

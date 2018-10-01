@@ -85,17 +85,20 @@ sportEventSchema.method({
     const transformed = {};
     const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
     fields.forEach((field) => {
-
       if (field === "competitors" && typeof this.competitors === "object") {
 
         transformed[field] = this.competitors.map(competitor => {
-
-          return {
-            _id: competitor._id,
-            competitor: competitor._id,
-            _links: [{
-            image_versions: competitor.competitor.image_versions}
-          ]}
+          console.log("aye", typeof competitor);
+          if (typeof competitor === "object" && typeof competitor.competitor === "object") {
+            return {
+              competitor: competitor.competitor._id,
+              _links: {
+                image_versions: competitor.competitor.image_versions
+              }
+            }
+          } else {
+            return competitor;
+          }
         })
       } else {
         transformed[field] = this[field];

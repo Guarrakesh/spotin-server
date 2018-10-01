@@ -1,13 +1,13 @@
 const httpStatus = require('http-status');
-const { handler: errorHandler } = require('../middlewares/error');
-const ApiError = require('../utils/APIError');
+const { handler: errorHandler } = require('../../middlewares/error');
+const ApiError = require('../../utils/APIError');
 const { omit } = require('lodash');
 const { Model } = require('mongoose');
-const { Broadcast } = require('../models/broadcast.model');
-const { Business } = require('../models/business.model');
-const { SportEvent } = require('../models/sportevent.model');
+const { Broadcast } = require('../../models/broadcast.model.js');
+const { Business } = require('../../models/business.model.js');
+const { SportEvent } = require('../../models/sportevent.model.js');
 
-const { BUSINESS, ADMIN } = require('../middlewares/auth');
+const { BUSINESS, ADMIN } = require('../../middlewares/auth');
 exports.load = async(req, res, next, id) => {
   try {
     const broadcast = await Broadcast.get(id);

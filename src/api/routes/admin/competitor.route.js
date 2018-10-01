@@ -1,6 +1,6 @@
 const express = require('express');
 const validate = require('express-validation');
-const controller = require('../../controllers/v1/competitor.controller.js');
+const controller = require('../../controllers/admin/competitor.controller.js');
 const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 const { createCompetitor, updateCompetitor, listCompetitors } = require('../../validations/competitor.validation');
 const multer = require('multer');
