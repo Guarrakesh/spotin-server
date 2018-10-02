@@ -1,10 +1,10 @@
 const httpStatus = require('http-status');
 const { omit, at} = require('lodash');
-const {SportEvent} = require('../../models/sportevent.model.js');
-const { handler: errorHandler } = require('../../middlewares/error');
+const {SportEvent} = require('../models/sportevent.model');
+const { handler: errorHandler } = require('../middlewares/error');
 const bodyParser = require('body-parser');
-const Sport = require('../../models/sport.model.js');
-const { Competitor } = require('../../models/competitor.model.js');
+const Sport = require('../models/sport.model');
+const { Competitor } = require('../models/competitor.model');
 
 
 const sanitizeQueryParams = ({
@@ -95,9 +95,16 @@ exports.list = async (req, res, next) => {
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { locals } = req;
 
-    if (req.query.q) {
-      filterQuery['name'] = { "$regex": req.query.q, "$options": "i"};
+    //Accetto sia /sports/:id/events che /competitions/:id/events che /events
+    if (locals && locals.competition) {
+      filter['competition'] = req.locals.competition._id;
+    } else if (locals && locals.sport) {
+      filter.sport = req.locals.sport._id;
+    } else if (req.query.competition_id) {
+      filter['competition'] = req.query.competition_id;
     }
+
+
     if (req.query.id_like) {
       filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
     }

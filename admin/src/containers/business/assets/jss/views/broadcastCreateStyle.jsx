@@ -4,6 +4,7 @@ import {
   primaryColor,
   tooltip,
   boxShadow,
+  infoColor,
   dangerColor,
   cardTitle,
   grayColor} from "business/assets/jss/material-dashboard-pro-react";
@@ -31,7 +32,7 @@ const eventPageStyle = theme => ({
 
   eventCardHeader: {
     position: 'relative',
-    paddingBottom: '32px',
+    paddingBottom: '16px',
     borderBottom: '1px solid #eee'
   },
   eventCardIcon: {
@@ -173,6 +174,53 @@ const eventPageStyle = theme => ({
     borderTop: '1px solid #eee',
     paddingTop: '16px',
     justifyContent: 'center'
+  },
+
+  offerReview: {
+    marginTop: '32px',
+    fontWeight: '500',
+  },
+  plusOfferReview: {
+    position: 'relative',
+    color: '#444',
+    borderRadius: '8px',
+    padding: '8px',
+    borderTop: '2px solid ' + infoColor,
+    borderBottom: '2px solid ' + infoColor,
+    "& h5": {
+      marginBottom: '8px',
+      borderBottom: '1px solid #eee'
+    },
+    marginBottom: '16px',
+  },
+  plusOfferReviewLabel: {
+    position: 'absolute',
+    left: 0,
+    top: '-20px',
+    backgroundColor: dangerColor,
+    color: '#fff',
+    fontSize: '12px',
+    padding: '4px 6px',
+    borderRadius: 100,
+
+  },
+  valueReview: {
+    fontWeight: '700',
+    color: dangerColor
+  },
+  spotReview: {
+
+    fontWeight: 700,
+  },
+  eventDateTimeReview: {
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    width: '150px',
+    margin: '0 auto',
+    alignItems: 'center',
+    display: 'flex',
+
+
   },
   ...modalStyle(theme)
 });

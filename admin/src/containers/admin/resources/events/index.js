@@ -1,5 +1,6 @@
 import React from 'react';
 import { List, ChipField, Datagrid, TextField, ReferenceField, EditButton,
+  Filter, ReferenceInput, TextInput, SelectInput
 } from 'react-admin';
 import moment from 'moment';
 import { get } from 'lodash';
@@ -16,8 +17,24 @@ export const DateTimeField = ({record, source}) => {
   return (<span>{dateTime}</span>)
 }
 /* eslint-enable*/
+
+
+const EventFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Nome" source="name" alwaysOn />
+    <ReferenceInput reference="sports" source="sport">
+      <SelectInput label="Sport" source="name" />
+    </ReferenceInput>
+    <ReferenceInput reference="competitions" source="competition">
+      <SelectInput label="Competizione" source="name" />
+    </ReferenceInput>
+  </Filter>
+);
+
+
+
 export const EventList = (props) => (
-  <List {...props}>
+  <List {...props} filters={<EventFilter/>}>
     <Datagrid>
       <ReferenceField reference="sports" source="sport" label="Sport">
         <TextField source="name"/>

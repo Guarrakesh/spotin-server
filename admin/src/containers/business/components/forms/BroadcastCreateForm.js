@@ -9,7 +9,7 @@ import {withStyles} from "@material-ui/core/styles";
 
 //React admin
 import { getDefaultValues, translate, REDUX_FORM_NAME , RadioButtonGroupInput,
-  FormDataConsumer, LongTextInput, ImageInput, ImageField, TextInput} from 'react-admin';
+  FormDataConsumer, LongTextInput,  TextInput} from 'react-admin';
   // Components
   import {Card, CardHeader, CardIcon, CardBody, CardFooter, GridContainer,
     CustomButton as Button, GridItem, SwitchInput, SliderInput, Primary } from "business/components";
@@ -111,8 +111,8 @@ import { getDefaultValues, translate, REDUX_FORM_NAME , RadioButtonGroupInput,
                         return  [
                           <div key="plus-form" className={classnames(classes.plusOfferContainer, !formData.plus ? classes.plusOfferDisabled : "")}>
 
-                            <Primary>{"Con l'offerta plus puoi caricare un'immagine offerta e una descrizione dettagliata. In più\
-                              la tua offerta sarà visualizzata sulla bacheca dell'app Spot In"} </Primary>
+                            <Primary>{"Con l'offerta plus puoi aggiungere un titolo e una descrizione dettagliata. Puoi specificare un'importo fisso e le condizioni alle quali si applica. In più\
+                              la tua offerta sarà visualizzata sulla bacheca dell'app Spot In."} </Primary>
                             <TextInput
                               className={classes.offerTitleFormControl}
                               disabled={!formData.plus === true}
@@ -127,10 +127,7 @@ import { getDefaultValues, translate, REDUX_FORM_NAME , RadioButtonGroupInput,
                               disabled={!formData.plus === true}
                               label="Descrizione offerta" source="offer.description"/>
 
-                            <ImageInput
-                              disabled={!formData.plus === true} source="picture" label="Immagine offerta" accept="image/*">
-                              <ImageField source="image_url"/>
-                            </ImageInput>
+
                           </div>
                           ,
                           formData.offer && <SliderInput

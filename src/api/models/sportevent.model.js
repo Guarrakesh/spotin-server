@@ -86,10 +86,9 @@ sportEventSchema.method({
     const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
     fields.forEach((field) => {
       if (field === "competitors" && typeof this.competitors === "object") {
-
         transformed[field] = this.competitors.map(competitor => {
-          console.log("aye", typeof competitor);
-          if (typeof competitor === "object" && typeof competitor.competitor === "object") {
+
+          if (typeof competitor === "object" && competitor.competitor && typeof competitor.competitor === "object") {
             return {
               competitor: competitor.competitor._id,
               _links: {
@@ -104,7 +103,7 @@ sportEventSchema.method({
         transformed[field] = this[field];
       }
     });
-    
+
     if (req) {
       //Check is SportEvent is favorited by user
       const { locals } = req;
