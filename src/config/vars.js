@@ -1,7 +1,7 @@
 const path = require('path');
 
 // import .env variables
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== "staging") {
   require('dotenv').load({
     allowEmptyValues: true,
     path: path.join(__dirname, '../../.env'),
@@ -24,5 +24,3 @@ module.exports = {
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   s3WebsiteEndpoint: 'https://dockaddkf7nie.cloudfront.net'
 };
-
-

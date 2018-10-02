@@ -84,6 +84,11 @@ class CreateBroadcastView extends React.Component {
     if (!record.event) return null;
     const date = moment(record.event.start_at).format("D MMM YYYY");
     const time = moment(record.event.start_at).format("HH:mm");
+
+    const calculateSpotCost = (finalRecord) => {
+      console.log(finalRecord);
+      return parseInt(finalRecord.event.spots + (finalRecord.offer && finalRecord.plus ? 150 : 0));
+    }
     return (
       <div className={classnames('broadcast-create', className)}>
         <Dialog
@@ -109,9 +114,28 @@ class CreateBroadcastView extends React.Component {
           </DialogTitle><DialogContent
           id="modal-slide-description"
           className={classes.modalBody}>
-          <h5>Comprare questo evento?</h5>
-          <p>{finalRecord.event.name}</p>
-          <p>{finalRecord.offer && finalRecord.offer.title}</p>
+          <h3>Pubblicare {finalRecord.event.name}?</h3>
+          <p><div className={classes.eventDateTimeReview}>
+              <span>{date}</span> alle
+              <span>{time}</span>
+            </div>
+          </p>
+          { finalRecord.offer &&
+          <div className={classes.offerReview}>
+            {finalRecord.plus &&
+              <div className={classes.plusOfferReview}>
+                <span className={classes.plusOfferReviewLabel}>Offerta plus</span>
+                <h5 style={{fontWeight: 500}}>{finalRecord.offer.title}</h5>
+                <p>{finalRecord.offer.description}</p>
+              </div>
+            }
+            <p>Valore: <span className={classes.valueReview}>
+              {finalRecord.offer.type === "0" ? "" : "-"}{finalRecord.offer.value}{finalRecord.offer.type === "0" ? "€" : "% alla cassa" }
+            </span>
+            </p>
+          </div>
+          }
+          <p className={classes.spotReview}>La pubblicazione costerà <span>{calculateSpotCost(finalRecord)} spots</span></p>
         </DialogContent>
 
           <DialogActions
@@ -125,7 +149,7 @@ class CreateBroadcastView extends React.Component {
               onClick={() => this.handleModalClose(true)}
               flat
               color="primary">
-              Pubblica
+                Pubblica
             </Button>
           </DialogActions>
         </Dialog>
