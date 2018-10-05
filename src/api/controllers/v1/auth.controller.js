@@ -3,7 +3,7 @@ const User = require('../../models/user.model.js');
 const RefreshToken = require('../../models/refreshToken.model.js');
 const moment = require('moment-timezone');
 const { jwtExpirationInterval } = require('../../../config/vars');
-
+const ApiError = require('../../utils/APIError');
 /**
 * Returns a formated object with tokens
 * @private
@@ -39,7 +39,9 @@ exports.register = async (req, res, next) => {
  */
 exports.login = async (req, res, next) => {
   try {
-    const { user, accessToken } = await User.findAndGenerateToken(req.body);
+
+    const xClientType = req.get('X-client-type');
+    const { user, accessToken } = await User.findAndGenerateToken(req.body, xClientType === "business");
     const token = generateTokenResponse(user, accessToken);
     const userTransformed = user.transform();
     return res.json({ token, user: userTransformed });

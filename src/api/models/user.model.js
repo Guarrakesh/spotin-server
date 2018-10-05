@@ -183,7 +183,7 @@ userSchema.statics = {
    * @param {ObjectId} id - The objectId of user.
    * @returns {Promise<User, APIError>}
    */
-  async findAndGenerateToken(options) {
+  async findAndGenerateToken(options, isBusinessLogin) {
     const { email, password, refreshObject } = options;
     if (!email) throw new APIError({ message: 'An email is required to generate a token' });
 
@@ -194,6 +194,12 @@ userSchema.statics = {
     };
     if (password) {
       if (user && await user.passwordMatches(password)) {
+
+        if (isBusinessLogin && user.role !== "business") {
+          //Se il login viene dall'App Business, controllo che l'utente trovato sia un business, altrimenti do autenticazione fallita
+          err.message = 'Incorrect email or password';
+          throw new APIError(err);
+        }
 
         return { user, accessToken: user.token() };
       }

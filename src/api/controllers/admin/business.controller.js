@@ -57,7 +57,7 @@ exports.list = async (req, res, next) => {
 exports.update = async (req, res, next) => {
 
     const updatedBusiness = Object.assign(req.locals.business, req.body);
-    console.log("aaaaaa", req.body.address);
+
     if (req.file && req.file.fieldname === "picture") {
       await updatedBusiness.uploadCover(req.file);
     }
@@ -72,6 +72,10 @@ exports.create = async (req, res, next) => {
    try {
      const business = new Business(req.body);
      const saved = await  business.save();
+
+     if (req.file && req.file.fieldname === "picture") {
+       await saved.uploadCover(req.file);
+     }
      res.status(httpStatus.CREATED);
      res.json(saved);
 

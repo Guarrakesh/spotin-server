@@ -37,7 +37,19 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors({
-  exposedHeaders: ["X-Total-Count"]
+  exposedHeaders: ["X-Total-Count"],
+
+  origin: function(origin, cb) {
+    let wl = ['https://spotin-business.herokuapp.com', 'localhost:3001'];
+    if (!origin) return cb(null, true);
+
+
+    if (wl.indexOf(origin) !== -1) {
+      cb(null, true);
+    } else {
+      cb (new Error('invalid origin: ' + origin), false);
+    }
+  }
 }));
 
 // enable authentication
