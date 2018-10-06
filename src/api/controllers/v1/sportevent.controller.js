@@ -9,7 +9,7 @@ const { Competitor } = require('../../models/competitor.model.js');
 
 const sanitizeQueryParams = ({
   competition_id,
-  sport,
+  sport_id,
   _end,
   _start,
   _order,
