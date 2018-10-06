@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/user.model.js" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/express.js" afterPath="$PROJECT_DIR$/src/config/express.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,7 +30,7 @@
       <file leaf-file-name="NavPills.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/NavPills/NavPills.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-555">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -42,8 +40,8 @@
       <file leaf-file-name="Table.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Table/Table.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+            <state relative-caret-position="960">
+              <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -51,68 +49,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="express.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/config/express.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="34" column="46" lean-forward="true" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+            <state relative-caret-position="660">
+              <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/containers/business/sagas/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
-              <caret line="198" column="133" lean-forward="false" selection-start-line="198" selection-start-column="133" selection-end-line="198" selection-end-column="133" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="business.route.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/routes/admin/business.route.js">
+      <file leaf-file-name="EventEdit.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="business.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
+      <file leaf-file-name="EventCreate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="26" lean-forward="false" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sportevent.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="business.model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+      <file leaf-file-name="spotin-webapp.git" pinned="false" current-in-tab="false">
+        <entry file="https://github.com/Guarrakesh/spotin-webapp.git">
+          <provider selected="true" editor-type-id="httpFileEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -258,13 +259,13 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
         <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" />
         <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
         <option value="$PROJECT_DIR$/src/config/express.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
       </list>
     </option>
   </component>
@@ -282,7 +283,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="2560" />
-    <option name="height" value="1321" />
+    <option name="height" value="1324" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -372,6 +373,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -416,6 +465,118 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -437,12 +598,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/api/controllers/admin" />
-      <recent name="$PROJECT_DIR$/src/api/tests/v1" />
-      <recent name="$PROJECT_DIR$/src/api/controllers/v1" />
-      <recent name="$PROJECT_DIR$/admin/src/containers/business/assets/jss" />
-      <recent name="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react" />
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/Guarrakesh/spotin-webapp.git" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/api/routes/admin" />
@@ -450,6 +607,13 @@
       <recent name="$PROJECT_DIR$/admin/src/containers/business/assets/jss/views" />
       <recent name="$PROJECT_DIR$/admin/src/containers/business/components/fields" />
       <recent name="$PROJECT_DIR$/admin/src/containers/business/components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/api/controllers/admin" />
+      <recent name="$PROJECT_DIR$/src/api/tests/v1" />
+      <recent name="$PROJECT_DIR$/src/api/controllers/v1" />
+      <recent name="$PROJECT_DIR$/admin/src/containers/business/assets/jss" />
+      <recent name="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/assets/jss/material-dashboard-pro-react" />
     </key>
   </component>
   <component name="RunManager">
@@ -621,14 +785,8 @@
       <workItem from="1538516399454" duration="1125000" />
       <workItem from="1538555434936" duration="10320000" />
       <workItem from="1538644359489" duration="9339000" />
-      <workItem from="1538728105904" duration="3890000" />
-    </task>
-    <task id="LOCAL-00017" summary="Testing delle API (SportEvent) e aggiunto progetto client (per dashboard admin&amp;business)&#10;TODO: Completare test SportEvent (Update, Delete)">
-      <created>1533560521644</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1533560521644</updated>
+      <workItem from="1538728105904" duration="7729000" />
+      <workItem from="1538815383633" duration="54000" />
     </task>
     <task id="LOCAL-00018" summary="ADMIN: Login e Schermata Sport">
       <created>1533722841921</created>
@@ -966,11 +1124,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538396757165</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Set Origin check">
+      <created>1538744425015</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1538744425016</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="572644000" />
+    <option name="totallyTimeSpent" value="576537000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -982,29 +1147,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1321" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16305631" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16266246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31305757" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21318145" sideWeight="0.49822766" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19074675" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14564687" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26785713" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19982472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32927817" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="103" y="123" width="2360" height="1120" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2298944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32546785" sideWeight="0.48759353" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19982472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33060557" sideWeight="0.49389523" order="6" side_tool="false" content_ui="tabs" />
@@ -1057,7 +1222,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Added config files" />
     <MESSAGE value="Added script files" />
     <MESSAGE value="Aggiunta sidebar a pannello locale" />
     <MESSAGE value="FIX: Controller nel server e package.json" />
@@ -1082,7 +1246,8 @@
     <MESSAGE value="Refactoring di alcune API" />
     <MESSAGE value="DecodeURIComponent fix (forse) per il parametor id_like" />
     <MESSAGE value="Divise routes in /v1 (per app) e /admin (per pannello)&#10;&#10;TODO: Staging &amp; production environment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Divise routes in /v1 (per app) e /admin (per pannello)&#10;&#10;TODO: Staging &amp; production environment" />
+    <MESSAGE value="Set Origin check" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set Origin check" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1097,48 +1262,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="66" column="31" lean-forward="false" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="71" column="55" lean-forward="false" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="7" lean-forward="false" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="125" column="3" lean-forward="false" selection-start-line="125" selection-start-column="3" selection-end-line="125" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -1171,7 +1294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
           <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1323,10 +1445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-            <element signature="e#458#520#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,7 +1487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,7 +1494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1385,7 +1501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1393,7 +1508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1401,7 +1515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1409,7 +1522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2970">
           <caret line="198" column="133" lean-forward="false" selection-start-line="198" selection-start-column="133" selection-end-line="198" selection-end-column="133" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1417,7 +1529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,7 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1433,7 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
           <caret line="64" column="26" lean-forward="false" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1441,7 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1455,7 +1563,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/NavPills/NavPills.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-555">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1463,18 +1571,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/components/Table/Table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        <state relative-caret-position="960">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="https://github.com/Guarrakesh/spotin-webapp.git">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/express.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="46" lean-forward="true" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        <state relative-caret-position="660">
+          <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
       </provider>
