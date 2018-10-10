@@ -9,7 +9,7 @@ const path = require('path');
 mongoose.connect();
 
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === "staging") {
   //Serve static files
   app.use(express.static(path.join(__dirname, '../admin/build')));
 
