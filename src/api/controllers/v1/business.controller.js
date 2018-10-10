@@ -1,9 +1,10 @@
 const httpStatus = require('http-status');
 const { handler: errorHandler } = require('../../middlewares/error');
+const ApiError = require('../../utils/APIError');
 
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
-const { omit } = require('lodash');
+const { omit, get } = require('lodash');
 
 
 exports.load = async(req, res, next, id) => {
@@ -57,7 +58,7 @@ exports.list = async (req, res, next) => {
 exports.update = async (req, res, next) => {
 
     const updatedBusiness = Object.assign(req.locals.business, req.body);
-    console.log("aaaaaa", req.body.address);
+
     if (req.file && req.file.fieldname === "picture") {
       await updatedBusiness.uploadCover(req.file);
     }
@@ -78,4 +79,24 @@ exports.create = async (req, res, next) => {
    } catch (error) {
      next(error);
    }
-}
+};
+
+
+exports.pastOffers = async (req, res, next) => {
+  try {
+    const business = get(req,'locals.business',null);
+    const loggedUser = get(req,'locals.loggedUser', {});
+
+    //  res.json({docs: []});
+    if (!business || business.user.toString() !== loggedUser._id.toString()) {
+      throw new ApiError({message: "You are not authorized to access this business", status: 403});
+    }
+
+    const offers = await Broadcast.find({business: business._id,'newsfeed': {$gt: 0}}).select("offer");
+
+    res.json({docs: offers.map(record => record.offer)});
+  } catch (error) {
+    next(error);
+  }
+};
+

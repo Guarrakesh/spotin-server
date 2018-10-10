@@ -27,7 +27,15 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
   }
 
 
+
   const { loggedUser } = req.locals;
+  //Check x-client-type header
+  //Se l'utente loggato non è business e ho una richiesta con x-client-type=business (cioè sto nel pannello business)
+  //allora lo butto fuori
+
+  if (req.get('x-client-type') && loggedUser.role !== "business") {
+    return next(apiError);
+  }
   if (loggedUser.role === ADMIN) {
     req.user = user;
     return next();

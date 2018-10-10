@@ -7,7 +7,7 @@ const multer = require('multer');
 const upload = multer({limits: {fileSize: 10*1024*1024}});
 const { createBusiness, updateBusiness } = require('../../validations/business.validation.js');
 
-const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 
 router.param('id', controller.load);
 
@@ -21,6 +21,10 @@ router
   .route('/:id')
   .get(controller.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update);
+
+router
+  .route('/:id/past-offers')
+  .get(authorize(BUSINESS), controller.pastOffers);
 
 
 module.exports = router;

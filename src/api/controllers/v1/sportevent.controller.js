@@ -5,6 +5,7 @@ const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
 const Sport = require('../../models/sport.model.js');
 const { Competitor } = require('../../models/competitor.model.js');
+const moment = require('moment');
 
 
 const sanitizeQueryParams = ({
@@ -91,15 +92,21 @@ exports.update = (req, res, next) => {
 exports.list = async (req, res, next) => {
 
   try {
-    let filter = sanitizeQueryParams(req.query);
+    let filter= sanitizeQueryParams(req.query);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { locals } = req;
 
-    if (req.query.q) {
-      filterQuery['name'] = { "$regex": req.query.q, "$options": "i"};
+    if (req.query.q || req.query.name) {
+      filter['name'] = { "$regex": req.query.q || req.query.name, "$options": "i"};
     }
     if (req.query.id_like) {
       filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
+    }
+    if (req.query.start_at) {
+      const date = moment(req.query.start_at).startOf('day');
+
+      filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
+
     }
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
