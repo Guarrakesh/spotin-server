@@ -41,9 +41,9 @@ app.use(cors({
 
   origin: function(origin, cb) {
     let wl = ['https://spotin-business.herokuapp.com'];
-    if (process.env.NODE_ENV === "development")
-      wl = wl.concat(wl, ['http://localhost:5000', 'http://localhost:3000']);
-    if (!origin) return cb(null, true);
+    if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging")
+      cb(null,true);
+
 
 
     if (wl.indexOf(origin) !== -1) {
