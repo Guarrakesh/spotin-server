@@ -76,7 +76,8 @@ exports.list = async (req, res, next) => {
     const { latitude, longitude, radius } = req.query;
 
     if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius);
+      const business = await Business.findNear(latitude, longitude, radius, {_end: 150});
+
 
       //Faccio paginazione sui broadcast e non sui locali
       const ids = business.docs.map(bus => bus._id);
