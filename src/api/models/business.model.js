@@ -138,7 +138,7 @@ businessSchema.pre('save', async function(next) {
 });
 
 businessSchema.method({
-  async paySpots(spots) {
+  async paySpots(spots, isPlus = false) {
     try {
       this.spots -= spots;
       await this.save();

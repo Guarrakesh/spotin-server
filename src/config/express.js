@@ -40,9 +40,9 @@ app.use(cors({
   exposedHeaders: ["X-Total-Count"],
 
   origin: function(origin, cb) {
-    let wl = ['https://spotin-business.herokuapp.com'];
-    if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging")
-      cb(null,true);
+    let wl = ['https://spotin-business.herokuapp.com', 'https://spotin.herokuapp.com', 'https://spotin.it'];
+    if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging" || !origin)
+      return cb(null,true);
 
 
 

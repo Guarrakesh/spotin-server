@@ -26,6 +26,7 @@ exports.create = async (req, res, next) => {
   try {
 
 
+
     const broadcast = new Broadcast(req.body);
     const {loggedUser} = req.locals;
     // Prima di tutto controllo se l'utente è un admin o un business
@@ -47,15 +48,18 @@ exports.create = async (req, res, next) => {
       business = await Business.findById(req.body.business);
     }
 
-    const spots = (await SportEvent.findById(req.body.event)).spots;
+    const event = (await SportEvent.findById(req.body.event));
+    const spots = event.spots;
 
     if (!business.spots >= spots)
       throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
 
 
 
-    await business.paySpots(spots);
     const savedBroadcast = await broadcast.save();
+
+    await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
+
 
 
     res.status(httpStatus.CREATED);

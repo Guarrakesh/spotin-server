@@ -38,7 +38,9 @@ broadcastSchema.method({
   transform(req) {
     const transformed = {};
 
-  }
+  },
+
+
 });
 
 broadcastSchema.statics = {
@@ -48,6 +50,19 @@ broadcastSchema.statics = {
    * @param {ObjectId} id - The objectId of broadcast.
    * @returns {Promise<User, APIError>}
    */
+  calculateSpots(offer, event, isPlus) {
+
+    if (!event || typeof offer !== "object")
+      throw new Error("Invalid parameters to calculate spots.");
+
+    let totalSpots = event.spots;
+    if (isPlus) {
+      totalSpots += 150;
+    }
+
+    return totalSpots;
+
+  },
   async get(id) {
     try {
       let broadcast;
