@@ -140,7 +140,7 @@ userSchema.method({
   async businesses() {
     const businesses = await Business.find({user: this._id});
 
-    return businesses || null;
+    return businesses || [];
   }
 });
 
@@ -186,12 +186,14 @@ userSchema.statics = {
   async findAndGenerateToken(options, isBusinessLogin) {
     const { email, password, refreshObject } = options;
     if (!email) throw new APIError({ message: 'An email is required to generate a token' });
-
     const user = await this.findOne({ email }).exec();
+
+
     const err = {
       status: httpStatus.UNAUTHORIZED,
       isPublic: true,
     };
+
     if (password) {
       if (user && await user.passwordMatches(password)) {
 
@@ -203,8 +205,10 @@ userSchema.statics = {
 
         return { user, accessToken: user.token() };
       }
+
       err.message = 'Incorrect email or password';
     } else if (refreshObject && refreshObject.userEmail === email) {
+
       if (moment(refreshObject.expires).isBefore()) {
         err.message = 'Invalid refresh token.';
       } else {

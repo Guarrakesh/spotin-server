@@ -87,10 +87,10 @@ sportEventSchema.method({
     fields.forEach((field) => {
       if (field === "competitors" && typeof this.competitors === "object") {
         transformed[field] = this.competitors.map(competitor => {
-
           if (typeof competitor === "object" && competitor.competitor && typeof competitor.competitor === "object") {
             return {
               competitor: competitor.competitor._id,
+              name: competitor.competitor.name,
               _links: {
                 image_versions: competitor.competitor.image_versions
               }

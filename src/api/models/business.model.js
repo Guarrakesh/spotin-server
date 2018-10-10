@@ -137,11 +137,14 @@ businessSchema.pre('save', async function(next) {
   }
 });
 
-
 businessSchema.method({
   async paySpots(spots) {
-    this.spots -= spots;
-    await this.save();
+    try {
+      this.spots -= spots;
+      await this.save();
+    } catch (error) {
+      throw Error(error);
+    }
   },
   async uploadCover(file) {
     const ext = mime.extension(file.mimetype);

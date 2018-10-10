@@ -78,7 +78,8 @@ exports.refresh = async (req, res, next) => {
       userEmail: email,
       token: refreshToken,
     });
-    const { user, accessToken } = await User.findAndGenerateToken({ email, refreshObject });
+    const xClientType = req.get('X-client-type');
+    const { user, accessToken } = await User.findAndGenerateToken({ email, refreshObject }, xClientType === "business");
     const response = generateTokenResponse(user, accessToken);
     return res.json(response);
   } catch (error) {

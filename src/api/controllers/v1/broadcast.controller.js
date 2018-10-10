@@ -38,10 +38,11 @@ exports.create = async (req, res, next) => {
     let business = {};
     if (loggedUser.role === BUSINESS) {
       const userBusinesses = await loggedUser.businesses();
-      const business = userBusinesses.find(bus => bus._id === req.body.business);
+      const userBusiness = userBusinesses.find(bus => bus._id.toString() == req.body.business.toString());
+      business = await Business.findById(userBusiness._id);
 
-      if (!business);
-      throw new ApiError({message: "You are not authorized to access this business", status: 403});
+      if (!business)
+        throw new ApiError({message: "You are not authorized to access this business", status: 403});
     } else {
       business = await Business.findById(req.body.business);
     }
@@ -50,11 +51,14 @@ exports.create = async (req, res, next) => {
 
     if (!business.spots >= spots)
       throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
+
+
+
     await business.paySpots(spots);
-    const savedBroadcast = broadcast.save();
+    const savedBroadcast = await broadcast.save();
 
 
-    res.status = httpStatus.CREATED;
+    res.status(httpStatus.CREATED);
     res.json(savedBroadcast);
   } catch (error) {
     next(error);
@@ -68,17 +72,17 @@ exports.list = async (req, res, next) => {
     let broadcasts, near = {};
 
     const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
-    const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
+    const {_end = 10, _start = 0, _order = 1, _sort  } = req.query;
     const { latitude, longitude, radius } = req.query;
 
     if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius, { _sort, _order });
+      const business = await Business.findNear(latitude, longitude, radius);
 
       //Faccio paginazione sui broadcast e non sui locali
       const ids = business.docs.map(bus => bus._id);
+    
       const total = await Broadcast.count({business: {$in: ids}, ...filterQuery});
       broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).skip(parseInt(_start)).limit(parseInt(_end - _start)).lean().exec();
-
       broadcasts = broadcasts.map(broadcast => {
 
         const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
