@@ -19,8 +19,9 @@ router
 router
   .route('/:id')
   .get(controller.get)
-  .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update);
-
+  .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update)
+  .remove(authorize(ADMIN), controller.remove)
+;
 
 
 
