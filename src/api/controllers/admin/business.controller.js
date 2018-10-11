@@ -83,3 +83,11 @@ exports.create = async (req, res, next) => {
      next(error);
    }
 }
+
+exports.remove = (req, res, next) => {
+  const { business } = req.locals;
+
+  business.remove()
+    .then(() => res.status(httpStatus.NO_CONTENT).end())
+    .catch(e => next(e));
+};
