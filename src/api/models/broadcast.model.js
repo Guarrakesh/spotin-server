@@ -6,7 +6,7 @@ const { imageVersionSchema } = require('./imageVersion');
 
 const offerSchema = require('./offer.schema');
 
-
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 
 const broadcastSchema = new mongoose.Schema({
@@ -85,5 +85,6 @@ broadcastSchema.statics = {
 };
 
 broadcastSchema.plugin(mongoosePaginate);
+broadcastSchema.plugin(deepPopulate);
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");

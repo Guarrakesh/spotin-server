@@ -82,7 +82,7 @@ exports.create = async (req, res, next) => {
    } catch (error) {
      next(error);
    }
-}
+};
 
 exports.remove = (req, res, next) => {
   const { business } = req.locals;

@@ -14,7 +14,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   port: process.env.PORT || 3001,
   jwtSecret: process.env.JWT_SECRET,
-  jwtExpirationInterval: process.env.NODE_ENV == "development" ?  10 : process.env.JWT_EXPIRATION_MINUTES,
+  jwtExpirationInterval: process.env.NODE_ENV == "development" ?  15 : process.env.JWT_EXPIRATION_MINUTES,
   mongo: {
     uri: process.env.NODE_ENV === 'test'
       ? process.env.MONGO_URI_TESTS
@@ -24,3 +24,4 @@ module.exports = {
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   s3WebsiteEndpoint: 'https://dockaddkf7nie.cloudfront.net'
 };
+

@@ -9,6 +9,23 @@ const { omit } = require('lodash');
 const User = require('../../models/user.model.js');
 
 
+exports.get = async (req, res, next) => {
+  try {
+    const {loggedUser} = req.locals;
+    const broadcast = loggedUser.reservations.find(e => e == req.params.id);
+    if (!broadcast) {
+      throw new ApiError({message: "Reservation not found.", status: 404});
+    }
+
+    const reservation = await Broadcast.findOne({_id: broadcast, 'reservations.user' : loggedUser._id}).deepPopulate('event.competition event.competitor business').lean().exec();
+    const response = omit(reservation, 'reservations');
+    res.json(response);
+  } catch (error) {
+     next(error);
+  }
+  //res.json(req.locals.reservation);
+};
+
 exports.create = async (req, res, next) => {
   try {
     const { user } = req;

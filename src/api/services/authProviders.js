@@ -5,8 +5,8 @@ exports.facebook = async (access_token) => {
 
 
 
-
-  const fields = 'id, name, email, picture';
+  // https://graph.facebook.com/v2.9/me?access_token={accessToken}&fields=name%20,email,picture.width(300),id
+  const fields = 'id, name, email, picture.width(320)';
   const url = 'https://graph.facebook.com/me';
   const params = { access_token, fields };
   const response = await axios.get(url, { params });
@@ -19,7 +19,6 @@ exports.facebook = async (access_token) => {
     id,
     name,
     email,
-    username: email
   };
 };
 
@@ -37,7 +36,6 @@ exports.facebook = async (access_token) => {
     picture,
     id: sub,
     name,
-    email,
-    username: email,
+    email
   };
 };

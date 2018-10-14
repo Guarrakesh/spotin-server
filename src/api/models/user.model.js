@@ -183,7 +183,7 @@ userSchema.statics = {
    * @param {ObjectId} id - The objectId of user.
    * @returns {Promise<User, APIError>}
    */
-  async findAndGenerateToken(options, isBusinessLogin) {
+  async findAndGenerateToken(options, clientType) {
     const { email, password, refreshObject } = options;
     if (!email) throw new APIError({ message: 'An email is required to generate a token' });
     const user = await this.findOne({ email }).exec();
@@ -197,7 +197,7 @@ userSchema.statics = {
     if (password) {
       if (user && await user.passwordMatches(password)) {
 
-        if (isBusinessLogin && user.role !== "business") {
+        if ((clientType === "business" && user.role !== "business") || clientType === "mobileapp" && user.role !== LOGGED_USER) {
           //Se il login viene dall'App Business, controllo che l'utente trovato sia un business, altrimenti do autenticazione fallita
           err.message = 'Incorrect email or password';
           throw new APIError(err);
@@ -266,7 +266,7 @@ userSchema.statics = {
   },
 
   async oAuthLogin({
-    service, id, email, name, picture, username
+    service, id, email, name, picture
   }) {
     const user = await this.findOne({ $or: [{ [`services.${service}`]: id }, { email }] });
     if (user) {
@@ -277,7 +277,7 @@ userSchema.statics = {
     }
     const password = uuidv4();
     return this.create({
-      services: { [service]: id }, email, password, name, picture, username
+      services: { [service]: id }, email, password, name, picture
     });
   },
 };
