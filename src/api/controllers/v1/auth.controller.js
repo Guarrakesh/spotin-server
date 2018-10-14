@@ -40,8 +40,8 @@ exports.register = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
 
-    const xClientType = req.get('X-client-type');
-    const { user, accessToken } = await User.findAndGenerateToken(req.body, xClientType === "business");
+    const xClientType = req.get('X-Client-Type');
+    const { user, accessToken } = await User.findAndGenerateToken(req.body, xClientType);
     const token = generateTokenResponse(user, accessToken);
     const userTransformed = user.transform();
     return res.json({ token, user: userTransformed });

@@ -22,6 +22,7 @@ router
   .get(controller.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update);
 
+
 router
   .route('/:id/past-offers')
   .get(authorize(BUSINESS), controller.pastOffers);

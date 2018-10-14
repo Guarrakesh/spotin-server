@@ -7,10 +7,15 @@ const { createReservation, listReservations } = require('../../validations/reser
 
 const router = express.Router();
 
-
+//router.param('id', controller.load);
 
 router
   .route('/')
   .post(authorize(LOGGED_USER), validate(createReservation), controller.create)
   .get(authorize([LOGGED_USER, BUSINESS]), validate(listReservations), controller.list);
+
+router
+  .route('/:id')
+  .get(authorize(LOGGED_USER), controller.get);
+
 module.exports = router;
