@@ -111,6 +111,7 @@ exports.list = async (req, res, next) => {
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
     populates.push('competitors.competitor');
+    populates.push('competition');
 
 
     const limit = parseInt(_end - _start);
@@ -121,6 +122,7 @@ exports.list = async (req, res, next) => {
       limit: limit,
       populate: populates || null
     });
+
 
 
     events.docs = events.docs.map(event => {

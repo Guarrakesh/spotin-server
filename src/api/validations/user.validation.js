@@ -58,4 +58,48 @@ module.exports = {
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
     },
   },
+
+  //Favorite events
+  addFavoriteEvent: {
+    body: {
+      event: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    },
+    params: {
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+
+    }
+  },
+  removeFavoriteEvent: {
+    params: {
+      eventId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+
+    }
+  },
+
+  listFavoriteEvents: {
+    params: {
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    }
+  },
+  listReservations: {
+    params: {
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    }
+  },
+  reserveBroadcast: {
+    body: {
+      broadcast: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    },
+    params: {
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    }
+  },
+
+  removeReservation: {
+    params: {
+      broadcastId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    }
+  }
 };

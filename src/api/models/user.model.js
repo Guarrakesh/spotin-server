@@ -74,6 +74,11 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   favorite_sports: [sportSchema],
+  favorite_events: {
+    type: [{type: mongoose.Schema.ObjectId, ref: "SportEvent"}],
+
+
+  },
   reservations: [
     {type: mongoose.Schema.ObjectId, ref: "Broadcast"}
   ],

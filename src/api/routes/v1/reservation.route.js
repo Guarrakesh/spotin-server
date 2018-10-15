@@ -11,7 +11,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(authorize(LOGGED_USER), validate(createReservation), controller.create)
+  .post(authorize(ADMIN), validate(createReservation), controller.create)
   .get(authorize([LOGGED_USER, BUSINESS]), validate(listReservations), controller.list);
 
 router

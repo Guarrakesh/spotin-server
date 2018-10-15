@@ -8,7 +8,16 @@ const APP_USER = 'user';
 const BUSINESS = 'business';
 
 
-const handleJWT = (req, res, next, roles) => async (err, user, info) => {
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @param roles
+ * @param ownerCallback La funzione che, se data, controlla se l'utente loggato è il proprietario di questa risorsa.
+ *                      Se non lo è, restituisce un 401 - Unauthorized
+ */
+const handleJWT = (req, res, next, roles, ownerCallback) => async (err, user, info) => {
 
   const error = err || info;
   const logIn = Promise.promisify(req.logIn);
@@ -30,6 +39,8 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
 
   const { loggedUser } = req.locals;
 
+
+
   //Check x-client-type header
   //Se l'utente loggato non è business e ho una richiesta con x-client-type=business (cioè sto nel pannello business)
   //allora lo butto fuori
@@ -39,6 +50,12 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
   if ((xClientType === "business" && loggedUser.role !== BUSINESS) || (xClientType === "mobileapp" && loggedUser.role !== APP_USER)) {
     return next(apiError);
   }
+
+  if (ownerCallback && !ownerCallback(req, loggedUser)) {
+
+    return next(apiError);
+  }
+
   if (loggedUser.role === ADMIN) {
     req.user = user;
     return next();
@@ -65,11 +82,11 @@ exports.LOGGED_USER = APP_USER;
 exports.BUSINESS = BUSINESS;
 
 
-exports.authorize = (roles = User.roles) => (req, res, next) =>
+exports.authorize = (roles = User.roles, ownerCallback) => (req, res, next) =>
 
   passport.authenticate(
     'jwt', { session: false },
-    handleJWT(req, res, next, roles),
+    handleJWT(req, res, next, roles, ownerCallback),
   )(req, res, next);
 
 exports.oAuth = service =>

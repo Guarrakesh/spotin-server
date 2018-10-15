@@ -7,9 +7,21 @@ const {
   createUser,
   replaceUser,
   updateUser,
+  addFavoriteEvent,
+  removeFavoriteEvent,
+  reserveBroadcast,
+  removeReservation,
+  listReservations,
+  listFavoriteEvents,
 } = require('../../validations/user.validation');
 
 const router = express.Router();
+
+
+
+const ownerCheck  = (req, loggedUser) => {
+  return req.params && req.params.userId && req.params.userId.toString() === loggedUser._id.toString();
+};
 
 /**
  * Load user when API with userId route parameter is hit
@@ -114,7 +126,7 @@ router
    * @apiError (Forbidden 403)    Forbidden    Only user with same id or admins can access the data
    * @apiError (Not Found 404)    NotFound     User does not exist
    */
-  .get(authorize(LOGGED_USER), controller.get)
+  .get(authorize(LOGGED_USER, ownerCheck), controller.get)
   /**
    * @api {put} v1/users/:id Replace User
    * @apiDescription Replace the whole user document with a new one
@@ -142,7 +154,7 @@ router
    * @apiError (Forbidden 403)    Forbidden    Only user with same id or admins can modify the data
    * @apiError (Not Found 404)    NotFound     User does not exist
    */
-  .put(authorize(LOGGED_USER), validate(replaceUser), controller.replace)
+  .put(authorize(ADMIN), validate(replaceUser), controller.replace)
   /**
    * @api {patch} v1/users/:id Update User
    * @apiDescription Update some fields of a user document
@@ -170,7 +182,7 @@ router
    * @apiError (Forbidden 403)    Forbidden    Only user with same id or admins can modify the data
    * @apiError (Not Found 404)    NotFound     User does not exist
    */
-  .patch(authorize(LOGGED_USER), validate(updateUser), controller.update)
+  .patch(authorize(LOGGED_USER,ownerCheck), validate(updateUser), controller.update)
   /**
    * @api {patch} v1/users/:id Delete User
    * @apiDescription Delete a user
@@ -187,7 +199,28 @@ router
    * @apiError (Forbidden 403)    Forbidden     Only user with same id or admins can delete the data
    * @apiError (Not Found 404)    NotFound      User does not exist
    */
-  .delete(authorize(LOGGED_USER), controller.remove);
+  .delete(authorize(LOGGED_USER, ownerCheck), controller.remove);
+
+
+router
+  .route('/:userId/events')
+  .post(authorize(LOGGED_USER, ownerCheck), validate(addFavoriteEvent), controller.addFavoriteEvent)
+  .get(authorize(LOGGED_USER, ownerCheck), validate(listFavoriteEvents), controller.listFavoriteEvents);
+
+router
+  .route('/:userId/events/:eventId')
+  .delete(authorize(LOGGED_USER, ownerCheck), validate(removeFavoriteEvent), controller.removeFavoriteEvent)
+;
+
+router
+  .route('/:userId/reservations')
+  .get(authorize(LOGGED_USER, ownerCheck), validate(listReservations), controller.listReservations)
+  .post(authorize(LOGGED_USER, ownerCheck), validate(reserveBroadcast), controller.reserveBroadcast)
+;
+router
+  .route('/:userId/reservations/:broadcastId')
+  .delete(authorize(LOGGED_USER, ownerCheck), validate(removeReservation), controller.removeReservation)
+;
 
 
 module.exports = router;

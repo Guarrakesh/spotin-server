@@ -1,7 +1,7 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/v1/sportevent.controller.js');
-const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 const {createEvent, updateEvent } = require('../../validations/sportevent.validation');
 const router = express.Router();
 const broadcastController = require('../../controllers/v1/broadcast.controller.js');
@@ -14,13 +14,13 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(authorize([ADMIN, LOGGED_USER, BUSINESS]), controller.list)
   .post(authorize(ADMIN), validate(createEvent), controller.create);
 
 
 router
   .route('/:id')
-  .get(controller.get)
+  .get(authorize([ADMIN, LOGGED_USER,BUSINESS]),controller.get)
   .patch(authorize(ADMIN), validate(updateEvent), controller.update)
   .delete(authorize(ADMIN), controller.remove);
 
