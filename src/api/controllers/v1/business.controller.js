@@ -23,10 +23,14 @@ exports.get = (req, res) => res.json(req.locals.business);
 exports.list = async (req, res, next) => {
   try {
 
-    const filterQuery = omit(req.query, ['latitude', 'longitude','radius']);
+    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_start','_sort','_order']);
     const {_end, _start, _order, _sort } = req.query;
     const { latitude, longitude, radius } = req.query;
     let data, near = {};
+
+    if (req.query.q || req.query.name) {
+      filterQuery['name'] = { "$regex": req.query.q || req.query.name, "$options": "i"};
+    }
     if (req.query.id_like) {
       filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
       delete filterQuery['id_like'];

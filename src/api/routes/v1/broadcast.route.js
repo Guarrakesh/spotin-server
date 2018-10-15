@@ -14,13 +14,13 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(authorize([LOGGED_USER, BUSINESS]), controller.list)
   .post(authorize([BUSINESS, ADMIN]), validate(createBroadcast), controller.create)
 ;
 
 router
   .route('/:id')
-  .get(controller.get)
+  .get(authorize([LOGGED_USER, BUSINESS]), controller.get)
   .delete(authorize(ADMIN), controller.remove);
   
 module.exports = router;

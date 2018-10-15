@@ -105,18 +105,21 @@ sportEventSchema.method({
     });
 
     if (req) {
+
       //Check is SportEvent is favorited by user
       const { locals } = req;
-      if (locals && locals.user) {
-        //transformed['isUserFavorite'] = false;
+      if (locals && locals.loggedUser) {
+        transformed['isUserFavorite'] = !!locals.loggedUser.favorite_events.find(e => e.toString() === this._id.toString());
+
       }
+
     }
     //TODO: Cercare nei preferiti dell'utente
 
 
     return transformed;
   }
-})
+});
 sportEventSchema.statics = {
 
 

@@ -187,10 +187,11 @@ businessSchema.statics = {
     lat = parseFloat(lat); lng = parseFloat(lng);
     const count = await this.count({'address.location': {
       $near: {$maxDistance: radius, $geometry: {type: 'Point', coordinates: [lng, lat]}}
-    }}).exec();
+    }, ...options}).exec();
 
     _sort = _sort == "distance" ? "dist.calculated" : _sort; //accetto anche distance come parametro di _sort
-    const docs = await this.aggregate([
+
+    const aggregations = [
       {
         '$geoNear': {
           near: {type: 'Point', coordinates: [(lng), (lat)]},
@@ -201,13 +202,19 @@ businessSchema.statics = {
           includeLocs: "dist.location",
         },
       },
+
       { $sort: { [_sort]: parseFloat(_order) }},
       { $skip: parseInt(_start) },
       { $limit: parseInt(_end - _start)},
 
 
 
-    ]);
+    ];
+    if (options.q) {
+      aggregations.push({ $match: { name: { "$regex": options.q, "$options": "i"} } });
+    }
+
+    const docs = await this.aggregate(aggregations);
 
     return {
       docs,

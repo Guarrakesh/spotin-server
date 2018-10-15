@@ -14,12 +14,12 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(authorize([LOGGED_USER, BUSINESS]), controller.list)
   .post(authorize(ADMIN), [upload.single('picture'),validate(createBusiness)], controller.create);
 
 router
   .route('/:id')
-  .get(controller.get)
+  .get(authorize([LOGGED_USER, BUSINESS]), controller.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update);
 
 

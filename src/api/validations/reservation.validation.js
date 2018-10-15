@@ -4,6 +4,7 @@ module.exports = {
   createReservation: {
     body: Joi.object({
       broadcast: Joi.string().required(),
+      userId: Joi.string().required(),
     })
   },
 

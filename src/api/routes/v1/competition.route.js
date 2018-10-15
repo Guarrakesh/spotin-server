@@ -1,7 +1,7 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/v1/sport.controller.js');
-const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 const eventController = require('../../controllers/v1/sportevent.controller.js');
 const competitionController = require('../../controllers/v1/competition.controller.js');
 const router = express.Router();
@@ -17,22 +17,21 @@ const upload = multer({limits: {fileSize: 10*1024*1024}});
 
 router.param('id', competitionController.load);
 
-router.route('/updateImageUrls')
-  .get(competitionController.updateUrl);
+
 router
   .route('/')
-  .get(competitionController.list)
+  .get(authorize([LOGGED_USER, BUSINESS]), competitionController.list)
 
   .post(authorize(ADMIN), [upload.single('picture'),validate(createCompetition)], competitionController.create);
 
 router
   .route('/:id')
-  .get(competitionController.get)
+  .get(authorize([LOGGED_USER, BUSINESS]), competitionController.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateCompetition)], competitionController.update)
   .delete(authorize(ADMIN), competitionController.remove);
 router
   .route('/:id/events')
-  .get(eventController.list);
+  .get(authorize([LOGGED_USER, BUSINESS]), eventController.list);
 
 
 
