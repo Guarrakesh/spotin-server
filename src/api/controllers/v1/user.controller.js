@@ -5,7 +5,10 @@ const { handler: errorHandler } = require('../../middlewares/error');
 
 const { Broadcast } = require('../../models/broadcast.model');
 const { SportEvent } = require('../../models/sportevent.model');
+const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
+
 const mongoose = require('mongoose');
+
 
 /**
  * Load user and append to req.
@@ -225,3 +228,52 @@ exports.removeFavoriteEvent = async (req, res, next) => {
 
 };
 
+
+exports.requestBroadcast = async (req, res, next) => {
+  try {
+    const event = await SportEvent.findById(req.body.event);
+
+    const {loggedUser} = req.locals;
+    if (!event) {
+      res.status(httpStatus.NOT_FOUND);
+      res.json({status: httpStatus.NOT_FOUND, message: "Questo evento non esiste."})
+    }
+
+    const request = new Request();
+    request.requestType = TYPE_BROADCAST_REQUEST;
+    const { userPosition: position } = req.body;
+    const userPosition = {
+      type: "Point",
+      coordinates: [position.longitude,position.latitude]
+    };
+
+    request.broadcastRequest = {
+      ...omit(req.body, 'userPosition'),
+      user: loggedUser._id,
+      userPosition
+    };
+
+    await request.save();
+
+    res.status(httpStatus.NO_CONTENT);
+    res.json();
+
+  } catch (e) {
+    next(e);
+  }
+
+};
+
+exports.listBroadcastRequests = async (req, res, next) => {
+  try {
+
+    const { loggedUser } = req.locals;
+
+    const requests = await Request.find({user: mongoose.Schema.ObjectId(loggedUser._id)}).exec();
+
+    res.json(requests);
+
+  } catch (e) {
+    next(e);
+  }
+};

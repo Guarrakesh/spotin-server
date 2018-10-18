@@ -12,6 +12,13 @@ const { logs } = require('./vars');
 const strategies = require('./passport');
 const error = require('../api/middlewares/error');
 
+/*
+const analyticsMiddleware = (req, res, next) => {
+  res.on('finish', function() {
+
+  });
+  next();
+}*/
 /**
 * Express instance
 * @public
@@ -27,6 +34,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // gzip compression
 app.use(compress());
+
+//analytics
+//app.use(analyticsMiddleware);
 
 // lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it
