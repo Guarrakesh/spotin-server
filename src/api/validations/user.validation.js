@@ -101,5 +101,18 @@ module.exports = {
       broadcastId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
     }
+  },
+
+  //Broadcast Request
+  requestBroadcast: {
+    body: {
+      event: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+      maxDistance: Joi.number().required(),
+      numOfPeople: Joi.number().required(),
+      userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}).required(),
+      note: Joi.string().max(250),
+
+
+    }
   }
 };

@@ -13,6 +13,7 @@ const {
   removeReservation,
   listReservations,
   listFavoriteEvents,
+  requestBroadcast
 } = require('../../validations/user.validation');
 
 const router = express.Router();
@@ -222,5 +223,32 @@ router
   .delete(authorize(LOGGED_USER, ownerCheck), validate(removeReservation), controller.removeReservation)
 ;
 
+router
+  .route('/:userId/requests')
+  /**
+   * @api {post} v1/users/:userId/requests Crea una richiesta di Broadcast
+   * @apiDescription Crea una richiesta di Broadcasrt per l'utente
+   * @apiVersion 1.0.0
+   * @apiName BroadcastUserRequest
+   * @apiPermission user
+   * @apiGroup User
+   *
+   * @apiHeader {String} Authorization User's access token
+   *
+   * @apiParam  {ObjectId}             event          SportEvent's id
+   * @apiParam  {Number}               maxDistance    Max distance (in Kilometers)
+   * @apiParam  {Number}               numOfPeople    Number of people
+   * @apiParam  {Object}            userPosition   User position (to watch Event)
+   * @apiParam  {String{1..250}}             userPosition.latitude      Position latitude
+   * @apiParam  {String}             userPosition.longitude     Position longitude
+   * @apiParam {String}                note           Additional notes
+   *
+   * @apiSuccess (No content 204) Richiesta inviata correttamente
+   *
+   * @apiError (Unauthorized 401) Unauthorized Solo gli utenti autenticati e padroni della risorsa :userId possono accedere
+   * @apiError (Not Found 404) Not Found  L'evento specificato non esiste
+   */
+  .post(authorize(LOGGED_USER, ownerCheck), validate(requestBroadcast), controller.requestBroadcast)
 
+  .get(authorize(LOGGED_USER, ownerCheck), controller.listBroadcastRequests)
 module.exports = router;

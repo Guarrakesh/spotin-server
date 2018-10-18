@@ -28,11 +28,11 @@ router
    *
    * @apiHeader {String} Authorization  User's access token
    *
-   * @apiParam  {String{6..128}    name       Sport's name
+   * @apiParam  {String{6..128}}    name       Sport's name
    * @apiParam  {String{6..128}}   slug       Sport's slug
    * @apiParam  {Boolean}          active     Sport status
    *
-   * @apiParam  {String{6..128}    name       Sport's name
+   * @apiParam  {String{6..128}}    name       Sport's name
    * @apiParam  {String{6..128}}   slug       Sport's slug
    * @apiParam  {Boolean}          active     Sport status
    * @apiParam  {Number}            _id       Sport's ID
@@ -62,11 +62,11 @@ router
    *
    * @apiHeader {String} Authorization  User's access token
    *
-   * @apiParam  {String{6..128}    name       Sport's name
+   * @apiParam  {String{6..128}}    name       Sport's name
    * @apiParam  {String{6..128}}   slug       Sport's slug
    * @apiParam  {Boolean}          active     Sport status
    *
-   * @apiParam  {String{6..128}    name       Sport's name
+   * @apiParam  {String{6..128}}    name       Sport's name
    * @apiParam  {String{6..128}}   slug       Sport's slug
    * @apiParam  {Boolean}          active     Sport status
    * @apiParam  {Number}            _id       Sport's ID
