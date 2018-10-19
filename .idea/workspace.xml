@@ -1,12 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="API per Contact Request e Broadcast Request">
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/actions/business.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/actions/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/css/material-dashboard-react.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/img/SpotinIcon-outline.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/img/SpotinIcon-outline.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/img/sidebar-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/fields/competitorFieldStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/fields/eventNameFieldStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/buttonGroupStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/cardImagesStyles.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/accordionStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/badgeStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardAvatarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardBodyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardFooterStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardHeaderStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardIconStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/cardTextStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customDropdownStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customInputStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customLinearProgressStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/customTabsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/footerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerLinksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headerStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/headingStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/infoStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/instructionStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/pagesHeaderStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/paginationStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/snackbarContentStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/tableStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/tasksStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/timelineStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/typographyStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/components/wizardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/customSelectStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/hoverCardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/pagesStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/layouts/rtlStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/modalStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/buttonsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/dashboardStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/eventPageStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/extendedFormsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/extendedTablesStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/gridSystemStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/iconsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/lockScreenPageStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/notificationsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/pricingPageStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/registerPageStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/regularFormsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/sweetAlertStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/userProfileStyles.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/material-dashboard-pro-react/views/validationFormsStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/jss/views/broadcastCreateStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_colors.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_fileupload.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_misc.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_shadows.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/mixins/_chartist.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/mixins/_sidebar-color.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/mixins/_transparency.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/mixins/_vendor-prefixes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-nouislider.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-perfect-scrollbar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-big-calendar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-bootstrap-sweetalert.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-chartist.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-datetime.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-jvectormap.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-table.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/assets/scss/material-dashboard-pro-react/plugins/_plugin-react-tagsinput.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/AppBar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/DashboardMenuItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/EventPublishForm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Menu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/Sidebar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/fields/CompetitorField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/fields/EventField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/fields/StyledImageField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/fields/VersionedImageField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/forms/BroadcastCreateForm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/forms/SaveButton.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/inputs/RadioButtonGroupInput.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/inputs/SliderInput.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/inputs/SwitchInput.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/Card.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardAvatar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardBody.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardFooter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardHeader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardIcon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/CardText.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Card/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/CustomButtons/Button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridContainer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Grid/GridItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Table/Table.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Danger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Info.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Muted.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Primary.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Quote.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Success.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/Warning.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/layout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/reducers/business.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/reducers/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/resources/broadcasts/BroadcastCreate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/resources/broadcasts/BroadcastEdit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/resources/events/EventList.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/sagas/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/sidebarStyle.jsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/theme.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/views/Dashboard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/views/EventPage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/business/views/list/SimpleList.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/validations/contactRequest.validation.js" afterPath="$PROJECT_DIR$/src/api/validations/contactRequest.validation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/.babelrc" afterPath="$PROJECT_DIR$/admin/.babelrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/App.js" afterPath="$PROJECT_DIR$/admin/src/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,46 +191,6 @@
         <splitter split-orientation="horizontal" split-proportion="0.53367496">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="user.route.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="15">
-                      <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="user.validation.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1620">
-                      <caret line="108" column="64" lean-forward="false" selection-start-line="108" selection-start-column="64" selection-end-line="108" selection-end-column="64" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="contactRequest.route.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/routes/v1/contactRequest.route.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="180">
-                      <caret line="12" column="50" lean-forward="false" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/routes/v1/index.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="525">
-                      <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="contact.controller.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js">
                   <provider selected="true" editor-type-id="text-editor">
@@ -107,7 +201,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="EventCreate.js" pinned="false" current-in-tab="true">
+              <file leaf-file-name="EventCreate.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="648">
@@ -119,11 +213,73 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="sportevent.model.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+              <file leaf-file-name="vars.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/config/vars.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="417">
-                      <caret line="87" column="76" lean-forward="true" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
+                    <state relative-caret-position="240">
+                      <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/.env">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="180">
+                      <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/admin/src/index.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/admin/src/App.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name=".eslintrc.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/admin/.babelrc">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="150">
+                      <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/config/express.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="690">
+                      <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
                       <folding />
                     </state>
                   </provider>
@@ -134,26 +290,6 @@
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="-300">
                       <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="competitor.controller.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="341">
-                      <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/node_modules/http-status/lib/index.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="278">
-                      <caret line="34" column="2" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
                       <folding />
                     </state>
                   </provider>
@@ -271,8 +407,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/providers/authProvider.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
         <option value="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Forms/ExtendedForms.jsx" />
         <option value="$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src/views/Tables/ReactTables.jsx" />
@@ -302,7 +436,6 @@
         <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
-        <option value="$PROJECT_DIR$/src/config/express.js" />
         <option value="$PROJECT_DIR$/src/api/models/offer.schema.js" />
         <option value="$PROJECT_DIR$/src/api/validations/contact.validation.js" />
         <option value="$PROJECT_DIR$/src/api/models/point.schema.js" />
@@ -322,6 +455,9 @@
         <option value="$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
+        <option value="$PROJECT_DIR$/src/config/express.js" />
+        <option value="$PROJECT_DIR$/admin/.babelrc" />
+        <option value="$PROJECT_DIR$/admin/src/App.js" />
       </list>
     </option>
   </component>
@@ -632,164 +768,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fields" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -1022,21 +1000,7 @@
       <workItem from="1539794204917" duration="805000" />
       <workItem from="1539853748518" duration="499000" />
       <workItem from="1539886485741" duration="9328000" />
-      <workItem from="1539936537464" duration="6267000" />
-    </task>
-    <task id="LOCAL-00028" summary="REST: Competition API validation fix">
-      <created>1535669556155</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1535669556155</updated>
-    </task>
-    <task id="LOCAL-00029" summary="REST: Fix event by competition api">
-      <created>1535729998260</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1535729998260</updated>
+      <workItem from="1539936537464" duration="7824000" />
     </task>
     <task id="LOCAL-00030" summary="REST: RESERVATION e BROADCAST API&#10;ADMIN: Broadcast CRUD">
       <created>1535829819883</created>
@@ -1367,11 +1331,25 @@
       <option name="project" value="LOCAL" />
       <updated>1539903027748</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Fix API per Contact Request e Broadcast Request&#10;Fix Autocomplete Input per Creazione eventi (ADMIN)">
+      <created>1539962217994</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1539962217995</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Add spotin.it (www, http e https) ai cors">
+      <created>1539962337103</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1539962337103</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="681914000" />
+    <option name="totallyTimeSpent" value="683471000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1458,8 +1436,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Competitions: &#10; - Upload immagini &#10; - Dopo creazione, rimanda alla lista e non all'edit&#10; - Filtro di ricerca per i competitor (per nome e per sport)&#10; - Autocompletamento sport&#10; Locali: &#10; - Attributo &quot;Type&quot; è diventato multi opzione&#10; - Autocompletamento User&#10; Competitions: &#10;  - Autocompletamento Sport&#10;  &#10;  &#10;  TODO: &#10;  - Upload immagini competitor&#10;  - Indirizzo di fatturazione (opzionale) per locali&#10;" />
-    <MESSAGE value="Aggiunta multi dimensione delle immagini" />
     <MESSAGE value="Aggiunto upload competizioni" />
     <MESSAGE value="FIXATO COMPETITOR UPDATE" />
     <MESSAGE value="Business: Iniziata schermata eventi" />
@@ -1483,7 +1459,9 @@
     <MESSAGE value="Reservation GET endpoint&#10;ClientType per mobileapp e business&#10;Business DELETE endpoint" />
     <MESSAGE value="AccessToken obbligatoria per tutti gli endpoint&#10;Aggiunte API per gestione eventi preferiti" />
     <MESSAGE value="API per Contact Request e Broadcast Request" />
-    <option name="LAST_COMMIT_MESSAGE" value="API per Contact Request e Broadcast Request" />
+    <MESSAGE value="Fix API per Contact Request e Broadcast Request&#10;Fix Autocomplete Input per Creazione eventi (ADMIN)" />
+    <MESSAGE value="Add spotin.it (www, http e https) ai cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add spotin.it (www, http e https) ai cors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1498,34 +1476,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="69" lean-forward="false" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/providers/dataProvider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/providers/restClientProvider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
@@ -1601,13 +1551,6 @@
         <state relative-caret-position="210">
           <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/express.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1749,22 +1692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/vars.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
@@ -1876,6 +1803,64 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/vars.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/.eslintrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
