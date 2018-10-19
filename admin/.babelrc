@@ -7,9 +7,8 @@
     "transform-regenerator",
     "transform-export-default",
     ["module-resolver", {
-      "alias": {
-        "business": "./src/containers/business/"
-      },
+
+
       "extensions": [".js", ".jsx"]
     }],
 
