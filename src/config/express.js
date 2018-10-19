@@ -50,7 +50,11 @@ app.use(cors({
   exposedHeaders: ["X-Total-Count"],
 
   origin: function(origin, cb) {
-    let wl = ['https://spotin-business.herokuapp.com', 'https://spotin.herokuapp.com', 'https://spotin.it'];
+    let wl = ['https://spotin-business.herokuapp.com', 'https://spotin.herokuapp.com',
+      'https://spotin.it',
+      'http://www.spotin.it',
+      'https://www.spotin.it',
+    'http://spotin.it'];
     if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging" || !origin)
       return cb(null,true);
 
