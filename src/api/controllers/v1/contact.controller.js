@@ -12,9 +12,10 @@ exports.create = async (req, res, next) => {
     request.requestType = TYPE_CONTACT_REQUEST;
     request.contactRequest = {
       ...req.body
-    }
+    };
 
     const savedRequest = await request.save();
+
 
     res.status(httpStatus.CREATED);
     res.json(savedRequest);

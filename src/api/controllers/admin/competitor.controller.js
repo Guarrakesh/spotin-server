@@ -34,6 +34,7 @@ exports.list = async (req, res, next) => {
 
     }
 
+
     const competitors = await Competitor.paginate(filterQuery, {
       sort: { [_sort]: _order },
       offset: parseInt(_start),
