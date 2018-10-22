@@ -45,10 +45,10 @@ broadcastSchema.method({
 
 broadcastSchema.pre('save', (next) => {
   const event = SportEvent.findById(this.event);
-  if (this.start_at) {
+  if (!this.start_at) {
     this.start_at = moment(event.start_at).subtract(10, 'days').startOf('day').toDate();
   }
-  if (this.end_at) {
+  if (!this.end_at) {
     this.end_at = moment(event.start_at).add(3, 'hours').toDate();
   }
 

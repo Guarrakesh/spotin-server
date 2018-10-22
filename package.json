@@ -104,6 +104,7 @@
     "passport-jwt": "4.0.0",
     "pm2": "^2.4.6",
     "prop-types": "^15.6.2",
+    "react-admin-date-inputs": "^1.1.0",
     "react-bootstrap-sweetalert": "^4.4.1",
     "react-redux": "^5.0.7",
     "react-router-redux": "^4.0.8",
