@@ -13,7 +13,8 @@ const {
   removeReservation,
   listReservations,
   listFavoriteEvents,
-  requestBroadcast
+  requestBroadcast,
+  getReservation
 } = require('../../validations/user.validation');
 
 const router = express.Router();
@@ -219,7 +220,8 @@ router
   .post(authorize(LOGGED_USER, ownerCheck), validate(reserveBroadcast), controller.reserveBroadcast)
 ;
 router
-  .route('/:userId/reservations/:broadcastId')
+  .route('/:userId/reservations/:reservationId')
+  .get(authorize(LOGGED_USER, ownerCheck), validate(getReservation), controller.getReservation)
   .delete(authorize(LOGGED_USER, ownerCheck), validate(removeReservation), controller.removeReservation)
 ;
 

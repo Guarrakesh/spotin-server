@@ -82,6 +82,12 @@ module.exports = {
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
     }
   },
+  getReservation: {
+    params: {
+      reservationId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
+    }
+  },
   listReservations: {
     params: {
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
@@ -98,7 +104,7 @@ module.exports = {
 
   removeReservation: {
     params: {
-      broadcastId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+      reservationId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
     }
   },
@@ -110,9 +116,10 @@ module.exports = {
       maxDistance: Joi.number().required(),
       numOfPeople: Joi.number().required(),
       userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}).required(),
+
       note: Joi.string().max(250),
 
 
-    }
+       }
   }
 };

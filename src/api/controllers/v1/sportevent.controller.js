@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const { omit, at} = require('lodash');
+const { omit, omitBy} = require('lodash');
 const {SportEvent} = require('../../models/sportevent.model.js');
 const { handler: errorHandler } = require('../../middlewares/error');
 const bodyParser = require('body-parser');
@@ -106,18 +106,26 @@ exports.list = async (req, res, next) => {
       const date = moment(req.query.start_at).startOf('day');
 
       filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
+    } else {
+      //Prendo eventi nell'arco temporale tra oggi e due settimane dopo
 
+      filter.start_at = { "$gte": moment().startOf('day'),
+        "$lte": moment().add(2, 'week').endOf('day')}
     }
+
+
+
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
     populates.push('competitors.competitor');
     populates.push('competition');
+    populates.push('sport');
 
 
     const limit = parseInt(_end - _start);
 
     let events = await SportEvent.paginate(filter, {
-      sort: _sort,
+      sort: {[_sort] : _order},
       offset: parseInt(_start),
       limit: limit,
       populate: populates || null

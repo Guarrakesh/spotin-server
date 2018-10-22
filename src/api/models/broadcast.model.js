@@ -85,6 +85,11 @@ broadcastSchema.statics = {
 };
 
 broadcastSchema.plugin(mongoosePaginate);
-broadcastSchema.plugin(deepPopulate);
+broadcastSchema.plugin(deepPopulate, {
+  populate: {
+    'event': { select: ['name', 'competitors','competition', 'start_at', 'sport']},
+    'business': { select: ['name', 'address', 'cover_versions', 'photos', 'type']}
+  }
+});
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");

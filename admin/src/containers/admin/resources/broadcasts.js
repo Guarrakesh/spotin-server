@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
-  RadioButtonGroupInput, Edit, DisabledInput, SelectInput } from 'react-admin';
+  RadioButtonGroupInput, Edit, DisabledInput, SelectInput, BooleanInput } from 'react-admin';
 
 
 export const BroadcastList = (props) => (
@@ -35,14 +35,14 @@ export const BroadcastCreate = (props) => (
       <ReferenceInput reference="businesses" source="business">
         <SelectInput source="name"/>
       </ReferenceInput>
+      <BooleanInput source="plus"/>
+      {/*<NumberInput source="newsfeed"/>*/}
 
-      <NumberInput source="newsfeed"/>
       <TextInput source="offer.title"/>
       <TextInput source="offer.description"/>
       <RadioButtonGroupInput source="offer.type" choices={[
         {id: "0", name: 'Prezzo fisso'},
         {id: "1", name: 'Sconto in percentuale'},
-        {id: "2", name: 'Sconto assoluto'},
       ]}/>
       <NumberInput source="offer.value"/>
 
@@ -69,7 +69,6 @@ export const BroadcastEdit = (props) => (
       <RadioButtonGroupInput source="offer.type" choices={[
         {id: "0", name: 'Prezzo fisso'},
         {id: "1", name: 'Sconto in percentuale'},
-        {id: "2", name: 'Sconto assoluto'},
       ]}/>
       <NumberInput source="offer.value"/>
 

@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const mongoose = require('mongoose');
 const { handler: errorHandler } = require('../../middlewares/error');
 const ApiError = require('../../utils/APIError');
 const { omit } = require('lodash');
@@ -10,7 +11,12 @@ const { SportEvent } = require('../../models/sportevent.model.js');
 const { BUSINESS, ADMIN } = require('../../middlewares/auth');
 exports.load = async(req, res, next, id) => {
   try {
+
+    const { loggedUser } = req.locals;
     const broadcast = await Broadcast.get(id);
+
+    broadcast['reserved'] = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
+
 
     req.locals = { broadcast };
     return next();
@@ -55,6 +61,9 @@ exports.create = async (req, res, next) => {
       throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
 
 
+    if (req.body.plus === true) {
+      broadcast.newsfeed = 1;
+    }
 
     const savedBroadcast = await broadcast.save();
 
@@ -68,10 +77,12 @@ exports.create = async (req, res, next) => {
     next(error);
   }
 
-}
+};
+
 exports.list = async (req, res, next) => {
   try {
 
+    const { loggedUser } = req.locals;
     //TODO: Gestire geolocalizzazione
     let broadcasts, near = {};
 
@@ -95,10 +106,13 @@ exports.list = async (req, res, next) => {
         broadcast['business'] = currentBusiness._id;
         Object.assign(near, { [broadcast._id]: currentBusiness.dist});
 
+        broadcast['reserved'] = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
         return broadcast;
       });
 
       broadcasts = broadcasts.sort((a,b) => _order === 1 ? near[a._id].calculated > near[b._id].calculated: near[a._id].calculated < near[b._id].calculated);
+
+
       res.json({
         docs: broadcasts,
         offset: _start,
@@ -113,8 +127,13 @@ exports.list = async (req, res, next) => {
         sort: {[_sort]: _order},
         offset: parseInt(_start),
         limit: parseInt(_end - _start),
-
+        lean: true
       });
+      broadcasts.docs = broadcasts.docs.map(broadcast => {
+        broadcast = {...broadcast, reserved: broadcast.reservations.find(r => r.user.toString() === loggedUser._id.toString()) === undefined ? false : true}
+        return broadcast;
+      });
+      console.log(broadcasts.docs);
       res.json(broadcasts);
 
 
