@@ -40,7 +40,7 @@ exports.list = async (req, res, next) => {
     let competitions = Competition.find(filterQuery);
 
     //handle sort
-    if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order.toLowerCase()});
+    if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order});
 
     //handle GET_MANY, dove il campo {field}_like contiene valori multipli separati da |
 

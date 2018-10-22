@@ -49,6 +49,11 @@ exports.create = async (req, res, next) => {
     const event = (await SportEvent.findById(req.body.event));
     const spots = event.spots;
 
+    if (req.body.plus === true) {
+      broadcast.newsfeed = 1;
+    }
+
+
     if (!business.spots >= spots)
       throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
@@ -60,6 +65,16 @@ exports.create = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+
+};
+exports.update = async (req, res, next) => {
+  const updateBroadcast = Object.assign(req.locals.broadcast, req.body);
+
+
+
+  updateBroadcast.save()
+    .then(savedBus => res.json(savedBus))
+    .catch(e => next(e));
 
 }
 exports.list = async (req, res, next) => {

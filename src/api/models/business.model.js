@@ -211,7 +211,7 @@ businessSchema.statics = {
 
     ];
     if (options.q) {
-      aggregations.push({ $match: { name: { "$regex": options.q, "$options": "i"} } });
+      aggregations.splice(1, 0, { $match: { name: { "$regex": options.q, "$options": "i"} } });
     }
 
     const docs = await this.aggregate(aggregations);
