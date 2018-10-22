@@ -10,8 +10,7 @@ const { createBusiness, updateBusiness } = require('../../validations/business.v
 const { authorize, ADMIN, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
 
 router.param('id', controller.load);
-router
-  .route('/reset-business-images').get(controller.resetImages);
+
 
 router
   .route('/')
