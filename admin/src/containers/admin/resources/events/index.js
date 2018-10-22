@@ -2,6 +2,8 @@ import React from 'react';
 import { List, ChipField, Datagrid, TextField, ReferenceField, EditButton,
   Filter, ReferenceInput, TextInput, SelectInput
 } from 'react-admin';
+
+import { DateTimeInput } from 'react-admin-date-inputs';
 import moment from 'moment';
 import { get } from 'lodash';
 
@@ -28,6 +30,7 @@ const EventFilter = (props) => (
     <ReferenceInput reference="competitions" source="competition">
       <SelectInput label="Competizione" source="name" />
     </ReferenceInput>
+    <DateTimeInput source="start_at"  options={{ format: "dd/MM/YYYY" }}/>
   </Filter>
 );
 

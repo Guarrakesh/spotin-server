@@ -87,33 +87,37 @@ exports.list = async (req, res, next) => {
 
     const { loggedUser } = req.locals;
     //TODO: Gestire geolocalizzazione
-    let broadcasts, near = {};
+  
+    let broadcasts;
+    let near = {};
 
-    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
-    const {_end = 10, _start = 0, _order = 1, _sort  } = req.query;
+    let filterQuery = omit(req.query, ['latitude', 'longitude', 'radius', '_end', '_sort', '_order', '_start']);
+    const { _end = 10, _start = 0, _order = 1, _sort } = req.query;
     const { latitude, longitude, radius } = req.query;
-
+    const now = moment().toDate();
+    filterQuery = {
+      ...filterQuery,
+      end_at: { $gte: now },
+      start_at: { $lte: now },
+    };
     if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius, {_end: 150});
+      const business = await Business.findNear(latitude, longitude, radius, { _end: 150 });
 
 
-      //Faccio paginazione sui broadcast e non sui locali
-
+      //Faccio paginazione sui broadcast e non sui locali 
+    
       const ids = business.docs.map(bus => bus._id);
       const total = await Broadcast.count({ business: { $in: ids }, ...filterQuery });
-      const now = moment().toDate();
-      broadcasts = await Broadcast.find({ business: { $in: ids } , 
-        end_at: { $gte: now},
-        ...filterQuery })
+      broadcasts = await Broadcast.find({ business: { $in: ids }, ...filterQuery })
         .skip(parseInt(_start, 10)).limit(parseInt(_end - _start, 10)).lean()
         .exec();
-      broadcasts = broadcasts.map(broadcast => {
-        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
-
-        broadcast['business'] = currentBusiness._id;
-        Object.assign(near, { [broadcast._id]: currentBusiness.dist});
-
-        broadcast['reserved'] = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
+      broadcasts = broadcasts.map((broadcast) => {
+        const newBroadcast = {};
+        const currentBusiness = business.docs
+          .find(bus => bus._id.toString() === broadcast.business.toString());
+        newBroadcast.business = currentBusiness._id;
+        Object.assign(near, { [broadcast._id]: currentBusiness.dist });
+        newBroadcast.reserved = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
         return broadcast;
       });
 
@@ -124,21 +128,24 @@ exports.list = async (req, res, next) => {
         docs: broadcasts,
         offset: _start,
         near,
-        total
-      })
+        total,
+      });
 
     } else {
 
 
-      let broadcasts = await Broadcast.paginate(filterQuery, {
-        sort: {[_sort]: _order},
-        offset: parseInt(_start),
-        limit: parseInt(_end - _start),
-        lean: true
+      broadcasts = await Broadcast.paginate(filterQuery, {
+        sort: { [_sort]: _order },
+        offset: parseInt(_start, 10),
+        limit: parseInt(_end - _start, 10),
+        lean: true,
       });
-      broadcasts.docs = broadcasts.docs.map(broadcast => {
-        broadcast = {...broadcast, reserved: broadcast.reservations.find(r => r.user.toString() === loggedUser._id.toString()) === undefined ? false : true}
-        return broadcast;
+      broadcasts.docs = broadcasts.docs.map((broadcast) => {
+        return {
+          ...broadcast,
+          reserved: broadcast.reservations
+            .find(r => r.user.toString() === loggedUser._id.toString()) === undefined,
+        };
       });
       console.log(broadcasts.docs);
       res.json(broadcasts);

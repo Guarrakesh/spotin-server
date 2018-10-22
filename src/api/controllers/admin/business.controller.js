@@ -6,6 +6,14 @@ const { Business } = require('../../models/business.model.js');
 const { omit } = require('lodash');
 
 
+const { s3WebsiteEndpoint } = require('../../../config/vars');
+const { uploadImage } = require('../../utils/amazon.js');
+const imageSizes = [
+  {width: 640, height: 350},
+  {width: 768, height: 432},
+  {width: 320, height: 180},
+];
+
 exports.load = async(req, res, next, id) => {
   try {
     const business = await Business.findById(id);
@@ -16,6 +24,36 @@ exports.load = async(req, res, next, id) => {
   }
 };
 
+exports.resetImages = async (req, res, next) => {
+ const businesses = await Business.find({});
+ for(var i=0; i<businesses.length; i++) {
+
+  const bus = businesses[i];
+  console.log(bus.cover_versions);
+  if (bus.cover_versions.length === 0) continue;
+
+  let ext = bus.cover_versions[0].url.split('.').pop();
+  bus.cover_versions = bus.cover_versions.slice(0,1);
+ 
+  const basePath = s3WebsiteEndpoint + "/images/businesses";
+
+  imageSizes.forEach(({width, height}) => {
+
+    bus.cover_versions.push({
+      url: `${basePath}/${bus._id.toString()}/${width}x${height}/cover.${ext}`,
+      width: width,
+      height: height
+    });
+  });
+ 
+  await bus.save();
+ 
+  
+ }
+  
+
+
+};
 exports.get = (req, res) => res.json(req.locals.business);
 
 

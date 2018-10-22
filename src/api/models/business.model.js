@@ -158,11 +158,11 @@ businessSchema.method({
       this.cover_versions = [{url: data.Location, width, height}];
 
 
-      const basePath = s3WebsiteEndpoint + "/businesses/";
+      const basePath = s3WebsiteEndpoint + "/images/businesses";
 
       imageSizes.forEach(({width, height}) => {
         this.cover_versions.push({
-          url: `${basePath}/${width}x${height}/${this._id.toString()}/cover.${ext}`,
+          url: `${basePath}/${this._id.toString()}/${width}x${height}/cover.${ext}`,
           width: width,
           height: height
         });
