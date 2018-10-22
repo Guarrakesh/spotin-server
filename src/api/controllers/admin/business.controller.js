@@ -24,7 +24,7 @@ exports.load = async(req, res, next, id) => {
   }
 };
 
-exports.resetImages = async (req, res, next) => {
+/* exports.resetImages = async (req, res, next) => {
  const businesses = await Business.find({});
  for(var i=0; i<businesses.length; i++) {
 
@@ -53,7 +53,7 @@ exports.resetImages = async (req, res, next) => {
   
 
 
-};
+}; */
 exports.get = (req, res) => res.json(req.locals.business);
 
 
