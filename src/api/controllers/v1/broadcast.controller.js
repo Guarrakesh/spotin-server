@@ -108,7 +108,7 @@ exports.list = async (req, res, next) => {
         .skip(parseInt(_start, 10)).limit(parseInt(_end - _start, 10)).lean()
         .exec();
       broadcasts = broadcasts.map(broadcast => {
-        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString()));
+        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
 
         broadcast['business'] = currentBusiness._id;
         Object.assign(near, { [broadcast._id]: currentBusiness.dist});
