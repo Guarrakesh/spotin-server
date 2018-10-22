@@ -32,7 +32,7 @@ export const BroadcastCreate = (props) => (
     <SimpleForm>
 
       <ReferenceInput reference="events" source="event">
-        <AutocompleteInput source="name" />
+        <AutocompleteInput source="name" optionText="name"/>
       </ReferenceInput>
       <ReferenceInput reference="businesses" source="business">
         <SelectInput source="name"/>
@@ -59,7 +59,7 @@ export const BroadcastEdit = (props) => (
     <SimpleForm>
       <DisabledInput source="_id"/>
       <ReferenceInput reference="events" source="event">
-        <SelectInput source="name"/>
+        <AutocompleteInput source="name" optionText="name"/>
       </ReferenceInput>
       <ReferenceInput reference="businesses" source="business">
         <AutocompleteInput source="name"/>

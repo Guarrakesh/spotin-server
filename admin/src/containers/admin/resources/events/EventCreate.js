@@ -7,7 +7,7 @@ ArrayInput, SimpleFormIterator,AutocompleteInput,SelectArrayInput,
   number,
   maxLength} from 'react-admin';
 
-
+import { DateTimeInput } from 'react-admin-date-inputs';
 
 const providers = [
   {id: "sky", name: "Sky"},
@@ -34,7 +34,7 @@ const EventCreate = (props) => (
       <FormTab label="General">
         <TextInput source="name" validate={validateName}/>
         <ReferenceInput source="sport" reference="sports" label="Sport" validate={[required()]}>
-          <SelectInput optionText="name"/>
+          <AutocompleteInput optionText="name"/>
         </ReferenceInput>
         <FormDataConsumer>
           {({formData}) =>
@@ -47,7 +47,7 @@ const EventCreate = (props) => (
         </FormDataConsumer>
 
         <LongTextInput source="description" validate={validateDesc}/>
-          <TextInput
+        { /*  <TextInput
             //parse={dateParser}
             type="datetime-local"
 
@@ -55,7 +55,8 @@ const EventCreate = (props) => (
               shrink: true,
             }}
             label="Data evento" validate={validateDate}
-            source="start_at" />
+          source="start_at" /> */}
+            <DateTimeInput validate={validateDate} source="start_at"  options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
         <NumberInput source="spots" validate={[required(), number()]}/>
           <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
     </FormTab>

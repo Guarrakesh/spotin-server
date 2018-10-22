@@ -1,11 +1,10 @@
 const httpStatus = require('http-status');
-const { omit, at} = require('lodash');
-const {SportEvent} = require('../../models/sportevent.model.js');
+const { omit, at } = require('lodash');
+const { SportEvent } = require('../../models/sportevent.model.js');
 const { handler: errorHandler } = require('../../middlewares/error');
-const bodyParser = require('body-parser');
-const Sport = require('../../models/sport.model.js');
-const { Competitor } = require('../../models/competitor.model.js');
 
+
+const moment = require('moment');
 
 const sanitizeQueryParams = ({
   competition_id,
@@ -48,9 +47,6 @@ exports.load = async (req, res, next, id) => {
  * @public
  */
 exports.get = (req, res) => res.json(req.locals.event.transform());
-
-
-
 /**
  * Create new SportEvent
  * @public
@@ -65,7 +61,6 @@ exports.create = async (req, res, next) => {
     res.status(httpStatus.CREATED);
     res.json(savedSportEvent);
   } catch (error) {
-
     next(error);
   }
 };
@@ -94,9 +89,16 @@ exports.list = async (req, res, next) => {
     let filter = sanitizeQueryParams(req.query);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
 
-
+    if (req.query.q || req.query.name) {
+      filter.name = { "$regex": req.query.q || req.query.name, "$options": "i"};
+    }
     if (req.query.id_like) {
       filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
+    }
+    if (req.query.start_at) {
+      const date = moment(req.query.start_at).startOf('day');
+
+      filter.start_at = { $gte: date, $lte: moment(date).endOf('day') };
     }
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
