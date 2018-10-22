@@ -5,10 +5,10 @@ const {reservationSchema} = require('./reservation.model');
 const { imageVersionSchema } = require('./imageVersion');
 
 const offerSchema = require('./offer.schema');
-
+const { SportEvent } = require('./sportevent.model');
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-
+const moment = require('moment');
 const broadcastSchema = new mongoose.Schema({
 
   business: {
@@ -43,6 +43,17 @@ broadcastSchema.method({
 
 });
 
+broadcastSchema.pre('save', (next) => {
+  const event = SportEvent.findById(this.event);
+  if (this.start_at) {
+    this.start_at = moment(event.start_at).subtract(10, 'days').startOf('day').toDate();
+  }
+  if (this.end_at) {
+    this.end_at = moment(event.start_at).add(3, 'hours').toDate();
+  }
+
+  next();
+});
 broadcastSchema.statics = {
   /**
    * Get broadcast

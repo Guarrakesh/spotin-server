@@ -7,6 +7,7 @@ const { Model } = require('mongoose');
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
 const { SportEvent } = require('../../models/sportevent.model.js');
+const moment = require('moment');
 
 const { BUSINESS, ADMIN } = require('../../middlewares/auth');
 exports.load = async(req, res, next, id) => {
@@ -55,6 +56,8 @@ exports.create = async (req, res, next) => {
     }
 
     const event = (await SportEvent.findById(req.body.event));
+
+    
     const spots = event.spots;
 
     if (!business.spots >= spots)
@@ -95,13 +98,17 @@ exports.list = async (req, res, next) => {
 
 
       //Faccio paginazione sui broadcast e non sui locali
-      const ids = business.docs.map(bus => bus._id);
-    
-      const total = await Broadcast.count({business: {$in: ids}, ...filterQuery});
-      broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).skip(parseInt(_start)).limit(parseInt(_end - _start)).lean().exec();
-      broadcasts = broadcasts.map(broadcast => {
 
-        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
+      const ids = business.docs.map(bus => bus._id);
+      const total = await Broadcast.count({ business: { $in: ids }, ...filterQuery });
+      const now = moment().toDate();
+      broadcasts = await Broadcast.find({ business: { $in: ids } , 
+        end_at: { $gte: now},
+        ...filterQuery })
+        .skip(parseInt(_start, 10)).limit(parseInt(_end - _start, 10)).lean()
+        .exec();
+      broadcasts = broadcasts.map(broadcast => {
+        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString()));
 
         broadcast['business'] = currentBusiness._id;
         Object.assign(near, { [broadcast._id]: currentBusiness.dist});
