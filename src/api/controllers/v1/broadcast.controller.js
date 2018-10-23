@@ -117,7 +117,7 @@ exports.list = async (req, res, next) => {
           .find(bus => bus._id.toString() === broadcast.business.toString());
         newBroadcast.business = currentBusiness._id;
         Object.assign(near, { [broadcast._id]: currentBusiness.dist });
-        newBroadcast.reserved = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
+        newBroadcast.reserved = broadcast.reservations.find(r => loggedUser._id.toString() === r.user.toString()) !== undefined
         return broadcast;
       });
 
@@ -144,7 +144,7 @@ exports.list = async (req, res, next) => {
         return {
           ...broadcast,
           reserved: broadcast.reservations
-            .find(r => r.user.toString() === loggedUser._id.toString()) === undefined,
+            .find(r => r.user.toString() === loggedUser._id.toString()) !== undefined,
         };
       });
       console.log(broadcasts.docs);

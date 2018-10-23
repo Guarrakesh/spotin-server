@@ -23,7 +23,7 @@ exports.get = (req, res) => res.json(req.locals.business);
 exports.list = async (req, res, next) => {
   try {
 
-    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_start','_sort','_order']);
+    const filterQuery = omit(req.query, ['latitude', 'longitude','radius']);
     const {_end, _start, _order, _sort } = req.query;
     const { latitude, longitude, radius } = req.query;
     let data, near = {};
