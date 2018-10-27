@@ -4,9 +4,6 @@
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/user.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/user.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/user.model.js" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -61,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+            <state relative-caret-position="30">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -91,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
+            <state relative-caret-position="441">
               <caret line="83" column="3" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
               <folding />
             </state>
@@ -817,14 +814,7 @@
       <workItem from="1540306870902" duration="2258000" />
       <workItem from="1540330610626" duration="791000" />
       <workItem from="1540370531253" duration="1222000" />
-      <workItem from="1540631767332" duration="1942000" />
-    </task>
-    <task id="LOCAL-00033" summary="Added card components">
-      <created>1535986061126</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1535986061126</updated>
+      <workItem from="1540631767332" duration="2087000" />
     </task>
     <task id="LOCAL-00034" summary="Ignored some">
       <created>1535986194287</created>
@@ -1162,11 +1152,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540288838580</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Aggiunta regex match per users (campo q)">
+      <created>1540634352396</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1540634352396</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="727347000" />
+    <option name="totallyTimeSpent" value="727492000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1253,7 +1250,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Admin: Fixato form Eventi" />
     <MESSAGE value="Admin: Fixato URL" />
     <MESSAGE value="Admin: Fixato competitor controller (id_like)" />
     <MESSAGE value="REST: FIxato competitor route/controller/model&#10;ADMIN: Fixato (forse) form eventi" />
@@ -1278,7 +1274,8 @@
     <MESSAGE value="Production setup" />
     <MESSAGE value="API per gestione prenotazione" />
     <MESSAGE value="Fix business perPage and Broadcast user reserved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix business perPage and Broadcast user reserved" />
+    <MESSAGE value="Aggiunta regex match per users (campo q)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta regex match per users (campo q)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1639,14 +1636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1667,8 +1656,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
+        <state relative-caret-position="441">
           <caret line="83" column="3" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>

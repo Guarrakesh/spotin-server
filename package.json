@@ -1,6 +1,6 @@
 {
   "name": "SpotIn-server",
-  "version": "0.5",
+  "version": "1.0",
   "description": "Spot In Server",
   "author": "Dario Guarracino <dario.guarracino3@gmail.com>",
   "main": "src/index.js",
