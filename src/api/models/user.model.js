@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   //TODO: Dopo che ho definito il model Business
- // favorite_businesses:
+  // favorite_businesses:
 
   services: {
     facebook: String,
@@ -115,12 +115,12 @@ userSchema.pre('save', async function save(next) {
  */
 userSchema.method({
   transform() {
-   /* const transformed = {};
-    const fields = ['_id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
+    /* const transformed = {};
+     const fields = ['_id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
 
-    fields.forEach((field) => {
-      transformed[field] = this[field];
-    });*/
+     fields.forEach((field) => {
+     transformed[field] = this[field];
+     });*/
 
     return this;
   },
@@ -233,10 +233,19 @@ userSchema.statics = {
    * @returns {Promise<User[]>}
    */
   list({
-    _end = 10, _order = "DESC", _sort="createdAt", _start = 0, name, email, role,
+    _end = 10, _order = "DESC", _sort="createdAt", _start = 0, name, email, role, q
   }) {
-    const options = omitBy({ name, email, role }, isNil);
+    let options = omitBy({ name, email, role }, isNil);
 
+    if (q) {
+      options = {
+        ...options,
+        $or: [
+          { name: { "$regex": q, "$options": "i" } },
+          { email: { "$regex": q, "$options": "i " } }
+        ]
+      }
+    }
     return this.paginate(options, {
       sort: {[_sort]: _order.toLowerCase()},
       offset: parseInt(_start),

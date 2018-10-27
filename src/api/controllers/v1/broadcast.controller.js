@@ -66,6 +66,8 @@ exports.create = async (req, res, next) => {
 
     if (req.body.plus === true) {
       broadcast.newsfeed = 1;
+    } else {
+      broadcast.newsfeed = 0;
     }
 
     const savedBroadcast = await broadcast.save();
