@@ -9,7 +9,8 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
   minLength,
   number,
   maxLength} from 'react-admin';
-  import { DateTimeInput } from 'react-admin-date-inputs';
+  import { DateTimeInput } from '../../components/DateTimeInput';
+
 
   const providers = [
     {id: "sky", name: "Sky"},

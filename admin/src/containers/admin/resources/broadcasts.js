@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
   RadioButtonGroupInput, Edit, DisabledInput, SelectInput, BooleanInput} from 'react-admin';
 
-  import { DateTimeInput } from 'react-admin-date-inputs';
+  import { DateTimeInput } from '../components/DateTimeInput';
 
 
 export const BroadcastList = (props) => (
@@ -47,8 +47,12 @@ export const BroadcastCreate = (props) => (
         {id: "1", name: 'Sconto in percentuale'},
       ]}/>
       <NumberInput source="offer.value"/>
-      <DateTimeInput source="start_at"  options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
-      <DateTimeInput source="end_at"  options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+      <DateTimeInput source="start_at"
+                     label="Inizio prenotazioni (Default 2 settimane prima)"
+                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+      <DateTimeInput source="end_at"
+                     label="Fine prenotazioni (Default 3 ore dopo)"
+                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
     </SimpleForm>
   </Create>
 );
@@ -73,8 +77,12 @@ export const BroadcastEdit = (props) => (
         {id: "1", name: 'Sconto in percentuale'},
       ]}/>
       <NumberInput source="offer.value"/>
-      <DateTimeInput source="start_at" options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
-      <DateTimeInput source="end_at"  options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+      <DateTimeInput source="start_at"
+                     label="Inizio prenotazioni "
+                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+      <DateTimeInput source="end_at"
+                     label="Fine prenotazioni"
+                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
 
     </SimpleForm>
   </Edit>

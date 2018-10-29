@@ -1,4 +1,12 @@
 import React from 'react';
+
+/* eslint-disable */
+
+import MomentUtils from 'material-ui-pickers/utils/moment-utils'
+/* eslint-enable */
+
+
+
 import { TabbedForm, FormTab, Create, SelectInput, TextInput, NumberInput, ReferenceInput, LongTextInput, FormDataConsumer,
 ArrayInput, SimpleFormIterator,AutocompleteInput,SelectArrayInput,
   required,
@@ -7,7 +15,7 @@ ArrayInput, SimpleFormIterator,AutocompleteInput,SelectArrayInput,
   number,
   maxLength} from 'react-admin';
 
-import { DateTimeInput } from 'react-admin-date-inputs';
+import { DateTimeInput } from '../../components/DateTimeInput';
 
 const providers = [
   {id: "sky", name: "Sky"},
@@ -29,6 +37,7 @@ const validateDate = [required()];
 // }
 
 const EventCreate = (props) => (
+
   <Create {...props}>
     <TabbedForm>
       <FormTab label="General">
@@ -56,7 +65,10 @@ const EventCreate = (props) => (
             }}
             label="Data evento" validate={validateDate}
           source="start_at" /> */}
-            <DateTimeInput validate={validateDate} source="start_at"  options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
+            <DateTimeInput validate={validateDate} source="start_at"
+                           label="Inizio evento"
+                           providerOptions={{utils: MomentUtils}}
+                           options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
         <NumberInput source="spots" validate={[required(), number()]}/>
           <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
     </FormTab>
