@@ -24,6 +24,7 @@ const broadcastRequestSchema = new mongoose.Schema({
   userPosition: {
     type: pointSchema,
   },
+  location: String,
   note: {
     type: String,
     maxlength: 250
@@ -69,7 +70,7 @@ const requestSchema = new mongoose.Schema({
   }
 
 
-}, { minimize: false });
+}, { minimize: false, timestamps: { createdAt: 'created_at'} });
 
 exports.requestSchema = requestSchema;
 exports.TYPE_BROADCAST_REQUEST = 1;

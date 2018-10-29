@@ -35,4 +35,16 @@ module.exports = {
       refreshToken: Joi.string().required(),
     },
   },
+
+  forgotPassword: {
+    body: {
+      email: Joi.string().email().required(),
+    }
+  },
+  resetPassword: {
+    body: {
+      token: Joi.string().length(40).required(),
+      password: Joi.string().required().min(6).max(128)
+    }
+  }
 };

@@ -7,6 +7,8 @@ const {
   register,
   oAuth,
   refresh,
+  forgotPassword,
+  resetPassword,
 } = require('../../validations/auth.validation');
 
 const router = express.Router();
@@ -145,4 +147,8 @@ router.route('/google')
   .post(validate(oAuth), oAuthLogin('google'), controller.oAuth);
 
 
+router.route('/forgot-password')
+  .post(validate(forgotPassword), controller.forgotPassword);
+router.route('/reset-password')
+  .post(validate(resetPassword), controller.resetPassword);
 module.exports = router;
