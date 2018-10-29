@@ -18,15 +18,15 @@ exports.create = async (req, res, next) => {
 
     const savedRequest = await request.save();
     const data = {
-      to: user.email,
       from: email.noreplyMail,
-      template: 'password-reset',
-      subject: "Reset Password | Spot In",
+      template: 'contact-request',
+      subject: "Richiesta di Contatto | Spot In",
       context: {
-        url: 'https://spotin.it/password-reset?token=' + user.passwordResetToken,
-        name: user.name,
-        email: user.email
-      }
+        ...req.body,
+        date: new Date().toLocaleString(),
+      },
+      to: ["info@spotin.it", "dario.guarracino2@gmail.com", "armando.catalano91@gmail.com", "delbalzo95@gmail.com"]
+
     };
     await mailer.sendMail(data);
 
