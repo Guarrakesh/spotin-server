@@ -13,16 +13,16 @@ const strategies = require('./passport');
 const error = require('../api/middlewares/error');
 
 /*
-const analyticsMiddleware = (req, res, next) => {
-  res.on('finish', function() {
+ const analyticsMiddleware = (req, res, next) => {
+ res.on('finish', function() {
 
-  });
-  next();
-}*/
+ });
+ next();
+ }*/
 /**
-* Express instance
-* @public
-*/
+ * Express instance
+ * @public
+ */
 const app = express();
 
 // request logging. dev: console | production: file
@@ -50,11 +50,15 @@ app.use(cors({
   exposedHeaders: ["X-Total-Count"],
 
   origin: function(origin, cb) {
-    let wl = ['https://spotin-business.herokuapp.com', 'https://spotin.herokuapp.com',
+    let wl = ['https://spotin-business.herokuapp.com',
+      'https://spotin.herokuapp.com',
       'https://spotin.it',
       'http://www.spotin.it',
       'https://www.spotin.it',
-    'http://spotin.it'];
+      'https://api.spotin.it',
+      'https://admin.spotin.it',
+      'https://spotin-prod.herokuapp.com',
+      'http://spotin.it'];
     if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging" || !origin)
       return cb(null,true);
 

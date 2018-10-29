@@ -1,0 +1,57 @@
+<html>
+<head><title>Reimposta la tua password</title>
+
+
+  <style>
+    body {
+      font-family: "Lato", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+    .container {
+      background-color: #fafafa;
+      min-height: 100vh;
+      height: auto;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+    }
+    .header {
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      color:#8E8E93;
+      margin-bottom: 32px;
+    }
+    .card {
+
+      width: 70%;
+      margin: 0 auto;
+      /* Rectangle: */
+      background: #FFFFFF;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.14);
+      border-radius: 8px;
+      padding: 16px 32px;
+    }
+  </style>
+</head>
+
+
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Richiesta di contatto</h1>
+  </div>
+  <div class="card">
+    <h4>Richiesta di contatto da {{name}} - {{email}}</h4>
+
+    <p>{{message}}</p>
+
+    <p><strong>Inviata alle: {{date}}</strong></p>
+  </div>
+</div>
+</body>
+</html>
