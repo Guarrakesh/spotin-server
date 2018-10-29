@@ -18,7 +18,7 @@ module.exports = {
     "plugin:react/recommended",
   ],
   rules: {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "import/no-extraneous-dependencies": ["error", {"packageDir": "./", "devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
     "no-console": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },

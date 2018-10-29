@@ -3,9 +3,9 @@ import { List, ChipField, Datagrid, TextField, ReferenceField, EditButton,
   Filter, ReferenceInput, TextInput, SelectInput
 } from 'react-admin';
 
-import { DateTimeInput } from 'react-admin-date-inputs';
 import moment from 'moment';
 import { get } from 'lodash';
+import { DateTimeInput } from '../../components/DateTimeInput';
 
 export { default as EventEdit } from './EventEdit';
 export { default as EventCreate } from './EventCreate';

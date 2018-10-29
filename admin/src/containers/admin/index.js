@@ -18,23 +18,25 @@ import history from '../../history';
 import theme from './theme';
 /* eslint-disable */
 const AdminRoutes = [
-    <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
-    <Resource name="competitions" list={CompetitionList} edit={CompetitionEdit} create={CompetitionCreate}/>,
-    <Resource name="competitors" list={CompetitorList} edit={CompetitorEdit} create={CompetitorCreate}/>,
-    <Resource name="businesses" list={BusinessList} options={{label: "Locali"}} create={BusinessCreate} edit={BusinessEdit}/>,
-    <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
+  <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
+  <Resource name="competitions" list={CompetitionList} edit={CompetitionEdit} create={CompetitionCreate}/>,
+  <Resource name="competitors" list={CompetitorList} edit={CompetitorEdit} create={CompetitorCreate}/>,
+  <Resource name="businesses" list={BusinessList} options={{label: "Locali"}} create={BusinessCreate} edit={BusinessEdit}/>,
+  <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
 
-    <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
-    <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} edit={BroadcastEdit} />
+  <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
+  <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} edit={BroadcastEdit} />
 ];
 /* eslint-enable */
 const Admin = () => (
-  <AdminBase dataProvider={dataProvider}
-     authProvider={authProvider}
-     theme={theme}
-     history={history}
-     >
-    {AdminRoutes}
-  </AdminBase>
-)
+
+    <AdminBase dataProvider={dataProvider}
+               authProvider={authProvider}
+               theme={theme}
+               history={history}
+    >
+      {AdminRoutes}
+    </AdminBase>
+
+);
 export default Admin;
