@@ -116,7 +116,7 @@ module.exports = {
       maxDistance: Joi.number().required(),
       numOfPeople: Joi.number().required(),
       userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}).required(),
-
+      location: Joi.string().required().max(128),
       note: Joi.string().allow('').max(250),
 
 

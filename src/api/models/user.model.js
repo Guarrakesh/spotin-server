@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omitBy, isNil } = require('lodash');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const moment = require('moment-timezone');
 const jwt = require('jwt-simple');
 const uuidv4 = require('uuid/v4');
@@ -83,6 +84,8 @@ const userSchema = new mongoose.Schema({
     {type: mongoose.Schema.ObjectId, ref: "Broadcast"}
   ],
 
+  passwordResetToken: String,
+
 
 
 }, {
@@ -101,6 +104,7 @@ userSchema.pre('save', async function save(next) {
     const rounds = env === 'test' ? 1 : 10;
 
     //Hash password
+    console.log(this.password);
     const hash = await bcrypt.hash(this.password, rounds);
     this.password = hash;
 
@@ -124,7 +128,10 @@ userSchema.method({
 
     return this;
   },
-
+  async resetToken() {
+    const token = await crypto.randomBytes(20);
+    return token.toString('hex'); //genera stringa di 40 caratteri (20 esadecimali)
+  },
   token() {
     const playload = {
       exp: moment().add(jwtExpirationInterval, 'minutes').unix(),
