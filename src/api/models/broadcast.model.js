@@ -45,9 +45,13 @@ broadcastSchema.method({
 
 broadcastSchema.pre('save', function(next) {
   const self = this;
-  console.log(this.event, this.business);
+
+  if (this.plus === true) {
+    this.newsfeed = 1;
+  } else {
+    this.newsfeed = 0;
+  }
   SportEvent.findById(this.event).exec((err, event) => {
-    console.log("sss", err, event);
     if (err) return next();
     if (!self.start_at) {
       self.start_at = moment(event.start_at).subtract(10, 'days').startOf('day').toDate();
