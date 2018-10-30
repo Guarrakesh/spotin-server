@@ -91,6 +91,7 @@ exports.list = async (req, res, next) => {
 
     if (req.query.q || req.query.name) {
       filter.name = { "$regex": req.query.q || req.query.name, "$options": "i"};
+      delete filter['q']
     }
     if (req.query.id_like) {
       filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
@@ -98,7 +99,11 @@ exports.list = async (req, res, next) => {
     if (req.query.start_at) {
       const date = moment(req.query.start_at).startOf('day');
 
-      filter.start_at = { $gte: date, $lte: moment(date).endOf('day') };
+      filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
+    } else {
+      //Prendo eventi nell'arco temporale tra oggi e 1 mese dopo
+      filter.start_at = { "$gte": moment().startOf('day'),
+        "$lte": moment().add(4, 'week').endOf('day')}
     }
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];

@@ -15,7 +15,7 @@ export { default as EventCreate } from './EventCreate';
 export const DateTimeField = ({record, source}) => {
   const sourceValue = get(record, source);
 
-  const dateTime = moment(sourceValue).locale('IT').format('D-MM - HH:mm').toUpperCase();
+  const dateTime = moment(sourceValue).locale('IT').format('D/MM [alle] HH:mm').toUpperCase();
   return (<span>{dateTime}</span>)
 }
 /* eslint-enable*/

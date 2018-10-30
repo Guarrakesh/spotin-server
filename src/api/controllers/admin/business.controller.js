@@ -68,6 +68,10 @@ exports.list = async (req, res, next) => {
       filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
       delete filterQuery['id_like'];
     }
+    if (req.query.q || req.query.name) {
+      filterQuery['name'] = { "$regex": req.query.q || req.query.name, "$options": "i"};
+      delete filterQuery.q;
+    }
     if (latitude && longitude && radius) {
       data = await Business.findNear(latitude, longitude, radius, filterQuery);
       data.docs = data.docs.map(business => {

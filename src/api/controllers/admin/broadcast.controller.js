@@ -51,13 +51,15 @@ exports.create = async (req, res, next) => {
 
     if (req.body.plus === true) {
       broadcast.newsfeed = 1;
+    } else {
+      broadcast.newsfeed = 0;
     }
 
 
     if (!business.spots >= spots)
       throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
-    const savedBroadcast = broadcast.save();
+    const savedBroadcast = await broadcast.save();
 
 
     res.status = httpStatus.CREATED;
