@@ -119,14 +119,19 @@ userSchema.pre('save', async function save(next) {
  */
 userSchema.method({
   transform() {
-    /* const transformed = {};
-     const fields = ['_id', 'name', 'email', 'username', 'picture', 'role', 'createdAt'];
+     const transformed = {};
+     const fields = ['_id',
+       'name',
+       'email',
+       'picture',
+       'role',
+       'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services"];
 
      fields.forEach((field) => {
      transformed[field] = this[field];
-     });*/
+     });
 
-    return this;
+    return transformed;
   },
   async resetToken() {
     const token = await crypto.randomBytes(20);
