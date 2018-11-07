@@ -1,15 +1,28 @@
 import React from 'react';
 import { List, Datagrid, TextField, EmailField, Edit, Create, EditButton,
   DisabledInput, SelectInput, SimpleForm, TextInput,
+
+  Filter,
   required,
   email,
   minLength,
   maxLength,
   } from 'react-admin';
 
-
+let roles = [
+  {id: "admin", name: "Admin"},
+  {id: "business", name: "Business"},
+  {id: "user", name: "User"}
+];
+const UserFilter = (props) => (
+  <Filter {...props}>
+    <SelectInput source="role" choices={roles} alwaysOn/>
+    <TextInput source="email"/>
+    <TextInput source="name"/>
+  </Filter>
+);
 export const UserList = (props) => (
-  <List {...props}>
+  <List {...props} filters={<UserFilter/>}>
     <Datagrid>
       <TextField source="_id" />
       <TextField source="name" />
@@ -26,11 +39,7 @@ const validateName = [required(), minLength(3), maxLength(45)];
 const validateLastName = [minLength(3), maxLength(45)];
 const validateUsername = [minLength(3), maxLength(45)];
 const validatePass = [required(), minLength(6), maxLength(128)];
-let roles = [
-  {id: "admin", name: "Admin"},
-  {id: "business", name: "Business"},
-  {id: "user", name: "User"}
-];
+
 const validateEqualPass = (value, allValues) => {
   return (value !== allValues.password) ? "Le password non coincidono." : undefined;
 };
