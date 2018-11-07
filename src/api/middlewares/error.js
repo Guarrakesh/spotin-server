@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 const expressValidation = require('express-validation');
 const APIError = require('../utils/APIError');
 const { env } = require('../../config/vars');
-
+const logger = require('heroku-logger');
 const winston = require('../../config/winston');
 /**
  * Error handler. Send stacktrace only during development
@@ -15,8 +15,7 @@ const handler = (err, req, res, next) => {
     errors: err.errors,
     stack: err.stack,
   };
-
-  winston.error(`${err.status || 500} - ${err.message || httpStatus[err.status]} - ${req.method} - ${req.ip}`);
+  logger.error(`${err.message}`, err);
   if (env !== 'development') {
     delete response.stack;
   }
