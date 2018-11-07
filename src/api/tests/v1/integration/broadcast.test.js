@@ -141,7 +141,6 @@ describe('Broadcasts API', () => {
 
         .then(res => {
 
-          console.log(res.body);
           expect(res.body).to.be.an('array');
           expect(res.body).to.have.lengthOf(1);
           expect(res.body[0].business).to.be.an('object');

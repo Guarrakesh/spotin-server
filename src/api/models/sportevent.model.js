@@ -72,7 +72,6 @@ sportEventSchema.pre('save', async function(next) {
   const ids = this.competitors.map(comp => comp.competitor);
 
   const competitors = await Competitor.find({ _id: { $in: ids }});
-  console.log(competitors);
   if (!competitors || competitors.length !== this.competitors.length) {
     next(Error("Uno o più sfidanti specificati non esistono."));
 

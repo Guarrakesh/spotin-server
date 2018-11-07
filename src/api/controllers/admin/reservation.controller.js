@@ -27,7 +27,6 @@ exports.create = async (req, res, next) => {
 
     const updatedUser = await User.findOneAndUpdate({_id: user._id},
       { $push: {reservations: new mongoose.mongo.ObjectId(broadcast)}});
-  console.log(updatedBroadcast, updatedUser);
 
     res.status = httpStatus.CREATED;
     res.json(reservation);

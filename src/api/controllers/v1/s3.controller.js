@@ -24,10 +24,10 @@ exports.signUrl = (req, res, next) => {
       ContentType: fileType,
       ACL: 'public-read'
     };
-    console.log("invio..:", s3Params);
+
     s3.getSignedUrl('putObject', s3Params, (err, data) => {
       if (err) {
-        console.log(err);
+
         return err;
       }
 
