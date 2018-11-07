@@ -4,6 +4,7 @@ import {
   SimpleShowLayout,
   ReferenceField,
   TextField,
+  RichTextField,
   DateField} from 'react-admin';
 
 const BroadcastRequestShow = (props) => (
@@ -18,6 +19,7 @@ const BroadcastRequestShow = (props) => (
       <TextField source="broadcastRequest.numOfPeople" label="Numero persone"/>
       <TextField source="broadcastRequest.maxDistance" label="Distanza massima"/>
       <DateField source="created_at" showTime/>
+      <RichTextField source="broadcastRequest.note" label="Note" />
     </SimpleShowLayout>
   </Show>
 );
