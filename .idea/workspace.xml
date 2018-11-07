@@ -4,31 +4,10 @@
     <bookmark url="file://$USER_HOME$/spotinapp/android/app/build.gradle" description="implementation project(':react-native-android-open..." line="157" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Fix admin/auth e user model">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventAutocompleteInput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReservationShow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/controllers/admin/request.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/routes/admin/request.route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/utils/aggregations.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/queries/reservationAggregate.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/eventSelectOptionRenderer.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts/broadcasts.js" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Added email and name filter to users">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/broadcast.model.js" afterPath="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/request.model.js" afterPath="$PROJECT_DIR$/src/api/models/request.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/reservation.model.js" afterPath="$PROJECT_DIR$/src/api/models/reservation.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/user.model.js" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/routes/admin/index.js" afterPath="$PROJECT_DIR$/src/api/routes/admin/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/routes/admin/reservation.route.js" afterPath="$PROJECT_DIR$/src/api/routes/admin/reservation.route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +29,7 @@
     <favorites_list name="spotin-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46025974">
+    <splitter split-orientation="horizontal" split-proportion="0.3226773">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
@@ -118,7 +97,7 @@
           <file leaf-file-name="passport.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/config/passport.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
+                <state relative-caret-position="493">
                   <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
                   <folding />
                 </state>
@@ -173,16 +152,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="aggregations.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/utils/aggregations.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="551">
-                  <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="reservation.route.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/routes/admin/reservation.route.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -206,8 +175,8 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="522">
-                  <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+                <state relative-caret-position="667">
+                  <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -218,8 +187,30 @@
           <file leaf-file-name="BroadcastRequestShow.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="406">
-                  <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+                <state relative-caret-position="783">
+                  <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="348">
+                  <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -237,16 +228,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="638">
-                  <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="request.route.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/routes/admin/request.route.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -257,7 +238,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
@@ -354,8 +335,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/utils/nodemailer.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/auth.route.js" />
         <option value="$PROJECT_DIR$/src/api/validations/auth.validation.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" />
@@ -399,12 +378,14 @@
         <option value="$PROJECT_DIR$/src/api/models/request.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/request.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js" />
         <option value="$PROJECT_DIR$/src/api/routes/admin/request.route.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
         <option value="$PROJECT_DIR$/src/config/passport.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js" />
       </list>
     </option>
   </component>
@@ -788,7 +769,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="reservations" />
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -823,6 +804,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="events" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spotin-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="businesses" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1194,21 +1209,7 @@
       <workItem from="1541094298297" duration="13000" />
       <workItem from="1541353883438" duration="13000" />
       <workItem from="1541511524041" duration="4966000" />
-      <workItem from="1541586678161" duration="11472000" />
-    </task>
-    <task id="LOCAL-00043" summary="Fix schermata creazione locali">
-      <created>1536174123892</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1536174123892</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Fixato campo Street in BusinessCreate">
-      <created>1536228783157</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1536228783157</updated>
+      <workItem from="1541586678161" duration="12955000" />
     </task>
     <task id="LOCAL-00045" summary="Fixato BusinessEdit">
       <created>1536338981086</created>
@@ -1539,11 +1540,25 @@
       <option name="project" value="LOCAL" />
       <updated>1540991833024</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Gestione Prenotazioni e Richieste Broadcast da pannello Admin">
+      <created>1541603956924</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1541603956925</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Added notes to BroadcastRequestShow&#10;">
+      <created>1541604394151</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1541604394151</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="799601000" />
+    <option name="totallyTimeSpent" value="801084000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1631,9 +1646,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="DecodeURIComponent fix (forse) per il parametor id_like" />
-    <MESSAGE value="Divise routes in /v1 (per app) e /admin (per pannello)&#10;&#10;TODO: Staging &amp; production environment" />
-    <MESSAGE value="Set Origin check" />
     <MESSAGE value="Aggiunto filtro sullo Sport in sportevent&#10;Aggiunta eccezione al cross origin" />
     <MESSAGE value="- Fixato bug in broadcast by position. Adesso restituisce risultati sorteggiati solo per distanza&#10;- Aggiunte altre API per il pannello business&#10;- Aggiunte altre misure di sicurezza per l'autenticazione" />
     <MESSAGE value="Fixato bug in broadcast by position. Adesso restituisce risultati sorteggiati solo per distanza" />
@@ -1656,7 +1668,10 @@
     <MESSAGE value="Fix MaterialUI Dependency" />
     <MESSAGE value="Pannello Admin: Fix campo evento e locale nella creazione e modifica broadcast" />
     <MESSAGE value="Fix admin/auth e user model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix admin/auth e user model" />
+    <MESSAGE value="Gestione Prenotazioni e Richieste Broadcast da pannello Admin" />
+    <MESSAGE value="Added notes to BroadcastRequestShow&#10;" />
+    <MESSAGE value="Added email and name filter to users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added email and name filter to users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1671,13 +1686,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="76" column="26" lean-forward="false" selection-start-line="75" selection-start-column="7" selection-end-line="76" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/services/authProviders.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1852,16 +1860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1992,26 +1990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -2044,14 +2022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -2074,9 +2044,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
+        <state relative-caret-position="493">
           <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
