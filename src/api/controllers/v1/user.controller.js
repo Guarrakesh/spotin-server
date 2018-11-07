@@ -154,38 +154,6 @@ exports.listReservations = async (req, res, next) => {
       }, {
         $unwind: "$broadcast"
       },
-     /* {
-        $lookup: {
-          from: 'sport_events',
-          localField: 'broadcast.event',
-          foreignField: '_id',
-          as: 'broadcast.event'
-        },
-
-      }, {
-        $unwind: "$broadcast.event"
-      },
-      {
-        $lookup: {
-          from: 'competitions',
-          localField: 'broadcast.event.competition',
-          foreignField: '_id',
-          as: 'broadcast.event.competition'
-        },
-
-      }, {
-        $unwind: "$broadcast.event.competition"
-      },
-
-      {
-        $lookup: {
-          from: 'competitors',
-          localField: 'broadcast.event.competitors.competitor',
-          foreignField: '_id',
-          as: 'broadcast.event.competitors'
-        },
-
-      }*/
 
       { $limit: parseInt(_end - _start)},
       { $skip:  parseInt(_start)}

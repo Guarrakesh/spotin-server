@@ -3,7 +3,7 @@ const httpStatus = require('http-status');
 
 const moment = require('moment-timezone');
 
-
+const mongoosePaginate = require('mongoose-paginate');
 const { slugify } = require('lodash-addons');
 const { imageVersionSchema } = require('./imageVersion');
 const pointSchema = require('./point.schema');
@@ -72,6 +72,21 @@ const requestSchema = new mongoose.Schema({
 
 }, { minimize: false, timestamps: { createdAt: 'created_at'} });
 
+
+requestSchema.statics = {
+  async list(options) {
+    const { _end = 10, _start = 0, _order = -1, _sort = "created_at", id_like, q, ...filter } = options;
+
+    if (id_like) filter.id = { $in: id_like.split('|') };
+    return await this.paginate(filter, {
+      sort: {[_sort]: _order === "DESC" ? -1 : 1},
+      offset: parseInt(_start),
+      limit: parseInt(_end - _start)
+    })
+  }
+};
+
+requestSchema.plugin(mongoosePaginate);
 exports.requestSchema = requestSchema;
 exports.TYPE_BROADCAST_REQUEST = 1;
 exports.TYPE_CONTACT_REQUEST = 0;

@@ -39,32 +39,30 @@ exports.create = async (req, res, next) => {
 
 exports.list = async (req, res, next) => {
   try {
-    const { loggedUser } = req.locals;
-    const { userId, broadcastId, _end = 10, _start = 0, _order = 1, _sort = "_id", id_like } = req.query;
+    const {
+      user,
+      broadcast,
+      event,
+      business,
+      _end = 10,
+      _start = 0,
+      _order = 1,
+      _sort = "_id",
+      id_like } = req.query;
 
+    const options = {
+      skip: parseInt(_start, 10),
+      limit: parseInt(_end - _start,10),
+      sort: {field: _sort, order: _order === "DESC" ? -1 : 1},
+      user,
+      business,
+      broadcast,
+      event
+    };
+    if (id_like)
+      options.id_like = { $in: id_like.split('|').map(id => mongoose.Types.ObjectId(id)) } ;
 
-    let reservations = {docs: []};
-    if (loggedUser.role === 'user') {
-
-
-      const broadcastsWithReservation = await Broadcast.find({_id: { $in: loggedUser.reservations }, 'reservations.user': loggedUser._id})
-        .limit(parseInt(_end - _start))
-        .skip(parseInt(_start))
-        .lean();
-      if (broadcastsWithReservation) {
-          reservations.docs = broadcastsWithReservation.map (broadcast => {
-            const reservationObj = broadcast.reservations.find(res => res.user.toString() === loggedUser._id.toString());
-            return { ...reservationObj, broadcast: omit(broadcast, "reservations")}
-          });
-      }
-
-      reservations.docs = reservations.docs.sort((a, b) =>
-      _order * (new Date(a.created_at)) - (new Date(b.created_at)) );
-      reservations.offset = _start;
-      reservations.total = loggedUser.reservations.length || 0;
-      //  const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
-
-    }
+    const reservations = await Reservation.find(options);
 
 
     //TODO: Gestire prenotazioni da business (dato un broadcastId)
