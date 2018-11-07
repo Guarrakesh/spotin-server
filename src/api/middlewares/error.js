@@ -3,6 +3,7 @@ const expressValidation = require('express-validation');
 const APIError = require('../utils/APIError');
 const { env } = require('../../config/vars');
 
+const winston = require('../../config/winston');
 /**
  * Error handler. Send stacktrace only during development
  * @public
@@ -15,6 +16,7 @@ const handler = (err, req, res, next) => {
     stack: err.stack,
   };
 
+  winston.error(`${err.status || 500} - ${err.message || httpStatus[err.status]} - ${req.method} - ${req.ip}`);
   if (env !== 'development') {
     delete response.stack;
   }

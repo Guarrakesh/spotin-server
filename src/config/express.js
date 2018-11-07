@@ -12,6 +12,7 @@ const { logs } = require('./vars');
 const strategies = require('./passport');
 const error = require('../api/middlewares/error');
 
+const winstonConfig = require('./winston');
 /*
  const analyticsMiddleware = (req, res, next) => {
  res.on('finish', function() {
@@ -26,7 +27,7 @@ const error = require('../api/middlewares/error');
 const app = express();
 
 // request logging. dev: console | production: file
-app.use(morgan(logs));
+app.use(morgan(logs, { stream: winstonConfig.stream }));
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json());

@@ -104,7 +104,6 @@ userSchema.pre('save', async function save(next) {
     const rounds = env === 'test' ? 1 : 10;
 
     //Hash password
-    console.log(this.password);
     const hash = await bcrypt.hash(this.password, rounds);
     this.password = hash;
 

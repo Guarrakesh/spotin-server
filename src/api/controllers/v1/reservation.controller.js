@@ -44,7 +44,7 @@ exports.create = async (req, res, next) => {
 
     const updatedUser = await User.findOneAndUpdate({_id: user._id},
       { $push: {reservations: new mongoose.mongo.ObjectId(broadcast)}});
-  console.log(updatedBroadcast, updatedUser);
+
 
     res.status = httpStatus.CREATED;
     res.json(reservation);
@@ -61,6 +61,7 @@ exports.list = async (req, res, next) => {
 
 
     let reservations = {docs: []};
+
     if (loggedUser.role === 'user') {
 
 

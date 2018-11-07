@@ -149,7 +149,7 @@ exports.list = async (req, res, next) => {
             .find(r => r.user.toString() === loggedUser._id.toString()) !== undefined,
         };
       });
-      console.log(broadcasts.docs);
+
       res.json(broadcasts);
 
 

@@ -120,7 +120,7 @@ businessSchema.pre('save', async function(next) {
                 coordinates: [location.lng, location.lat]
               }
 
-            console.log(this.address);
+
 
           }
           next();
