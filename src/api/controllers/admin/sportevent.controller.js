@@ -15,6 +15,7 @@ const sanitizeQueryParams = ({
   _sort,
   id_like,
   extend,
+  next_events,
   ...rest
 }) => rest;
 
@@ -100,11 +101,12 @@ exports.list = async (req, res, next) => {
       const date = moment(req.query.start_at).startOf('day');
 
       filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
-    } else {
-      //Prendo eventi nell'arco temporale tra oggi e 1 mese dopo
+    } else if (req.query.next_events) {
+      //Prendo eventi nell'arco temporale tra oggi e due settimane dopo
       filter.start_at = { "$gte": moment().startOf('day'),
-        "$lte": moment().add(4, 'week').endOf('day')}
+        "$lte": moment().add(2, 'week').endOf('day')}
     }
+
     //Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
 

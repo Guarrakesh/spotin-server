@@ -89,45 +89,16 @@ exports.list = async (req, res, next) => {
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
     const { latitude, longitude, radius } = req.query;
 
-    if (latitude && longitude && radius) {
-      const business = await Business.findNear(latitude, longitude, radius, { _sort, _order });
+    broadcasts = await Broadcast.paginate(filterQuery, {
+      sort: {[_sort]: _order},
+      offset: parseInt(_start),
+      limit: parseInt(_end - _start),
 
-      //Faccio paginazione sui broadcast e non sui locali
-      const ids = business.docs.map(bus => bus._id);
-      const total = await Broadcast.count({business: {$in: ids}, ...filterQuery});
-      broadcasts = await Broadcast.find({business: {$in: ids}, ...filterQuery}).skip(parseInt(_start)).limit(parseInt(_end - _start)).lean().exec();
-
-      broadcasts = broadcasts.map(broadcast => {
-
-        const currentBusiness = business.docs.find(bus => bus._id.toString() === broadcast.business.toString());
-
-        broadcast['business'] = currentBusiness._id;
-        Object.assign(near, { [broadcast._id]: currentBusiness.dist});
-
-        return broadcast;
-      });
-
-      broadcasts = broadcasts.sort((a,b) => _order === 1 ? near[a._id].calculated > near[b._id].calculated: near[a._id].calculated < near[b._id].calculated);
-      res.json({
-        docs: broadcasts,
-        offset: _start,
-        near,
-        total
-      })
-
-    } else {
+    });
+    res.json(broadcasts);
 
 
-      let broadcasts = await Broadcast.paginate(filterQuery, {
-        sort: {[_sort]: _order},
-        offset: parseInt(_start),
-        limit: parseInt(_end - _start),
 
-      });
-      res.json(broadcasts);
-
-
-    }
   } catch (error) {
     next(error);
   }

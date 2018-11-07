@@ -1,25 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
-  RadioButtonGroupInput, Edit, DisabledInput, BooleanInput, LongTextInput, FormDataConsumer } from 'react-admin';
+  RadioButtonGroupInput, Edit, DisabledInput, BooleanInput, LongTextInput, FormDataConsumer,
+DateField} from 'react-admin';
+import get from 'lodash/get';
 
-  import { DateTimeInput } from '../components/DateTimeInput';
+import EventAutocompleteInput from '../events/EventAutocompleteInput';
 
-  import eventSelectOptionRenderer from './events/eventSelectOptionRenderer';
+import { DateTimeInput } from '../../components/DateTimeInput';
 
-
-const eventInputValueMatcher = (input, suggestion, getOptionText) =>
-  getOptionText(suggestion)
-
-    .toLowerCase()
-    .trim()
-  === (input.toLowerCase().trim())
-  ;
 const businessInputValueMatcher = (input, suggestion, getOptionText) =>
   getOptionText(suggestion)
     .toLowerCase()
     .trim()
   === (input.toLowerCase().trim())
   ;
+
+const ReservationCountField = ({record}) => (
+  <span>{get(record, 'reservations').length}</span>
+);
+ReservationCountField.propTypes = {
+  record: PropTypes.object,
+};
 export const BroadcastList = (props) => (
   <List {...props}>
     <Datagrid>
@@ -28,12 +31,14 @@ export const BroadcastList = (props) => (
         <TextField source="name"/>
       </ReferenceField>
       <ReferenceField reference="businesses" source="business">
-          <TextField source="name"/>
+        <TextField source="name"/>
       </ReferenceField>
       <ReferenceField reference="events" source="event" label="Event date">
-        <TextField source="start_at" />
+        <DateField source="start_at" showTime/>
       </ReferenceField>
-    
+      <TextField>
+      </TextField>
+      <ReservationCountField source="reservations" label="Prenotazioni"/>
       <EditButton/>
     </Datagrid>
   </List>
@@ -46,30 +51,22 @@ export const BroadcastCreate = (props) => (
   <Create {...props}>
     <SimpleForm defaultValue={{plus: false, offer: { type: "1"}}}>
 
-      <ReferenceInput reference="events" source="event"
 
-                      sort={{field: "start_at", order: "ASC"}}>
-        <AutocompleteInput source="name"
-
-                           optionText={eventSelectOptionRenderer}
-                           inputValueMatcher={eventInputValueMatcher}
-                           translateChoice={false}
-        />
-      </ReferenceInput>
+      <EventAutocompleteInput/>
       <ReferenceInput reference="businesses" source="business">
         <AutocompleteInput
-         optionText="name"
-         inputValueMatcher={businessInputValueMatcher}
+          optionText="name"
+          inputValueMatcher={businessInputValueMatcher}
           source="name"/>
       </ReferenceInput>
       <BooleanInput source="plus"/>
       {/*<NumberInput source="newsfeed"/>*/}
       <FormDataConsumer>
         {({formData}) =>
-        <TextInput
-          options={{fullWidth: true}}
-          disabled={formData.plus === false}
-          source="offer.title" label="Titolo offerta (Solo PLUS)"/>
+          <TextInput
+            options={{fullWidth: true}}
+            disabled={formData.plus === false}
+            source="offer.title" label="Titolo offerta (Solo PLUS)"/>
         }
       </FormDataConsumer>
       <FormDataConsumer>
@@ -109,12 +106,7 @@ export const BroadcastEdit = (props) => (
   <Edit {...props}>
     <SimpleForm defaultValue={{plus: false, offer: { type: "1"}}}>
       <DisabledInput source="_id"/>
-      <ReferenceInput reference="events" source="event">
-        <AutocompleteInput source="name"
-                           optionText={eventSelectOptionRenderer}
-                           inputValueMatcher={eventInputValueMatcher}
-                           translateChoice={false}/>
-      </ReferenceInput>
+      <EventAutocompleteInput/>
       <ReferenceInput reference="businesses" source="business">
         <AutocompleteInput source="name"
                            inputValueMatcher={businessInputValueMatcher}

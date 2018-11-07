@@ -37,7 +37,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
         <FormTab label="General">
           <DisabledInput source="_id"/>
           <TextInput source="name" validate={validateName}/>
-          <ReferenceInput source="sportz" reference="sports" label="Sport"  validate={[required()]}>
+          <ReferenceInput source="sport" reference="sports" label="Sport"  validate={[required()]}>
             <SelectInput optionText="name"/>
           </ReferenceInput>
           <FormDataConsumer>

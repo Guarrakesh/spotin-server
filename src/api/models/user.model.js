@@ -245,7 +245,9 @@ userSchema.statics = {
    * @returns {Promise<User[]>}
    */
   list({
-    _end = 10, _order = "DESC", _sort="createdAt", _start = 0, name, email, role, q
+    _end = 10, _order = "DESC",
+    _sort="createdAt", _start = 0,
+    name, email, role, q, id_like
   }) {
     let options = omitBy({ name, email, role }, isNil);
 
@@ -257,6 +259,9 @@ userSchema.statics = {
           { email: { "$regex": q, "$options": "i " } }
         ]
       }
+    }
+    if (id_like) {
+      options._id = { $in: id_like.split('|')}
     }
     return this.paginate(options, {
       sort: {[_sort]: _order.toLowerCase()},

@@ -110,5 +110,6 @@ broadcastSchema.plugin(deepPopulate, {
     'business': { select: ['name', 'address', 'cover_versions', 'photos', 'type']}
   }
 });
+
 exports.broadcastSchema = broadcastSchema;
 exports.Broadcast = mongoose.model("Broadcast", broadcastSchema, "broadcasts");
