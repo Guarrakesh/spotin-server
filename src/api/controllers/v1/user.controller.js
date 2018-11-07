@@ -115,7 +115,7 @@ exports.remove = (req, res, next) => {
 /* Reservations */
 exports.listReservations = async (req, res, next) => {
   try {
-    console.log(reservations.docs[0].a);
+
     const { loggedUser } = req.locals;
     const { _end = 10, _start = 0, _order = 1, _sort = "_id", id_like } = req.query;
     let reservations = {docs: []};
