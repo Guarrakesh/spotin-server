@@ -4,14 +4,20 @@ const options = {
 
 
   console: {
-    level: 'info',
+
+
     handleExceptions: true,
     json: false,
     colorize: true,
     format: winston.format.combine(
       winston.format.colorize(),
-      winston.format.printf(info => `${info.level}: ${info.message}`)
-    ),
+      winston.format.timestamp({
+        format: 'YYYY-MM-DD HH:mm:ss'
+      }),
+      winston.format.printf(
+        info => `${info.timestamp} ${info.level}: ${info.message}`
+      )
+    )
   },
 };
 
