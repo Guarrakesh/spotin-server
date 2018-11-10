@@ -41,7 +41,7 @@ exports.create = async (req, res, next) => {
       const business = userBusinesses.find(bus => bus._id === req.body.business);
 
       if (!business);
-      throw new ApiError({message: "You are not authorized to access this business", status: 403});
+        return next(new ApiError({message: "You are not authorized to access this business", status: 403}));
     } else {
       business = await Business.findById(req.body.business);
     }
@@ -56,8 +56,8 @@ exports.create = async (req, res, next) => {
     }
 
 
-    if (!business.spots >= spots)
-      throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
+    if (business.spots < spots)
+      return next(new ApiError({message: "Business does not have enough spot to buy this event", status: 400}));
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
     const savedBroadcast = await broadcast.save();
 

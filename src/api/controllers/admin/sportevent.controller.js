@@ -102,9 +102,8 @@ exports.list = async (req, res, next) => {
 
       filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
     } else if (req.query.next_events) {
-      //Prendo eventi nell'arco temporale tra oggi e due settimane dopo
-      filter.start_at = { "$gte": moment().startOf('day'),
-        "$lte": moment().add(2, 'week').endOf('day')}
+      //Prendo eventi nell'arco temporale da oggi in poi
+      filter.start_at = { "$gte": moment().startOf('day')}
     }
 
     //Accetta il parametro Extend, per popolare i subdocument
