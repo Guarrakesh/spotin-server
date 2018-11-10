@@ -151,6 +151,18 @@ export const BroadcastEdit = (props) => (
                      label="Fine prenotazioni"
                      options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
 
+      <FormDataConsumer>
+        {({formData}) =>
+          <ReferenceField
+            disabled={formData.plus === false}
+            label="Tipo offerta" source="offer.type" choices={[
+            {id: "0", name: 'Prezzo fisso'},
+            {id: "1", name: 'Sconto in percentuale'},
+          ]}/>
+        }
+      </FormDataConsumer>
+
+
     </SimpleForm>
   </Edit>
 );

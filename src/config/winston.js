@@ -8,7 +8,7 @@ const options = {
 
     handleExceptions: true,
     json: false,
-    colorize: true,
+    colorize: false,
     format: winston.format.combine(
       winston.format.colorize(),
       winston.format.timestamp({
