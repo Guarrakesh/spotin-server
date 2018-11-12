@@ -111,7 +111,9 @@ exports.list = async (req, res, next) => {
       const ids = business.docs.map(bus => bus._id);
       const total = await Broadcast.count({ business: { $in: ids }, ...filterQuery });
       broadcasts = await Broadcast.find({ business: { $in: ids }, ...filterQuery })
-        .skip(parseInt(_start, 10)).limit(parseInt(_end - _start, 10)).lean()
+        .skip(parseInt(_start, 10)).limit(parseInt(_end - _start, 10))
+        .sort({ start_at: 1 })
+        .lean()
         .exec();
       broadcasts = broadcasts.map((broadcast) => {
         const newBroadcast = {};
@@ -122,8 +124,9 @@ exports.list = async (req, res, next) => {
         newBroadcast.reserved = broadcast.reservations.find(r => loggedUser._id.toString() === r.user.toString()) !== undefined
         return broadcast;
       });
-
-      broadcasts = broadcasts.sort((a,b) => _order === 1 ? near[a._id].calculated > near[b._id].calculated: near[a._id].calculated < near[b._id].calculated);
+      if (filterQuery.event)
+        //Se sto cercando broadcast per un dato evento, allora ordino per distanza
+        broadcasts = broadcasts.sort((a,b) => _order === 1 ? near[a._id].calculated > near[b._id].calculated: near[a._id].calculated < near[b._id].calculated);
 
 
       res.json({
