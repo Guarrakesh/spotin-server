@@ -57,7 +57,7 @@ exports.create = async (req, res, next) => {
 
 
     if (business.spots < spots)
-      return next(new ApiError({message: "Business does not have enough spot to buy this event", status: 400}));
+      return next(new ApiError({message: "Business does not have enough spot to buy this event", status: 400, isPublic: true}));
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
     const savedBroadcast = await broadcast.save();
 

@@ -93,10 +93,10 @@ export const BroadcastCreate = (props) => (
       <NumberInput source="offer.value" label="Valore offerta"/>
       <DateTimeInput source="start_at"
                      label="Inizio prenotazioni (Default 2 settimane prima)"
-                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+                     options={{ format: "dd///MM/YYYY, HH:mm:ss"}}/>
       <DateTimeInput source="end_at"
                      label="Fine prenotazioni (Default 3 ore dopo)"
-                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+                     options={{ format: "dd/MM/YYYY, HH:mm:ss"}}/>
     </SimpleForm>
   </Create>
 );
@@ -146,14 +146,14 @@ export const BroadcastEdit = (props) => (
       <DateTimeInput source="start_at"
 
                      label="Inizio prenotazioni "
-                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+                     options={{ format: "dd/MM/YYYY, HH:mm:ss"}}/>
       <DateTimeInput source="end_at"
                      label="Fine prenotazioni"
-                     options={{ format: "DD/MM/YYYY, HH:mm:ss"}}/>
+                     options={{ format: "dd/MM/YYYY, HH:mm:ss"}}/>
 
       <FormDataConsumer>
         {({formData}) =>
-          <ReferenceField
+          <RadioButtonGroupInput
             disabled={formData.plus === false}
             label="Tipo offerta" source="offer.type" choices={[
             {id: "0", name: 'Prezzo fisso'},
