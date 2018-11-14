@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const { handler: errorHandler } = require('../../middlewares/error');
 const ApiError = require('../../utils/APIError');
-
+const { BUSINESS } = require("../../middlewares/auth");
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
 const { omit, get } = require('lodash');
@@ -28,6 +28,10 @@ exports.list = async (req, res, next) => {
     const { latitude, longitude, radius } = req.query;
     let data, near = {};
 
+    let fieldsToOmit = [];
+    if (!req.locals || !req.locals.loggedUser || req.locals.loggedUser !== BUSINESS) {
+      fieldsToOmit = ["spots","vat","user"];
+    }
     if (req.query.q || req.query.name) {
       filterQuery['name'] = { "$regex": req.query.q || req.query.name, "$options": "i"};
     }
@@ -39,7 +43,7 @@ exports.list = async (req, res, next) => {
       data = await Business.findNear(latitude, longitude, radius, filterQuery);
       data.docs = data.docs.map(business => {
         Object.assign(near, { [business._id]: business.dist });
-        return omit(business, "dist");
+        return omit(business.transform(fieldsToOmit), "dist");
       });
     } else {
       const query = omit(filterQuery, ['_end','_sort','_order','_start']);
@@ -50,7 +54,7 @@ exports.list = async (req, res, next) => {
         limit: (_end && _start) ? parseInt(_end - _start) : 10,
       });
     }
-
+    data.docs = data.docs.map(business => business.transform(fieldsToOmit));
     res.json({...data, near});
 
   } catch (error) {

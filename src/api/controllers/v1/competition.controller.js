@@ -28,36 +28,30 @@ exports.list = async (req, res, next) => {
 
 
     const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start']);
+    const { _order = 1, _end = 20, _sort = "_id", _start = 0 } = req.query;
 
-    if (req.locals && req.locals.sport)
-      filterQuery.sport = req.locals.sport._id;
 
-    if (req.query.id_like) {
-      filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
-      delete filterQuery['id_like'];
-    }
+    const competitions = await Competition.list(filterQuery);
 
-    let competitions = Competition.find(filterQuery);
 
-    //handle sort
-    if (req.query._sort) competitions.sort({[req.query._sort]: req.query._order});
 
-    //handle GET_MANY, dove il campo {field}_like contiene valori multipli separati da |
 
-    competitions = await competitions.lean().exec();
-    const transformed = competitions.map(async comp => {
-      const obj = Object.assign({},comp);
-      let weekEvents = await SportEvent.getWeekEvents(comp._id);
+    /* const transformed = competitions.map(async comp => {
+     const obj = Object.assign({},comp);
+     let weekEvents = await SportEvent.getWeekEvents(comp._id);
 
-      obj['week_events'] = weekEvents;
+     obj['week_events'] = weekEvents;
 
-      return obj;
+     return obj;
 
-    });
+     });*/
+    //const results = await Promise.all(transformed);
+    //ordino in base a quanti eventi settimanali ci sono
+    //const sorted = results.sort((a,b) => a.week_events - b.week_events);
 
-    const results = await Promise.all(transformed);
-    res.set("X-Total-Count", results.length);
-    res.json(results);
+
+    res.set("X-Total-Count", competitions.length);
+    res.json(competitions);
   } catch (error) {
     next(error)
   }
@@ -110,9 +104,9 @@ exports.updateUrl = async (req, res, next) => {
 
       if (comp.image_versions && comp.image_versions.length > 1) {
         comp.image_versions = comp.image_versions.map(version => {
-        if (version.url && version.url.includes('http://spotinapp.s3-website.eu-central-1.amazonaws.com'));
+          if (version.url && version.url.includes('http://spotinapp.s3-website.eu-central-1.amazonaws.com'));
           version.url = version.url.replace('http://spotinapp.s3-website.eu-central-1.amazonaws.com', 'https://dockaddkf7nie.cloudfront.net');
-        return version;
+          return version;
 
         });
         comp.save(function(err) {

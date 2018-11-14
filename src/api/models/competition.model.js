@@ -10,6 +10,7 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const { imageVersionSchema } = require('./imageVersion');
 const { slugify } = require('lodash-addons');
 const {Sport} = require('./sport.model.js');
+const { pagination } = require('../utils/aggregations');
 
 
 const imageSizes = [
@@ -28,8 +29,8 @@ const mime = require('mime-to-extensions');
 const competitionSchema = new mongoose.Schema({
   sport: {
 
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Sport"
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Sport"
 
   },
   name: {
@@ -63,6 +64,53 @@ competitionSchema.statics = {
         message: "Competition does not exist",
         status: httpStatus.NOT_FOUND
       });
+    } catch (error) {
+      throw error;
+    }
+  },
+  async list(options) {
+    const filter = omitBy(options, ["_start","_end","id_like","_sort","_order"]);
+
+    if (options._id) filter._id = mongoose.Types.ObjectId(options._id);
+    if (options.sport) filter.sport = mongoose.Types.ObjectId(options.sport);
+    if (options.id_like) filter.id = { $in: options.id_like.split("|") };
+
+
+    const weekStartDate = moment().startOf('day').toDate();
+    const weekEndDate = moment().add(7,'day').endOf('day').toDate();
+
+    try {
+      const result = await this.aggregate([
+        { '$match': filter
+        },
+        { '$lookup':
+          {
+            from: 'sport_events',
+            let: { competition_id: "$_id", start_date: weekStartDate, end_date: weekEndDate},
+            as: 'week_events',
+            pipeline: [
+              { $match: {
+                $expr: {
+                  $and: [
+                    {"$eq": [ "$competition", "$$competition_id" ]},
+                    {"$gte": ["$start_at", "$$start_date"] },
+                    {"$lt": ["$start_at", "$$end_date"] },
+                  ]
+                },
+              }
+              },
+              { $count: "count" } ,
+            ]
+
+          }
+        },
+        //Non sovrascrivo week_events per la Retro compatibilità
+        //TODO: Sostituire "week_events" con "weekEvents" quando non servirà più retrocombatibilità
+        { $addFields: { "weekEvents": { $sum: "$week_events.count" } } },
+        ...pagination({sort: { field: "weekEvents", order: -1 }, options}),
+
+      ]);
+      return result.length === 1 ? result[0] : {docs: [], total: 0};
     } catch (error) {
       throw error;
     }
