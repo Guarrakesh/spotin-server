@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const moment = require('moment-timezone');
 const jwt = require('jwt-simple');
 const uuidv1 = require('uuid/v1');
-const APIError = require('../utils/APIError');
+
 const mongoosePaginate = require('mongoose-paginate');
 const sizeOf = require('image-size');
 const mime = require('mime-to-extensions');
 
-
+const APIError = require('../utils/APIError');
 const addressSchema = require('./address.schema');
 const { imageVersionSchema } = require('./imageVersion');
-const { intersection } = require('lodash');
+const { difference} = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
-const { uploadImage } = require('../utils/amazon.js');
+const { uploadImage, deleteObject } = require('../utils/amazon.js');
 const imageSizes = [
   {width: 640, height: 350},
   {width: 768, height: 432},
@@ -146,11 +146,42 @@ businessSchema.method({
       throw Error(error);
     }
   },
+  transform(fieldsToOmit = []) {
+    const transformed = {};
+    let fields = difference(['_id',
+      'name',
+      'address',
+      'type',
+      'phone',
+      "wifi",
+      "seats",
+      "vat",
+      "spots",
+      "user",
+      "forFamilies",
+      "target",
+      "tvs",
+      "cover_versions",
+      "providers",
+      "businessHours","tradeName"], fieldsToOmit);
+    //Solo il proprietario può vedere tutte le info del locale
+
+
+
+    fields.forEach((field) => {
+      transformed[field] = this[field];
+    });
+
+    return transformed;
+  },
   async uploadCover(file) {
     const ext = mime.extension(file.mimetype);
 
     try {
       const coverId = uuidv1();
+      //Cancello prima tutta la cartella
+      await deleteObject(`images/businesses/${this._id.toString()}`);
+
       const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
@@ -161,6 +192,7 @@ businessSchema.method({
       const basePath = s3WebsiteEndpoint + "/images/businesses";
 
       imageSizes.forEach(({width, height}) => {
+
         this.cover_versions.push({
           url: `${basePath}/${this._id.toString()}/${width}x${height}/cover.${ext}`,
           width: width,

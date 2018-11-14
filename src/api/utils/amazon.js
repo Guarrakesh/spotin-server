@@ -27,7 +27,7 @@ exports.uploadImage = function(buffer, destFileName) {
 
 };
 
-exports.deleteImage = function(key) {
+exports.deleteObject = function(key) {
   return new Promise(function(resolve, reject) {
     s3.deleteObject({ Bucket: 'spotinapp', Key: key}, function (err, data) {
       if (err) reject(err);

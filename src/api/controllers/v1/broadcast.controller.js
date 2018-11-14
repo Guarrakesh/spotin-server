@@ -94,7 +94,7 @@ exports.list = async (req, res, next) => {
     let near = {};
 
     let filterQuery = omit(req.query, ['latitude', 'longitude', 'radius', '_end', '_sort', '_order', '_start']);
-    const { _end = 10, _start = 0, _order = 1, _sort } = req.query;
+    const { _end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { latitude, longitude, radius } = req.query;
     const now = moment().toDate();
     filterQuery = {
