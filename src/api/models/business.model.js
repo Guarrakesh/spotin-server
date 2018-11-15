@@ -185,7 +185,7 @@ businessSchema.method({
     try {
       const coverId = uuidv1();
       //Cancello prima tutta la cartella
-      emptyDir(`images/businesses/${this._id.toString()}/`);
+      await emptyDir(`images/businesses/${this._id.toString()}/`);
       const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
