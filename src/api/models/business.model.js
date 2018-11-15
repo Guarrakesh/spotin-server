@@ -118,9 +118,9 @@ businessSchema.pre('save', async function(next) {
           if (response.results.length > 0) {
             const {location} = response.results[0].geometry;
             this.address.location = {
-                type: 'Point',
-                coordinates: [location.lng, location.lat]
-              }
+              type: 'Point',
+              coordinates: [location.lng, location.lat]
+            }
 
 
 
@@ -218,6 +218,7 @@ businessSchema.statics = {
 
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
 
+
     let {_end = 10, _start = 0, _order = 1, _sort = "dist.calculated"} = options;
     radius = parseFloat(radius) * 1000; //km to meters
     lat = parseFloat(lat); lng = parseFloat(lng);
@@ -237,7 +238,11 @@ businessSchema.statics = {
         },
       },
       ...extraAggregations ,
-      ...pagination(_start, _end - _start, { field: _sort, order: _order})
+      ...pagination({
+        skip: _start,
+        limit: _end - _start,
+        sort: {field: _sort, order: _order}
+      })
 
 
 

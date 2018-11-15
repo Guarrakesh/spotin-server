@@ -87,12 +87,11 @@ exports.create = async (req, res, next) => {
 exports.list = async (req, res, next) => {
   try {
 
-    const { loggedUser } = req.locals;
+   const { loggedUser } = req.locals;
     //TODO: Gestire geolocalizzazione
   
     let broadcasts;
     let near = {};
-
     let filterQuery = omit(req.query, ['latitude', 'longitude', 'radius', '_end', '_sort', '_order', '_start']);
     const { _end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { latitude, longitude, radius } = req.query;
@@ -140,7 +139,8 @@ exports.list = async (req, res, next) => {
 
 
       broadcasts = await Broadcast.paginate(filterQuery, {
-        sort: { [_sort]: _order },
+      //  sort: { [_sort]: _order },
+        sort: { start_at: 1 }, //TODO: Fix temporaneo per l'app, ma da rivedere
         offset: parseInt(_start, 10),
         limit: parseInt(_end - _start, 10),
         lean: true,
