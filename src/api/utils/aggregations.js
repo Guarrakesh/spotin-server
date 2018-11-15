@@ -14,8 +14,8 @@
  * @param sort {{Object}} e.g: { field: _id, order: 1 }
  */
 exports.pagination = ({skip = 0, limit = 10, sort = { field: "_id", order: 1}}) => ([
-  sort && { $sort: { [sort.field]: sort.order } },
+  sort && { $sort: { [sort.field]: parseInt(sort.order, 10) } },
   { $group: { _id: null, total: { $sum: 1 }, docs: { $push: "$$ROOT"} } },
-  { $project: { total: 1, docs: { $slice: [ "$docs", skip, limit ] } } },
-  { $addFields: { offset: skip }}
+  { $project: { total: 1, docs: { $slice: [ "$docs", parseInt(skip,10), parseInt(limit,10) ] } } },
+  { $addFields: { offset: parseInt(skip,10) }}
 ]);

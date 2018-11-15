@@ -83,7 +83,6 @@ exports.BUSINESS = BUSINESS;
 
 
 exports.authorize = (roles = User.roles, ownerCallback) => (req, res, next) =>
-
   passport.authenticate(
     'jwt', { session: false },
     handleJWT(req, res, next, roles, ownerCallback),

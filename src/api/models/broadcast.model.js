@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
-const {reservationSchema} = require('./reservation.model');
+const { omit } = require('lodash');
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
+const moment = require('moment');
 
+const {reservationSchema} = require('./reservation.model');
+const { pagination } = require('../utils/aggregations');
 const { imageVersionSchema } = require('./imageVersion');
 
 const offerSchema = require('./offer.schema');
 const { SportEvent } = require('./sportevent.model');
-const deepPopulate = require('mongoose-deep-populate')(mongoose);
-
-const moment = require('moment');
+const { Business } = require('./business.model');
 const broadcastSchema = new mongoose.Schema({
 
   business: {
@@ -101,7 +103,59 @@ broadcastSchema.statics = {
       throw error;
     }
   },
-};
+
+  async listNear(options) {
+    let filterQuery = omit(options, ['latitude', 'longitude', 'radius', '_end', '_sort', '_order', '_start']);
+    const {_end = 10, _start = 0, _order = 1, _sort = "start_at"} = options;
+    const {latitude, longitude, radius} = options;
+    const now = moment().toDate();
+    filterQuery = {
+      ...filterQuery,
+      end_at: {$gte: now},
+      start_at: {$lte: now},
+    };
+
+    console.log(filterQuery);
+    const results = await this.aggregate([
+
+      {$match: filterQuery},
+      {
+
+        $lookup: {
+          from: "businesses",
+          let: { businessId: "$business"},
+          as: "business",
+          pipeline: [
+
+            {
+
+              '$geoNear': {
+                near: {type: "Point", coordinates: [parseFloat(longitude), parseFloat(latitude)]},
+                distanceField: "dist.calculated",
+                distanceMultiplier: 1 / 1000, //meters to km
+                spherical: true,
+                maxDistance: (radius),
+                includeLocs: "dist.location",
+              },
+            },
+            { $match: { $expr: { $eq: ["$_id","$$businessId"] } } } ,
+            { $project: { "_id": 1, dist: 1, name: 1 }},
+          ]
+        }
+      },
+      {$unwind: "$business"},
+      { $sort: { "business.dist.calculated": 1 } },
+      { $group: { _id: "$business._id", data: { $addToSet: "$$ROOT" } } },
+      ...pagination({
+        skip: _start,
+        limit: _end - _start,
+        sort: {field: "data.start_at", order: 1},
+      })
+    ]);
+
+    return results;
+  }
+}
 
 broadcastSchema.plugin(mongoosePaginate);
 broadcastSchema.plugin(deepPopulate, {
