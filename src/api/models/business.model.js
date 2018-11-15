@@ -10,11 +10,13 @@ const mime = require('mime-to-extensions');
 const APIError = require('../utils/APIError');
 const addressSchema = require('./address.schema');
 const { imageVersionSchema } = require('./imageVersion');
-const { difference} = require('lodash');
+const { difference, omit } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
-const { uploadImage, deleteObject } = require('../utils/amazon.js');
+const { uploadImage, emptyDir } = require('../utils/amazon.js');
+
+const { pagination } = require('../utils/aggregations');
 const imageSizes = [
   {width: 640, height: 350},
   {width: 768, height: 432},
@@ -136,6 +138,9 @@ businessSchema.pre('save', async function(next) {
     return next(err);
   }
 });
+businessSchema.post('remove', function(next) {
+  emptyDir(`/images/businesses/${this._id.toString()}/`);
+});
 
 businessSchema.method({
   async paySpots(spots, isPlus = false) {
@@ -180,8 +185,7 @@ businessSchema.method({
     try {
       const coverId = uuidv1();
       //Cancello prima tutta la cartella
-      await deleteObject(`images/businesses/${this._id.toString()}`);
-
+      emptyDir(`images/businesses/${this._id.toString()}/`);
       const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
@@ -212,14 +216,12 @@ businessSchema.method({
 businessSchema.statics = {
 
 
-  async findNear(lat, lng, radius, options = {}) {
+  async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
 
     let {_end = 10, _start = 0, _order = 1, _sort = "dist.calculated"} = options;
     radius = parseFloat(radius) * 1000; //km to meters
     lat = parseFloat(lat); lng = parseFloat(lng);
-    const count = await this.count({'address.location': {
-      $near: {$maxDistance: radius, $geometry: {type: 'Point', coordinates: [lng, lat]}}
-    }, ...options}).exec();
+
 
     _sort = _sort == "distance" ? "dist.calculated" : _sort; //accetto anche distance come parametro di _sort
 
@@ -234,10 +236,8 @@ businessSchema.statics = {
           includeLocs: "dist.location",
         },
       },
-
-      { $sort: { [_sort]: parseFloat(_order) }},
-      { $skip: parseInt(_start) },
-      { $limit: parseInt(_end - _start)},
+      ...extraAggregations ,
+      ...pagination(_start, _end - _start, { field: _sort, order: _order})
 
 
 
@@ -246,13 +246,9 @@ businessSchema.statics = {
       aggregations.splice(1, 0, { $match: { name: { "$regex": options.q, "$options": "i"} } });
     }
 
-    const docs = await this.aggregate(aggregations);
+    const result = await this.aggregate(aggregations);
+    return result.length === 1 ? omit(result[0], "_id") : {docs: [], total: 0};
 
-    return {
-      docs,
-      total: count,
-      offset: _start,
-    }
   }
 };
 businessSchema.index({ 'address.location': '2dsphere'});

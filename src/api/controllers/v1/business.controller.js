@@ -40,10 +40,13 @@ exports.list = async (req, res, next) => {
       delete filterQuery['id_like'];
     }
     if (latitude && longitude && radius) {
-      data = await Business.findNear(latitude, longitude, radius, filterQuery);
+      data = await Business.findNear(latitude, longitude, radius, filterQuery, [
+        { $project: { ...fieldsToOmit.reduce((acc,i) => ({ ...acc, [i]: 0 }), {}) } }
+      ]);
       data.docs = data.docs.map(business => {
         Object.assign(near, { [business._id]: business.dist });
-        return omit(business.transform(fieldsToOmit), "dist");
+
+        return omit(business, "dist");
       });
     } else {
       const query = omit(filterQuery, ['_end','_sort','_order','_start']);
@@ -54,7 +57,6 @@ exports.list = async (req, res, next) => {
         limit: (_end && _start) ? parseInt(_end - _start) : 10,
       });
     }
-    data.docs = data.docs.map(business => business.transform(fieldsToOmit));
     res.json({...data, near});
 
   } catch (error) {
