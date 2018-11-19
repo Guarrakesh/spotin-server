@@ -8,7 +8,6 @@ const moment = require('moment');
 
 const sanitizeQueryParams = ({
   competition_id,
-  sport,
   _end,
   _start,
   _order,
@@ -88,41 +87,47 @@ exports.list = async (req, res, next) => {
 
   try {
     let filter = sanitizeQueryParams(req.query);
-    const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
+
+    const { 
+      _end = 10,
+      _start = 0,
+      _order = 1,
+      _sort = 'start_at',
+    } = req.query;
 
     if (req.query.q || req.query.name) {
-      filter.name = { "$regex": req.query.q || req.query.name, "$options": "i"};
-      delete filter['q']
+      filter.name = { $regex: req.query.q || req.query.name, $options: 'i' };
+      delete filter.q;
     }
     if (req.query.id_like) {
-      filter._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
+      filter._id = { $in: decodeURIComponent(req.query.id_like).split('|') };
     }
-    if (req.query.start_at) {
+    if (req.query.start_at && !req.query.next_events) {
       const date = moment(req.query.start_at).startOf('day');
 
-      filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
+      filter.start_at = { $gte: date, $lte: moment(date).endOf('day')}
     } else if (req.query.next_events) {
-      //Prendo eventi nell'arco temporale da oggi in poi
-      filter.start_at = { "$gte": moment().startOf('day')}
+      // Prendo eventi nell'arco temporale da oggi (o data inserita) in poi   
+      const date = req.query.start_at ? moment(req.query.start_at) : moment();
+      filter.start_at = { $gte: date.startOf('day') }
     }
 
-    //Accetta il parametro Extend, per popolare i subdocument
+    // Accetta il parametro Extend, per popolare i subdocument
     const populates = req.query.extend ? req.query.extend.split(',') : [];
 
 
-    const limit = parseInt(_end - _start);
+    const limit = parseInt(_end - _start, 10);
 
-    let events = await SportEvent.paginate(filter, {
+    const events = await SportEvent.paginate(filter, {
       sort: _sort,
-      offset: parseInt(_start),
-      limit: limit,
-      populate: populates || null
+      offset: parseInt(_start, 10),
+      limit,
+      populate: populates || null,
     });
 
 
-    events.docs = events.docs.map(event => {
-      return event.transform(req);
-    });
+    events.docs = events.docs.map(event => event.transform(req));
+  
     res.json(events);
   } catch (error) {
     next(error);

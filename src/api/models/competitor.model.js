@@ -55,22 +55,23 @@ const competitorSchema = new mongoose.Schema({
   first_name: {
     type: String,
     maxlength: 128,
-    trim: true
+    trim: true,
   },
   last_name: {
     type: String,
     maxlength: 128,
-    trim: true
+    trim: true,
   },
   full_name: {
     type: String,
     maxlength: 256,
-    trim: true
+    trim: true,
   },
   isPerson: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
+  appealValue: Number,
 });
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, Edit, Create, EditButton, BooleanField, BooleanInput,
-  DisabledInput, SimpleForm, TextInput } from 'react-admin';
+  DisabledInput, SimpleForm, TextInput, NumberInput } from 'react-admin';
 
 export const SportList = (props) => (
   <List {...props}>
@@ -26,7 +26,7 @@ export const SportEdit = (props) => (
       <DisabledInput source="_id" />
       <TextInput source="name"/>
       <TextInput source="slug"/>
-
+      <NumberInput source="appealValue" step={1} options={{min:1, max:4}}/>
       <BooleanInput source="active"/>
     </SimpleForm>
 
@@ -40,7 +40,7 @@ export const SportCreate = (props) => (
 
       <TextInput source="name"/>
       <TextInput source="slug"/>
-
+      <NumberInput source="appealValue" step={1} min={1} max={4}/>
       <BooleanInput source="active"/>
     </SimpleForm>
   </Create>

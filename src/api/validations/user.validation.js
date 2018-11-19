@@ -105,11 +105,12 @@ module.exports = {
   removeReservation: {
     params: {
       reservationId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
-      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
-    }
+      userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+    },
   },
 
-  //Broadcast Request
+  // Broadcast Request
+
   requestBroadcast: {
     body: {
       event: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
@@ -118,8 +119,6 @@ module.exports = {
       userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}).required(),
       location: Joi.string().required().max(128),
       note: Joi.string().allow('').max(250),
-
-
-       }
-  }
+    },
+  },
 };

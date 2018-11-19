@@ -16,7 +16,7 @@ const sportSchema = new mongoose.Schema({
     type: String,
     maxlength: 128,
     index: true,
-    trim: true
+    trim: true,
   },
   active: {
     type: Boolean,
@@ -27,7 +27,8 @@ const sportSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  image_versions: [imageVersionSchema]
+  appealValue: Number,
+  image_versions: [imageVersionSchema],
 
 
 });
