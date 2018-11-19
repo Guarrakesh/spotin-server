@@ -1,12 +1,23 @@
 import React from 'react';
-import { List, ChipField, Datagrid, TextField, ReferenceField, EditButton,
-  Filter, ReferenceInput, TextInput, SelectInput
+import { List, 
+  ChipField, 
+  Datagrid, 
+  TextField,
+  ReferenceField, 
+  EditButton,
+  Filter, 
+  ReferenceInput, 
+  TextInput, 
+  SelectInput
 } from 'react-admin';
 
 import moment from 'moment';
 import { get } from 'lodash';
 import { DateTimeInput } from '../../components/DateTimeInput';
+/* eslint-disable */
 
+import MomentUtils from 'material-ui-pickers/utils/moment-utils'
+/* eslint-enable */
 export { default as EventEdit } from './EventEdit';
 export { default as EventCreate } from './EventCreate';
 
@@ -30,14 +41,16 @@ const EventFilter = (props) => (
     <ReferenceInput reference="competitions" source="competition">
       <SelectInput label="Competizione" source="name" />
     </ReferenceInput>
-    <DateTimeInput source="start_at"  options={{ format: "dd/MM/YYYY" }}/>
+    <DateTimeInput source="start_at" 
+    providerOptions={{utils: MomentUtils}}
+     options={{ format: "dd/MM/YYYY", ampm: false, clearable: true}}/>
   </Filter>
 );
 
 
 
 export const EventList = (props) => (
-  <List {...props} filters={<EventFilter/>}>
+  <List {...props} filters={<EventFilter/>} filter={{next_events: true}}>
     <Datagrid>
       <ReferenceField reference="sports" source="sport" label="Sport">
         <TextField source="name"/>

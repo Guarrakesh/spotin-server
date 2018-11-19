@@ -1,13 +1,10 @@
 const mongoose = require('mongoose');
-const moment = require('moment-timezone');
-const jwt = require('jwt-simple');
 const uuidv1 = require('uuid/v1');
 
 const mongoosePaginate = require('mongoose-paginate');
 const sizeOf = require('image-size');
 const mime = require('mime-to-extensions');
 
-const APIError = require('../utils/APIError');
 const addressSchema = require('./address.schema');
 const { imageVersionSchema } = require('./imageVersion');
 const { difference, omit } = require('lodash');
@@ -17,21 +14,22 @@ const { s3WebsiteEndpoint } = require('../../config/vars');
 const { uploadImage, emptyDir } = require('../utils/amazon.js');
 
 const { pagination } = require('../utils/aggregations');
+
 const imageSizes = [
-  {width: 640, height: 350},
-  {width: 768, height: 432},
-  {width: 320, height: 180},
+  { width: 640, height: 350 },
+  { width: 768, height: 432 },
+  { width: 320, height: 180 },
 ];
 
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
-  'Trattoria', 'Bar', 'Centro scommesse'
+  'Trattoria', 'Bar', 'Centro scommesse',
 ];
 const providers = [
-  {id: "sky", name: "Sky"},
-  {id: "mediaset-premium", name:"Mediaset Premium"},
-  {id: "dazn", name: "DAZN"},
-  {id: "digitale-terrestre", name: "Digitale Terrestre"},
+  { id: "sky", name: "Sky" },
+  { id: "mediaset-premium", name: "Mediaset Premium" },
+  { id: "dazn", name: "DAZN" },
+  { id: "digitale-terrestre", name: "Digitale Terrestre" },
 ];
 //Gli orari dei apertura e chiusura possono essere al massimo 2
 const businessHoursSchema = new mongoose.Schema({

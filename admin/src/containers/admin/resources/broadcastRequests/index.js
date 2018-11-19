@@ -21,6 +21,7 @@ export const BroadcastRequestList = (props) => (
       </ReferenceField>
       <TextField source="broadcastRequest.numOfPeople" label="Numero persone"/>
       <TextField source="broadcastRequest.maxDistance" label="Distanza massima"/>
+      <TextField source="broadcastRequest.location" label="Zona preferita"/>
       <DateField source="created_at" showTime/>
       <ShowButton/>
 

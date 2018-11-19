@@ -296,26 +296,30 @@ exports.addFavoriteEvent = async (req, res, next) => {
   }
 };
 
-exports.listFavoriteEvents =  async (req, res, next) => {
+exports.listFavoriteEvents = async (req, res, next) => {
   try {
-    const {loggedUser} = req.locals;
+    const { loggedUser } = req.locals;
 
-    const {_end = 10, _sort = "start_at", _start = 0, _order = -1} = req.query;
-    if (loggedUser.favorite_events.length === 0)
-      return res.json({docs: [], total: 0, offset: 0});
+    const {
+      _end = 10,
+      _sort = 'start_at',
+      _start = 0,
+      _order = -1,
+    } = req.query;
+    if (loggedUser.favorite_events.length === 0) {
+      return res.json({ docs: [], total: 0, offset: 0 });
+    }
 
-    const limit = parseInt(_end - _start);
-    let events = await SportEvent.paginate(
-      {_id: {$in: loggedUser.favorite_events}}, {
-        sort: {[_sort]: _order},
-        offset: parseInt(_start),
-        limit: limit,
-        populate: ['competition']
+    const limit = parseInt(_end - _start, 10);
+    const events = await SportEvent.paginate(    
+      { _id: { $in: loggedUser.favorite_events } }, {
+        sort: { [_sort]: _order },
+        offset: parseInt(_start, 10),
+        limit,
+        populate: ['competition'],
       });
 
-    events.docs = events.docs.map(event => {
-      return event.transform(req);
-    });
+    events.docs = events.docs.map(event => event.transform(req));
 
     res.json(events);
   } catch (error) {
