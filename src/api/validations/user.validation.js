@@ -121,4 +121,11 @@ module.exports = {
       note: Joi.string().allow('').max(250),
     },
   },
+
+  registerFcmToken: {
+    body: {
+      token: Joi.string(),
+      deviceId: Joi.string(),
+    },
+  }
 };

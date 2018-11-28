@@ -7,10 +7,13 @@
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Heroku logger">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" afterPath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/business.model.js" afterPath="$PROJECT_DIR$/src/api/models/business.model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/reservation.model.js" afterPath="$PROJECT_DIR$/src/api/models/reservation.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/sportevent.model.js" afterPath="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/models/user.model.js" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/routes/v1/user.route.js" afterPath="$PROJECT_DIR$/src/api/routes/v1/user.route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/validations/user.validation.js" afterPath="$PROJECT_DIR$/src/api/validations/user.validation.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,24 +35,14 @@
     <favorites_list name="spotin-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46997637">
+    <splitter split-orientation="horizontal" split-proportion="0.43435293">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="sportevent.controller.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="sportevent.controller.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3712">
-                  <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="reservation.controller.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+                <state relative-caret-position="495">
+                  <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -58,18 +51,18 @@
           <file leaf-file-name="competition.model.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="639">
-                  <caret line="108" column="73" lean-forward="true" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="73" />
+                <state relative-caret-position="2958">
+                  <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="broadcast.controller.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="broadcast.controller.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-870">
-                  <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+                <state relative-caret-position="1827">
+                  <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -78,7 +71,7 @@
           <file leaf-file-name="business.controller.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="580">
+                <state relative-caret-position="1218">
                   <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="77" />
                   <folding />
                 </state>
@@ -88,7 +81,7 @@
           <file leaf-file-name="business.controller.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="668">
+                <state relative-caret-position="3770">
                   <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
                   <folding />
                 </state>
@@ -98,8 +91,8 @@
           <file leaf-file-name="amazon.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="52" column="4" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+                <state relative-caret-position="1508">
+                  <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -128,8 +121,8 @@
           <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2059">
-                  <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+                <state relative-caret-position="1363">
+                  <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -139,51 +132,31 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="broadcast.controller.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+          <file leaf-file-name="user.route.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-231">
-                  <caret line="59" column="124" lean-forward="false" selection-start-line="59" selection-start-column="120" selection-end-line="59" selection-end-column="124" />
+                <state relative-caret-position="522">
+                  <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="business.model.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+          <file leaf-file-name="broadcast.validation.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/validations/broadcast.validation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="59">
-                  <caret line="235" column="32" lean-forward="true" selection-start-line="235" selection-start-column="32" selection-end-line="235" selection-end-column="32" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="aggregations.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/utils/aggregations.js">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/express-validation/lib/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="580">
-                  <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="broadcast.model.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2610">
-                  <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="broadcast.route.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/routes/v1/broadcast.route.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
-                  <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="43" />
+                <state relative-caret-position="29">
+                  <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -199,11 +172,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="reservation.model.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="reservation.model.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="62" column="66" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="66" />
+                <state relative-caret-position="553">
+                  <caret line="74" column="46" lean-forward="false" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -212,28 +185,50 @@
           <file leaf-file-name="user.validation.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="842">
-                  <caret line="115" column="43" lean-forward="false" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
+                <state relative-caret-position="2726">
+                  <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+                  <folding>
+                    <marker date="1543064060071" expanded="true" signature="2582:2721" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="232">
+                  <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="point.schema.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
+          <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.env">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="s3.controller.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/s3.controller.js">
+          <file leaf-file-name="sportevent.model.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="319">
-                  <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <state relative-caret-position="3074">
+                  <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="user.model.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1769">
+                  <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -252,8 +247,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onsubmit</find>
-      <find>invalid</find>
       <find>picture</find>
       <find>/v1/</find>
       <find>AUTH_CHECK</find>
@@ -282,6 +275,8 @@
       <find>console.log</find>
       <find>lean</find>
       <find>look</find>
+      <find>isUserFavorite</find>
+      <find>req</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -326,10 +321,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/user.validation.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/auth.route.js" />
-        <option value="$PROJECT_DIR$/src/queries/reservationAggregate.js" />
         <option value="$PROJECT_DIR$/src/email/contact-request.html" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReservationShow.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/eventSelectOptionRenderer.js" />
@@ -351,9 +342,7 @@
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventAutocompleteInput.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/s3.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
         <option value="$PROJECT_DIR$/src/api/tests/v1/integration/broadcast.test.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/user.route.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js" />
         <option value="$PROJECT_DIR$/src/config/express.js" />
         <option value="$PROJECT_DIR$/src/api/middlewares/error.js" />
@@ -362,9 +351,6 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts/broadcasts.js" />
-        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js" />
         <option value="$PROJECT_DIR$/src/api/models/competition.model.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/business.route.js" />
@@ -373,10 +359,19 @@
         <option value="$PROJECT_DIR$/src/api/utils/amazon.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
         <option value="$PROJECT_DIR$/src/api/utils/aggregations.js" />
-        <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/broadcast.route.js" />
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/fcm-tokens.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/fcmTokens.route.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/user.route.js" />
+        <option value="$PROJECT_DIR$/src/api/validations/user.validation.js" />
+        <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
       </list>
     </option>
   </component>
@@ -417,7 +412,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -454,281 +449,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="queries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="middlewares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spotin-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1003,14 +730,17 @@
       <workItem from="1542057453828" duration="4451000" />
       <workItem from="1542124477301" duration="1012000" />
       <workItem from="1542187918405" duration="3619000" />
-      <workItem from="1542278017335" duration="10407000" />
-    </task>
-    <task id="LOCAL-00054" summary="Admin: Fixato competitor controller (id_like)">
-      <created>1536681044767</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1536681044767</updated>
+      <workItem from="1542278017335" duration="11828000" />
+      <workItem from="1542727004685" duration="2391000" />
+      <workItem from="1542750423354" duration="1186000" />
+      <workItem from="1542787937695" duration="6000" />
+      <workItem from="1542787973710" duration="142000" />
+      <workItem from="1542997096020" duration="630000" />
+      <workItem from="1543063086005" duration="3781000" />
+      <workItem from="1543091307856" duration="1196000" />
+      <workItem from="1543162350923" duration="1207000" />
+      <workItem from="1543253140160" duration="3246000" />
+      <workItem from="1543339126466" duration="1042000" />
     </task>
     <task id="LOCAL-00055" summary="REST: FIxato competitor route/controller/model&#10;ADMIN: Fixato (forse) form eventi">
       <created>1536688056250</created>
@@ -1348,11 +1078,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542291110065</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Heroku logger">
+      <created>1542292460932</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1542292460932</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="841611000" />
+    <option name="totallyTimeSpent" value="857859000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1365,28 +1102,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1316" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16660102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16266246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31305757" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21318145" sideWeight="0.49822766" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25980392" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25898692" sideWeight="0.49547064" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24970461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24183007" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24101306" sideWeight="0.50177234" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32965735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17883211" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32927817" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="103" y="123" width="2360" height="1120" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2298944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3246116" sideWeight="0.48759353" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3246116" sideWeight="0.48759353" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17883211" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31305757" sideWeight="0.49215525" order="6" side_tool="false" content_ui="tabs" />
@@ -1485,76 +1222,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/passport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventAutocompleteInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/broadcast.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2697">
@@ -1611,13 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6322">
-          <caret line="218" column="87" lean-forward="false" selection-start-line="218" selection-start-column="87" selection-end-line="218" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
@@ -1633,26 +1293,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3596">
-          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/registerServiceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3712">
-          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="130" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,18 +1307,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
+    <entry file="file://$PROJECT_DIR$/src/api/utils/APIError.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts/broadcasts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3973">
+          <caret line="147" column="18" lean-forward="false" selection-start-line="109" selection-start-column="63" selection-end-line="110" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/request.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/s3.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/lodash/lodash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="13494" column="8" lean-forward="false" selection-start-line="13494" selection-start-column="8" selection-end-line="13494" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose-deep-populate/lib/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6757">
+          <caret line="233" column="32" lean-forward="false" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/utils/aggregations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4292">
+          <caret line="148" column="28" lean-forward="false" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessMapField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/broadcast.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/contactRequest.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="15" column="67" lean-forward="false" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-          <folding />
+          <caret line="15" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/validations/auth.validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/fcmTokens.route.js" />
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1711">
+          <caret line="59" column="124" lean-forward="false" selection-start-line="59" selection-start-column="120" selection-end-line="59" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competition.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3712">
-          <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+        <state relative-caret-position="495">
+          <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2958">
+          <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3770">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1508">
+          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1697,106 +1507,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2059">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="1363">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/utils/APIError.js">
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="522">
+          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts/broadcasts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3973">
-          <caret line="147" column="18" lean-forward="false" selection-start-line="109" selection-start-column="63" selection-end-line="110" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/request.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/s3.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="62" column="66" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="115" column="43" lean-forward="false" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="52" column="4" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/lodash/lodash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13494" column="8" lean-forward="false" selection-start-line="13494" selection-start-column="8" selection-end-line="13494" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose-deep-populate/lib/plugin.js">
+    <entry file="file://$PROJECT_DIR$/src/api/validations/broadcast.validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express-validation/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1809,66 +1545,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
+    <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="108" column="73" lean-forward="true" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="73" />
+        <state relative-caret-position="553">
+          <caret line="74" column="46" lean-forward="false" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/broadcast.route.js">
+    <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="2726">
+          <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+          <folding>
+            <marker date="1543064060071" expanded="true" signature="2582:2721" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/utils/aggregations.js">
+    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="3074">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="59" column="124" lean-forward="false" selection-start-line="59" selection-start-column="120" selection-end-line="59" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="235" column="32" lean-forward="true" selection-start-line="235" selection-start-column="32" selection-end-line="235" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-870">
-          <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+        <state relative-caret-position="1769">
+          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
           <folding />
         </state>
       </provider>

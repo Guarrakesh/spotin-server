@@ -42,9 +42,9 @@ const finalAggregationStages = [
 reservationSchema.statics = {
 
 
-  async find(opts) {
+  async list(opts = {}) {
 
-    const {skip, limit, sort, user, broadcast, business, event, id_like } = opts;
+    const {skip = 0, limit = 10, sort, user, broadcast, business, event, id_like } = opts;
     const { Broadcast } = require('./broadcast.model');
 
     const filter = {};
@@ -70,8 +70,10 @@ reservationSchema.statics = {
 
     ])
   },
-  async findByUserId(id) {
-    //TODO:
+  async findByUserId(id, opts = {}) {
+    const options = opts;
+    options.user = mongoose.Types.ObjectId(id);
+    return await this.list(options);
   },
   async findByBroadcast(id) {
     //TODO

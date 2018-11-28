@@ -61,7 +61,7 @@ exports.list = async (req, res, next) => {
     if (id_like)
       options.id_like = { $in: id_like.split('|').map(id => mongoose.Types.ObjectId(id)) } ;
 
-    const reservations = await Reservation.find(options);
+    const reservations = await Reservation.list(options);
 
 
     //TODO: Gestire prenotazioni da business (dato un broadcastId)
