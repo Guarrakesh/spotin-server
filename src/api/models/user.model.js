@@ -86,6 +86,10 @@ const userSchema = new mongoose.Schema({
 
   passwordResetToken: String,
 
+  fcmTokens: {
+    type: [ { token: String, deviceId: String }]
+  },
+
 
 
 }, {

@@ -63,10 +63,10 @@ sportEventSchema.pre('save', async function(next) {
   }))
 
   if (!sport) {
-     next(Error("Lo sport specificato non esiste."))
+    next(Error("Lo sport specificato non esiste."))
   }
   if (!competition) {
-      next(Error("La competizione specificata non esiste."));
+    next(Error("La competizione specificata non esiste."));
   }
 
   const ids = this.competitors.map(comp => comp.competitor);
@@ -80,7 +80,7 @@ sportEventSchema.pre('save', async function(next) {
   next();
 });
 sportEventSchema.method({
-  transform(req = null) {
+  transform(user = null) {
     const transformed = {};
     const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
     fields.forEach((field) => {
@@ -102,21 +102,13 @@ sportEventSchema.method({
         transformed[field] = this[field];
       }
     });
+    //Check is SportEvent is favorited by user
+    if (user) {
 
-    if (req) {
-
-      //Check is SportEvent is favorited by user
-      const { locals } = req;
-      if (locals && locals.loggedUser) {
-        transformed['isUserFavorite'] = !!locals.loggedUser.favorite_events.find(e => e.toString() === this._id.toString());
-
-      }
-
+      transformed['isUserFavorite'] = user.favorite_events && user.favorite_events.find(e => e.toString() === this._id.toString());
     }
-    //TODO: Cercare nei preferiti dell'utente
-
-
-    return transformed;
+     //TODO: Cercare nei preferiti dell'utente
+      return transformed;
   }
 });
 sportEventSchema.statics = {

@@ -20,7 +20,7 @@ exports.load = async (req, res, next, id) => {
     req.locals = { user };
     return next();
   } catch (error) {
-   return next(errorHandler(error, req, res));
+    return next(errorHandler(error, req, res));
   }
 };
 
@@ -117,64 +117,81 @@ exports.listReservations = async (req, res, next) => {
   try {
     const { loggedUser } = req.locals;
     const { _end = 10, _start = 0, _order = 1, _sort = "_id", id_like } = req.query;
-    let reservations = {docs: []};
+    //let reservations = {docs: []};
 
-    const reservationsDocs = await Broadcast.aggregate([
-      {
-        $match: {
-          'reservations._id': { $in: loggedUser.reservations}
-        },
-      },
-      {
-        $unwind: "$reservations"
-      },
-      {
-        $match: {
-          'reservations._id': { $in: loggedUser.reservations }
-        }
-      },
-      {
-        $group: {
-          "_id": '$reservations._id',
-          "used": { $first: "$reservations.used"},
-          "created_at": { $first: "$reservations.created_at"},
-          "user": { $first: "$reservations.user"},
-          "broadcast": { $first: '$_id'}
-
-        }
-      },
-     {
-        $lookup: {
-          from: 'broadcasts',
-          localField: 'broadcast',
-          foreignField: '_id',
-          as: 'broadcast'
-        },
-
-      }, {
-        $unwind: "$broadcast"
-      },
-
-      { $limit: parseInt(_end - _start)},
-      { $skip:  parseInt(_start)}
-
-    ]);
-
-
-
-    /*.limit(parseInt(_end - _start))
-     .skip(parseInt(_start))
-     .deepPopulate('event event.sport event.competition event.competitors.competitor business')
-     .lean();*/
-
-    //TODO: Gestire il sort generico secondo il campo _sorrt
-    reservations.docs = reservationsDocs.sort((a, b) => _order * (new Date(a.created_at)) - (new Date(b.created_at)) );
-    reservations.offset = _start;
-    reservations.total = loggedUser.reservations.length || 0;
-    //  const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
+    const reservations = await Reservation.findByUserId(loggedUser._id, {
+      sort: { field: "created_at", order: -1 }
+    });
 
     res.json(reservations);
+    /*
+     const reservationsDocs = await Broadcast.aggregate([
+     {
+     $match: {
+     'reservations._id': { $in: loggedUser.reservations}
+     },
+     },
+     {
+     $unwind: "$reservations"
+     },
 
+     {
+     $match: {
+     'reservations._id': { $in: loggedUser.reservations }
+     }
+     },
+     {
+     $lookup: {
+     from: 'sport_events',
+     localField: "event",
+     foreignField: "_id",
+     as: "event"
+     }
+     },
+     { $unwind: "event"},
+
+     {
+     $group: {
+     "_id": '$reservations._id',
+     "used": { $first: "$reservations.used"},
+     "created_at": { $first: "$reservations.created_at"},
+     "user": { $first: "$reservations.user"},
+     "broadcast": { $first: '$_id'}
+
+     }
+     },
+     {
+     $lookup: {
+     from: 'broadcasts',
+     localField: 'broadcast',
+     foreignField: '_id',
+     as: 'broadcast'
+     },
+
+     }, {
+     $unwind: "$broadcast"
+     },
+
+     { $limit: parseInt(_end - _start)},
+     { $skip:  parseInt(_start)}
+
+     ]);
+
+
+
+     /!*.limit(parseInt(_end - _start))
+     .skip(parseInt(_start))
+     .deepPopulate('event event.sport event.competition event.competitors.competitor business')
+     .lean();*!/
+
+     //TODO: Gestire il sort generico secondo il campo _sorrt
+     reservations.docs = reservationsDocs.sort((a, b) => _order * (new Date(a.created_at)) - (new Date(b.created_at)) );
+     reservations.offset = _start;
+     reservations.total = loggedUser.reservations.length || 0;
+     //  const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
+
+     res.json(reservations);
+     */
   } catch (error) {
     next(error);
   }
@@ -279,15 +296,16 @@ exports.addFavoriteEvent = async (req, res, next) => {
 
     let event = await SportEvent.findById(req.body.event).populate('competitors.competitor').populate('competition');
 
+
     if (!event) {
       res.status(httpStatus.NOT_FOUND);
       res.end();
     }
-    loggedUser.favorite_events.push( new mongoose.mongo.ObjectId(req.body.event));
-    await loggedUser.save();
 
+    const updatedUser = await User.findOneAndUpdate({_id: loggedUser._id},
+      { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
 
-    event = event.transform(req);
+    event = event.transform(updatedUser);
     res.json(event);
 
 
@@ -311,7 +329,7 @@ exports.listFavoriteEvents = async (req, res, next) => {
     }
 
     const limit = parseInt(_end - _start, 10);
-    const events = await SportEvent.paginate(    
+    const events = await SportEvent.paginate(
       { _id: { $in: loggedUser.favorite_events } }, {
         sort: { [_sort]: _order },
         offset: parseInt(_start, 10),
@@ -319,7 +337,7 @@ exports.listFavoriteEvents = async (req, res, next) => {
         populate: ['competition'],
       });
 
-    events.docs = events.docs.map(event => event.transform(req));
+    events.docs = events.docs.map(event => event.transform(loggedUser));
 
     res.json(events);
   } catch (error) {
@@ -336,20 +354,12 @@ exports.removeFavoriteEvent = async (req, res, next) => {
     res.status(httpStatus.NOT_FOUND);
     res.end();
   }
-  if (!!loggedUser.favorite_events.find(e => e.toString() === event._id.toString())) {
-    loggedUser.favorite_events = loggedUser.favorite_events.filter(e => e.toString() !== event._id.toString());
-
-    await loggedUser.save();
-    res.status(httpStatus.OK);
-    res.end();
-  } else {
-    res.status(httpStatus.BAD_REQUEST);
-    res.end();
-  }
+  await  User.update({ _id: loggedUser._id }, { $pull: { favorite_events: new mongoose.Types.ObjectId(event._id) } }) ;
 
 
+  res.status(httpStatus.OK);
+  res.end();
 };
-
 
 exports.requestBroadcast = async (req, res, next) => {
   try {
@@ -395,6 +405,25 @@ exports.listBroadcastRequests = async (req, res, next) => {
 
     res.json(requests);
 
+  } catch (e) {
+    next(e);
+  }
+};
+
+
+exports.registerFcmToken = async (req, res, next) => {
+  try {
+    const { loggedUser } = req.locals;
+    const { token, deviceId } = req.body;
+    User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
+      { $set: { "array.$": { deviceId, token } } });
+    // Se l'update precedente non ha avuto effeto (cioè non esiste il deviceId),
+    // Allroa la seguente lo aggiungerà (altrimenti, la seguente non farà nulla)
+    User.update({ _id: loggedUser._id },
+      { $addToSet: { fcmTokens: { deviceId, token } } });
+
+    res.status(httpStatus.CREATED);
+    res.end();
   } catch (e) {
     next(e);
   }
