@@ -87,7 +87,7 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
 
   fcmTokens: {
-    type: [ { token: String, deviceId: String }]
+    type: [ mongoose.Schema({ token: String, deviceId: String }, { _id: false }) ]
   },
 
 

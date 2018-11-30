@@ -415,11 +415,11 @@ exports.registerFcmToken = async (req, res, next) => {
   try {
     const { loggedUser } = req.locals;
     const { token, deviceId } = req.body;
-    User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
+    await User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
       { $set: { "array.$": { deviceId, token } } });
     // Se l'update precedente non ha avuto effeto (cioè non esiste il deviceId),
-    // Allroa la seguente lo aggiungerà (altrimenti, la seguente non farà nulla)
-    User.update({ _id: loggedUser._id },
+    // Allora la seguente lo aggiungerà (altrimenti, la seguente non farà nulla)
+    await User.update({ _id: loggedUser._id },
       { $addToSet: { fcmTokens: { deviceId, token } } });
 
     res.status(httpStatus.CREATED);

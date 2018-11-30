@@ -257,5 +257,5 @@ router
 
 router
   .route("/:userId/fcm_tokens")
-  .post(authorize(LOGGED_USER, ownerCheck), validate(registerFcmToken), controller.registerFcmToken)
+  .post(authorize(LOGGED_USER, ownerCheck), validate(registerFcmToken), controller.registerFcmToken);
 module.exports = router;

@@ -17,6 +17,7 @@ const sanitizeQueryParams = ({
   _sort,
   id_like,
   extend,
+  next_events,
   ...rest
 }) => rest;
 
@@ -108,7 +109,7 @@ exports.list = async (req, res, next) => {
       const date = moment(req.query.start_at).startOf('day');
 
       filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
-    } else {
+    } else if (req.query.next_events)  {
       //Prendo eventi nell'arco temporale tra oggi e due settimane dopo
 
       filter.start_at = { "$gte": moment().startOf('day'),

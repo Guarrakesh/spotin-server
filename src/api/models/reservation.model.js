@@ -28,14 +28,21 @@ const reservationSchema = new mongoose.Schema({
 const finalAggregationStages = [
   { $unwind: "$reservations"},
   { $addFields: {
-    broadcast: "$_id",
+    broadcast: "$$ROOT",
+
     user: "$reservations.user",
     used: "$reservations.used",
     created_at: "$reservations.created_at",
     _id: "$reservations._id"
   }
   },
-  { $project: { start_at: 0, end_at: 0, offer: 0, newsfeed: 0, reservations: 0, image_url: 0 } }
+  { $project: {
+    "broadcast.start_at": 0,
+    "broadcast.end_at": 0,
+    business: 0,
+    reservations: 0,
+    "broadcast.reservations": 0
+  } }
 ];
 
 
