@@ -26,7 +26,7 @@ exports.list = async (req, res, next) => {
 
   try {
 
-    const sports = await Sport.find();
+    const sports = await Sport.find({active: true}).sort({appealValue: -1});
     res.set("X-Total-Count", sports.length);
 
     res.json(sports);
