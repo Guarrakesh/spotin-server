@@ -28,7 +28,6 @@ exports.list = async (req, res, next) => {
 
     const sports = await Sport.find();
     res.set("X-Total-Count", sports.length);
-
     res.json(sports);
 
   } catch (error) {

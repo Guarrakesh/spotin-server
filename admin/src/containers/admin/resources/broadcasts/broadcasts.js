@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
-  RadioButtonGroupInput, Edit, DisabledInput, BooleanInput, LongTextInput, FormDataConsumer,
+  RadioButtonGroupInput, Edit, Filter, DisabledInput, BooleanInput, LongTextInput, FormDataConsumer,
 DateField} from 'react-admin';
 import get from 'lodash/get';
 
@@ -23,8 +23,20 @@ const ReservationCountField = ({record}) => (
 ReservationCountField.propTypes = {
   record: PropTypes.object,
 };
+
+const BroadcastFilter = (props) => (
+  <Filter {...props}>
+    <ReferenceInput reference="events" source="event">
+      <EventAutocompleteInput />
+    </ReferenceInput>
+    <ReferenceInput reference="businesses" source="business">
+      <AutocompleteInput label="Locale" source="name" />
+    </ReferenceInput>
+
+  </Filter>
+);
 export const BroadcastList = (props) => (
-  <List {...props}>
+  <List {...props} filters={<BroadcastFilter/>}>
     <Datagrid>
 
       <ReferenceField reference="events" source="event">
