@@ -17,7 +17,7 @@ const ReservationFilter = (props) => (
     <ReferenceInput reference="events" source="event">
       <EventAutocompleteInput />
     </ReferenceInput>
-    <ReferenceInput reference="businesses" source="business">
+    <ReferenceInput reference="businesses" source="broadcast.business" label="Business">
       <AutocompleteInput label="Locale" source="name" />
     </ReferenceInput>
 
@@ -33,7 +33,7 @@ export const ReservationList = (props) => (
       <ReferenceField reference="events" source="event">
         <TextField source="name" label="Evento"/>
       </ReferenceField>
-      <ReferenceField reference="businesses" source="business">
+      <ReferenceField reference="businesses" source="broadcast.business" label="Business">
         <TextField source="name" label="Locale"/>
       </ReferenceField>
       <DateField source="created_at" showTime/>

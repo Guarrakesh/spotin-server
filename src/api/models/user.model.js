@@ -89,6 +89,23 @@ const userSchema = new mongoose.Schema({
   fcmTokens: {
     type: [ mongoose.Schema({ token: String, deviceId: String }, { _id: false }) ]
   },
+  notificationsEnabled: Boolean,
+
+  sportHits: [ mongoose.Schema({
+    sport: { type: mongoose.Schema.ObjectId, ref: "SportEvent" },
+    name: String,
+    hits: Number
+  }, { _id: false })],
+  competitionHits: [ mongoose.Schema({
+    competition: { type: mongoose.Schema.ObjectId, ref: "Competition" },
+    name: String,
+    hits: Number
+  }, { _id: false })],
+  competitorHits: [ mongoose.Schema({
+    competitor: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
+    name: String,
+    hits: Number
+  }, { _id: false })]
 
 
 
@@ -128,7 +145,7 @@ userSchema.method({
        'email',
        'picture',
        'role',
-       'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services"];
+       'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
      fields.forEach((field) => {
      transformed[field] = this[field];
@@ -222,7 +239,6 @@ userSchema.statics = {
           err.message = 'Incorrect email or password';
           throw new APIError(err);
         }
-
         return { user, accessToken: user.token() };
       }
 

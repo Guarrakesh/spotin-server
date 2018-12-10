@@ -60,7 +60,7 @@ sportEventSchema.pre('save', async function(next) {
   const Error = (message) => (new APIError({
     message,
     status: httpStatus.BAD_REQUEST
-  }))
+  }));
 
   if (!sport) {
     next(Error("Lo sport specificato non esiste."))
