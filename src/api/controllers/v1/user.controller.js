@@ -120,6 +120,7 @@ exports.listReservations = async (req, res, next) => {
     //let reservations = {docs: []};
 
     const reservations = await Reservation.findByUserId(loggedUser._id, {
+      include_past_events: false,
       sort: { field: "created_at", order: -1 }
     });
 
@@ -330,8 +331,7 @@ exports.listFavoriteEvents = async (req, res, next) => {
 
     const limit = parseInt(_end - _start, 10);
     const events = await SportEvent.paginate(
-      { _id: { $in: loggedUser.favorite_events } },
-      { end_at: { $gte: moment() } },
+      { _id: { $in: loggedUser.favorite_events }, start_at: { $gte: moment().toDate() } },
       {
         sort: { [_sort]: _order },
         offset: parseInt(_start, 10),
