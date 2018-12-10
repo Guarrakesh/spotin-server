@@ -15,7 +15,7 @@ const handler = (err, req, res, next) => {
     errors: err.errors,
     stack: err.stack,
   };
-  logger.error(`${err.message}`, err);
+  process.env.NODE_ENV !== "test" && logger.error(`${err.message}`, err);
   if (env !== 'development') {
     delete response.stack;
   }

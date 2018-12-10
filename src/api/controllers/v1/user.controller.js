@@ -8,7 +8,7 @@ const { SportEvent } = require('../../models/sportevent.model');
 const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
 const { Reservation } = require('../../models/reservation.model');
 const mongoose = require('mongoose');
-
+const moment = require('moment');
 
 /**
  * Load user and append to req.
@@ -330,7 +330,9 @@ exports.listFavoriteEvents = async (req, res, next) => {
 
     const limit = parseInt(_end - _start, 10);
     const events = await SportEvent.paginate(
-      { _id: { $in: loggedUser.favorite_events } }, {
+      { _id: { $in: loggedUser.favorite_events } },
+      { end_at: { $gte: moment() } },
+      {
         sort: { [_sort]: _order },
         offset: parseInt(_start, 10),
         limit,

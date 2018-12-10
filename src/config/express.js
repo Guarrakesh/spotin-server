@@ -12,6 +12,8 @@ const { logs } = require('./vars');
 const strategies = require('./passport');
 const error = require('../api/middlewares/error');
 
+const analytics = require('../api/middlewares/analytics');
+
 //const winstonConfig = require('./winston');
 /*
  const analyticsMiddleware = (req, res, next) => {
@@ -79,9 +81,15 @@ passport.use('jwt', strategies.jwt);
 passport.use('facebook', strategies.facebook);
 passport.use('google', strategies.google);
 
+// Analytics stuff
+app.use(analytics);
+
 // mount api v1 routes
+
 app.use('/v1', appRoutes);
 app.use('/admin', adminRoutes);
+
+
 // if error is not an instanceOf APIError, convert it.
 app.use(error.converter);
 

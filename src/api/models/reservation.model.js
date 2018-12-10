@@ -3,6 +3,7 @@ const httpStatus = require('http-status');
 
 const { omitBy, isNil, pick} = require('lodash');
 const { pagination } = require('../utils/aggregations');
+const moment = require('moment');
 const reservationSchema = new mongoose.Schema({
 
   user: {
@@ -55,16 +56,20 @@ reservationSchema.statics = {
     const { Broadcast } = require('./broadcast.model');
 
     const filter = {};
+
     if (broadcast) filter.broadcast = mongoose.Types.ObjectId(broadcast);
     if (event) filter.event = mongoose.Types.ObjectId(event);
     if (business) filter.business = mongoose.Types.ObjectId(business);
     if (id_like) filter._id = id_like;
     if (user) filter.user = mongoose.Types.ObjectId(user);
-
     const result = await Broadcast.aggregate([
-      { $match: { "reservations.0": { $exists: 1 } } },
+      { $match: {
+        "reservations.0": { $exists: 1 },
+        end_at: { $gte: moment().toDate() }
+
+      } },
       ...finalAggregationStages,
-      { $match: filter },
+        { $match: filter },
       ...pagination({skip, limit, sort}),
     ]);
     return result.length === 1 ? result[0] : {docs: [], total: 0};
@@ -75,7 +80,7 @@ reservationSchema.statics = {
       { $match: { "reservations._id": id} },
       ...finalAggregationStages,
 
-    ])
+    ]);
   },
   async findByUserId(id, opts = {}) {
     const options = opts;

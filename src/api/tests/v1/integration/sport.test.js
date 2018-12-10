@@ -7,14 +7,14 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const bcrypt = require('bcryptjs')
 const { some, omit, isNil } = require('lodash');
-const app = require('../../../index');
+const app = require('../../../../index');
 
-const { Sport } = require('../../models/sport.model');
-const User = require('../../models/user.model');
+const { Sport } = require('../../../models/sport.model');
+const User = require('../../../models/user.model');
 const { slugify } = require('lodash-addons');
 const sandbox = sinon.createSandbox();
 
-const JWT_EXPIRATION = require('../../../config/vars').jwtExpirationInterval;
+const JWT_EXPIRATION = require('../../../../config/vars').jwtExpirationInterval;
 
 
 describe('Sports API', async () => {

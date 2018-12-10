@@ -7,16 +7,16 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const bcrypt = require('bcryptjs');
 const { some, omit, isNil } = require('lodash');
-const app = require('../../../index');
+const app = require('../../index');
 
-const { Competitor } = require('../../models/competitor.model');
-const { Competition } = require('../../models/competition.model');
-const { SportEvent } = require('../../models/sportevent.model');
-const { Sport } = require('../../models/sport.model');
-const User = require('../../models/user.model');
+const { Competitor } = require('../models/competitor.model.js');
+const { Competition } = require('../models/competition.model.js');
+const { SportEvent } = require('../models/sportevent.model.js');
+const { Sport } = require('../models/sport.model.js');
+const User = require('../models/user.model.js');
 
 let {dbCompetitors, dbCompetitions,
-  dbUsers, dbSports, dbEvents } = require('./fixtures');
+  dbUsers, dbSports, dbEvents } = require('./../tests/v1/integration/fixtures');
 
 
 describe('SportEvent API', () => {

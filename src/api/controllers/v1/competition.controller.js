@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const {Competition} = require('../../models/competition.model.js');
 
 const { Sport } = require('../../models/sport.model.js');
-
+const User = require('../../models/user.model');
 const { Competitor } = require('../../models/competitor.model.js');
 
 exports.load = async (req, res, next, id) => {
@@ -31,11 +31,8 @@ exports.list = async (req, res, next) => {
     const { _order = 1, _end = 20, _sort = "_id", _start = 0 } = req.query;
 
 
+
     const competitions = await Competition.list(filterQuery);
-
-
-
-
     /* const transformed = competitions.map(async comp => {
      const obj = Object.assign({},comp);
      let weekEvents = await SportEvent.getWeekEvents(comp._id);
@@ -52,6 +49,7 @@ exports.list = async (req, res, next) => {
 
     res.set("X-Total-Count", competitions.length);
     res.json(competitions);
+
   } catch (error) {
     next(error)
   }

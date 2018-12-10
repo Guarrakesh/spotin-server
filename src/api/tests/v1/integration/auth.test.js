@@ -4,10 +4,10 @@ const httpStatus = require('http-status');
 const { expect } = require('chai');
 const sinon = require('sinon');
 const moment = require('moment-timezone');
-const app = require('../../../index');
-const User = require('../../models/user.model');
-const RefreshToken = require('../../models/refreshToken.model');
-const authProviders = require('../../services/authProviders');
+const app = require('../../../../index');
+const User = require('../../../models/user.model');
+const RefreshToken = require('../../../models/refreshToken.model');
+const authProviders = require('../../../services/authProviders');
 
 const sandbox = sinon.createSandbox();
 
@@ -21,24 +21,28 @@ const fakeOAuthRequest = () => Promise.resolve({
 });
 
 describe('Authentication API', () => {
-  let dbUser;
+  let dbUser, dbAdmin, expiredRefreshToken;
   let user;
   let refreshToken;
 
   beforeEach(async () => {
-    dbUser = {
+    dbAdmin = {
       email: 'branstark@gmail.com',
       password: 'mypassword',
       name: 'Bran Stark',
       role: 'admin',
       username: "branstark"
     };
-
+    dbUser = {
+      email: "darioguarra@gmail.com",
+      password: "123456",
+      name: "Dario Guarra",
+      role: "user",
+    };
     user = {
-      email: 'sousa.dfs@gmail.com',
+      email: 'sousas.dfs@gmail.com',
       password: '123456',
       name: 'Daniel Sousa',
-      username: "daniel01"
     };
 
     refreshToken = {
@@ -57,6 +61,7 @@ describe('Authentication API', () => {
 
     await User.remove({});
     await User.create(dbUser);
+    await User.create(dbAdmin);
     await RefreshToken.remove({});
   });
 
@@ -130,6 +135,7 @@ describe('Authentication API', () => {
       return request(app)
         .post('/v1/auth/login')
         .send(dbUser)
+        .set("X-Client-Type", "mobileapp")
         .expect(httpStatus.OK)
         .then((res) => {
           delete dbUser.password;
@@ -143,6 +149,7 @@ describe('Authentication API', () => {
     it('should report error when email and password are not provided', () => {
       return request(app)
         .post('/v1/auth/login')
+
         .send({})
         .expect(httpStatus.BAD_REQUEST)
         .then((res) => {
