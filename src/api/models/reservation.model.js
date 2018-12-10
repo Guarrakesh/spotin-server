@@ -52,7 +52,7 @@ reservationSchema.statics = {
 
   async list(opts = {}) {
 
-    const {skip = 0, limit = 10, sort, user, broadcast, business, event, id_like } = opts;
+    const {skip = 0, limit = 10, sort, user, broadcast, business, event, id_like, include_past_events = true} = opts;
     const { Broadcast } = require('./broadcast.model');
 
     const filter = {};
@@ -62,11 +62,12 @@ reservationSchema.statics = {
     if (business) filter.business = mongoose.Types.ObjectId(business);
     if (id_like) filter._id = id_like;
     if (user) filter.user = mongoose.Types.ObjectId(user);
+
+    const match = { "reservations.0": { $exists: 1 } };
+    if (!include_past_events) match.end_at =  { $gte: moment().toDate() };
     const result = await Broadcast.aggregate([
       { $match: {
-        "reservations.0": { $exists: 1 },
-        end_at: { $gte: moment().toDate() }
-
+        ...match
       } },
       ...finalAggregationStages,
         { $match: filter },
