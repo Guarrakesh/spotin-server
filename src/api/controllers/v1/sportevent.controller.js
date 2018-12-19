@@ -159,3 +159,48 @@ exports.remove = (req, res, next) => {
     .then(() => res.status(httpStatus.NO_CONTENT).end())
     .catch(e => next(e));
 };
+
+
+exports.fillAppealValue = async (req, res, next) => {
+  try {
+    const sportEvents = await SportEvent.aggregate([
+      {
+        $lookup: {
+          from: 'competitions',
+          localField: "competition",
+          as: 'competition',
+          foreignField: "_id"
+        }
+      },
+      {$unwind: "$competition"},
+
+      {
+        $lookup: {
+          from: 'sports',
+          localField: 'sport',
+          as: 'sport',
+          foreignField: '_id'
+        }
+      },
+      { $unwind: "$sport"}
+    ]);
+    await sportEvents.forEach(async sportEvent => {
+      let appealValue = sportEvent.competition.appealValue + sportEvent.sport.appealValue;
+      if (sportEvent.competitors.length > 0) {
+        sportEvent.competitors.forEach(async comp => {
+          const competitor = await Competitor.findById(comp.competitor);
+          appealValue += competitor.appealValue;
+        });
+      } else {
+        appealValue = appealValue * 3;
+      }
+
+      await SportEvent.updateOne({_id: sportEvent._id}, {$set: {appealValue: appealValue || 1}});
+    });
+
+    res.json({message: "done"});
+    res.statusCode(200);
+  } catch (e) {
+    next(e);
+  }
+};

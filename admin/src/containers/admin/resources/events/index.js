@@ -50,7 +50,7 @@ const EventFilter = (props) => (
 
 
 export const EventList = (props) => (
-  <List {...props} filters={<EventFilter/>} filter={{next_events: true}}>
+  <List {...props} filters={<EventFilter/>}>
     <Datagrid>
       <ReferenceField reference="sports" source="sport" label="Sport">
         <TextField source="name"/>
@@ -62,6 +62,7 @@ export const EventList = (props) => (
       <DateTimeField source="start_at"/>
 
       <TextField source="name"/>
+      <TextField source="appealValue"/>
       <EditButton/>
 
     </Datagrid>
