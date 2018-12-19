@@ -49,35 +49,49 @@ const sportEventSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  providers: [String]
+  providers: [String],
+
+  appealValue: Number,
 });
 
 sportEventSchema.pre('save', async function(next) {
-  //Check if sport exists
-  const sport = await Sport.findById(this.sport);
-  const competition = await Competition.findById(this.competition);
+  try {
+    let appealValue = 0;
+    //Check if sport exists
+    const sport = await Sport.findById(this.sport);
+    const competition = await Competition.findById(this.competition);
+    appealValue = sport.appealValue + competition.appealValue;
+    const Error = (message) => (new APIError({
+      message,
+      status: httpStatus.BAD_REQUEST
+    }));
 
-  const Error = (message) => (new APIError({
-    message,
-    status: httpStatus.BAD_REQUEST
-  }));
+    if (!sport) {
+      next(Error("Lo sport specificato non esiste."))
+    }
+    if (!competition) {
+      next(Error("La competizione specificata non esiste."));
+    }
 
-  if (!sport) {
-    next(Error("Lo sport specificato non esiste."))
+    const ids = this.competitors.map(comp => comp.competitor);
+
+    const competitors = await Competitor.find({_id: {$in: ids}});
+    if (!competitors || competitors.length !== this.competitors.length) {
+      next(Error("Uno o più sfidanti specificati non esistono."));
+    }
+    competitors.forEach(competitor => {
+      appealValue += competitor.appealValue;
+    });
+    if (!competitors || competitors.length === 0) {
+      appealValue = appealValue + competition.appealValue * 3;
+    }
+    this.appealValue = appealValue;
+    this.save();
+
+    next();
+  } catch (e) {
+    next(e);
   }
-  if (!competition) {
-    next(Error("La competizione specificata non esiste."));
-  }
-
-  const ids = this.competitors.map(comp => comp.competitor);
-
-  const competitors = await Competitor.find({ _id: { $in: ids }});
-  if (!competitors || competitors.length !== this.competitors.length) {
-    next(Error("Uno o più sfidanti specificati non esistono."));
-
-  }
-
-  next();
 });
 sportEventSchema.method({
   transform(user = null) {

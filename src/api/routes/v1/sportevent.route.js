@@ -11,13 +11,16 @@ const broadcastController = require('../../controllers/v1/broadcast.controller.j
 
 
 router.param('id', controller.load);
+router
+    .route('/fill-appeal-value')
+    .get(controller.fillAppealValue);
 
 router
   .route('/')
   .get(authorize([ADMIN, LOGGED_USER, BUSINESS]), controller.list)
-  .post(authorize(ADMIN), validate(createEvent), controller.create);
+  .post(authorize(ADMIN), validate(createEvent), controller.create)
 
-
+;
 router
   .route('/:id')
   .get(authorize([ADMIN, LOGGED_USER,BUSINESS]),controller.get)

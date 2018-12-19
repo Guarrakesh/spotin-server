@@ -33,16 +33,31 @@ const providers = [
 ];
 //Gli orari dei apertura e chiusura possono essere al massimo 2
 const businessHoursSchema = new mongoose.Schema({
-  opening1: {type: String, required: true},
-  opening2: String,
-  closing1: {type: String, required: true},
-  closing2: String
+  openings: Number,
+  open: [{ type: Number, min: 0, max: 1440 }],
+  close: [{ type: Number, min: 0, max: 1440 }]
+
 });
 //I giorni della settimana sono numeri da 0 a 6 (0 lunedi, 6 domenica)
 const businessDaysSchema = new mongoose.Schema({
-  closingDay: [Number],
-  hours: [businessHoursSchema]
+  mon: businessHoursSchema,
+  tue: businessHoursSchema,
+  wed: businessHoursSchema,
+  thu: businessHoursSchema,
+  fri: businessHoursSchema,
+  sat: businessHoursSchema,
+  sun: businessHoursSchema,
 });
+/*
+businessHours =  {
+  mon: { openings: 2, open: [540, 960], close: [780, 1440] },
+  //Lunedì apre alle 9 (540) e chiude alle 13 (780). Poi riapre alle 16 (960) e chiude alle 24 (1440)
+  thu: { openings: 1, open: [540], close: [1440] },
+  // Martedì ha una sola apertura e chiusurua, dalle 9 alle 24
+  wen: false,
+  // Mercoledì è chiuso
+}
+*/
 
 const businessSchema = new mongoose.Schema({
   name: {
@@ -94,6 +109,7 @@ const businessSchema = new mongoose.Schema({
     default: 0,
   },
   cover_versions: [imageVersionSchema],
+  pictures: [[imageVersionSchema]],
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'

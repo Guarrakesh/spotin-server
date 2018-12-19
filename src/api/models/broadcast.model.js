@@ -112,47 +112,57 @@ broadcastSchema.statics = {
       start_at: { $lte: now },
     };
 
-    console.log(filterQuery);
-    const results = await this.aggregate([
 
+    let results = await this.aggregate([
+        /* Il problema è in questi primi 3 stage, dove bisogna stabilire il criterio per prendere i businesses */
+      { $group: {
+        _id: "$event", numOfBusinesses: { $sum: 1 },
+        broadcast: { $push: "$$ROOT"}
+      }},
+      { $unwind: "$broadcast"},
+      { $replaceRoot: { newRoot: "$broadcast"}},
       { $match: filterQuery },
       {
-
         $lookup: {
           from: 'businesses',
-          let: { businessId: '$business'},
+          let: { businessId: '$business' },
           as: 'business',
           pipeline: [
-
             {
-
               $geoNear: {
                 near: {type: 'Point', coordinates: [parseFloat(longitude), parseFloat(latitude)]},
                 distanceField: 'dist.calculated',
                 distanceMultiplier: 1 / 1000, // meters to km
                 spherical: true,
-                maxDistance: (radius),
+                maxDistance: radius,
                 includeLocs: 'dist.location',
               },
             },
-            { $match: { $expr: { $eq: ['$_id', '$$businessId' ] } } } ,
+            { $match: { $expr: { $eq: ["$_id", "$$businessId" ] } } } ,
             { $project: { _id: 1, dist: 1, name: 1 }},
           ]
         }
       },
       {$unwind: '$business' },
       { $sort: { 'business.dist.calculated': 1 } },
-      { $group: { _id: '$business._id', data: { $addToSet: '$$ROOT' } } },
+      { $addFields: {
+        business: "$business._id",
+        distance: "$business.dist"
+      }},
       ...pagination({
         skip: _start,
         limit: _end - _start,
-        sort: { field: 'data.start_at', order: 1 },
+       // sort: { field: 'data.start_at', order: 1 },
       }),
     ]);
-
-    return results;
+    if (results.length === 0) return { docs: [], total: 0, near: {} };
+    results[0].near = results[0].docs.reduce((acc, obj) => ({
+        ...acc,
+        [obj._id]: obj.distance
+    }), {});
+    return results[0];
   }
-}
+};
 
 broadcastSchema.plugin(mongoosePaginate);
 broadcastSchema.plugin(deepPopulate, {
