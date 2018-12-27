@@ -232,7 +232,7 @@ userSchema.statics = {
     };
 
     if (password) {
-      if (user && await user.passwordMatches(password)) {
+        if (user && await user.passwordMatches(password)) {
 
         if ((clientType === "business" && user.role !== "business") || clientType === "mobileapp" && user.role !== LOGGED_USER) {
           //Se il login viene dall'App Business, controllo che l'utente trovato sia un business, altrimenti do autenticazione fallita

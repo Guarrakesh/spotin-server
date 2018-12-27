@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 
 const mongoosePaginate = require('mongoose-paginate');
 const { slugify } = require('lodash-addons');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema } = require('./image');
 const pointSchema = require('./point.schema');
 
 const broadcastRequestSchema = new mongoose.Schema({

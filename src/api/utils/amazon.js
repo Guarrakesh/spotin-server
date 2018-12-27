@@ -9,14 +9,15 @@ aws.config.update({accessKeyId: AWS_ACCESS_KEY_ID, secretAccessKey: AWS_SECRET_A
 const s3 = new aws.S3();
 
 
-exports.uploadImage = function(buffer, destFileName) {
+exports.uploadImage = function(buffer, destFileName, params = {}) {
   return new Promise(function(resolve, reject) {
     s3.upload({
       Bucket: 'spotinapp',
       ACL: 'public-read',
       Body: buffer,
       Key: destFileName.toString(),
-      ContentType: 'application/octet-stream'
+      ContentType: 'application/octet-stream',
+      ...params
     }, function(err, data) {
       if (err)
         reject(err);
@@ -27,9 +28,11 @@ exports.uploadImage = function(buffer, destFileName) {
 
 };
 
-exports.deleteObject = function(key) {
+
+
+exports.deleteObject = function(key, params = {}) {
   return new Promise(function(resolve, reject) {
-    s3.deleteObject({ Bucket: 'spotinapp', Key: key}, function (err, data) {
+    s3.deleteObject({ Bucket: 'spotinapp', Key: key, ...params}, function (err, data) {
       if (err) reject(err);
 
       else resolve(data);
@@ -37,26 +40,29 @@ exports.deleteObject = function(key) {
   });
 };
 
-const emptyDir = async function(dir) {
-  const listParams = {
+const emptyDir = async function(dir, listParams = {}, deleteParams = {}) {
+  const _listParams = {
     Bucket: "spotinapp",
-    Prefix: dir
+    Prefix: dir,
+    ...listParams
+
   };
 
-  const listedObjects = await s3.listObjectsV2(listParams).promise();
+  const listedObjects = await s3.listObjectsV2(_listParams).promise();
 
   if (listedObjects.Contents.length === 0) return;
 
-  const deleteParams = {
+  const _deleteParams = {
     Bucket: "spotinapp",
-    Delete: { Objects: [] }
+    Delete: { Objects: [] },
+    ...deleteParams,
   };
 
   listedObjects.Contents.forEach(({ Key }) => {
-    deleteParams.Delete.Objects.push({ Key });
+    _deleteParams.Delete.Objects.push({ Key });
   });
 
-  await s3.deleteObjects(deleteParams).promise();
+  await s3.deleteObjects(_deleteParams).promise();
 
   if (listedObjects.IsTruncated) await emptyDir(dir);
 };

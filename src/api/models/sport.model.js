@@ -8,7 +8,7 @@ const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const { slugify } = require('lodash-addons');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema } = require('./image');
 
 const sportSchema = new mongoose.Schema({
   name: {

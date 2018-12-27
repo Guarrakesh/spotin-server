@@ -3,7 +3,7 @@ const httpStatus = require('http-status');
 const { omitBy } = require('lodash');
 const moment = require('moment-timezone');
 const APIError = require('../utils/APIError');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema } = require('./image');
 const { slugify } = require('lodash-addons');
 const { pagination } = require('../utils/aggregations');
 

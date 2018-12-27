@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
-const uuidv1 = require('uuid/v1');
-
 const mongoosePaginate = require('mongoose-paginate');
 const sizeOf = require('image-size');
 const mime = require('mime-to-extensions');
 
 const addressSchema = require('./address.schema');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema, imageSchema } = require('./image');
 const { difference, omit } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
-const { uploadImage, emptyDir } = require('../utils/amazon.js');
+const { uploadImage, emptyDir, deleteObject } = require('../utils/amazon.js');
 
 const { pagination } = require('../utils/aggregations');
 
@@ -58,6 +56,8 @@ businessHours =  {
   // Mercoledì è chiuso
 }
 */
+
+
 
 const businessSchema = new mongoose.Schema({
   name: {
@@ -109,7 +109,7 @@ const businessSchema = new mongoose.Schema({
     default: 0,
   },
   cover_versions: [imageVersionSchema],
-  pictures: [[imageVersionSchema]],
+  pictures: [imageSchema],
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'
@@ -127,23 +127,23 @@ businessSchema.pre('save', async function(next) {
       const compactAddress = `${address.street} ${address.number}, ${address.zip} ${address.city}, ${address.province}`;
 
       return googleMapsClient.geocode({address: compactAddress}).asPromise()
-        .then(res => {
-          const response = res.json;
-          if (response.results.length > 0) {
-            const {location} = response.results[0].geometry;
-            this.address.location = {
-              type: 'Point',
-              coordinates: [location.lng, location.lat]
+          .then(res => {
+            const response = res.json;
+            if (response.results.length > 0) {
+              const {location} = response.results[0].geometry;
+              this.address.location = {
+                type: 'Point',
+                coordinates: [location.lng, location.lat]
+              }
+
+
+
             }
-
-
-
-          }
-          next();
-        })
-        .catch(err => {
-          next(err);
-        })
+            next();
+          })
+          .catch(err => {
+            next(err);
+          })
 
 
     } else { return next() }
@@ -165,6 +165,13 @@ businessSchema.method({
       throw Error(error);
     }
   },
+
+  s3Path: () =>  {
+    return `images/businesses/${this.id}`;
+  },
+
+
+
   transform(fieldsToOmit = []) {
     const transformed = {};
     let fields = difference(['_id',
@@ -194,30 +201,21 @@ businessSchema.method({
     return transformed;
   },
   async uploadCover(file) {
-    const ext = mime.extension(file.mimetype);
 
+    const ext = mime.extension(file.mimetype);
     try {
-      const coverId = uuidv1();
+
       //Cancello prima tutta la cartella
       await emptyDir(`images/businesses/${this._id.toString()}/`);
       const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
+      this.cover_versions = [ { url: data.Location, width, height } ];
 
-      this.cover_versions = [{url: data.Location, width, height}];
 
-
-      const basePath = s3WebsiteEndpoint + "/images/businesses";
-
-      imageSizes.forEach(({width, height}) => {
-
-        this.cover_versions.push({
-          url: `${basePath}/${this._id.toString()}/${width}x${height}/cover.${ext}`,
-          width: width,
-          height: height
-        });
-
-      });
+      const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
+      const fileName = "cover." + ext;
+      this.cover_versions.concat(this.makeImageVersions(basePath, fileName));
       await this.save();
       //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
     } catch (error) {
@@ -225,9 +223,49 @@ businessSchema.method({
       throw Error(error);
     }
 
-  }
+  },
+
+  async removePicture(picture) {
+    if (!this.pictures) return;
+
+    const pic = this.pictures.find(pic => pic.id === picture.id);
+    if (pic) {
+      await deleteObject(`${this.s3Path()}/${pic.id}/${pic.ext}`);
+      await this.update({ _id: this._id }, { $pull: { 'pictures': { id: pic.id }}});
+
+    }
+  },
+  async uploadPicture(file) {
+
+      const ext = mime.extension(file.mimetype);
+
+      const _id = new mongoose.Types.ObjectId();
+      const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
+      const fileName = `picture_${_id.toString()}.${ext}`;
+
+      const data = await uploadImage(
+          file.buffer,
+          `images/businesses/${this._id.toString()}/picture_${_id.toString()}.${ext}`,
+          {
+            Metadata: {
+              "X-ObjectId": _id.toString()
+            }
+          });
+      const {width, height} = await sizeOf(file.buffer);
+      const versions = [ { url: data.Location, width, height } ].concat(this.makeImageVersions(basePath, fileName));
+      this.pictures.push({ _id, versions: versions });
+      await this.save();
+
+
+
+
+  },
+
+
+
 });
 businessSchema.statics = {
+
 
 
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
@@ -268,9 +306,26 @@ businessSchema.statics = {
     const result = await this.aggregate(aggregations);
     return result.length === 1 ? omit(result[0], "_id") : {docs: [], total: 0};
 
+  },
+  makeImageVersions(basePath, fileName) {
+
+    const _basePath = basePath.replace(/^\/|\/$/g, ''); // Rimuovi i trailing e leading slash
+    const _fileName = fileName.replace(/^\/|\/$/g, '');
+
+    const versions = [];
+    imageSizes.forEach(({ width, height }) => {
+      versions.push({
+        url: `${_basePath}/${width}x${height}/${_fileName}`,
+        width,
+        height
+      });
+    });
+    return versions;
   }
+
 };
 businessSchema.index({ 'address.location': '2dsphere'});
 businessSchema.plugin(mongoosePaginate);
 exports.Business = mongoose.model('Business', businessSchema, "businesses");
 exports.businessSchema = businessSchema;
+exports.imageSizes = imageSizes;

@@ -10,7 +10,7 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const Sport = require('./sport.model.js');
 const mongoosePaginate = require('mongoose-paginate');
 const { slugify }  = require('lodash-addons');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema } = require('./image');
 
 
 /* Endpoint per ottenere, on the fly, le immagini ridimensionate */
