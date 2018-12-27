@@ -9,7 +9,7 @@ const { difference, omit } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
-const { uploadImage, emptyDir, deleteObject } = require('../utils/amazon.js');
+const amazon = require("../utils/amazon");
 
 const { pagination } = require('../utils/aggregations');
 
@@ -90,7 +90,7 @@ const businessSchema = new mongoose.Schema({
     required: true
   },
   businessHours: businessDaysSchema,
-  //photos: [imageVersionSchema],
+  // photos: [imageVersionSchema],
 
   vat: {
     required: true,
@@ -98,7 +98,7 @@ const businessSchema = new mongoose.Schema({
     trim: true,
   },
   tradeName: {
-    //required: true,
+    // required: true,
     type: String,
     trim: true
   },
@@ -128,8 +128,9 @@ businessSchema.pre('save', async function(next) {
 
       return googleMapsClient.geocode({address: compactAddress}).asPromise()
           .then(res => {
+            
             const response = res.json;
-            if (response.results.length > 0) {
+            if (response && response.results && response.results.length > 0) {
               const {location} = response.results[0].geometry;
               this.address.location = {
                 type: 'Point',
@@ -153,7 +154,7 @@ businessSchema.pre('save', async function(next) {
   }
 });
 businessSchema.post('remove', function(next) {
-  emptyDir(`/images/businesses/${this._id.toString()}/`);
+  amazon.emptyDir(`/images/businesses/${this._id.toString()}/`);
 });
 
 businessSchema.method({
@@ -206,8 +207,8 @@ businessSchema.method({
     try {
 
       //Cancello prima tutta la cartella
-      await emptyDir(`images/businesses/${this._id.toString()}/`);
-      const data = await uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
+      await amazon.emptyDir(`images/businesses/${this._id.toString()}/`);
+      const data = await amazon.uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
       this.cover_versions = [ { url: data.Location, width, height } ];
@@ -215,7 +216,7 @@ businessSchema.method({
 
       const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
       const fileName = "cover." + ext;
-      this.cover_versions.concat(this.makeImageVersions(basePath, fileName));
+      this.cover_versions.concat(this.constructor.makeImageVersions(basePath, fileName));
       await this.save();
       //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
     } catch (error) {
@@ -230,44 +231,36 @@ businessSchema.method({
 
     const pic = this.pictures.find(pic => pic.id === picture.id);
     if (pic) {
-      await deleteObject(`${this.s3Path()}/${pic.id}/${pic.ext}`);
+      await amazon.deleteObject(`${this.s3Path()}/${pic.id}/${pic.ext}`);
       await this.update({ _id: this._id }, { $pull: { 'pictures': { id: pic.id }}});
 
     }
   },
   async uploadPicture(file) {
+    const ext = mime.extension(file.mimetype);
 
-      const ext = mime.extension(file.mimetype);
+    const _id = new mongoose.Types.ObjectId();
+    const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
+    const fileName = `picture_${_id.toString()}.${ext}`;
 
-      const _id = new mongoose.Types.ObjectId();
-      const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
-      const fileName = `picture_${_id.toString()}.${ext}`;
+    const data = await amazon.uploadImage(
+      file.buffer,
+      `images/businesses/${this._id.toString()}/picture_${_id.toString()}.${ext}`,
+      {
+        Metadata: {
+          'X-ObjectId': _id.toString(),
+        },
+      }
+    );
 
-      const data = await uploadImage(
-          file.buffer,
-          `images/businesses/${this._id.toString()}/picture_${_id.toString()}.${ext}`,
-          {
-            Metadata: {
-              "X-ObjectId": _id.toString()
-            }
-          });
-      const {width, height} = await sizeOf(file.buffer);
-      const versions = [ { url: data.Location, width, height } ].concat(this.makeImageVersions(basePath, fileName));
-      this.pictures.push({ _id, versions: versions });
-      await this.save();
-
-
-
-
+    const { width, height } = await sizeOf(file.buffer);
+    const versions = [{ url: data.Location, width, height }]
+      .concat(this.constructor.makeImageVersions(basePath, fileName));
+    this.pictures.push({ _id, versions });
+    await this.save();
   },
-
-
-
 });
 businessSchema.statics = {
-
-
-
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
 
 

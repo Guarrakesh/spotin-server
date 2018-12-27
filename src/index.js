@@ -1,20 +1,21 @@
 // make bluebird default Promise
 Promise = require('bluebird'); // eslint-disable-line no-global-assign
-const { port, env } = require('./config/vars');
+const { port, env, mongo } = require('./config/vars');
 const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 const express = require('express');
 const path = require('path');
 // open mongoose connection
+
 mongoose.connect();
 
 
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === "staging") {
-  //Serve static files
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+  // Serve static files
   app.use(express.static(path.join(__dirname, '../admin/build')));
 
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname,'../admin/build', 'index.html'))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
   });
 }
 // listen to requests

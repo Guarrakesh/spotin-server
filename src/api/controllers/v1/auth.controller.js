@@ -101,7 +101,7 @@ exports.forgotPassword = async (req, res, next) => {
     user.passwordResetToken = await user.resetToken();
     await user.save();
 
-    //Send Email
+    // Send Email
     const data = {
       to: user.email,
       from: email.noreplyMail,
