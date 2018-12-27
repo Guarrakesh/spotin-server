@@ -37,6 +37,7 @@ describe('Users API', () => {
 
 
   beforeEach(async() => {
+
     try {
       user = {
         email: 'sousa.dfs@gmail.com',
@@ -48,11 +49,10 @@ describe('Users API', () => {
       dbUser = await insertUser();
       dbAdmin = await insertAdmin();
 
-      console.log(dbUser, dbAdmin);
+
       adminAccessToken = (await User.findAndGenerateToken(dbAdmin)).accessToken;
       userAccessToken = (await User.findAndGenerateToken(dbUser)).accessToken;
     } catch (e) {
-      console.log(e)
     }
 
   });

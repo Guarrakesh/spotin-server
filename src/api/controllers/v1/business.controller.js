@@ -24,7 +24,7 @@ exports.list = async (req, res, next) => {
   try {
 
     const filterQuery = omit(req.query, ['latitude', 'longitude','radius']);
-    const {_end, _start, _order, _sort } = req.query;
+    const {_end, _start = 0, _order, _sort } = req.query;
     const { latitude, longitude, radius } = req.query;
     let data, near = {};
 

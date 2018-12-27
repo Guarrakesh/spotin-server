@@ -7,7 +7,7 @@ const APIError = require('../utils/APIError');
 const httpStatus = require('http-status');
 const { reservationSchema } = require('./reservation.model');
 const { pagination } = require('../utils/aggregations');
-const { imageVersionSchema } = require('./imageVersion');
+const { imageVersionSchema } = require('./image');
 const offerSchema = require('./offer.schema');
 const { SportEvent } = require('./sportevent.model');
 
