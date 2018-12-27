@@ -6,6 +6,7 @@ const { Business, imageSizes } = require('../../models/business.model');
 const { factory } = require("../../factories/Factory");
 const { s3WebsiteEndpoint } = require('../../../config/vars');
 const amazon = require('../../utils/amazon');
+const { googleMapsClient } = require('../../utils/google');
 const faker = require('faker');
 const sizeOf = require('image-size');
 
@@ -13,7 +14,7 @@ var fs = require('fs');
 var path = require('path')
 
 let business;
-const sandbox = sinon.createSandbox()
+const sandbox = sinon.createSandbox();
 
 describe("Business Model", () => {
   beforeEach(async () => {
@@ -24,7 +25,7 @@ describe("Business Model", () => {
     }
   });
 
-  afterEach(async() => {
+  afterEach(() => {
     sandbox.restore();
   });
   describe("makeImageVersions()", () => {
@@ -48,22 +49,26 @@ describe("Business Model", () => {
   });
 
   describe('uploadPicture()', () => {
-    sandbox.stub(amazon, 'uploadImage').callsFake(() => {
-      return { Location: "test_location" }
+    try {
+      it ("Should push new picture to pictures field", async () => {
+        sandbox.stub(amazon, 'uploadImage').callsFake(async () => {
+          return new Promise((resolve) => resolve({ Location: "test_location" }));
+        });
+        sandbox.stub(googleMapsClient, "geocode")
+          .returns({asPromise: () => new Promise(resolve => resolve({json: undefined}))});
+        
+        const readfile = promisify(fs.readFile);
+        const file = await readfile(path.join(__dirname + "/../", 'files', '354.jpg'));
+        await business.uploadPicture({ buffer: file });
+        expect(sizeOf(file).width).to.be.equal(458);
+        expect(business.pictures).to.be.an('array');
+        expect(business.pictures).to.have.lengthOf(1);
+        expect(business.pictures[0]).to.have.property("_id");
+
     });
-
-
-
-    it ("Should push new picture to pictures field", async () => {
-      const readfile = promisify(fs.readFile);
-      const file = await readfile(path.join(__dirname + "/../", 'files', '354.jpeg'));
-      await business.uploadPicture(file);
-      expect(sizeOf(image).width).to.be.equal(458);
-      expect(business.pictures).to.be.an('array');
-      expect(business.pictures).to.have.lengthOf(1);
-      expect(business.pictures[0]).to.have.property("_id");
-
-    });
-
+  } catch (e) {
+    console.log
+  }
   });
+
 });

@@ -11,13 +11,13 @@ const moment = require('moment');
 const { pagination } = require('../../utils/aggregations');
 
 const { BUSINESS, ADMIN } = require('../../middlewares/auth');
-exports.load = async(req, res, next, id) => {
-  try {
 
+exports.load = async (req, res, next, id) => {
+  try {
     const { loggedUser } = req.locals;
     const broadcast = await Broadcast.get(id);
 
-    broadcast['reserved'] = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) === undefined ? false : true;
+    broadcast.reserved = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) !== undefined;
 
 
     req.locals = { broadcast };
@@ -25,18 +25,14 @@ exports.load = async(req, res, next, id) => {
   } catch (error) {
     return errorHandler(error, req, res);
   }
-
 };
 
 exports.get = (req, res) => res.json(req.locals.broadcast);
 
 exports.create = async (req, res, next) => {
   try {
-
-
-
     const broadcast = new Broadcast(req.body);
-    const {loggedUser} = req.locals;
+    const { loggedUser } = req.locals;
     // Prima di tutto controllo se l'utente è un admin o un business
     // Se è un admin, tutto ok
     // Se è un business, allora devo controllare ulteriormente che req.body.business coincida
@@ -51,7 +47,7 @@ exports.create = async (req, res, next) => {
       business = await Business.findById(userBusiness._id);
 
       if (!business)
-        throw new ApiError({message: "You are not authorized to access this business", status: 403});
+        {throw new ApiError({message: "You are not authorized to access this business", status: 403});}
     } else {
       business = await Business.findById(req.body.business);
     }
@@ -62,7 +58,7 @@ exports.create = async (req, res, next) => {
     const spots = event.spots;
 
     if (!business.spots >= spots)
-      throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});
+      {throw new ApiError({message: "You don't have enough spot to buy this event", status: 400});}
 
 
     if (req.body.plus === true) {
@@ -76,25 +72,24 @@ exports.create = async (req, res, next) => {
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
 
 
-
     res.status(httpStatus.CREATED);
     res.json(savedBroadcast);
   } catch (error) {
     next(error);
   }
-
 };
 
 exports.list = async (req, res, next) => {
   try {
-
     const { loggedUser } = req.locals;
-    //TODO: Gestire geolocalizzazione
+    // TODO: Gestire geolocalizzazione
 
     let broadcasts;
-    let near = {};
+    const near = {};
     let filterQuery = omit(req.query, ['latitude', 'longitude', 'radius', '_end', '_sort', '_order', '_start']);
-    const { _end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
+    const {
+ _end = 10, _start = 0, _order = 1, _sort = 'start_at' 
+} = req.query;
     const { latitude, longitude, radius } = req.query;
     if (filterQuery.event) filterQuery.event = mongoose.Types.ObjectId(filterQuery.event);
     const now = moment().toDate();
@@ -105,104 +100,104 @@ exports.list = async (req, res, next) => {
     };
 
     if (latitude && longitude && radius) {
-      let _businesses = await Broadcast.aggregate([
-        {$match: filterQuery},
+      const _businesses = await Broadcast.aggregate([
+        { $match: filterQuery },
         {
-          '$lookup': {
-            'from': 'sport_events',
-            'localField': 'event',
-            'as': 'eventObj',
-            'foreignField': '_id'
-          }
+          $lookup: {
+            from: 'sport_events',
+            localField: 'event',
+            as: 'eventObj',
+            foreignField: '_id',
+          },
         },
         {
-          '$unwind': {
-            'path': '$event'
-          }
+          $unwind: {
+            path: '$event',
+          },
         },
         {
-          '$sort': {
-            'event.appealValue': -1
-          }
+          $sort: {
+            'event.appealValue': -1,
+          },
         },
         {
-          '$lookup': {
-            'from': 'businesses',
-            'let': {
-              'businessId': '$business'
+          $lookup: {
+            from: 'businesses',
+            let: {
+              businessId: '$business',
             },
-            'as': 'businessObj',
-            'pipeline': [
+            as: 'businessObj',
+            pipeline: [
               {
-                '$geoNear': {
-                  'near': {
-                    'type': 'Point',
-                    'coordinates': [
-                      parseFloat(longitude), parseFloat(latitude)
-                    ]
+                $geoNear: {
+                  near: {
+                    type: 'Point',
+                    coordinates: [
+                      parseFloat(longitude), parseFloat(latitude),
+                    ],
                   },
-                  'distanceField': 'dist.calculated',
-                  'distanceMultiplier': 1 / 1000,
-                  'spherical': true,
-                  'maxDistance': (radius),
-                  'includeLocs': 'dist.location'
-                }
+                  distanceField: 'dist.calculated',
+                  distanceMultiplier: 1 / 1000,
+                  spherical: true,
+                  maxDistance: (radius),
+                  includeLocs: 'dist.location',
+                },
               }, {
-                '$match': {
-                  '$expr': {
-                    '$eq': [
-                      '$_id', '$$businessId'
-                    ]
-                  }
-                }
+                $match: {
+                  $expr: {
+                    $eq: [
+                      '$_id', '$$businessId',
+                    ],
+                  },
+                },
               }, {
-                '$project': {
-                  '_id': 1,
-                  'dist': 1,
-                  'name': 1
-                }
-              }
-            ]
-          }
+                $project: {
+                  _id: 1,
+                  dist: 1,
+                  name: 1,
+                },
+              },
+            ],
+          },
         },
         {
-          '$unwind': {
-            'path': '$businessObj'
-          }
+          $unwind: {
+            path: '$businessObj',
+          },
         },
-        {'$unwind': "$eventObj"},
+        { $unwind: '$eventObj' },
         {
-          '$group': {
-            '_id': '$business',
-            'numOfBroadcasts': {
-              '$sum': 1
+          $group: {
+            _id: '$business',
+            numOfBroadcasts: {
+              $sum: 1,
             },
-            'businessObj': {
-              '$first': '$businessObj'
+            businessObj: {
+              $first: '$businessObj',
             },
-            'broadcasts': {
-              '$push': '$$ROOT'
-            }
-          }
+            broadcasts: {
+              $push: '$$ROOT',
+            },
+          },
         },
         {
-          '$sort': {
-            'businessObj.dist.calculated': 1
-          }
+          $sort: {
+            'businessObj.dist.calculated': 1,
+          },
         },
         ...pagination({
           skip: _start,
           limit: _end - _start,
         }),
       ]);
-      if (!_businesses[0]) return res.json({docs: [], total: 0});
+      if (!_businesses[0]) return res.json({ docs: [], total: 0 });
       const broadcastIds = [];
       const _broadcasts = _businesses[0].docs.map((business) => {
         let broadcast = business.broadcasts.find(br => !(broadcastIds.includes(br._id.toString())));
         if (broadcast) {
           broadcastIds.push(broadcast._id.toString());
         } else {
-          broadcast = event.broadcasts[0];
+          [broadcast] = business.broadcasts;
         }
         return broadcast;
       });
@@ -210,7 +205,7 @@ exports.list = async (req, res, next) => {
       _businesses[0].docs = _broadcasts;
       _businesses[0].near = _businesses[0].docs.reduce((acc, obj) => ({
         ...acc,
-        [obj._id]: obj.businessObj.dist
+        [obj._id]: obj.businessObj.dist,
       }), {});
 
 
@@ -260,23 +255,18 @@ exports.list = async (req, res, next) => {
      */
     broadcasts = await Broadcast.paginate(filterQuery, {
       //  sort: { [_sort]: _order },
-      sort: { start_at: 1 }, //TODO: Fix temporaneo per l'app, ma da rivedere
+      sort: { start_at: 1 }, // TODO: Fix temporaneo per l'app, ma da rivedere
       offset: parseInt(_start, 10),
       limit: parseInt(_end - _start, 10),
       lean: true,
     });
-    broadcasts.docs = broadcasts.docs.map((broadcast) => {
-      return {
-        ...broadcast,
-        reserved: broadcast.reservations
-            .find(r => r.user.toString() === loggedUser._id.toString()) !== undefined,
-      };
-    });
+    broadcasts.docs = broadcasts.docs.map(broadcast => ({
+      ...broadcast,
+      reserved: broadcast.reservations
+        .find(r => r.user.toString() === loggedUser._id.toString()) !== undefined,
+    }));
 
     res.json(broadcasts);
-
-
-
   } catch (error) {
     next(error);
   }
@@ -286,6 +276,6 @@ exports.remove = (req, res, next) => {
   const { broadcast } = req.locals;
 
   broadcast.remove()
-      .then(() => res.status(200).end())
-      .catch(e => next(e));
+    .then(() => res.status(200).end())
+    .catch(e => next(e));
 };

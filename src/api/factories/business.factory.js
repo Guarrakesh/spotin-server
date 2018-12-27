@@ -30,11 +30,7 @@ function load(Factory, factory) {
         tradeName: faker.company.bs(),
         spots: faker.random.number({min: 0, max: 10000}),
         cover_versions: [{width: 350, height: 350, url: faker.image.imageUrl(350, 350)}],
-        pictures: [
-          [{width: 350, height: 350, url: faker.image.imageUrl(350, 350)}],
-          [{width: 350, height: 350, url: faker.image.imageUrl(350, 350)}],
-          [{width: 350, height: 350, url: faker.image.imageUrl(350, 350)}]
-        ],
+        
 
         // user: (faker) => {
         //   factory(User).create()._id,

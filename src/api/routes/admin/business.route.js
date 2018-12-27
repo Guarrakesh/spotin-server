@@ -15,11 +15,19 @@ router.param('id', controller.load);
 router
   .route('/')
   .get(controller.list)
-  .post(authorize(ADMIN), [upload.single('picture'),validate(createBusiness)], controller.create);
+  .post(authorize(ADMIN), [
+    upload.single('picture'),
+    upload.array('pictures', 5),
+    validate(createBusiness),
+  ], controller.create);
 router
   .route('/:id')
   .get(controller.get)
-  .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update)
+  .patch(authorize(ADMIN), [
+    upload.single('picture'),
+    upload.array('pictures', 5),
+    validate(updateBusiness),
+  ], controller.update)
   .delete(authorize(ADMIN), controller.remove)
 ;
 

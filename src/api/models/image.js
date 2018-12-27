@@ -15,7 +15,6 @@ const imageSchema = new mongoose.Schema({
   mime: String,
   order: {
     type: String,
-    default: 0
   }
 }, { timestamps: true, _id: true  });
 

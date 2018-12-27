@@ -1,3 +1,14 @@
 {
-  "standard.enable": false
+  "standard.enable": false,
+  "mocha.files.glob": "src/api/tests/**/*.js",
+  "mocha.options": {
+    "timeout": "10000"
+  },
+  "mocha.node_options": [
+    "NODE_ENV",
+    "test"
+  ],
+  "mocha.env": {
+    "NODE_ENV": "test"
+  }
 }

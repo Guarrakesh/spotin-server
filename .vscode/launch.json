@@ -1,6 +1,39 @@
 {
   "version": "0.2.0",
   "configurations": [
+
+    {
+      "name": "Watson",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/console.py",
+      "args": [
+        "dev",
+        "runserver",
+        "--noreload=True"
+      ],
+      "jinja": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "-u",
+        "tdd",
+        "--timeout",
+        "999999",
+        "--colors",
+        "--recursive",
+        "src/api/tests",
+        "${workspaceFolder}/test"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
     {
       "type": "node",
       "request": "launch",
