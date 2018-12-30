@@ -38,8 +38,7 @@ const sanitizeRestProps = (rest) => ({
 }) => rest;
 /* eslint-enable */
 
-
-export const VersionedImageField = ({
+ const VersionedImageField = ({
   className,
   classes,
   record,
