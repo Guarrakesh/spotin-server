@@ -11,6 +11,7 @@ const s3 = new aws.S3();
 
 exports.uploadImage = function(buffer, destFileName, params = {}) {
   return new Promise(function(resolve, reject) {
+
     s3.upload({
       Bucket: 'spotinapp',
       ACL: 'public-read',

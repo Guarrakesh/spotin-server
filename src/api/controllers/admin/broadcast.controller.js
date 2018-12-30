@@ -70,6 +70,8 @@ exports.create = async (req, res, next) => {
 
 };
 exports.update = async (req, res, next) => {
+
+
   const updateBroadcast = Object.assign(req.locals.broadcast, req.body);
 
 

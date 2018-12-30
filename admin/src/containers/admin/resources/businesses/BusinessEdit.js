@@ -3,11 +3,11 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Edit,
   DisabledInput, TextInput, NumberInput,
-  ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput, ImageField,
+  ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput, ImageField, ArrayField, SingleFieldList,
 ImageInput } from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
-
+import VersionedImageField from "../fields/VersionedImageField";
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -56,6 +56,8 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
               </ImageInput>
               <ImageField source="cover_versions[0].url" src="url" title="title"/>
 
+
+
           </FormTab>
           <FormTab label="Address">
             <TextInput source="address.street" label="Street"/>
@@ -82,6 +84,21 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <TextInput source="target"/>
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
 
+
+
+          </FormTab>
+          <FormTab label="Immagini">
+
+            <ImageInput multiple source="pictures" accept="image/*">
+              <ImageField source="src"/>
+            </ImageInput>
+
+
+            <ArrayField source="pictures">
+              <SingleFieldList>
+                <VersionedImageField source="versions"/>
+              </SingleFieldList>
+            </ArrayField>
 
 
           </FormTab>

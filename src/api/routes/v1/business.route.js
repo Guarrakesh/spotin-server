@@ -15,7 +15,7 @@ router.param('id', controller.load);
 router
   .route('/')
   .get(controller.list)
-  .post(authorize(ADMIN), [upload.single('picture'),validate(createBusiness)], controller.create);
+
 
 router
   .route('/:id')

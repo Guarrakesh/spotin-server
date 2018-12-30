@@ -15,7 +15,7 @@ function load(Factory, factory) {
 
   Factory.defineAs(User, "admin" ,faker => ({
         email: faker.internet.email(),
-        password,
+        password: "123456",
         name: faker.name.firstName(),
         lastname: faker.name.lastName(),
         username: faker.internet.userName(),
