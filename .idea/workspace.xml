@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)">
-      <change afterPath="$PROJECT_DIR$/src/api/tests/admin/integration/business.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)">
       <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/providers/fileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/providers/fileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/v1/business.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/v1/business.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/factories/user.factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/factories/user.factory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/middlewares/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/middlewares/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/business.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/business.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/routes/admin/business.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/admin/business.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/routes/v1/business.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/v1/business.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/tests/unit/business.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/tests/unit/business.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/tests/v1/integration/auth.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/tests/v1/integration/auth.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/utils/amazon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/utils/amazon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/winston.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/winston.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,8 +54,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/auth.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="245" column="66" selection-start-line="245" selection-start-column="66" selection-end-line="245" selection-end-column="66" />
+                <state relative-caret-position="223">
+                  <caret line="235" column="7" selection-start-line="235" selection-start-column="7" selection-end-line="235" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -144,19 +127,31 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="674">
-                  <caret line="73" selection-start-line="73" selection-end-line="73" />
+                <state relative-caret-position="166">
+                  <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessMapField.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="497">
-                  <caret line="69" column="69" selection-start-line="69" selection-end-line="69" selection-end-column="69" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="674">
+                  <caret line="73" selection-start-line="73" selection-end-line="73" />
                 </state>
               </provider>
             </entry>
@@ -175,11 +170,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="469">
-                  <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+                <state relative-caret-position="114">
+                  <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="600">
+                  <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -189,24 +196,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="554">
                   <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/validations/broadcast.validation.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="27" selection-start-column="27" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -261,8 +250,8 @@
       <find>cover_versions</find>
       <find>iles</find>
       <find>pictures+</find>
-      <find>cover_vers</find>
       <find>q</find>
+      <find>cover_vers</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -351,8 +340,6 @@
         <option value="$PROJECT_DIR$/admin/src/providers/authProvider.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/api/utils/amazon.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/business.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" />
         <option value="$PROJECT_DIR$/src/api/routes/admin/business.route.js" />
@@ -361,6 +348,8 @@
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
         <option value="$PROJECT_DIR$/src/api/tests/v1/integration/auth.test.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js" />
       </list>
     </option>
   </component>
@@ -405,6 +394,63 @@
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="broadcasts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="businesses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="reservations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -893,14 +939,7 @@
       <workItem from="1545933078542" duration="5511000" />
       <workItem from="1546113462993" duration="6190000" />
       <workItem from="1546121632791" duration="324000" />
-      <workItem from="1546182717554" duration="11040000" />
-    </task>
-    <task id="LOCAL-00062" summary="Refactoring di alcune API">
-      <created>1538053978862</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1538053978863</updated>
+      <workItem from="1546182717554" duration="11544000" />
     </task>
     <task id="LOCAL-00063" summary="Refactoring di alcune API">
       <created>1538054077259</created>
@@ -1238,13 +1277,17 @@
       <option name="project" value="LOCAL" />
       <updated>1545900778530</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)">
+      <created>1546195812346</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1546195812347</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Spotin_Tests - 2018.12.29 at 22h 49m 10s.xml">
-      <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="Spotin_Tests - 2018.12.29 at 23h 02m 53s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1272,9 +1315,12 @@
     <history-entry file="Spotin_Tests - 2018.12.30 at 19h 44m 20s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="Spotin_Tests - 2018.12.30 at 19h 46m 30s.xml">
+      <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="987811000" />
+    <option name="totallyTimeSpent" value="988315000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1289,13 +1335,13 @@
     <frame x="0" y="23" width="2560" height="1316" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14375739" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14375739" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.48759353" weight="0.3243464" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39133987" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39133987" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32189542" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1375,7 +1421,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Add spotin.it (www, http e https) ai cors" />
     <MESSAGE value="Production setup" />
     <MESSAGE value="API per gestione prenotazione" />
     <MESSAGE value="Fix business perPage and Broadcast user reserved" />
@@ -1400,7 +1445,8 @@
     <MESSAGE value="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente" />
     <MESSAGE value="[SERVER]&#10;Aggregation su broadcast e altri fix" />
     <MESSAGE value="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)" />
+    <MESSAGE value="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)" />
+    <option name="LAST_COMMIT_MESSAGE" value="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1413,20 +1459,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/morgan/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/winston.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1594,23 +1626,6 @@
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/App.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1660,9 +1675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/auth.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1674,13 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
@@ -1738,20 +1743,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/passport.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/auth.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="245" column="66" selection-start-line="245" selection-start-column="66" selection-end-line="245" selection-end-column="66" />
+        <state relative-caret-position="223">
+          <caret line="235" column="7" selection-start-line="235" selection-start-column="7" selection-end-line="235" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/auth.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessMapField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/fields/VersionedImageField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
