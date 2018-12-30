@@ -67,32 +67,16 @@ exports.list = async (req, res, next) => {
 
 
 exports.update = async (req, res, next) => {
-  const updatedBusiness = Object.assign(req.locals.business, req.body);
+  const body = omit(req.body, ['cover_versions', 'pictures', '_id']);
+  const updatedBusiness = Object.assign(req.locals.business, body);
 
   if (req.file && req.file.fieldname === 'picture') {
     await updatedBusiness.uploadCover(req.file);
   }
 
-  if (req.files && req.files) {
-    await Promise.all(req.files.forEach(async (file) => {
-      await updatedBusiness.uploadPicture(file);
-    }));
-  }
-
   updatedBusiness.save()
     .then(savedBus => res.json(savedBus))
     .catch(e => next(e));
-};
-
-exports.create = async (req, res, next) => {
-  try {
-    const business = new Business(req.body);
-    const saved = await business.save();
-    res.status(httpStatus.CREATED);
-    res.json(saved);
-  } catch (error) {
-    next(error);
-  }
 };
 
 

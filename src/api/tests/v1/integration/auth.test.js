@@ -19,6 +19,14 @@ const fakeOAuthRequest = () => Promise.resolve({
   picture: 'test.jpg',
   username: 'test@test.com'
 });
+const fakeOAuthRequestWithoutEmail = () => Promise.resolve({
+  service: 'facebook',
+  id: '123',
+  name: 'user',
+
+  picture: 'test.jpg',
+
+});
 
 describe('Authentication API', () => {
   let dbUser, dbAdmin, expiredRefreshToken;
@@ -223,6 +231,21 @@ describe('Authentication API', () => {
           expect(res.body.token).to.have.a.property('expiresIn');
           expect(res.body.user).to.be.an('object');
         });
+    });
+
+    it('should create new user even if facebook does not provide email', async () => {
+      sandbox.stub(authProviders, 'facebook').callsFake(fakeOAuthRequestWithoutEmail);
+      return request(app)
+          .post('/v1/auth/facebook')
+          .send({ access_token: '123' })
+          .expect(httpStatus.OK)
+          .then((res) => {
+            expect(res.body.token).to.have.a.property('accessToken');
+            expect(res.body.token).to.have.a.property('refreshToken');
+            expect(res.body.token).to.have.a.property('expiresIn');
+            expect(res.body.user).to.not.have.a.property('email');
+            expect(res.body.user).to.be.an('object');
+          });
     });
 
     it('should return error when access_token is not provided', async () => {

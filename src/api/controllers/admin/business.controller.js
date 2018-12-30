@@ -98,38 +98,54 @@ exports.list = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
 
-    const updatedBusiness = Object.assign(req.locals.business, req.body);
-
-    if (req.file && req.file.fieldname === "picture") {
-      await updatedBusiness.uploadCover(req.file);
+  const body = omit(req.body, ['cover_versions', 'pictures', '_id', 'picture']);
+  let updatedBusiness = Object.assign(req.locals.business, body);
+  if (req.files) {
+    if (req.files.picture && req.files.picture.length > 0) {
+      await updatedBusiness.uploadCover(req.files.picture[0]);
     }
+    if (req.files.pictures && req.files.pictures.length > 0) {
 
-    updatedBusiness.save()
+      await Promise.all(req.files.pictures.map(async (file) => {
+        console.log(file);
+        await updatedBusiness.uploadPicture(file);
+      }));
+    }
+  }
+  updatedBusiness.save()
       .then(savedBus => res.json(savedBus))
       .catch(e => next(e));
 
 };
 
 exports.create = async (req, res, next) => {
-   try {
-     const business = new Business(req.body);
-     const saved = await  business.save();
+  try {
+    const business = new Business(req.body);
+    const saved = await  business.save();
 
-     if (req.file && req.file.fieldname === "picture") {
-       await saved.uploadCover(req.file);
-     }
-     res.status(httpStatus.CREATED);
-     res.json(saved);
+    if (req.files) {
+      if (req.files.picture && req.files.picture.length > 0) {
+        await saved.uploadCover(req.file);
+      }
+      if (req.files.pictures && req.files.pictures.length > 0) {
 
-   } catch (error) {
-     next(error);
-   }
+        await Promise.all(req.files.pictures.map(async (file) => {
+          await updatedBusiness.uploadPicture(file);
+        }));
+      }
+    }
+    res.status(httpStatus.CREATED);
+    res.json(saved);
+
+  } catch (error) {
+    next(error);
+  }
 };
 
 exports.remove = (req, res, next) => {
   const { business } = req.locals;
 
   business.remove()
-    .then(() => res.status(httpStatus.NO_CONTENT).end())
-    .catch(e => next(e));
+      .then(() => res.status(httpStatus.NO_CONTENT).end())
+      .catch(e => next(e));
 };

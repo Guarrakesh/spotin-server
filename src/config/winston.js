@@ -18,7 +18,7 @@ const options = {
         info => `${info.timestamp} ${info.level}: ${info.message}`
       )
     ),
-    silent: process.env.NODE_ENV == "test"
+
   },
 };
 

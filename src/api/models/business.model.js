@@ -128,7 +128,7 @@ businessSchema.pre('save', async function(next) {
 
       return googleMapsClient.geocode({address: compactAddress}).asPromise()
           .then(res => {
-            
+
             const response = res.json;
             if (response && response.results && response.results.length > 0) {
               const {location} = response.results[0].geometry;
@@ -136,20 +136,14 @@ businessSchema.pre('save', async function(next) {
                 type: 'Point',
                 coordinates: [location.lng, location.lat]
               }
-
-
-
             }
-            next();
+            return next();
           })
           .catch(err => {
-            next(err);
-          })
-
-
+            return next(err);
+          });
     } else { return next() }
   } catch (err) {
-
     return next(err);
   }
 });
@@ -158,7 +152,11 @@ businessSchema.post('remove', function(next) {
 });
 
 businessSchema.method({
-  async paySpots(spots, isPlus = false) {
+  async paySpots(spots) {
+
+    if (this.spots < spots) {
+      throw Error("Not enough spots to pay " + spots + " spots");
+    }
     try {
       this.spots -= spots;
       await this.save();
@@ -167,8 +165,8 @@ businessSchema.method({
     }
   },
 
-  s3Path: () =>  {
-    return `images/businesses/${this.id}`;
+  s3Path() {
+    return `images/businesses/${this._id.toString()}`;
   },
 
 
@@ -190,6 +188,7 @@ businessSchema.method({
       "tvs",
       "cover_versions",
       "providers",
+      "pictures",
       "businessHours","tradeName"], fieldsToOmit);
     //Solo il proprietario può vedere tutte le info del locale
 
@@ -244,20 +243,20 @@ businessSchema.method({
     const fileName = `picture_${_id.toString()}.${ext}`;
 
     const data = await amazon.uploadImage(
-      file.buffer,
-      `images/businesses/${this._id.toString()}/picture_${_id.toString()}.${ext}`,
-      {
-        Metadata: {
-          'X-ObjectId': _id.toString(),
-        },
-      }
+        file.buffer,
+        `images/businesses/${this._id.toString()}/picture_${_id.toString()}.${ext}`,
+        {
+          Metadata: {
+            'X-ObjectId': _id.toString(),
+          },
+        }
     );
 
     const { width, height } = await sizeOf(file.buffer);
+    console.log(data);
     const versions = [{ url: data.Location, width, height }]
-      .concat(this.constructor.makeImageVersions(basePath, fileName));
+        .concat(this.constructor.makeImageVersions(basePath, fileName));
     this.pictures.push({ _id, versions });
-    await this.save();
   },
 });
 businessSchema.statics = {

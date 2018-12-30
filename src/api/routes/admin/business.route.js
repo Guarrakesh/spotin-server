@@ -16,16 +16,21 @@ router
   .route('/')
   .get(controller.list)
   .post(authorize(ADMIN), [
-    upload.single('picture'),
-    upload.array('pictures', 5),
+    upload.fields([
+      { name: 'picture', maxCount: 1 },
+      { name: 'pictures', maxCount: 5 },
+    ]),
     validate(createBusiness),
   ], controller.create);
 router
   .route('/:id')
   .get(controller.get)
   .patch(authorize(ADMIN), [
-    upload.single('picture'),
-    upload.array('pictures', 5),
+      upload.fields([
+        { name: 'picture', maxCount: 1 },
+        { name: 'pictures', maxCount: 5 },
+      ]),
+
     validate(updateBusiness),
   ], controller.update)
   .delete(authorize(ADMIN), controller.remove)
