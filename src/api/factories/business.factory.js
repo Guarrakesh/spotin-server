@@ -1,9 +1,10 @@
 
 const { Business } = require('../models/business.model');
-
+const faker = require('faker');
+faker.locale = "it";
 
 function load(Factory, factory) {
-  Factory.define(Business, (faker) => ({
+  Factory.define(Business, async => ({
         name: faker.company.companyName(),
         address: {
           street: faker.address.streetName(),

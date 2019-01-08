@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const password = '123456';
 const bcrypt = require('bcryptjs')
-currentDate = new Date();
+const currentDate = new Date();
 exports.dbSports = {
   calcio: {
     name: "Calcio",

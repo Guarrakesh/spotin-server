@@ -18,6 +18,8 @@ const analytics = (req, res, next) => {
           await User.update({_id: loggedUser._id},
             {$addToSet: {sportHits: {sport: sport._id, name: sport.name, hits: 1}}});
         }
+
+
       } else if (req.baseUrl === "/v1/events" && req.query.competition) {
         const competition = await Competition.findById(req.query.competition);
         if (!competition) return;

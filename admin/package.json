@@ -127,6 +127,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-export-default": "^7.0.0-alpha.20",
-    "eslint-plugin-module-resolver": "^0.8.0"
+    "eslint-plugin-module-resolver": "^0.8.0",
+    "flow-bin": "^0.89.0"
   }
 }

@@ -1,8 +1,9 @@
 const User = require("../models/user.model");
 
-
+const faker = require('faker');
+faker.locale = "it";
 function load(Factory, factory) {
-  Factory.defineAs(User, "user", faker => ({
+  Factory.defineAs(User, "user", async => ({
       email: faker.internet.email(),
       name: faker.name.firstName(),
       lastname: faker.name.lastName(),

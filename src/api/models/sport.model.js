@@ -22,6 +22,10 @@ const sportSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  duration: { // Durata del match (in minuti)
+    type: Number,
+    default: 100,
+  },
   slug: {
     lowercase: true,
     type: String,
@@ -58,6 +62,7 @@ sportSchema.statics = {
       throw error;
     }
   },
+
 
 
 
