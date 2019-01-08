@@ -4,7 +4,8 @@ const path = require('path');
 if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== "staging") {
   require('dotenv').load({
     allowEmptyValues: true,
-    path: path.join(__dirname, '../../.env'),
+    path: path.join(__dirname, process.env.NODE_ENV === "test" ? '../../.env.test' : '../../.env'),
+
 
   });
 }

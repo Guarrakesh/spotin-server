@@ -1,17 +1,16 @@
-const faker = require('faker');
+
 const fs = require("fs");
 const FactoryBuilder = require('./FactoryBuilder');
+const async = require('async');
 
-faker.locale = "it";
 class Factory {
 
 
-  static getInstance(faker,  pathToFactories = "./src/api/factories") {
+  static getInstance(pathToFactories = "./src/api/factories") {
     if (Factory.instance) return Factory.instance;
 
-    Factory.instance = new Factory(faker);
+    Factory.instance = new Factory();
     Factory.instance.load(pathToFactories);
-    Factory.instance.faker = faker;
 
     return Factory.instance;
   }
@@ -23,20 +22,23 @@ class Factory {
     this._afterCreating = {};
     this._afterMaking = {};
   }
-  load(path) {
+  async load(path) {
     const resolve = require("path").resolve;
     const absPath = resolve(path);
     const files = fs.readdirSync(absPath).filter(fn => fn.endsWith(".factory.js"));
-    files.forEach(file => {
+    return await async.map(files, async function(file) {
       console.log(absPath + "/" + file);
       const load = require(absPath + "/" + file);
-      load(Factory.instance);
+      await load(Factory.instance, factory);
     });
 
 
   }
   define(object, attributes, name = "default") {
 
+    if (!object || !object.constructor) {
+      throw Error("Object has no constructor.");
+    }
     const className = object.modelName;
     this._objects[className] = object;
     this._definitions[className] =
@@ -94,7 +96,7 @@ class Factory {
    */
   of(className, name = "default") {
     return new FactoryBuilder(className, name, this._objects, this._definitions, this._states,
-      this._afterMaking, this._afterCreating, this.faker)
+      this._afterMaking, this._afterCreating)
   }
 
 
@@ -135,7 +137,7 @@ if (index > 0) {
 }
 function factory(object, name = null,  times = null) {
   const className = object.modelName;
-  const _factory = Factory.getInstance(faker, pathToFactories);
+  const _factory = Factory.getInstance(pathToFactories);
   if (object && name) {
     return _factory.of(className, name).times(times || null);
   } else if (times) {
@@ -145,4 +147,4 @@ function factory(object, name = null,  times = null) {
   }
 }
 exports.factory = factory; // Per USARE i factory nei test
-exports.Factory = Factory.getInstance(faker, pathToFactories); //Usato per definire i factory nei *.factory.js
+exports.Factory = Factory.getInstance(pathToFactories); //Usato per definire i factory nei *.factory.js

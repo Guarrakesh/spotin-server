@@ -1,11 +1,13 @@
+// @flow
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const sizeOf = require('image-size');
 const mime = require('mime-to-extensions');
 
+const { SportEvent } = require('./sportevent.model');
 const addressSchema = require('./address.schema');
 const { imageVersionSchema, imageSchema } = require('./image');
-const { difference, omit } = require('lodash');
+const { difference, omit, intersection } = require('lodash');
 const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
@@ -33,26 +35,27 @@ const providers = [
 const businessHoursSchema = new mongoose.Schema({
   openings: Number,
   open: [{ type: Number, min: 0, max: 1440 }],
-  close: [{ type: Number, min: 0, max: 1440 }]
+  close: [{ type: Number, min: 0, max: 1440 }],
+  crossing_day_close: Number // 0-1440 Se chiude il giorno dopo (es aperto dalle 18:00 alle 02:00)
 
 });
 //I giorni della settimana sono numeri da 0 a 6 (0 lunedi, 6 domenica)
 const businessDaysSchema = new mongoose.Schema({
-  mon: businessHoursSchema,
-  tue: businessHoursSchema,
-  wed: businessHoursSchema,
-  thu: businessHoursSchema,
-  fri: businessHoursSchema,
-  sat: businessHoursSchema,
-  sun: businessHoursSchema,
+  0: businessHoursSchema,
+  1: businessHoursSchema,
+  2: businessHoursSchema,
+  3: businessHoursSchema,
+  4: businessHoursSchema,
+  5: businessHoursSchema,
+  6: businessHoursSchema,
 });
 /*
 businessHours =  {
-  mon: { openings: 2, open: [540, 960], close: [780, 1440] },
+  0: { openings: 2, open: [540, 960], close: [780, 1440] },
   //Lunedì apre alle 9 (540) e chiude alle 13 (780). Poi riapre alle 16 (960) e chiude alle 24 (1440)
-  thu: { openings: 1, open: [540], close: [1440] },
+  1: { openings: 1, open: [540], close: [1440] },
   // Martedì ha una sola apertura e chiusurua, dalle 9 alle 24
-  wen: false,
+  2: false,
   // Mercoledì è chiuso
 }
 */
@@ -89,7 +92,7 @@ const businessSchema = new mongoose.Schema({
     type: [String],
     required: true
   },
-  businessHours: businessDaysSchema,
+  business_hours: businessDaysSchema,
   // photos: [imageVersionSchema],
 
   vat: {
@@ -159,7 +162,6 @@ businessSchema.method({
     }
     try {
       this.spots -= spots;
-      await this.save();
     } catch (error) {
       throw Error(error);
     }
@@ -258,6 +260,69 @@ businessSchema.method({
         .concat(this.constructor.makeImageVersions(basePath, fileName));
     this.pictures.push({ _id, versions });
   },
+
+
+  /**
+   * Trova gli eventi che il locale può trasmettere (basandosi su provider e orari di lavoro del locale) in un dato periodo di riferimento
+   *
+   * @param start_at L'inizio del periodo di riferimento (Default all'orario attuale)
+   * @param end_at Fine del periodo di riferimento (Default non impostato, quindi non c'è un estremo superiore)
+   * @returns {Promise<SportEvent[]>}
+   */
+  async getBroadcastableEvents(start_at = Date.now(), end_at: Date) {
+    const filter = { start_at : { $gte: start_at } };
+    if (end_at) {
+      filter.start_at["$lte"] = end_at;
+    }
+
+    const results = await SportEvent.find(filter);
+    const events = results.filter(this.eventIsBroadcastable);
+
+
+  },
+
+  checkSupportsProviders: function(providers) {
+    return intersection(providers, this.providers).length > 0;
+  },
+  isEventBroadcastable(event: SportEvent)
+  {
+
+    if (!this.business_hours) {
+      throw Error('No business hours for this business');
+    }
+    const weekDay = (new Date(event.start_at).getDay() - 1) % 7;
+
+
+    if (this.business_hours[weekDay] && this.business_hours[weekDay].openings > 0) {
+      const day = this.business_hours[weekDay];
+      const eventStart = event.start_at.getHours() * 60 + event.start_at.getMinutes(); //between 0 and 1440
+      const approximatedEventEnd = eventStart + event.sport.duration;
+
+      for (let i=0; i < day.open.length; i++) {
+
+        if (day.close[i] && eventStart >= day.open[i] && approximatedEventEnd <= day.close[i]) {
+          return this.checkSupportsProviders(event.providers);
+
+        } else {
+          //Se l'evento non entra in alcuna fascia oraria
+          //Controllo ulteriormente se inizia in un giorno e finisce in un altro
+          if ((day.crossing_day_close && eventStart >= day.open[i] && approximatedEventEnd <= 1440 + day.crossing_day_close)) {
+            //L'ultima chiusura è il giorno dopo (es dalle 18:00 alle 02:00)
+            // Il primo orario di chiusura corrisponde alla chiusura del giorno prima
+            return this.checkSupportsProviders(event.providers);
+          } else {
+            const prevDay = this.
+                business_hours[(weekDay+6) % 7];
+            if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
+              // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
+              return this.checkSupportsProviders(event.providers);
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
 });
 businessSchema.statics = {
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {

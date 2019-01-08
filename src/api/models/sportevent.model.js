@@ -1,3 +1,4 @@
+// @flow
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const { omitBy, isNil } = require('lodash');
@@ -54,6 +55,24 @@ const sportEventSchema = new mongoose.Schema({
   appealValue: Number,
 });
 
+
+class SportEventDoc /* :: extends MongooseDocument */ {
+  sport: mongoose.Types.ObjectId;
+  competition: mongoose.Types.ObjectId;
+  competitors: mongoose.Types.ObjectId[];
+  name: String;
+  description: String;
+  spots: Double;
+  providers: String[];
+  appealValue: Double;
+  start_at: Date;
+
+
+
+}
+
+sportEventSchema.loadClass(SportEventDoc);
+
 sportEventSchema.pre('save', async function(next) {
   try {
     let appealValue = 0;
@@ -93,38 +112,43 @@ sportEventSchema.pre('save', async function(next) {
     next(e);
   }
 });
-sportEventSchema.method({
-  transform(user = null) {
-    const transformed = {};
-    const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
-    fields.forEach((field) => {
-      if (field === "competitors" && typeof this.competitors === "object") {
-        transformed[field] = this.competitors.map(competitor => {
-          if (typeof competitor === "object" && competitor.competitor && typeof competitor.competitor === "object") {
-            return {
-              competitor: competitor.competitor._id,
-              name: competitor.competitor.name,
-              _links: {
-                image_versions: competitor.competitor.image_versions
-              }
-            }
-          } else {
-            return competitor;
-          }
-        })
-      } else {
-        transformed[field] = this[field];
-      }
-    });
-    //Check is SportEvent is favorited by user
-    if (user) {
 
-      transformed['isUserFavorite'] = user.favorite_events && user.favorite_events.find(e => e.toString() === this._id.toString());
+/**
+ * @memberOf SportEvent
+ * @param user
+ */
+sportEventSchema.method.transform = function(user = null) {
+  const transformed = {};
+  const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
+  fields.forEach((field) => {
+    if (field === "competitors" && typeof this.competitors === "object") {
+      transformed[field] = this.competitors.map(competitor => {
+        if (typeof competitor === "object" && competitor.competitor && typeof competitor.competitor === "object") {
+          return {
+            competitor: competitor.competitor._id,
+            name: competitor.competitor.name,
+            _links: {
+              image_versions: competitor.competitor.image_versions
+            }
+          }
+        } else {
+          return competitor;
+        }
+      })
+    } else {
+      transformed[field] = this[field];
     }
-     //TODO: Cercare nei preferiti dell'utente
-      return transformed;
+  });
+  //Check is SportEvent is favorited by user
+  if (user) {
+
+    transformed['isUserFavorite'] = user.favorite_events && user.favorite_events.find(e => e.toString() === this._id.toString());
   }
-});
+  //TODO: Cercare nei preferiti dell'utente
+  return transformed;
+}
+
+
 sportEventSchema.statics = {
 
 

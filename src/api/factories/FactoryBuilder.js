@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
-
+const async = require('async');
 class FactoryBuilder {
 
-  constructor(className, name, objects = {}, definitions = {}, states = {}, afterMaking = [], afterCreating = [], faker) {
+  constructor(className, name, objects = {}, definitions = {}, states = {}, afterMaking = [], afterCreating = []) {
     this._name = name;
     this._class = className;
     this._objects = objects;
-    this._faker = faker;
     this._states = states;
     this._definitions = definitions;
     this._afterCreating = afterCreating;
@@ -48,15 +47,17 @@ class FactoryBuilder {
    * @param attributes
    */
   async create(attributes = []) {
-    const results = this.make(attributes);
-    if (results.constructor.name === "model") {
-      this.callAfterCreating([results]);
-      await this.store([results]);
-    } else if (results.constructor === Array) {
-      this.callAfterCreating(results);
-      await this.store(results);
-    }
-    return results;
+
+      let results = await this.make(attributes);
+      if (results.constructor.name === "model") {
+        await this.callAfterCreating([results]);
+        results = await this.store([results]);
+      } else if (results.constructor === Array) {
+        await this.callAfterCreating(results);
+        results = await this.store(results);
+      }
+      return results;
+
   }
 
   /**
@@ -64,11 +65,13 @@ class FactoryBuilder {
    * @param results
    */
   async store(results) {
-
-      for (let i in results) {
-        await results[i].save();
-      }
-
+    try {
+      return await async.map(results, function (doc, next) {
+        doc.save(next);
+      })
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -76,9 +79,10 @@ class FactoryBuilder {
    * @param attributes
    * @returns {*}
    */
-  make(attributes) {
+  async make(attributes) {
     if (this._amount === null) {
-      const instance = new (this._objects[this._class])(this.getRawAttributes(attributes));
+      const rawAttributes = await this.getRawAttributes(attributes);
+      const instance = new (this._objects[this._class])(rawAttributes);
       this.callAfterMaking([this._class]);
       return instance;
     }
@@ -92,34 +96,41 @@ class FactoryBuilder {
     */
     let instances = [];
     for (let i=0; i < this._amount; i++) {
-      instances.push(new (this._objects[this._class])(this.getRawAttributes(attributes)))
+      instances.push(new (this._objects[this._class])(await this.getRawAttributes(attributes)))
     }
     this.callAfterMaking(instances);
 
     return instances;
   }
-  getRawAttributes(attributes) {
+  async getRawAttributes(attributes) {
     if (this._definitions[this._class] && this._definitions[this._class][this._name]) {
-      let fakedAttributes = this._definitions[this._class][this._name](this._faker);
+      let fakedAttributes = await (this._definitions[this._class][this._name])();
       fakedAttributes = { ...fakedAttributes, ...attributes };
 
       return fakedAttributes
     }
-    return this.expandAttributes(attributes);
+ //   await this.expandAttributes(attributes);
   }
 
   /**
    * Espande tutti gli attributi
    * @param attributes
    */
-  expandAttributes(attributes = []) {
-    const newAttributes = attributes.map(attribute => {
+  async expandAttributes(attributes = []) {
+    const newAttributes = await Promise.all(attributes.map(async attribute => {
       if (typeof attribute === "function") {
-        attribute = attribute(attributes); // Se l'attributo è una funzione (es, nelle chiavi esterne) allora chiama la funzione
+        // Se l'attributo è una funzione (es, nelle chiavi esterne) allora chiama la funzione
         // e gli passa, se gli serve, tutti gli attributi del model
-      }
+        await attribute(attributes);
+      /*  if (attribute[Symbol.toStringTag] === 'AsyncFunction') {
+          attribute = await attribute(this._faker, attributes);
+        } else {
+          attribute = attribute(this._faker, attributes);
+        }*/
 
-    });
+      }
+      return attribute;
+    }));
 
     return newAttributes;
   }
@@ -127,7 +138,6 @@ class FactoryBuilder {
   callAfterMaking(models) {
     this.callAfter(this._afterMaking, models);
   }
-
   callAfterCreating(models) {
     this.callAfter(this._afterCreating, models);
   }
@@ -142,7 +152,7 @@ class FactoryBuilder {
     if (!(afterCallbacks[this._class]) || !afterCallbacks[this._class][state]) return;
 
     afterCallbacks[this._class][state].forEach(callback => {
-      callback(model, this._faker);
+      callback(model);
     })
 
   }
