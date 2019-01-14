@@ -10,10 +10,6 @@ faker.locale = "it"
 
 async function load(Factory) {
 
-  const sport = await factory(Sport).create();
-  const competitors = await async.map([0,1], async function() {
-    return await factory(Competitor).create({ sport: sport._id });
-  });
 
   Factory.define(SportEvent, async => ({
         sport: sport._id,
