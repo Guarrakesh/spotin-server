@@ -12,13 +12,16 @@
   },
   "scripts": {
     "prestart": "yarn docs",
-    "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
+    "start": "cross-env NODE_ENV=production pm2 --interpreter=babel-node start ./src/index.js",
     "staging": "cross-env NODE_ENV=staging pm2 start ./src/index",
     "server": "nodemon ./src/index.js",
     "client": "cd client && yarn start",
     "admin": "cd admin && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn admin\"",
-    "heroku": "node ./src/index.js",
+    "heroku": "yarn build && babel ./src/index.js",
+    "build": "npm run clean && npm run build-babel",
+    "build-babel": "babel -d ./build ./src -s",
+    "clean": "rm -rf build && mkdir build",
     "heroku-postbuild": "cd admin && yarn && yarn run build",
     "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint -- --fix",
@@ -122,6 +125,7 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",

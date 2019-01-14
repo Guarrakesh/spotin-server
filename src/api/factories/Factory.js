@@ -1,16 +1,17 @@
-
+const faker = require('faker');
 const fs = require("fs");
 const FactoryBuilder = require('./FactoryBuilder');
-const async = require('async');
 
+faker.locale = "it";
 class Factory {
 
 
-  static getInstance(pathToFactories = "./src/api/factories") {
+  static getInstance(faker,  pathToFactories = "./src/api/factories") {
     if (Factory.instance) return Factory.instance;
 
-    Factory.instance = new Factory();
+    Factory.instance = new Factory(faker);
     Factory.instance.load(pathToFactories);
+    Factory.instance.faker = faker;
 
     return Factory.instance;
   }
@@ -22,14 +23,14 @@ class Factory {
     this._afterCreating = {};
     this._afterMaking = {};
   }
-  async load(path) {
+  load(path) {
     const resolve = require("path").resolve;
     const absPath = resolve(path);
     const files = fs.readdirSync(absPath).filter(fn => fn.endsWith(".factory.js"));
-    return await async.map(files, async function(file) {
+    files.forEach(file => {
       console.log(absPath + "/" + file);
       const load = require(absPath + "/" + file);
-      await load(Factory.instance, factory);
+      load(Factory.instance);
     });
 
 
@@ -96,7 +97,7 @@ class Factory {
    */
   of(className, name = "default") {
     return new FactoryBuilder(className, name, this._objects, this._definitions, this._states,
-      this._afterMaking, this._afterCreating)
+      this._afterMaking, this._afterCreating, this.faker)
   }
 
 
@@ -137,7 +138,7 @@ if (index > 0) {
 }
 function factory(object, name = null,  times = null) {
   const className = object.modelName;
-  const _factory = Factory.getInstance(pathToFactories);
+  const _factory = Factory.getInstance(faker, pathToFactories);
   if (object && name) {
     return _factory.of(className, name).times(times || null);
   } else if (times) {
@@ -147,4 +148,4 @@ function factory(object, name = null,  times = null) {
   }
 }
 exports.factory = factory; // Per USARE i factory nei test
-exports.Factory = Factory.getInstance(pathToFactories); //Usato per definire i factory nei *.factory.js
+exports.Factory = Factory.getInstance(faker); //Usato per definire i factory nei *.factory.js

@@ -206,6 +206,6 @@ describe("Business Model", () => {
 
 
   describe('getBroadcastableEvents()', async() => {
-    factory(SportEvent).create();
+   // awair factory(SportEvent).create();
   } )
 });

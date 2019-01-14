@@ -278,6 +278,7 @@ businessSchema.method({
     const results = await SportEvent.find(filter);
     const events = results.filter(this.eventIsBroadcastable);
 
+    return events;
 
   },
 
