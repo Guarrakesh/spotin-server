@@ -269,7 +269,7 @@ businessSchema.method({
    * @param end_at Fine del periodo di riferimento (Default non impostato, quindi non c'è un estremo superiore)
    * @returns {Promise<SportEvent[]>}
    */
-  async getBroadcastableEvents(start_at = Date.now(), end_at: Date) {
+  async getBroadcastableEvents(start_at = Date.now(), end_at) {
     const filter = { start_at : { $gte: start_at } };
     if (end_at) {
       filter.start_at["$lte"] = end_at;
@@ -285,7 +285,7 @@ businessSchema.method({
   checkSupportsProviders: function(providers) {
     return intersection(providers, this.providers).length > 0;
   },
-  isEventBroadcastable(event: SportEvent)
+  isEventBroadcastable(event)
   {
 
     if (!this.business_hours) {

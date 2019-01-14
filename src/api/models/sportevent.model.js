@@ -56,22 +56,6 @@ const sportEventSchema = new mongoose.Schema({
 });
 
 
-class SportEventDoc /* :: extends MongooseDocument */ {
-  sport: mongoose.Types.ObjectId;
-  competition: mongoose.Types.ObjectId;
-  competitors: mongoose.Types.ObjectId[];
-  name: String;
-  description: String;
-  spots: Double;
-  providers: String[];
-  appealValue: Double;
-  start_at: Date;
-
-
-
-}
-
-sportEventSchema.loadClass(SportEventDoc);
 
 sportEventSchema.pre('save', async function(next) {
   try {
