@@ -1,5 +1,4 @@
 
-import "@babel/polyfill";
 const chai = require('chai');
 const chaiAsPromised = require("chai-as-promised");
 const sinon = require('sinon');

@@ -10,16 +10,14 @@ if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== "staging")
   });
 }
 
-
+console.log(path.join(__dirname, process.env.NODE_ENV === "test" ? '../../.env.test' : '../../.env'));
 module.exports = {
   env: process.env.NODE_ENV,
   port: process.env.PORT || 3001,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpirationInterval: process.env.NODE_ENV == "development" ?  10 : process.env.JWT_EXPIRATION_MINUTES,
   mongo: {
-    uri: process.env.NODE_ENV === 'test'
-      ? process.env.MONGO_URI_TESTS
-      : process.env.MONGO_URI,
+    uri: process.env.MONGO_URI || process.env.MONGO_URI_TESTS
   },
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
