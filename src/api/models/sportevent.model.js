@@ -25,10 +25,13 @@ const sportEventSchema = new mongoose.Schema({
     ref: "Competition"
   },
   competitors: [
-    {
+    new mongoose.Schema({
+      _id: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
+      name: String,
       competitor: { type: mongoose.Schema.ObjectId,ref: "Competitor"}
 
-    }],
+    })
+    ],
 
   name: {
 

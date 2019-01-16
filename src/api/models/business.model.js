@@ -154,7 +154,7 @@ businessSchema.post('remove', function(next) {
   amazon.emptyDir(`/images/businesses/${this._id.toString()}/`);
 });
 
-businessSchema.method({
+businessSchema.method = {
   async paySpots(spots) {
 
     if (this.spots < spots) {
@@ -275,8 +275,10 @@ businessSchema.method({
       filter.start_at["$lte"] = end_at;
     }
 
-    const results = await SportEvent.find(filter);
-    const events = results.filter(this.eventIsBroadcastable);
+    const results = await SportEvent.find(filter).populate('sport').populate('competition');
+
+    const events = results
+        .filter(this.isEventBroadcastable());
 
     return events;
 
@@ -324,7 +326,8 @@ businessSchema.method({
     }
     return false;
   }
-});
+};
+
 businessSchema.statics = {
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
 

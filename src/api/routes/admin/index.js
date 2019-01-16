@@ -13,6 +13,8 @@ const reservationRoutes = require('./reservation.route');
 const requestRoutes = require('./request.route');
 const router = express.Router();
 
+
+const weekController = require('../../controllers/admin/broadcastweek.controller');
 /**
  * GET v1/status
  */
@@ -34,6 +36,10 @@ router.use('/businesses', businessRoute);
 router.use('/competitors', competitorRoutes);
 router.use('/reservations', reservationRoutes);
 router.use('/requests', requestRoutes);
+
+console.log(weekController);
+router.route('/aa/' + 'get_week_events')
+    .get(weekController.get);
 
 
 module.exports = router;

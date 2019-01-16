@@ -9,7 +9,7 @@ export const SportList = (props) => (
       <TextField source="_id" />
       <TextField source="name"/>
       <TextField source="slug"/>
-      <NumberInput source="duration" label="Durata (in minuti)"/>
+
       <BooleanField source="active"/>
       <EditButton/>
     </Datagrid>
@@ -43,6 +43,7 @@ export const SportCreate = (props) => (
       <TextInput source="name"/>
       <TextInput source="slug"/>
       <NumberInput source="appealValue" step={1} min={1} max={4}/>
+      <NumberInput source="duration" label="Durata (in minuti)"/>
       <BooleanInput source="active"/>
     </SimpleForm>
   </Create>
