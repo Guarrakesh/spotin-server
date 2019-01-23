@@ -154,7 +154,7 @@ businessSchema.post('remove', function(next) {
   amazon.emptyDir(`/images/businesses/${this._id.toString()}/`);
 });
 
-businessSchema.method = {
+businessSchema.methods = {
   async paySpots(spots) {
 
     if (this.spots < spots) {
@@ -275,33 +275,47 @@ businessSchema.method = {
       filter.start_at["$lte"] = end_at;
     }
 
-    const results = await SportEvent.find(filter).populate('sport').populate('competition');
+    const results = await SportEvent.find(filter).populate('sport').populate('competition').populate('competitors.competitor', ['sport','name','appealValue']);
 
     const events = results
-        .filter(this.isEventBroadcastable());
+        .filter((event) => this.isEventBroadcastable(event));
 
     return events;
 
   },
 
-  checkSupportsProviders: function(providers) {
+  checkSupportsProviders(providers) {
     return intersection(providers, this.providers).length > 0;
   },
-  isEventBroadcastable(event)
-  {
+  isEventBroadcastable(event) {
 
-    if (!this.business_hours) {
-      throw Error('No business hours for this business');
+
+
+    if (process.env.NODE_ENV !== "development") {
+      if (!this.business_hours) {
+        throw Error('No business hours for this business');
+      }
+    } else {
+      this.business_hours = {
+        0: { openings: 1, open: [600], close: [1440]}, // Lun Dalle 10 alle 24:00
+        1: { openings: 1, open: [600], close: [1440]}, // Martedì chiuso
+        2: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
+        3: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
+        4: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
+        5: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 360},
+        6: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 30} // Dom
+      }
     }
-    const weekDay = (new Date(event.start_at).getDay() - 1) % 7;
+    let weekDay = (new Date(event.start_at).getDay() - 1) % 7;
 
+    if (weekDay === -1) weekDay = 6;
 
     if (this.business_hours[weekDay] && this.business_hours[weekDay].openings > 0) {
       const day = this.business_hours[weekDay];
       const eventStart = event.start_at.getHours() * 60 + event.start_at.getMinutes(); //between 0 and 1440
       const approximatedEventEnd = eventStart + event.sport.duration;
 
-      for (let i=0; i < day.open.length; i++) {
+      for (let i = 0; i < day.open.length; i++) {
 
         if (day.close[i] && eventStart >= day.open[i] && approximatedEventEnd <= day.close[i]) {
           return this.checkSupportsProviders(event.providers);
@@ -309,13 +323,12 @@ businessSchema.method = {
         } else {
           //Se l'evento non entra in alcuna fascia oraria
           //Controllo ulteriormente se inizia in un giorno e finisce in un altro
-          if ((day.crossing_day_close && eventStart >= day.open[i] && approximatedEventEnd <= 1440 + day.crossing_day_close)) {
+          if ((day.crossing_day_close && eventStart >= day.open[day.openings-1] && approximatedEventEnd <= 1440 + day.crossing_day_close)) {
             //L'ultima chiusura è il giorno dopo (es dalle 18:00 alle 02:00)
             // Il primo orario di chiusura corrisponde alla chiusura del giorno prima
             return this.checkSupportsProviders(event.providers);
           } else {
-            const prevDay = this.
-                business_hours[(weekDay+6) % 7];
+            const prevDay = this.business_hours[(weekDay + 6) % 7];
             if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
               // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
               return this.checkSupportsProviders(event.providers);

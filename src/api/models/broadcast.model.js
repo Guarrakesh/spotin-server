@@ -60,6 +60,7 @@ broadcastSchema.pre('save', function (next) {
     next();
   });
 });
+
 broadcastSchema.statics = {
   /**
    * Get broadcast
@@ -162,6 +163,9 @@ broadcastSchema.statics = {
     }), {});
     return results[0];
   }
+
+
+
 };
 
 broadcastSchema.plugin(mongoosePaginate);
