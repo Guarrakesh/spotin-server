@@ -112,6 +112,7 @@ sportEventSchema.method.transform = function(user = null) {
       transformed[field] = this.competitors.map(competitor => {
         if (typeof competitor === "object" && competitor.competitor && typeof competitor.competitor === "object") {
           return {
+
             competitor: competitor.competitor._id,
             name: competitor.competitor.name,
             _links: {
@@ -133,7 +134,23 @@ sportEventSchema.method.transform = function(user = null) {
   }
   //TODO: Cercare nei preferiti dell'utente
   return transformed;
-}
+};
+
+
+sportEventSchema.method.checkIfOverlaps = async function(event) {
+
+  const broadcastableEventStart = this.start_at;
+  const broadcastableEventEnd = broadcastableEventStart + this.sport.duration;
+
+  const eventToBroadcastStart = event.start_at;
+  const eventToBroadcastEnd =  eventToBroadcastStart + event.sport.duration * (60*1000);
+
+
+  return (
+      (broadcastableEventStart <= eventToBroadcastEnd && broadcastableEventStart > eventToBroadcastStart)
+      ||
+      (broadcastableEventEnd >= eventToBroadcastStart && broadcastableEventEnd < eventToBroadcastEnd));
+};
 
 
 sportEventSchema.statics = {

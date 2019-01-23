@@ -6,12 +6,20 @@ const SPORT_WEIGHT = 1;
 const COMPETITION_WEIGHT = 1;
 const COMPETITOR_WEIGHT = 1;
 
+const defaultOptions = {
+  competitorIdKey: "id",
+  competitionIdKey: "id",
+  sportIdKey: "id",
+  eventIdKey: "id",
+  appealValueKey: "appealValue"
+};
 class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
 
 
 
-  constructor(props) {
+  constructor(props, options = {}) {
     super(props);
+    this.options = { ...defaultOptions, ...options };
 
     this.sports = this.getAllSports();
     this.competitions = this.getAllCompetitions();
@@ -22,25 +30,25 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
     this.competitorAppeals =  new Map();
     this.eventAppealMap = new Map();
 
-    this.sortedEvents = [];
+
 
     for (let sport of this.sports) {
-      this.sportAppeals.set(sport.id, sport.appealValue);
+      this.sportAppeals.set(sport[this.options.sportIdKey], sport[this.options.appealValueKey]);
     }
     for (let competitor of this.competitors) {
-      this.competitorAppeals.set(competitor.id, competitor.appealValue);
+      this.competitorAppeals.set(competitor.competitor[this.options.competitorIdKey], competitor.competitor[this.options.appealValueKey]);
     }
     for (let competition of this.competitions) {
-      this.competitionAppeals.set(competition.id, competition.appealValue);
+      this.competitionAppeals.set(competition[this.options.competitionIdKey], competition[this.options.appealValueKey]);
     }
 
   }
 
   getAllSports() {
-    return uniqBy(this.events.map(e => e.sport), 'id');
+    return uniqBy(this.events.map(e => e.sport), this.options.sportIdKey);
   }
   getAllCompetitions() {
-    return uniqBy(this.events.map(e => e.competition), 'id');
+    return uniqBy(this.events.map(e => e.competition), this.options.competitionIdKey);
   }
 
   getAllCompetitors() {
@@ -49,7 +57,7 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
         .map(event => event.competitors);
 
     const flattened = flatten(competitors);
-    return uniqBy(flattened, 'id');
+    return uniqBy(flattened, this.options.competitorIdKey);
   }
 
   // Media aritmetica
@@ -65,8 +73,8 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
     let appeal = 0;
 
     if (event.competitors && event.competitors.length > 0) {
-      appeal = event.competitors.reduce((acc, competitor) => {
-        return acc + this.competitorAppeals.get(competitor.id);
+      appeal = event.competitors.reduce((acc, record) => {
+        return acc + this.competitorAppeals.get(record.competitor[this.options.competitorIdKey]);
       }, 0) / event.competitors.length;
     } else {
       let sum = 0;
@@ -81,9 +89,10 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
 
   evaluateEvent(event) {
 
-    const sportAppeal = SPORT_WEIGHT * this.sportAppeals.get(event.sport.id);
-    const competitionAppeal = COMPETITION_WEIGHT * this.competitionAppeals.get(event.competition.id);
-    const competitorAppeal = COMPETITOR_WEIGHT * this.evaluateEventCompetitorAppeal(event);
+    const sportAppeal = (SPORT_WEIGHT * this.sportAppeals.get(event.sport[this.options.sportIdKey])) || 0;
+    const competitionAppeal = (COMPETITION_WEIGHT
+        * this.competitionAppeals.get(event.competition[this.options.competitionIdKey])) || 0;
+    const competitorAppeal = (COMPETITOR_WEIGHT * this.evaluateEventCompetitorAppeal(event)) || 0;
 
 
     return sportAppeal + competitorAppeal + competitionAppeal;
@@ -92,24 +101,12 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
 
 
     for (let event of this.events) {
-      this.eventAppealMap.set(event.id, this.evaluateEvent(event))
+      this.eventAppealMap.set(event[this.options.eventIdKey], this.evaluateEvent(event))
     }
-
-    for (var [key, value] of this.eventAppealMap) {
-      this.sortedEvents.push([key, value]);
-    }
-    this.sortedEvents.sort((a,b) => -1 * (a[1] - b[1]));
-
     return this.eventAppealMap;
 
   }
 
-  getSortedEvents() {
-    if (this.sortedEvents.length === 0 && this.eventAppealMap.size === 0) {
-      this.evaluate();
-    }
-    return this.sortedEvents;
-  }
 }
 
 
