@@ -160,7 +160,20 @@ businessSchema.methods = {
       throw Error(error);
     }
   },
-
+  async canBroadcastBundle(bundle) {
+    return true;
+    
+    for (const broadcast of bundle.broadcasts) {
+      const event = await SportEvent.findById(broadcast.event.id);
+      if (!this.canBroadcastEvent(event))
+        return false;
+    }
+    return true;
+  },
+  async canBroadcastEvent(event) {
+    return true;
+    return this.spots > event.spots;
+  },
   s3Path() {
     return `images/businesses/${this._id.toString()}`;
   },
