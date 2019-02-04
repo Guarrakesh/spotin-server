@@ -14,6 +14,9 @@ const imageSizes = [
   {width: 320, height: 180},
 ];
 
+
+
+
 exports.load = async(req, res, next, id) => {
   try {
     const business = await Business.findById(id);
@@ -98,7 +101,10 @@ exports.list = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
 
+
   const body = omit(req.body, ['cover_versions', 'pictures', '_id', 'picture']);
+
+
   let updatedBusiness = Object.assign(req.locals.business, body);
   if (req.files) {
     if (req.files.picture && req.files.picture.length > 0) {
@@ -120,7 +126,10 @@ exports.update = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const business = new Business(req.body);
+
+    const params = req.body;
+
+    const business = new Business(params);
     const saved = await  business.save();
 
     if (req.files) {

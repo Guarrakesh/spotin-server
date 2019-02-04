@@ -14,16 +14,16 @@ const events = [
     sport: { id: 2, appealValue: 0.5 },
     competition: { id: 2, appealValue: 0.2 },
     competitors: [
-      { id: 1, appealValue: 0.5 },
-      { id: 2, appealValue: 0.2 }
+      { competitor: { id: 1, appealValue: 0.5 }  },
+      { competitor: { id: 2, appealValue: 0.2 }  }
     ]
   },
   {
     id: 33,
     sport: { id: 5, appealValue: 0.2 },
     competitors: [
-      { id: 3, appealValue: 0.8 },
-      { id: 4, appealValue: 0.42 }
+      { competitor: { id: 3, appealValue: 0.8 } },
+      { competitor: { id: 4, appealValue: 0.42 }  }
     ],
     competition: { id: 3, appealValue: 0.8 }
   },
@@ -68,12 +68,5 @@ describe('StandardEventsAppealEvaluator', () => {
     expect(evaluatedEvents.size).to.be.equal(4);
   });
 
-  it('getSortedEvents should return sorted [id,appealValue] iterable', () => {
-    const evaluator = new StandardEventsAppealEvaluator(events);
-    const sortedEvents = evaluator.getSortedEvents();
-    expect(sortedEvents).to.be.an('array');
-    expect(sortedEvents[0][0]).to.be.equal(44);
-    expect(sortedEvents[0][1]).to.be.equal(2.46);
-  })
 
 });

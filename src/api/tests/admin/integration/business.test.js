@@ -20,6 +20,8 @@ const sandbox = sinon.createSandbox();
 
 describe("Business API", () => {
   beforeEach(async () => {
+    sandbox.stub(googleMapsClient, "geocode")
+        .returns({asPromise: () => new Promise(resolve => resolve({json: undefined}))});
     try {
       businesses = await factory(Business, null, 3).create();
 
@@ -30,12 +32,11 @@ describe("Business API", () => {
     } catch (e) {
       console.log(e);
     }
-    sandbox.stub(googleMapsClient, "geocode")
-        .returns({asPromise: () => new Promise(resolve => resolve({json: undefined}))});
+
   });
 
   afterEach(async () => {
-    await User.deleteMany({});
+  //  await User.deleteMany({});
     await Business.deleteMany({});
     sandbox.restore();
   });
@@ -54,7 +55,7 @@ describe("Business API", () => {
           })
     });
     it("should return paginated businesses", async () => {
-      await factory(Business, null, 5).create();
+      const businesses  = await factory(Business, null, 5).create();
       return request(app)
           .get('/admin/businesses?_end=3&_start=0')
           .set('Authorization', `Bearer ${adminAccessToken}`)
@@ -68,7 +69,7 @@ describe("Business API", () => {
           })
     });
   });
-  describe("POST /admin/businesses/:id", () => {
+  describe("PATCH /admin/businesses/:id", () => {
     it("should upload pictures", async () => {
       sandbox.stub(amazon, 'uploadImage').callsFake(async () => {
         return new Promise((resolve) => resolve({ Location: "test_location" }));
@@ -92,6 +93,33 @@ describe("Business API", () => {
           });
 
     });
+
+    it('should set business hours', async () => {
+      const _business = await factory(Business).create();
+      const business_hours = {
+        0: { openings: [] },
+        1: { openings: [ { open: 225, close: 1420 } ] },
+        2: { openings: [ { open: 225, close: 750 }, { open: 900, close: 120 } ] },
+        3: { openings: [ { open: 225, close: 750 }, { open: 900, close: 120 } ] },
+        4: { openings: [ { open: 225, close: 750 }, { open: 900, close: 120 } ] },
+        5: { openings: [ { open: 225, close: 240 } ] } ,
+        6: { openings: [ { open: 225, close: 1420 } ] },
+
+      };
+      return request(app)
+          .patch('/admin/businesses/'+_business.id)
+          .set('Authorization', `Bearer ${adminAccessToken}`)
+          .send({business_hours})
+          .then((res) => {
+            expect(res.statusCode).to.be.equal(200);
+            expect(res.body).to.be.an('object');
+            expect(res.body).to.have.property('business_hours');
+            expect(res.body.business_hours).to.have.property(0);
+            expect(res.body.business_hours[0].openings).to.have.lengthOf(0);
+            expect(res.body.business_hours[6].openings[0].open).to.be.equal(225);
+          });
+
+    })
   });
 
 

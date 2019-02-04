@@ -1,9 +1,10 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-
 import { TabbedForm, FormTab, Create,
   DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
 ImageInput } from 'react-admin';
+import BusinessDayInput from "./BusinessDayInput";
+
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -25,12 +26,23 @@ const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1em'}
 };
 
-
+const defaultFormValue = {
+  business_hours: {
+    0: { openings: [] },
+    1: { openings: [] },
+    2: { openings: [] },
+    3: { openings: [] },
+    4: { openings: [] },
+    5: { openings: [] },
+    6: { openings: [] }}
+};
 
 const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
   return (
     <Create { ...props}>
-      <TabbedForm>
+      <TabbedForm
+        defaultValue={defaultFormValue}
+      >
         <FormTab label="General">
           <TextInput source="name"/>
           <SelectArrayInput choices={types} source="type" label="Business Type"/>
@@ -60,7 +72,14 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
           <DisabledInput source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
           <DisabledInput source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
         </FormTab>
-
+        <FormTab label="Orari di apertura">
+          {[0,1,2,3,4,5,6].map(day =>
+              (
+                  <BusinessDayInput
+                      source={`business_hours.${day}`} key={day} day={day}/>
+              )
+          )}
+        </FormTab>
         <FormTab label="Billing">
           <TextInput source="vat"/>
           <TextInput source="tradeName"/>
@@ -77,6 +96,7 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
 
 
         </FormTab>
+
       </TabbedForm>
 
     </Create>

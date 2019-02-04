@@ -1,5 +1,13 @@
 const Joi = require('joi');
 
+const businessHoursValidationSchema = [0,1,2,3,4,5,6].reduce(
+    (acc, day) => ({
+      ...acc,
+      [day]: Joi.alternatives([Joi.boolean(), Joi.object({
+        openings: Joi.array().items(Joi.object({open: Joi.number(), close: Joi.number()})).required(),
+      })])
+    })
+);
 
 module.exports = {
   // POST /v1/businesses
@@ -21,13 +29,7 @@ module.exports = {
       tvs: Joi.number(),
       seats: Joi.number(),
       providers: Joi.alternatives([Joi.array().items(Joi.string()), Joi.string()]).required(),
-      businessHours: Joi.alternatives([Joi.object({
-        closingDay: Joi.array().items(Joi.number()),
-        hours: Joi.object({
-          opening1: Joi.string().required(), closing1: Joi.string(),
-          opening2: Joi.string().required(), closing2: Joi.string()
-        })
-      }),Joi.string()]),
+      businessHours: businessHoursValidationSchema,
       vat: Joi.number().required(),
       tradeName: Joi.string()
     }
@@ -52,13 +54,7 @@ module.exports = {
       tvs: Joi.number(),
       seats: Joi.number(),
       providers: Joi.alternatives([Joi.array().items(Joi.string()), Joi.string()]),
-      businessHours: Joi.alternatives([Joi.object({
-        closingDay: Joi.array().items(Joi.number()),
-        hours: Joi.object({
-          opening1: Joi.string().required(), closing1: Joi.string(),
-          opening2: Joi.string().required(), closing2: Joi.string()
-        })
-      }), Joi.string()]),
+      businessHours: businessHoursValidationSchema,
       vat: Joi.number(),
       tradeName: Joi.string(),
     },
