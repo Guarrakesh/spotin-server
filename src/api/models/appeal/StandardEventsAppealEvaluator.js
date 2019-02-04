@@ -36,7 +36,7 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
       this.sportAppeals.set(sport[this.options.sportIdKey], sport[this.options.appealValueKey]);
     }
     for (let competitor of this.competitors) {
-      this.competitorAppeals.set(competitor.competitor[this.options.competitorIdKey], competitor.competitor[this.options.appealValueKey]);
+      this.competitorAppeals.set(competitor[this.options.competitorIdKey], competitor[this.options.appealValueKey]);
     }
     for (let competition of this.competitions) {
       this.competitionAppeals.set(competition[this.options.competitionIdKey], competition[this.options.appealValueKey]);
@@ -54,7 +54,7 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
   getAllCompetitors() {
     const competitors = this.events
         .filter(event => event.competitors)
-        .map(event => event.competitors);
+        .map(event => event.competitors.map(c => c.competitor));
 
     const flattened = flatten(competitors);
     return uniqBy(flattened, this.options.competitorIdKey);

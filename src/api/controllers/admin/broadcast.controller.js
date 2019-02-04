@@ -20,10 +20,13 @@ exports.load = async(req, res, next, id) => {
 
 };
 
+
+
 exports.get = (req, res) => res.json(req.locals.broadcast);
 
 exports.create = async (req, res, next) => {
   try {
+
 
 
     const broadcast = new Broadcast(req.body);
@@ -56,6 +59,7 @@ exports.create = async (req, res, next) => {
     }
 
 
+
     if (business.spots < spots)
       return next(new ApiError({message: "Business does not have enough spot to buy this event", status: 400, isPublic: true}));
     await business.paySpots(Broadcast.calculateSpots(req.body.offer, event, req.body.plus));
@@ -71,6 +75,7 @@ exports.create = async (req, res, next) => {
 };
 exports.update = async (req, res, next) => {
 
+  const params = req.body;
 
   const updateBroadcast = Object.assign(req.locals.broadcast, req.body);
 

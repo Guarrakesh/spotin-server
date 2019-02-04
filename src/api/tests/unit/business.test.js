@@ -33,14 +33,16 @@ describe("Business Model", () => {
           .returns({ asPromise: () => new Promise(resolve => resolve({}) ) });
 
       businessHours = {
-        0: { openings: 1, open: [600], close: [1440]}, // Lun Dalle 10 alle 24:00
-        1: { openings: 0 }, // Martedì chiuso
-        2: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        3: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        4: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        5: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 360},
-        6: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 30} // Dom
-      };
+        0: { openings: [ { open: 600, close: 1440 }]},
+        1: { openings: [] },
+        2: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
+        3: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
+        4: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
+        5: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
+        6: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1680 }] , crossing_day_close: 240 },
+        7: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1680 }] , crossing_day_close: 240 },
+
+      }
       business = await factory(Business).make();
     } catch (e) {
       console.log(e);
@@ -118,7 +120,7 @@ describe("Business Model", () => {
       expect(b.checkSupportsProviders(['DAZN', 'Sky'])).to.be.true;
     });
   });
-  describe('isEventBroadcastable()', async() => {
+  describe( 'isEventBroadcastable()', async() => {
 
     it ("Should return false when event is out of business hours", async () => {
       const _business = await factory(Business).create({

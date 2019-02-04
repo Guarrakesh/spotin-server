@@ -104,7 +104,7 @@ sportEventSchema.pre('save', async function(next) {
  * @memberOf SportEvent
  * @param user
  */
-sportEventSchema.method.transform = function(user = null) {
+sportEventSchema.methods.transform = function(user = null) {
   const transformed = {};
   const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
   fields.forEach((field) => {
@@ -137,19 +137,19 @@ sportEventSchema.method.transform = function(user = null) {
 };
 
 
-sportEventSchema.method.checkIfOverlaps = async function(event) {
+sportEventSchema.methods.getOverlaps = function(event) {
 
-  const broadcastableEventStart = this.start_at;
-  const broadcastableEventEnd = broadcastableEventStart + this.sport.duration;
+  const broadcastableEventStart = this.start_at.getTime();
+  const broadcastableEventEnd = broadcastableEventStart + (this.sport.duration * 60 * 1000);
 
-  const eventToBroadcastStart = event.start_at;
+  const eventToBroadcastStart = event.start_at.getTime();;
   const eventToBroadcastEnd =  eventToBroadcastStart + event.sport.duration * (60*1000);
 
 
   return (
-      (broadcastableEventStart <= eventToBroadcastEnd && broadcastableEventStart > eventToBroadcastStart)
+      (broadcastableEventStart <= eventToBroadcastEnd && broadcastableEventStart >= eventToBroadcastStart)
       ||
-      (broadcastableEventEnd >= eventToBroadcastStart && broadcastableEventEnd < eventToBroadcastEnd));
+      (broadcastableEventEnd >= eventToBroadcastStart && broadcastableEventEnd <= eventToBroadcastEnd));
 };
 
 

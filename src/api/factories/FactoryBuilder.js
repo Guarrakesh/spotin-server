@@ -47,7 +47,8 @@ class FactoryBuilder {
    * @param attributes
    */
   async create(attributes = []) {
-    const results = this.make(attributes);
+
+    const results = await this.make(attributes);
     if (results.constructor.name === "model") {
       this.callAfterCreating([results]);
       await this.store([results]);
@@ -62,11 +63,18 @@ class FactoryBuilder {
    * Set the connection name on the results and store them.
    * @param results
    */
-  async store(results) {
-      async.map(results, async function(result) {
-        return await result.save();
-      })
-      ;
+  async store(models) {
+    try {
+      const results = []
+      for (const model of models) {
+        let aa = await model.save();
+        results.push(results);
+      }
+      return results;
+    } catch (e) {
+      console.log(e);
+      throw Error(e);
+    }
 
   }
 
@@ -75,9 +83,9 @@ class FactoryBuilder {
    * @param attributes
    * @returns {*}
    */
-  make(attributes) {
+  async make(attributes) {
     if (this._amount === null) {
-      const instance = new (this._objects[this._class])(this.getRawAttributes(attributes));
+      const instance = new (this._objects[this._class])(await this.getRawAttributes(attributes));
       this.callAfterMaking([this._class]);
       return instance;
     }
@@ -91,16 +99,16 @@ class FactoryBuilder {
     */
     let instances = [];
     for (let i=0; i < this._amount; i++) {
-      instances.push(new (this._objects[this._class])(this.getRawAttributes(attributes)))
+      instances.push(new (this._objects[this._class])(await this.getRawAttributes(attributes)))
     }
     this.callAfterMaking(instances);
 
     return instances;
   }
-  getRawAttributes(attributes) {
+  async getRawAttributes(attributes) {
     let fakedAttributes = attributes;
     if (this._definitions[this._class] && this._definitions[this._class][this._name]) {
-      fakedAttributes = this._definitions[this._class][this._name](this._faker);
+      fakedAttributes = await this._definitions[this._class][this._name](this._faker);
       fakedAttributes = { ...fakedAttributes, ...attributes };
 
     }

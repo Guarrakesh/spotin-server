@@ -8,6 +8,7 @@ ImageInput } from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
+import BusinessDayInput from "./BusinessDayInput";
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -33,11 +34,23 @@ const styles = {
 const Title = ({record}) => { //eslint-disable-line react/prop-types
   return <span>{record ? record.name : ''}</span>
 }
+const defaultFormValue = {
+  business_hours: {
+    0: { openings: [] },
+    1: { openings: [] },
+    2: { openings: [] },
+    3: { openings: [] },
+    4: { openings: [] },
+    5: { openings: [] },
+    6: { openings: [] }}
+};
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
     return (
       <Edit title={<Title/>} { ...props}>
-        <TabbedForm>
+        <TabbedForm
+            defaultValue={defaultFormValue}
+        >
           <FormTab label="General">
             <DisabledInput label="id" source="_id"/>
             <TextInput source="name"/>
@@ -70,7 +83,14 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <DisabledInput source="address.location.coordinates[0]" formClassName={classes.inlineBlock} label="Longitude"/>
             <BusinessMapField isMarkerShown source="address.location.coordinates"/>
           </FormTab>
-
+          <FormTab label="Orari di apertura">
+            {[0,1,2,3,4,5,6].map(day =>
+                (
+                    <BusinessDayInput
+                        source={`business_hours.${day}`} key={day} day={day}/>
+                )
+            )}
+          </FormTab>
           <FormTab label="Billing">
             <TextInput source="vat"/>
             <TextInput source="tradeName"/>

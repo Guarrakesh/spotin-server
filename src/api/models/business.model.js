@@ -33,12 +33,16 @@ const providers = [
 ];
 //Gli orari dei apertura e chiusura possono essere al massimo 2
 const businessHoursSchema = new mongoose.Schema({
-  openings: Number,
-  open: [{ type: Number, min: 0, max: 1440 }],
-  close: [{ type: Number, min: 0, max: 1440 }],
-  crossing_day_close: Number // 0-1440 Se chiude il giorno dopo (es aperto dalle 18:00 alle 02:00)
+  openings: [new mongoose.Schema({
+    open: { type: Number, min: 0, max: 1440 },
+    close: { type: Number, min: 0, max: 2800 },
 
-});
+  }, { _id: false })],
+  crossing_day_close: { type: Number },// 0-1440 Se chiude il giorno dopo (es aperto dalle 18:00 alle 02:00)
+
+
+
+}, { _id: false });
 //I giorni della settimana sono numeri da 0 a 6 (0 lunedi, 6 domenica)
 const businessDaysSchema = new mongoose.Schema({
   0: businessHoursSchema,
@@ -49,16 +53,6 @@ const businessDaysSchema = new mongoose.Schema({
   5: businessHoursSchema,
   6: businessHoursSchema,
 });
-/*
-businessHours =  {
-  0: { openings: 2, open: [540, 960], close: [780, 1440] },
-  //Lunedì apre alle 9 (540) e chiude alle 13 (780). Poi riapre alle 16 (960) e chiude alle 24 (1440)
-  1: { openings: 1, open: [540], close: [1440] },
-  // Martedì ha una sola apertura e chiusurua, dalle 9 alle 24
-  2: false,
-  // Mercoledì è chiuso
-}
-*/
 
 
 
@@ -172,7 +166,6 @@ businessSchema.methods = {
   },
 
 
-
   transform(fieldsToOmit = []) {
     const transformed = {};
     let fields = difference(['_id',
@@ -191,9 +184,8 @@ businessSchema.methods = {
       "cover_versions",
       "providers",
       "pictures",
-      "businessHours","tradeName"], fieldsToOmit);
+      "businessHours", "tradeName"], fieldsToOmit);
     //Solo il proprietario può vedere tutte le info del locale
-
 
 
     fields.forEach((field) => {
@@ -212,7 +204,7 @@ businessSchema.methods = {
       const data = await amazon.uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
-      this.cover_versions = [ { url: data.Location, width, height } ];
+      this.cover_versions = [{url: data.Location, width, height}];
 
 
       const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
@@ -233,7 +225,7 @@ businessSchema.methods = {
     const pic = this.pictures.find(pic => pic.id === picture.id);
     if (pic) {
       await amazon.deleteObject(`${this.s3Path()}/${pic.id}/${pic.ext}`);
-      await this.update({ _id: this._id }, { $pull: { 'pictures': { id: pic.id }}});
+      await this.update({_id: this._id}, {$pull: {'pictures': {id: pic.id}}});
 
     }
   },
@@ -254,11 +246,10 @@ businessSchema.methods = {
         }
     );
 
-    const { width, height } = await sizeOf(file.buffer);
-    console.log(data);
-    const versions = [{ url: data.Location, width, height }]
+    const {width, height} = await sizeOf(file.buffer);
+    const versions = [{url: data.Location, width, height}]
         .concat(this.constructor.makeImageVersions(basePath, fileName));
-    this.pictures.push({ _id, versions });
+    this.pictures.push({_id, versions});
   },
 
 
@@ -270,12 +261,12 @@ businessSchema.methods = {
    * @returns {Promise<SportEvent[]>}
    */
   async getBroadcastableEvents(start_at = Date.now(), end_at) {
-    const filter = { start_at : { $gte: start_at } };
+    const filter = {start_at: {$gte: start_at}};
     if (end_at) {
       filter.start_at["$lte"] = end_at;
     }
 
-    const results = await SportEvent.find(filter).populate('sport').populate('competition').populate('competitors.competitor', ['sport','name','appealValue']);
+    const results = await SportEvent.find(filter).populate('sport').populate('competition').populate('competitors.competitor', ['sport', 'name', 'appealValue']);
 
     const events = results
         .filter((event) => this.isEventBroadcastable(event));
@@ -290,57 +281,70 @@ businessSchema.methods = {
   isEventBroadcastable(event) {
 
 
-
     if (process.env.NODE_ENV !== "development") {
       if (!this.business_hours) {
         throw Error('No business hours for this business');
       }
     } else {
       this.business_hours = {
-        0: { openings: 1, open: [600], close: [1440]}, // Lun Dalle 10 alle 24:00
-        1: { openings: 1, open: [600], close: [1440]}, // Martedì chiuso
-        2: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        3: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        4: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 120},
-        5: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 360},
-        6: { openings: 2, open: [600, 1020], close: [930], crossing_day_close: 30} // Dom
+        0: {openings: [{open: 600, close: 1440}]},
+        1: null,
+        2: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
+        3: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
+        4: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
+        5: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
+        6: {openings: [{open: 600, close: 930}, {open: 1020, close: 1640}], crossing_day_close: 240},
+        7: {openings: [{open: 600, close: 930}, {open: 1020, close: 1640}], crossing_day_close: 240},
+
       }
     }
     let weekDay = (new Date(event.start_at).getDay() - 1) % 7;
 
     if (weekDay === -1) weekDay = 6;
 
-    if (this.business_hours[weekDay] && this.business_hours[weekDay].openings > 0) {
+    if (this.business_hours[weekDay] && this.business_hours[weekDay].openings.length > 0) {
       const day = this.business_hours[weekDay];
       const eventStart = event.start_at.getHours() * 60 + event.start_at.getMinutes(); //between 0 and 1440
       const approximatedEventEnd = eventStart + event.sport.duration;
 
-      for (let i = 0; i < day.open.length; i++) {
-
-        if (day.close[i] && eventStart >= day.open[i] && approximatedEventEnd <= day.close[i]) {
-          return this.checkSupportsProviders(event.providers);
-
-        } else {
-          //Se l'evento non entra in alcuna fascia oraria
-          //Controllo ulteriormente se inizia in un giorno e finisce in un altro
-          if ((day.crossing_day_close && eventStart >= day.open[day.openings-1] && approximatedEventEnd <= 1440 + day.crossing_day_close)) {
-            //L'ultima chiusura è il giorno dopo (es dalle 18:00 alle 02:00)
-            // Il primo orario di chiusura corrisponde alla chiusura del giorno prima
-            return this.checkSupportsProviders(event.providers);
-          } else {
-            const prevDay = this.business_hours[(weekDay + 6) % 7];
-            if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
-              // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
-              return this.checkSupportsProviders(event.providers);
-            }
-          }
+      const found = day.openings.find(o => eventStart >= o.open && approximatedEventEnd <= o.close);
+      if (found) {
+        return this.checkSupportsProviders(event.providers);
+      } else {
+        const prevDay = this.business_hours[(weekDay + 6) % 7];
+        // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
+        if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
+          return this.checkSupportsProviders(event.providers)
         }
       }
+
     }
     return false;
+    //   for (let i = 0; i < day.open.length; i++) {
+    //
+    //     if (day.close[i] && eventStart >= day.open[i] && approximatedEventEnd <= day.close[i]) {
+    //       return this.checkSupportsProviders(event.providers);
+    //
+    //     } else {
+    //       //Se l'evento non entra in alcuna fascia oraria
+    //       //Controllo ulteriormente se inizia in un giorno e finisce in un altro
+    //       if ((day.crossing_day_close && eventStart >= day.open[day.openings-1] && approximatedEventEnd <= 1440 + day.crossing_day_close)) {
+    //         //L'ultima chiusura è il giorno dopo (es dalle 18:00 alle 02:00)
+    //         // Il primo orario di chiusura corrisponde alla chiusura del giorno prima
+    //         return this.checkSupportsProviders(event.providers);
+    //       } else {
+    //         const prevDay = this.business_hours[(weekDay + 6) % 7];
+    //         if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
+    //           return this.checkSupportsProviders(event.providers);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // return false;
+
   }
 };
-
 businessSchema.statics = {
   async findNear(lat, lng, radius, options = {}, extraAggregations = []) {
 
