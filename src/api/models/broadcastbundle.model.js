@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
 const offerSchema = require('./offer.schema');
+const { Broadcast } = require('./broadcast.model');
+const { Business } = require('./business.model');
+const { SportEvent } = require('./sportevent.model');
 
 const broadcastBundleSchema = mongoose.Schema({
 
@@ -25,14 +28,14 @@ const broadcastBundleSchema = mongoose.Schema({
       spots: Number,
     }, { _id: false, strict: false})],
 
-
+  totalSpots: Number,
   start: Date, //Inizio periodo (giorno della prima partita trasmessa)
   end: Date, //Fine periodo (giorno dell'ultima partita trasmessa)
   spots: Number,
 
   //Se il locale ha acquistato
-  bought: Boolean,
-  bought_at: Date,
+  published: Boolean,
+  published_at: Date,
 
 
 }, { timestamps: true, strict: false });
@@ -52,7 +55,7 @@ broadcastBundleSchema.statics = {
     }
 
     const broadcastBundle = new this({
-      business: business.id,
+      business: { _id: business._id, name: business.name },
     });
 
     const etbs = this.distributeEvents(events);
@@ -66,6 +69,9 @@ broadcastBundleSchema.statics = {
     const end = moment(events[events.length-1].start_at).endOf('day').toDate(); // Default fine del giorno dell'ultimo evento
     broadcastBundle.start = start;
     broadcastBundle.end = end;
+    broadcastBundle.totalSpots = broadcastBundle.broadcast
+      .reduce((acc, b) => acc + b.spots, 0);
+      
     broadcastBundle.calculateSpots();
     return broadcastBundle;
   },
@@ -77,7 +83,7 @@ broadcastBundleSchema.statics = {
 
   },
   distributeEvents(events) {
-    let _eventToBroadcast = [events.shift()];
+    const _eventToBroadcast = [events.shift()];
     let overlaps = false;
     for (const bEvent of events) {
       for (etb of _eventToBroadcast) {
@@ -90,9 +96,32 @@ broadcastBundleSchema.statics = {
     }
 
     return _eventToBroadcast;
-  }
-
-
+  },
+  async publish() {
+    try {
+      let totalSpots = 0;
+      if (!this.published) {
+        this.published = true;
+        this.published_at = moment().toISOString();
+        const business = await Business.findById(this.business.id);
+        for (const broadcast of this.broadcast) {
+          const event = await SportEvent.findById(broadcast.event.id);
+          if (!business.canBroadcastEvent(event)) {
+            continue;
+          }
+          const newBroadcast = new Broadcast({
+             event: broadcast.event._id,
+            business: this.business._id,
+          });
+          totalSpots += business.paySpots(broadcast.spots);
+          await newBroadcast.save();
+        }
+        await this.save();
+      }
+    } catch (e) {
+      throw e;
+    }
+  },
 };
 
 
