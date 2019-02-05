@@ -30,11 +30,13 @@ const normalizeBusinessHours = (businessHours) => {
       , {})
 };
 
-const save = (values, basePath, redirectTo, isNew = true) => {
+const save = (values, basePath, redirectTo, isNew = true, previousData) => {
+
   const newValues = omit({ ...values, business_hours: normalizeBusinessHours(values.business_hours)},
       ['id','_id']);
+console.log(redirectTo);
   return isNew ? crudCreate('businesses', newValues , basePath, redirectTo)
-      : crudUpdate('businesses', values.id , newValues, newValues , basePath)
+      : crudUpdate('businesses', values.id , newValues, previousData , basePath, redirectTo)
 };
 class BusinessSaveButton extends React.Component {
 
@@ -43,13 +45,14 @@ class BusinessSaveButton extends React.Component {
     isNew: PropTypes.bool,
     basePath: PropTypes.string,
     handleSubmit: PropTypes.func,
-    redirectTo: PropTypes.string
+    redirect: PropTypes.string,
+    previousData: PropTypes.object,
   };
   handleClick = () => {
-    console.log("aaa", this.props);
-    const { basePath, handleSubmit, redirectTo, isNew = true} = this.props;
+    const { basePath, handleSubmit, redirect, isNew = true, previousData} = this.props;
+    console.log(redirect);
     return handleSubmit(values => {
-      this.props.save(values, basePath, redirectTo, isNew);
+      this.props.save(values, basePath, redirect, isNew, previousData);
     })
   };
   render() {

@@ -4,7 +4,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { TabbedForm, FormTab, Create, Toolbar,
   DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
-ImageInput} from 'react-admin';
+  ImageInput} from 'react-admin';
 import BusinessDayInput from "./BusinessDayInput";
 import  BusinessSaveButton  from "./BusinessSaveButton";
 
@@ -47,69 +47,69 @@ const defaultFormValue = {
 
 const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
   return (
-    <Create { ...props}>
-      <TabbedForm
+      <Create { ...props}>
+        <TabbedForm
 
-          toolbar={<Toolbar><BusinessSaveButton label="Salva" redirect="show" submitOnEnter={true}/></Toolbar>}
-        defaultValue={defaultFormValue}
-      >
-        <FormTab label="General">
-          <TextInput source="name"/>
-          <SelectArrayInput choices={types} source="type" label="Business Type"/>
-          <TextInput source="phone"/>
-          <ReferenceInput source="user"
-                          reference="users"
-                          filter={{role: "business"}}
-                          allowEmpty={false}
-          >
-            <AutocompleteInput optionText="email"/>
+            toolbar={<Toolbar><BusinessSaveButton label="Salva" redirect="list" submitOnEnter={true}/></Toolbar>}
+            defaultValue={defaultFormValue}
+        >
+          <FormTab label="General">
+            <TextInput source="name"/>
+            <SelectArrayInput choices={types} source="type" label="Business Type"/>
+            <TextInput source="phone"/>
+            <ReferenceInput source="user"
+                            reference="users"
+                            filter={{role: "business"}}
+                            allowEmpty={false}
+            >
+              <AutocompleteInput optionText="email"/>
 
-          </ReferenceInput>
-          <NumberInput source="spots"/>
+            </ReferenceInput>
+            <NumberInput source="spots"/>
             <ImageInput source="picture" accept="image/*">
               <ImageField source="src"/>
             </ImageInput>
             <ImageField source="cover_versions[0].url" src="url" title="title"/>
 
-        </FormTab>
-        <FormTab label="Address">
-          <TextInput source="address.street" label="Street"/>
-          <TextInput source="address.number" label="Number"/>
-          <TextInput source="address.city" label="City"/>
-          <TextInput source="address.province" label="Province"/>
-          <TextInput source="address.country" label="Country"/>
-          <NumberInput source="address.zip" label="Zip"/>
-          <DisabledInput source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
-          <DisabledInput source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
-        </FormTab>
-        <FormTab label="Orari di apertura">
-          {[0,1,2,3,4,5,6].map(day =>
-              (
-                  <BusinessDayInput
-                      source={`business_hours.${day}`} key={day} day={day}/>
-              )
-          )}
-        </FormTab>
-        <FormTab label="Billing">
-          <TextInput source="vat"/>
-          <TextInput source="tradeName"/>
+          </FormTab>
+          <FormTab label="Address">
+            <TextInput source="address.street" label="Street"/>
+            <TextInput source="address.number" label="Number"/>
+            <TextInput source="address.city" label="City"/>
+            <TextInput source="address.province" label="Province"/>
+            <TextInput source="address.country" label="Country"/>
+            <NumberInput source="address.zip" label="Zip"/>
+            <DisabledInput source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
+            <DisabledInput source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
+          </FormTab>
+          <FormTab label="Orari di apertura">
+            {[0,1,2,3,4,5,6].map(day =>
+                (
+                    <BusinessDayInput
+                        source={`business_hours.${day}`} key={day} day={day}/>
+                )
+            )}
+          </FormTab>
+          <FormTab label="Billing">
+            <TextInput source="vat"/>
+            <TextInput source="tradeName"/>
 
-        </FormTab>
-        <FormTab label="Extra">
-          <BooleanInput source="wifi"/>
-          <BooleanInput source="forFamilies"/>
-          <NumberInput source="seats"/>
-          <NumberInput source="tvs"/>
-          <TextInput source="target"/>
-          <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
+          </FormTab>
+          <FormTab label="Extra">
+            <BooleanInput source="wifi"/>
+            <BooleanInput source="forFamilies"/>
+            <NumberInput source="seats"/>
+            <NumberInput source="tvs"/>
+            <TextInput source="target"/>
+            <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
 
 
 
-        </FormTab>
+          </FormTab>
 
-      </TabbedForm>
+        </TabbedForm>
 
-    </Create>
+      </Create>
 
 
   )

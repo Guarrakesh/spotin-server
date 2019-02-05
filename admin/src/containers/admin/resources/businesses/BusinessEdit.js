@@ -1,11 +1,23 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
-import { TabbedForm, FormTab, Edit,
-    Toolbar,
-  DisabledInput, TextInput, NumberInput,
-  ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput, ImageField, ArrayField, SingleFieldList,
-ImageInput } from 'react-admin';
+import {
+  ArrayField,
+  AutocompleteInput,
+  BooleanInput,
+  DisabledInput,
+  Edit,
+  FormTab,
+  ImageField,
+  ImageInput,
+  NumberInput,
+  ReferenceInput,
+  SelectArrayInput,
+  SingleFieldList,
+  TabbedForm,
+  TextInput,
+  Toolbar
+} from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
@@ -35,7 +47,7 @@ const styles = {
 
 const Title = ({record}) => { //eslint-disable-line react/prop-types
   return <span>{record ? record.name : ''}</span>
-}
+};
 const defaultFormValue = {
   business_hours: {
     0: { openings: [] },
@@ -47,14 +59,29 @@ const defaultFormValue = {
     6: { openings: [] }}
 };
 
+const BusinessEditToolbar = props => {
+
+  return (
+      <Toolbar {...props}>
+        <BusinessSaveButton previousData={props.record} // eslint-disable-line
+                            isNew={false}
+                            label="Salva"
+                            redirect="list"
+                            submitOnEnter={true}
+        />
+      </Toolbar>
+  )
+};
+
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
-    return (
+
+  return (
       <Edit
 
           title={<Title/>} { ...props}>
         <TabbedForm
-            toolbar={<Toolbar><BusinessSaveButton isNew={false} label="Salva" redirect="show" submitOnEnter={true}/></Toolbar>}
+            toolbar={<BusinessEditToolbar/>}
 
             defaultValue={defaultFormValue}
         >
@@ -67,14 +94,14 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
                             reference="users"
                             filter={{role: "business"}}
                             allowEmpty={false}
-                            >
+            >
               <AutocompleteInput optionText="email"/>
             </ReferenceInput>
             <NumberInput source="spots"/>
-              <ImageInput source="picture" accept="image/*">
-                <ImageField source="src"/>
-              </ImageInput>
-              <ImageField source="cover_versions[0].url" src="url" title="title"/>
+            <ImageInput source="picture" accept="image/*">
+              <ImageField source="src"/>
+            </ImageInput>
+            <ImageField source="cover_versions[0].url" src="url" title="title"/>
 
 
 
@@ -134,7 +161,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
       </Edit>
 
 
-    )
+  )
 });
 
 export default BusinessEdit;
