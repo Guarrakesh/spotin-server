@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import { TabbedForm, FormTab, Edit,
+    Toolbar,
   DisabledInput, TextInput, NumberInput,
   ReferenceInput, AutocompleteInput, BooleanInput, SelectArrayInput, ImageField, ArrayField, SingleFieldList,
 ImageInput } from 'react-admin';
@@ -9,6 +10,7 @@ ImageInput } from 'react-admin';
 import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
 import BusinessDayInput from "./BusinessDayInput";
+import BusinessSaveButton from "./BusinessSaveButton";
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -44,11 +46,16 @@ const defaultFormValue = {
     5: { openings: [] },
     6: { openings: [] }}
 };
+
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
     return (
-      <Edit title={<Title/>} { ...props}>
+      <Edit
+
+          title={<Title/>} { ...props}>
         <TabbedForm
+            toolbar={<Toolbar><BusinessSaveButton isNew={false} label="Salva" redirect="show" submitOnEnter={true}/></Toolbar>}
+
             defaultValue={defaultFormValue}
         >
           <FormTab label="General">

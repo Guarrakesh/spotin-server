@@ -33,14 +33,14 @@ describe("Business Model", () => {
           .returns({ asPromise: () => new Promise(resolve => resolve({}) ) });
 
       businessHours = {
-        0: { openings: [ { open: 600, close: 1440 }]},
-        1: { openings: [] },
-        2: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
-        3: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
-        4: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
-        5: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1560 }] , crossing_day_close: 120 },
-        6: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1680 }] , crossing_day_close: 240 },
-        7: { openings: [ { open: 600, close: 930 }, { open: 1020, close: 1680 }] , crossing_day_close: 240 },
+        0: {openings: [{open: 600, close: 1440}]},
+        1: {openings: []},
+        2: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
+        3: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
+        4: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+        5: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+        6: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+
 
       }
       business = await factory(Business).make();

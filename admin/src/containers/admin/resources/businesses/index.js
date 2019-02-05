@@ -5,24 +5,24 @@ import { List, Datagrid, ChipField, TextField, EditButton,
 } from 'react-admin';
 
 
+
 export {default as BusinessEdit} from './BusinessEdit';
 export {default as BusinessCreate} from './BusinessCreate';
 
 const BusinessFilter = (props) => (
-  <Filter {...props}>
-    <TextInput source="name" alwaysOn/>
-  </Filter>
+    <Filter {...props}>
+      <TextInput source="name" alwaysOn/>
+    </Filter>
 );
 export const BusinessList = (props) => (
-  <List {...props} filters={<BusinessFilter/>}>
-    <Datagrid>
+    <List {...props} filters={<BusinessFilter/>}>
+      <Datagrid>
 
-      <TextField source="name" label="Nome"/>
+        <TextField source="name" label="Nome"/>
 
-      <ChipField source="type" label="Tipo"/>
-      <TextField source="address.street" label="Indirizzo"/>
-      <EditButton/>
-    </Datagrid>
-  </List>
+        <ChipField source="type" label="Tipo"/>
+        <TextField source="address.street" label="Indirizzo"/>
+        <EditButton/>
+      </Datagrid>
+    </List>
 );
-

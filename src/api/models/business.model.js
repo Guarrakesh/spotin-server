@@ -114,11 +114,13 @@ const businessSchema = new mongoose.Schema({
 
 });
 
+
+
 businessSchema.pre('save', async function(next) {
   try {
 
 
-    if (this.modifiedPaths().includes('address') || this.isNew) {
+    if (this.modifiedPaths().includes('address') || (this.isNew && this.address)) {
       //Uno o piu campi dell'indirizzo sono cambiati, eseguo geocoding
       const { address } = this;
       const compactAddress = `${address.street} ${address.number}, ${address.zip} ${address.city}, ${address.province}`;
@@ -197,7 +199,7 @@ businessSchema.methods = {
       "cover_versions",
       "providers",
       "pictures",
-      "businessHours", "tradeName"], fieldsToOmit);
+      "business_hours", "tradeName"], fieldsToOmit);
     //Solo il proprietario può vedere tutte le info del locale
 
 
@@ -302,12 +304,12 @@ businessSchema.methods = {
       this.business_hours = {
         0: {openings: [{open: 600, close: 1440}]},
         1: null,
-        2: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
-        3: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
-        4: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
-        5: {openings: [{open: 600, close: 930}, {open: 1020, close: 1520}], crossing_day_close: 120},
-        6: {openings: [{open: 600, close: 930}, {open: 1020, close: 1640}], crossing_day_close: 240},
-        7: {openings: [{open: 600, close: 930}, {open: 1020, close: 1640}], crossing_day_close: 240},
+        2: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
+        3: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
+        4: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+        5: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+        6: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
+        7: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
 
       }
     }
@@ -318,15 +320,19 @@ businessSchema.methods = {
     if (this.business_hours[weekDay] && this.business_hours[weekDay].openings.length > 0) {
       const day = this.business_hours[weekDay];
       const eventStart = event.start_at.getHours() * 60 + event.start_at.getMinutes(); //between 0 and 1440
-      const approximatedEventEnd = eventStart + event.sport.duration;
+      let approximatedEventEnd = eventStart + event.sport.duration;
 
-      const found = day.openings.find(o => eventStart >= o.open && approximatedEventEnd <= o.close);
+      const found = day.openings.find(o => (eventStart >= o.open && approximatedEventEnd <= o.close) ||
+          (eventStart >= o.open && o.close === 0 && approximatedEventEnd <= 1440)) //Finisce prima di/a mezzanotte
       if (found) {
         return this.checkSupportsProviders(event.providers);
       } else {
         const prevDay = this.business_hours[(weekDay + 6) % 7];
         // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
-        if (prevDay && prevDay.crossing_day_close && approximatedEventEnd <= prevDay.crossing_day_close) {
+        if (approximatedEventEnd >= 1440)
+          approximatedEventEnd -= 1440;
+
+        if (prevDay && prevDay.crossing_day_close && (approximatedEventEnd) <= prevDay.crossing_day_close) {
           return this.checkSupportsProviders(event.providers)
         }
       }
