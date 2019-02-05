@@ -1,10 +1,12 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { TabbedForm, FormTab, Create,
-  DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
-ImageInput } from 'react-admin';
-import BusinessDayInput from "./BusinessDayInput";
 
+
+import { withStyles } from '@material-ui/core/styles';
+import { TabbedForm, FormTab, Create, Toolbar,
+  DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
+ImageInput} from 'react-admin';
+import BusinessDayInput from "./BusinessDayInput";
+import  BusinessSaveButton  from "./BusinessSaveButton";
 
 const types = [
   {id:'Pub', name: 'Pub'},
@@ -37,10 +39,18 @@ const defaultFormValue = {
     6: { openings: [] }}
 };
 
+
+
+
+
+
+
 const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
   return (
     <Create { ...props}>
       <TabbedForm
+
+          toolbar={<Toolbar><BusinessSaveButton label="Salva" redirect="show" submitOnEnter={true}/></Toolbar>}
         defaultValue={defaultFormValue}
       >
         <FormTab label="General">
