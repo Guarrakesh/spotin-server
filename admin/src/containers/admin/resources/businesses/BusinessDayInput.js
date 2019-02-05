@@ -11,18 +11,18 @@ import {Field, FieldArray} from 'redux-form'; // eslint-disable-line
 const dayNames = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì" ,"Sabato" , "Domenica"];
 
 const businessDayInputParser = (value => {
-    let hour, minute;
+  let hour, minute;
 
-    if (value.constructor.name === "Moment") {
-      hour = parseInt(value.hour(), 10);
-      minute = parseInt(value.minute(), 10);
-    } else {
-      hour = parseInt(value.split(":")[0], 10);
-      minute = parseInt(value.split(":")[1], 10);
-    }
+  if (value.constructor.name === "Moment") {
+    hour = parseInt(value.hour(), 10);
+    minute = parseInt(value.minute(), 10);
+  } else {
+    hour = parseInt(value.split(":")[0], 10);
+    minute = parseInt(value.split(":")[1], 10);
+  }
 
-    const parsed = hour * 60 + minute; //Restituisce i minuti
-    return parsed;
+  const parsed = hour * 60 + minute; //Restituisce i minuti
+  return parsed;
 });
 const businessDayInputFormatter = (value => {
 
@@ -76,26 +76,26 @@ const renderTimeField = ({
   )
 }
 
-  const renderOpening = (opening, index, fields) => (
-      <React.Fragment>
-        <Grid item xs={5}>
-          <Field normalize={businessDayInputParser} format={businessDayInputFormatter}
-                 name={`${opening}.open`} component={renderTimeField} label="Apertura"/>
-        </Grid>
-        <Grid item xs={5}>
-          <Field
-              normalize={businessDayInputParser} format={businessDayInputFormatter}
-              name={`${opening}.close`} component={renderTimeField} label="Chiusura"/>
-        </Grid>
-        <Grid item xs={2}>
-          <Button
-              type="button"
-              title="Rimuovi"
-              onClick={() => fields.remove(index)}>Rimuovi</Button>
-        </Grid>
+const renderOpening = (opening, index, fields) => (
+    <React.Fragment>
+      <Grid item xs={5}>
+        <Field normalize={businessDayInputParser} format={businessDayInputFormatter}
+               name={`${opening}.open`} component={renderTimeField} label="Apertura"/>
+      </Grid>
+      <Grid item xs={5}>
+        <Field
+            normalize={businessDayInputParser} format={businessDayInputFormatter}
+            name={`${opening}.close`} component={renderTimeField} label="Chiusura"/>
+      </Grid>
+      <Grid item xs={2}>
+        <Button
+            type="button"
+            title="Rimuovi"
+            onClick={() => fields.remove(index)}>Rimuovi</Button>
+      </Grid>
 
-      </React.Fragment>
-  );
+    </React.Fragment>
+);
 
 // return (<section>
 //   <InputLabel {...props}>{dayNames[day]}</InputLabel>
@@ -118,53 +118,54 @@ const renderTimeField = ({
 
 
 
-  const BusinessDayInput = ({ fields, source, day}) => {
+const BusinessDayInput = ({ fields}) => {
 
-    return (
-        <Grid container spacing={16}>
+  return (
+      <Grid container spacing={16}>
 
-          {fields.map(renderOpening)}
-          <Grid item xs={12}>
-            <Button mini  size="small" onClick={() => fields.push({})}>Aggiungi apertura/chisura</Button>
-          </Grid>
+        {fields.map(renderOpening)}
+        <Grid item xs={12}>
+          <Button mini  size="small" onClick={() => fields.push({})}>Aggiungi apertura/chisura</Button>
         </Grid>
-    )
+      </Grid>
+  )
 
-  }
-
-
-  BusinessDayInput.propTypes = {
-    input: PropTypes.object,
-    label: PropTypes.string,
-    touched: PropTypes.booleanm,
-    error: PropTypes.string,
-
-    day: PropTypes.number,
-    source: PropTypes.string,
-  };
-
-  const BusinessDayInputField = (props) => {
+}
 
 
-    const [open, setOpen] = useState(get(props.record, props.source).openings.length > 0);
+BusinessDayInput.propTypes = {
+  input: PropTypes.object,
+  label: PropTypes.string,
+  touched: PropTypes.booleanm,
+  error: PropTypes.string,
 
-    return (
-        <div>
-          <FormControlLabel
+  day: PropTypes.number,
+  source: PropTypes.string,
+};
 
-              control={<Checkbox
-                  label={dayNames[props.day]}
-                  checked={open}
-                  onChange={(e, v) => setOpen(v)}
-
-              />}
-              label={`${dayNames[props.day]} aperto`}
-          />
-
-          {open ? <FieldArray component={BusinessDayInput} name={`${props.source}.openings`}/> : null}
-        </div>
-    )
+const BusinessDayInputField = (props) => {
 
 
-  }
-  export default BusinessDayInputField;
+  const value = get(props.record, props.source);
+
+  const [open, setOpen] = useState(value ? value.openings.length > 0 : false);
+
+  return (
+      <React.Fragment>
+        <FormControlLabel
+
+            control={<Checkbox
+                label={dayNames[props.day]}
+                checked={open}
+                onChange={(e, v) => setOpen(v)}
+
+            />}
+            label={`${dayNames[props.day]} aperto`}
+        />
+        {open ? <FieldArray component={BusinessDayInput} name={`${props.source}.openings`}/> : null}
+      </React.Fragment>
+  )
+
+
+}
+export default BusinessDayInputField;
