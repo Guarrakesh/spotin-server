@@ -13,7 +13,7 @@ const dayNames = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì" ,"
 const businessDayInputParser = (value => {
   let hour, minute;
 
-  if (value.constructor.name === "Moment") {
+  if (value instanceof moment) {
     hour = parseInt(value.hour(), 10);
     minute = parseInt(value.minute(), 10);
   } else {
