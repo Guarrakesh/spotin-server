@@ -64,8 +64,8 @@ sportEventSchema.pre('save', async function(next) {
   try {
     let appealValue = 0;
     //Check if sport exists
-    const sport = await Sport.findById(this.sport);
-    const competition = await Competition.findById(this.competition);
+    const sport = await Sport.findById(this.sport.toString());
+    const competition = await Competition.findById(this.competition.toString());
     appealValue = sport.appealValue + competition.appealValue;
     const Error = (message) => (new APIError({
       message,
