@@ -1,12 +1,11 @@
 
 const { Competitor } = require('../models/competitor.model');
-const { Sport } = require('../models/sport.model');
 const faker = require('faker');
 faker.locale = "it";
 function load(Factory, factory) {
 
 
-  Factory.define(Sport, async  => {
+  Factory.define(Competitor, async  => {
 
     const isPerson = faker.random.boolean();
     return {
@@ -16,9 +15,7 @@ function load(Factory, factory) {
       isPerson: isPerson,
       active: true,
       appealValue: faker.random.number({min: 0, max: 1, precision: 0.01}),
-      sport: async (faker) => {
-        return (await factory(Sport).create())._id
-      },
+
 
       // user: (faker) => {
       //   factory(User).create()._id,

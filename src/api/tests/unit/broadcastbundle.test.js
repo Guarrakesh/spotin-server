@@ -27,7 +27,11 @@ const sandbox = sinon.createSandbox();
 
 
 describe('BroadcastBundle Model', () => {
-  describe('distributeEvents', () => {
+  describe('distributeEvents', async () => {
+    it("Should create sportEvent", async () => {
+      const sportEvent = await factory(SportEvent).create();
 
+      expect(sportEvent).to.have.property('competition');
+    })
   })
 });
