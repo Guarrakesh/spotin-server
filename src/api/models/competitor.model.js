@@ -51,7 +51,7 @@ const competitorSchema = new mongoose.Schema({
     lowercase: true,
   },
 
-
+  country: String,
   first_name: {
     type: String,
     maxlength: 128,

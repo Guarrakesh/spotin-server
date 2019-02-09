@@ -14,7 +14,7 @@ const requestRoutes = require('./request.route');
 const router = express.Router();
 
 
-const weekController = require('../../controllers/admin/broadcastweek.controller');
+const weekController = require('../../controllers/admin/broadcastbundle.controller');
 /**
  * GET v1/status
  */

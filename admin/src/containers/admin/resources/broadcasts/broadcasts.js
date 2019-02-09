@@ -7,15 +7,9 @@ DateField} from 'react-admin';
 import get from 'lodash/get';
 
 import EventAutocompleteInput from '../events/EventAutocompleteInput';
-
 import { DateTimeInput } from '../../components/DateTimeInput';
+import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
 
-const businessInputValueMatcher = (input, suggestion, getOptionText) =>
-  getOptionText(suggestion)
-    .toLowerCase()
-    .trim()
-  === (input.toLowerCase().trim())
-  ;
 
 const ReservationCountField = ({record}) => (
   <span>{get(record, 'reservations').length}</span>

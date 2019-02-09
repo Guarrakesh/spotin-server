@@ -69,7 +69,7 @@ broadcastBundleSchema.statics = {
     const end = moment(events[events.length-1].start_at).endOf('day').toDate(); // Default fine del giorno dell'ultimo evento
     broadcastBundle.start = start;
     broadcastBundle.end = end;
-    broadcastBundle.totalSpots = broadcastBundle.broadcast
+    broadcastBundle.totalSpots = broadcastBundle.broadcasts
       .reduce((acc, b) => acc + b.spots, 0);
       
     broadcastBundle.calculateSpots();

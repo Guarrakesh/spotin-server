@@ -92,7 +92,6 @@ sportEventSchema.pre('save', async function(next) {
       appealValue = appealValue + competition.appealValue * 3;
     }
     this.appealValue = appealValue;
-    this.save();
 
     next();
   } catch (e) {

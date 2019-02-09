@@ -5,15 +5,16 @@ const { Competitor } = require('../models/competitor.model');
 const { factory } = require('./Factory');
 
 const faker = require('faker');
-faker.locale = "it"
+faker.locale = "it";
 
 async function load(Factory) {
+  Factory.define(SportEvent, async () => {
 
-  const sport = await factory(Sport).create();
-  const competition = await factory(Competition).create({ sport: sport._id});
- const competitors = await factory(Competitor, undefined, 3).create({ sport: sport._id});
+    const sport = await factory(Sport).create();
+    const competition = await factory(Competition).create({ sport: sport._id});
+    const competitors = await factory(Competitor, undefined, 3).create({ sport: sport._id});
 
-  Factory.define(SportEvent, async => ({
+    return {
         sport: sport._id,
         competition: competition._id,
         competitors: competitors.map(competitor => ({
@@ -25,8 +26,8 @@ async function load(Factory) {
         start_at: faker.date.future(0),
         providers: faker.random.arrayElement(['Sky', "DAZN", 'Digitale Terrestre']),
 
-      })
-  );
+      }
+  });
 
 
 

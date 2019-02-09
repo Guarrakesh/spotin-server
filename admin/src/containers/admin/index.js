@@ -10,7 +10,7 @@ import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/co
 import { BroadcastList, BroadcastCreate, BroadcastEdit } from './resources/broadcasts/broadcasts';
 import { ReservationList } from './resources/reservations';
 import { BroadcastRequestList, BroadcastRequestShow } from './resources/broadcastRequests';
-
+import { BroadcastBundleList, BroadcastBundleCreate } from "./resources/broadcastBundle";
 import dataProvider from '../../providers/dataProvider';
 import authProvider from '../../providers/authProvider';
 import history from '../../history';
@@ -30,7 +30,10 @@ const AdminRoutes = [
             list={ReservationList}/>,
   <Resource name="requests" list={BroadcastRequestList}
             options={{label: "Broadcast Requests"}}
-            show={BroadcastRequestShow}/>
+            show={BroadcastRequestShow}/>,
+
+  <Resource name="broadcastbundles" list={BroadcastBundleList}
+  create={BroadcastBundleCreate} />
 ];
 /* eslint-enable */
 const Admin = () => (
