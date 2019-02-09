@@ -1,7 +1,8 @@
 import React from 'react';
-import { List, Datagrid } from 'react-admin';
+import { List, Datagrid, TextField } from 'react-admin';
 
-export const BroadcastBundleList = props => {
+
+const BroadcastBundleList = props => {
 
   return (
       <List {...props}>
@@ -11,3 +12,5 @@ export const BroadcastBundleList = props => {
       </List>
   )
 };
+
+export default BroadcastBundleList;

@@ -2,36 +2,55 @@
 const chai = require('chai');
 const chaiAsPromised = require("chai-as-promised");
 const sinon = require('sinon');
-const {promisify} = require('util');
-const { Business, imageSizes } = require('../../models/business.model');
 const { SportEvent } = require('../../models/sportevent.model');
-
+const { BroadcastBundle } = require('../../models/broadcastbundle.model');
+const { Business } = require('../../models/business.model');
 const { factory } = require("../../factories/Factory");
-const { s3WebsiteEndpoint } = require('../../../config/vars');
-const amazon = require('../../utils/amazon');
+
 const { googleMapsClient } = require('../../utils/google');
-const faker = require('faker');
-const sizeOf = require('image-size');
 
 const moment = require('moment');
 
-var fs = require('fs');
-var path = require('path');
 
-chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 
-let business, businessHours;
+let businessHours;
 const sandbox = sinon.createSandbox();
 
 
-describe('BroadcastBundle Model', () => {
-  describe('distributeEvents', async () => {
-    it("Should create sportEvent", async () => {
-      const sportEvent = await factory(SportEvent).create();
+let sportEvents, business;
 
-      expect(sportEvent).to.have.property('competition');
-    })
-  })
+describe('BroadcastBundle Model', () => {
+  beforeEach(async () => {
+    sandbox.stub(googleMapsClient, "geocode")
+        .returns({ asPromise: () => new Promise(resolve => resolve({}) ) });
+    sportEvents = await factory(SportEvent, undefined, 20).create();
+    business = await factory(Business).create(1);
+
+  });
+  afterEach(async () => {
+    sandbox.restore();
+  });
+  describe('distributeEvents', async () => {
+    it("Should build the bundle", async () => {
+      const bundle = await BroadcastBundle.buildBundle(business, sportEvents);
+
+      expect(bundle).to.have.property('broadcasts');
+      expect(bundle.broadcasts).to.be.an('array');
+      expect(bundle.broadcasts).to.have.lengthOf(20);
+      expect(bundle).to.be.an('object');
+
+    });
+    it("Should throw error if no events are provided", async () => {
+
+      expect(BroadcastBundle.buildBundle(business, [])).to.eventually.throw(Error('Non ci sono eventi da trasmettere.'));
+
+    });
+
+    it("")
+  });
+
+
+
 });

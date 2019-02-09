@@ -65,10 +65,10 @@ class FactoryBuilder {
    */
   async store(models) {
     try {
-      const results = []
+      const results = [];
       for (const model of models) {
-        let aa = await model.save();
-        results.push(results);
+        await model.save();
+        results.push(model);
       }
       return results;
     } catch (e) {

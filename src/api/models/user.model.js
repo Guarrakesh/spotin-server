@@ -73,7 +73,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  favorite_sports: [sportSchema],
+  favorite_sports: [
+      new mongoose.Schema({
+    _id: { type: mongoose.Schema.ObjectId, ref: "Sport" },
+    name: String,
+  }, { imestamps: true } )],
+
+  favorite_competitors: [
+      new mongoose.Schema({
+    _id: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
+    name: String,
+    sport: { type: mongoose.Schema.ObjectId, ref: "Sport" },
+  }, { timestamps: true  })],
+
   favorite_events: {
     type: [{type: mongoose.Schema.ObjectId, ref: "SportEvent"}],
 
