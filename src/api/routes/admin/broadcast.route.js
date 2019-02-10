@@ -14,8 +14,8 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
-  .post(authorize([BUSINESS, ADMIN]), validate(createBroadcast), controller.create)
+  .get(authorize([ADMIN]), controller.list)
+  .post(authorize([ADMIN]), validate(createBroadcast), controller.create)
 ;
 
 router

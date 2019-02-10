@@ -67,7 +67,6 @@ const EventCreate = (props) => (
           source="start_at" /> */}
             <DateTimeInput validate={validateDate} source="start_at"
                            label="Inizio evento"
-                           providerOptions={{utils: MomentUtils}}
                            options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
         <NumberInput source="spots" validate={[required(), number()]}/>
           <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
