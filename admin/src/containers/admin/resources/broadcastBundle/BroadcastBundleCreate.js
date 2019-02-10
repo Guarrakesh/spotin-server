@@ -13,6 +13,7 @@ const styles = {
 const BroadcastBundleCreate = withStyles(styles)(({...props}) => {
   return (
       <Create { ...props}>
+
         <BroadcastBundleCreateForm/>
       </Create>
 
