@@ -52,7 +52,7 @@ exports.get = (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const business = await Business.findById(req.body.business);
+    const business =  await Business.findById(req.body.business);
 
     const startDate = moment(req.body.start).startOf('day').toISOString();
     const endDate = moment(req.body.end).endOf('day').toISOString();
@@ -74,7 +74,26 @@ exports.create = async (req, res, next) => {
   }
 };
 
-exports.publish = async (req, res, next) => {
+exports.update = async (req, res, next) => {
+  try {
+    const { bundle } = req.locals;
+    const updatedBundle = Object.assign(bundle, req.body);
+    if (updatedBundle.isModified('published')) {
+      return await publish(req, res, next);
+    } else {
+
+      updateBroadcast.save()
+          .then(savedBus => res.json(savedBus))
+          .catch(e => next(e));
+
+    }
+
+
+  } catch (e) {
+    next(e);
+  }
+}
+const publish = async (req, res, next) => {
   try {
     const { bundle } = req.locals;
     const business = await Business.findById(bundle.business.id);

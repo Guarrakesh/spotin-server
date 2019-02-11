@@ -21,7 +21,7 @@ router
  router
      .route('/:id')
      .get(authorize(ADMIN), controller.get)
-//     .patch(authorize(ADMIN), controller.update)
-//     .delete(authorize(ADMIN), controller.remove);
+     .patch(authorize(ADMIN), controller.update)
+     .delete(authorize(ADMIN), controller.remove);
 
 module.exports = router;

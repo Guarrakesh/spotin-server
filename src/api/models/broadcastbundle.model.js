@@ -15,6 +15,7 @@ const broadcastBundleSchema = mongoose.Schema({
 
   broadcasts: [
     new mongoose.Schema({
+      _id: { type: mongoose.Schema.ObjectId, ref: "Broadcast"},
       event: new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, ref: "SportEvent" },
         name: String,
@@ -45,6 +46,33 @@ const broadcastBundleSchema = mongoose.Schema({
 broadcastBundleSchema.methods = {
   async calculateSpots() {
 
+  },
+  async publish() {
+    try {
+      let totalSpots = 0;
+      if (!this.published_at) {
+        this.published = true;
+        this.published_at = moment().toISOString();
+        const business = await Business.findById(this.business.id);
+        for (const broadcast of this.broadcasts) {
+          const event = await SportEvent.findById(broadcast.event.id);
+          if (!business.canBroadcastEvent(event)) {
+            continue;
+          }
+
+          const newBroadcast = new Broadcast({
+            event: broadcast.event._id,
+            business: this.business._id,
+          });
+          totalSpots += business.paySpots(broadcast.spots);
+          await newBroadcast.save();
+          broadcast._id = newBroadcast._id;
+        }
+        await this.save();
+      }
+    } catch (e) {
+      throw e;
+    }
   },
 };
 
@@ -100,31 +128,7 @@ broadcastBundleSchema.statics = {
 
     return _eventToBroadcast;
   },
-  async publish() {
-    try {
-      let totalSpots = 0;
-      if (!this.published) {
-        this.published = true;
-        this.published_at = moment().toISOString();
-        const business = await Business.findById(this.business.id);
-        for (const broadcast of this.broadcast) {
-          const event = await SportEvent.findById(broadcast.event.id);
-          if (!business.canBroadcastEvent(event)) {
-            continue;
-          }
-          const newBroadcast = new Broadcast({
-             event: broadcast.event._id,
-            business: this.business._id,
-          });
-          totalSpots += business.paySpots(broadcast.spots);
-          await newBroadcast.save();
-        }
-        await this.save();
-      }
-    } catch (e) {
-      throw e;
-    }
-  },
+
 };
 
 broadcastBundleSchema.plugin(mongoosePaginate);
