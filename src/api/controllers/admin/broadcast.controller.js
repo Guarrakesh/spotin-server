@@ -104,7 +104,7 @@ exports.list = async (req, res, next) => {
       limit: parseInt(_end - _start),
 
     });
-    res.json(broadcasts.filter (b => b.offer && b.offer.type));
+    res.json(broadcasts)
 
 
 
