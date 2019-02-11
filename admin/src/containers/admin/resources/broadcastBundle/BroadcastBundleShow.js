@@ -12,7 +12,10 @@ import {
   UPDATE,
 } from 'react-admin';
 
-import { Typography, Chip, List, ListItem, ListItemText, Button } from "@material-ui/core";
+import { Typography, Chip, ListItemLink , Button } from "@material-ui/core";
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItem from '@material-ui/core/ListItem'
+import List from '@material-ui/core/List'
 import DateTimeField from '../../components/DateTimeField';
 import dataProvider from '../../../../providers/dataProvider';
 
@@ -38,9 +41,16 @@ const BroadcastBundleShowView
         </Typography>
         <List>
           {record.broadcasts.map((broadcast, index) => (
-              <ListItem key={index}>
-                <ListItemText primary={broadcast.event.name}
+              <ListItem
+                  button={!!broadcast._id}
+                 
+                  key={index}>
+                <ListItemLink
+                    href={'/broadcasts/'+broadcast._id}>
+                <ListItemText
+                    primary={broadcast.event.name}
                               secondary={moment(broadcast.event.start_at).format("DD/MM/YY [alle] HH:mm")}/>
+                </ListItemLink>
               </ListItem>
           ))}
 
