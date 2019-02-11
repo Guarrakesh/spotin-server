@@ -97,8 +97,8 @@ exports.list = async (req, res, next) => {
       ...filterQuery,
       end_at: { $gte: now },
       start_at: { $lte: now },
+      offer: { $exists: true }
     };
-
     if (latitude && longitude && radius) {
       const _businesses = await Broadcast.aggregate([
         { $match: filterQuery },

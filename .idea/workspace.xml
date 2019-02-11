@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[SERVER] Testing &#10;[PANNELLO] Broadcast Bundle form">
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[SERVER] Fix su broadcast senza offerte">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/business.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/business.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,7 +33,7 @@
     <favorites_list name="spotin-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.17715392">
+    <splitter split-orientation="horizontal" split-proportion="0.42940038">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -52,11 +48,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="246">
-                  <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+                <state relative-caret-position="169">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#196#313#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -166,11 +161,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="156">
-                  <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
+                <state relative-caret-position="182">
+                  <caret line="98" column="53" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="624">
+                  <caret line="132" column="22" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -275,7 +279,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/models/appeal/EntityAppeal.js" />
         <option value="$PROJECT_DIR$/src/api/models/appeal/EntityAppeals.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/config/vars.js" />
@@ -322,10 +325,11 @@
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js" />
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
         <option value="$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js" />
         <option value="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js" />
       </list>
     </option>
   </component>
@@ -479,7 +483,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -895,21 +899,7 @@
       <workItem from="1549727202254" duration="2525000" />
       <workItem from="1549734906529" duration="6122000" />
       <workItem from="1549741074259" duration="5919000" />
-      <workItem from="1549875885720" duration="8914000" />
-    </task>
-    <task id="LOCAL-00078" summary="Add spotin.it (www, http e https) ai cors">
-      <created>1539962337103</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1539962337103</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Production setup">
-      <created>1539980852579</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1539980852579</updated>
+      <workItem from="1549875885720" duration="9791000" />
     </task>
     <task id="LOCAL-00080" summary="API per gestione prenotazione">
       <created>1540197567403</created>
@@ -1240,7 +1230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1549747252004</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="[SERVER] Fix su broadcast senza offerte">
+      <created>1549897203051</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1549897203057</updated>
+    </task>
+    <task id="LOCAL-00128" summary="[SERVER] Fix su broadcast senza offerte">
+      <created>1549897384300</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1549897384300</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1276,7 +1280,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1145287000" />
+    <option name="totallyTimeSpent" value="1146164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1298,7 +1302,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48759353" weight="0.3243464" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47971642" visible="true" weight="0.17359856" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" visible="true" weight="0.17359856" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.5714286" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1306,7 +1310,7 @@
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.25856444" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48680583" weight="0.07414105" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51910204" side_tool="true" weight="0.34172663" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5204765" side_tool="true" visible="true" weight="0.17359856" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1381,7 +1385,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Fix MaterialUI Dependency" />
     <MESSAGE value="Pannello Admin: Fix campo evento e locale nella creazione e modifica broadcast" />
     <MESSAGE value="Fix admin/auth e user model" />
     <MESSAGE value="Gestione Prenotazioni e Richieste Broadcast da pannello Admin" />
@@ -1406,7 +1409,8 @@
     <MESSAGE value="[ADMIN] Business hours" />
     <MESSAGE value="Fix in businessDayInput" />
     <MESSAGE value="[SERVER] Testing &#10;[PANNELLO] Broadcast Bundle form" />
-    <option name="LAST_COMMIT_MESSAGE" value="[SERVER] Testing &#10;[PANNELLO] Broadcast Bundle form" />
+    <MESSAGE value="[SERVER] Fix su broadcast senza offerte" />
+    <option name="LAST_COMMIT_MESSAGE" value="[SERVER] Fix su broadcast senza offerte" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1471,13 +1475,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/error/validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1313">
@@ -1822,17 +1819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#196#313#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1847,10 +1833,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
+        <state relative-caret-position="182">
+          <caret line="98" column="53" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="22" />
         </state>
       </provider>
     </entry>
