@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux'; // eslint-disable-line
 import {
   Show,
@@ -12,10 +13,7 @@ import {
   UPDATE,
 } from 'react-admin';
 
-import { Typography, Chip, ListItemLink , Button } from "@material-ui/core";
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItem from '@material-ui/core/ListItem'
-import List from '@material-ui/core/List'
+import { Typography, Chip, ListItem, List, ListItemText , Button } from "@material-ui/core";
 import DateTimeField from '../../components/DateTimeField';
 import dataProvider from '../../../../providers/dataProvider';
 
@@ -30,6 +28,11 @@ const BroadcastBundleTitle = ({ record }) => {
 const BroadcastBundleShowView
     = ({ record }) => {
 
+  const listItemText = broadcast => (
+      <ListItemText
+          primary={broadcast.event.name}
+          secondary={moment(broadcast.event.start_at).format("DD/MM/YY [alle] HH:mm")}/>);
+
   return (
       <CardContentInner>
         <Typography variant="display3">{record.business.name}</Typography>
@@ -41,17 +44,13 @@ const BroadcastBundleShowView
         </Typography>
         <List>
           {record.broadcasts.map((broadcast, index) => (
-              <ListItem
-                  button={!!broadcast._id}
-                 
-                  key={index}>
-                <ListItemLink
-                    href={'/broadcasts/'+broadcast._id}>
-                <ListItemText
-                    primary={broadcast.event.name}
-                              secondary={moment(broadcast.event.start_at).format("DD/MM/YY [alle] HH:mm")}/>
-                </ListItemLink>
-              </ListItem>
+              broadcast._id ?
+              <Link to={'/broadcasts/'+broadcast._id}>
+                <ListItem
+                    key={index}
+                    button>{listItemText(broadcast)}</ListItem>
+              </Link>
+              : <ListItem key={index}>{listItemText(broadcast)}</ListItem>
           ))}
 
         </List>
