@@ -296,21 +296,9 @@ businessSchema.methods = {
   isEventBroadcastable(event) {
 
 
-    if (process.env.NODE_ENV !== "development") {
+    if (process.env.NODE_ENV !== "test") {
       if (!this.business_hours) {
         throw Error('No business hours for this business');
-      }
-    } else {
-      this.business_hours = {
-        0: {openings: [{open: 600, close: 1440}]},
-        1: null,
-        2: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
-        3: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
-        4: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
-        5: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
-        6: {openings: [{open: 600, close: 930}, {open: 1020, close: 0}], crossing_day_close: 0},
-        7: {openings: [{open: 600, close: 930}, {open: 1020, close: 120}], crossing_day_close: 120},
-
       }
     }
     let weekDay = (new Date(event.start_at).getDay() - 1) % 7;
@@ -322,12 +310,15 @@ businessSchema.methods = {
       const eventStart = event.start_at.getHours() * 60 + event.start_at.getMinutes(); //between 0 and 1440
       let approximatedEventEnd = eventStart + event.sport.duration;
 
+      //Controllo se l'evento rientra negli orari di apertura
       const found = day.openings.find(o => (eventStart >= o.open && approximatedEventEnd <= o.close) ||
-          (eventStart >= o.open && o.close === 0 && approximatedEventEnd <= 1440)) //Finisce prima di/a mezzanotte
+          (eventStart >= o.open && o.close === 0 && (approximatedEventEnd <= 1440)) ||  //Finisce prima di/a mezzanotte
+          (eventStart >= o.open && day.crossing_day_close && (approximatedEventEnd <= 1440) && approximatedEventEnd - 1440 < day.crossing_day_close)
+      );
       if (found) {
         return this.checkSupportsProviders(event.providers);
       } else {
-        const prevDay = this.business_hours[(weekDay + 6) % 7];
+         const prevDay = this.business_hours[(weekDay + 6) % 7];
         // L'evento inizia dopo la mezzanotte e rientra negli orari di chiusura
         if (approximatedEventEnd >= 1440)
           approximatedEventEnd -= 1440;

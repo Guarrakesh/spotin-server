@@ -54,7 +54,6 @@ const renderTimeField = ({
   return (
       <TimePicker
           autoOk
-          ampm={false}
 
           label={label}
           type="time"
@@ -72,6 +71,9 @@ const renderTimeField = ({
           InputLabelProps={{
             shrink: true,
           }}
+          ampm={false}
+
+
       />
   )
 }

@@ -96,13 +96,15 @@ exports.list = async (req, res, next) => {
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
     const { latitude, longitude, radius } = req.query;
 
-    broadcasts = await Broadcast.paginate(filterQuery, {
+    broadcasts = await Broadcast.paginate({
+      ...filterQuery, offer: { $exists: true }
+    }, {
       sort: {[_sort]: _order},
       offset: parseInt(_start),
       limit: parseInt(_end - _start),
 
     });
-    res.json(broadcasts);
+    res.json(broadcasts.filter (b => b.offer && b.offer.type));
 
 
 
