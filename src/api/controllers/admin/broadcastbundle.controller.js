@@ -64,9 +64,9 @@ exports.create = async (req, res, next) => {
     const evaluator = new EventsAppealEvaluator(events);
     const evaluatedEventsMap = evaluator.evaluate();
     const sortedEvents = events
-      .sort((a, b) => evaluatedEventsMap.get(b.id) - evaluatedEventsMap.get(a.id));
+        .sort((a, b) => evaluatedEventsMap.get(b.id) - evaluatedEventsMap.get(a.id));
     const bundle = await BroadcastBundle.buildBundle(business, sortedEvents);
- 
+
     await bundle.save();
     res.json(bundle);
   } catch (e) {
@@ -82,7 +82,7 @@ exports.update = async (req, res, next) => {
       return await publish(req, res, next);
     } else {
 
-      updateBroadcast.save()
+      updatedBundle.save()
           .then(savedBus => res.json(savedBus))
           .catch(e => next(e));
 
@@ -112,11 +112,11 @@ const publish = async (req, res, next) => {
 exports.remove = async (req, res, next) => {
   try {
 
-     const { bundle } = req.locals;
+    const { bundle } = req.locals;
 
-     bundle.remove()
-         .then(() => res.status(200).end())
-         .catch(e => next(e))
+    bundle.remove()
+        .then(() => res.status(200).end())
+        .catch(e => next(e))
   } catch (e) {
     next(e);
   }

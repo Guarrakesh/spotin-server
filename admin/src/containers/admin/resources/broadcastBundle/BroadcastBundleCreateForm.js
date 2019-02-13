@@ -39,13 +39,18 @@ const BroadcastBundleCreateForm
                             form,
                             saving,
                             initialValues,
+                            destroy,
                             classes,
                             translate,
                             ...rest,
                           }) => {
 
   const handleSubmitWithRedirect = (redirect = redirect) =>
-      handleSubmit(values => save(values, redirect));
+
+      handleSubmit(values => {
+        destroy();
+        save(values, redirect)
+      });
   return (
       <form {...rest}>
         <CardContentInner>
