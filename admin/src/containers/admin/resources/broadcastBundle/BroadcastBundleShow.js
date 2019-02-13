@@ -36,6 +36,9 @@ const BroadcastBundleShowView
   return (
       <CardContentInner>
         <Typography variant="display3">{record.business.name}</Typography>
+        {record && record.published_at &&
+          <Chip label={"Pubblicato " + moment(record.published_at).format('LLL')} color="primary"/>}
+          <br/>
         <Typography variant="h6">
           <span>Programmazione dal </span>
           <Chip label={<DateTimeField record={record} source="start"/>}/>
@@ -72,8 +75,11 @@ const PublishButton = connect(undefined, { showNotification, push })(({ push, re
           console.error(e);
           showNotification('Errore: ' + e);
         })
-  }
-  return <Button color="primary" onClick={handleClick}>Pubblica</Button>
+  };
+  return record ? (
+      <Button disabled={record.published} color="primary" onClick={handleClick}>
+    {record.published ? "Pubblicato" : "Pubblica"}</Button>
+  ) : null;
 
 });
 
@@ -84,7 +90,7 @@ PublishButton.propTypes = {
 };
 const BroadcastBundleShowActions = ({ basePath, data }) => (
     <CardActions>
-      <EditButton basePath={basePath} record={data}/>
+      <EditButton basePath={basePath} disabled record={data}/>
       <PublishButton record={data}/>
     </CardActions>
 );

@@ -156,7 +156,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
       case GET_ONE:
         return { data: {...json, id: json._id }  };
       case CREATE:
-        return { data: { ...params.data, id: json._id } };
+        return { data: { ...Object.assign(params.data, json), id: json._id } };
       case DELETE:
         return { data: { id : null}};
       default:
