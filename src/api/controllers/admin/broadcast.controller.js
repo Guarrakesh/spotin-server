@@ -95,7 +95,10 @@ exports.list = async (req, res, next) => {
     const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
     const { latitude, longitude, radius } = req.query;
-
+    if (req.query.id_like) {
+      filterQuery._id = { $in: decodeURIComponent(req.query.id_like).split('|')};
+      delete filterQuery['id_like'];
+    }
     broadcasts = await Broadcast.paginate(filterQuery, {
       sort: {[_sort]: _order},
       offset: parseInt(_start),

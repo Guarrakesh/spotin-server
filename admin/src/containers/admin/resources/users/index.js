@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { List, Datagrid, TextField, EmailField, Edit, Create, EditButton,
-  DisabledInput, SelectInput, SimpleForm, TextInput,
-
+  DisabledInput, SelectInput, SimpleForm, TextInput, DateField,
+  ImageField,
   Filter,
   required,
   email,
@@ -9,11 +10,21 @@ import { List, Datagrid, TextField, EmailField, Edit, Create, EditButton,
   maxLength,
   } from 'react-admin';
 
+
 let roles = [
   {id: "admin", name: "Admin"},
   {id: "business", name: "Business"},
   {id: "user", name: "User"}
 ];
+const FacebookAccountField = ({ record }) => {
+  if (!record.services || !record.services.facebook) {
+    return null;
+  }
+  return (<a href={`https://facebook.com/${record.services.facebook}`}>{record.name}</a>);
+};
+FacebookAccountField.propTypes = {
+  record: PropTypes.object,
+}
 const UserFilter = (props) => (
   <Filter {...props}>
     <SelectInput source="role" choices={roles} alwaysOn/>
@@ -24,9 +35,13 @@ const UserFilter = (props) => (
 export const UserList = (props) => (
   <List {...props} filters={<UserFilter/>}>
     <Datagrid>
+      <ImageField source="picture"/>
       <TextField source="_id" />
       <TextField source="name" />
       <TextField source="username" />
+      <DateField source="created_at" showTime/>
+      <FacebookAccountField label="Account Facebook" source="services.facebook"/>
+
       <EmailField source="email" />
       <EditButton/>
     </Datagrid>

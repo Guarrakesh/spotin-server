@@ -71,6 +71,10 @@ const competitorSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  is_club: {
+    type: Boolean,
+    default: true,
+  },
   appealValue: Number,
 });
 
