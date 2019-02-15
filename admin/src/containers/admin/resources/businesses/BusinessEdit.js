@@ -3,6 +3,8 @@ import {withStyles} from '@material-ui/core/styles';
 
 import {
   ArrayField,
+  ArrayInput,
+  SimpleFormIterator,
   AutocompleteInput,
   BooleanInput,
   DisabledInput,
@@ -16,7 +18,9 @@ import {
   SingleFieldList,
   TabbedForm,
   TextInput,
-  Toolbar
+  Toolbar,
+  RadioButtonGroupInput,
+  LongTextInput,
 } from 'react-admin';
 
 import BusinessMapField from './BusinessMapField';
@@ -124,6 +128,24 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
                         source={`business_hours.${day}`} key={day} day={day}/>
                 )
             )}
+          </FormTab>
+          <FormTab label="Offerte">
+            <ArrayInput source="offers">
+              <SimpleFormIterator>
+                <RadioButtonGroupInput
+                    parse={v => parseInt(v, 10)}
+                    //format={v => v.toString()}
+                    label="Tipo offerta" source="type" choices={[
+                  {id: 0, name: 'Prezzo fisso'},
+                  {id: 1, name: 'Sconto in percentuale'},
+                ]}/>
+                <TextInput source="title" label="Titolo offerta"/>
+                <LongTextInput
+                    source="description" label="Descrizione offerta"/>
+                <NumberInput source="value" label="Valore offerta"/>
+
+              </SimpleFormIterator>
+            </ArrayInput>
           </FormTab>
           <FormTab label="Billing">
             <TextInput source="vat"/>

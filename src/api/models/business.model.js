@@ -14,6 +14,7 @@ const { s3WebsiteEndpoint } = require('../../config/vars');
 const amazon = require("../utils/amazon");
 
 const { pagination } = require('../utils/aggregations');
+const offerSchema = require('../models/offer.schema');
 
 const imageSizes = [
   { width: 640, height: 350 },
@@ -110,8 +111,8 @@ const businessSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'
-  }
-
+  },
+  offers: [offerSchema]
 });
 
 

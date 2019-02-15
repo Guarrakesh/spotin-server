@@ -16,8 +16,8 @@ module.exports = {
           is: Joi.exist(), then: Joi.string().max(64).allow(''), otherwise: Joi.string().max(64).required()
         }),
       full_name: Joi.string().max(128),
-      isPerson: Joi.boolean()
-
+      isPerson: Joi.boolean(),
+      country: Joi.string().max(128),
     })
   },
 
@@ -25,7 +25,7 @@ module.exports = {
     body: Joi.object({
       sport: Joi.string(),
       name: Joi.string().max(128),
-
+      country: Joi.string().max(128),
       slug: Joi.string().allow(""),
       first_name: Joi.string().max(64),
       last_name: Joi.string().max(64),
