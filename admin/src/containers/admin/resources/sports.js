@@ -29,6 +29,7 @@ export const SportEdit = (props) => (
       <TextInput source="slug"/>
       <NumberInput source="duration" label="Durata (in minuti)"/>
       <NumberInput source="appealValue" step={1} options={{min:1, max:4}}/>
+      <BooleanInput source="has_competitors"/>
       <BooleanInput source="active"/>
     </SimpleForm>
 
@@ -44,6 +45,7 @@ export const SportCreate = (props) => (
       <TextInput source="slug"/>
       <NumberInput source="appealValue" step={1} min={1} max={4}/>
       <NumberInput source="duration" label="Durata (in minuti)"/>
+      <BooleanInput source="has_competitors"/>
       <BooleanInput source="active"/>
     </SimpleForm>
   </Create>

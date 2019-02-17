@@ -19,7 +19,7 @@ exports.load = async (req, res, next, id) => {
   }
 };
 
-exports.get = (req, res) => res.json(req.locals.sport);
+exports.get = (req, res) => res.json(req.locals.sport.transform());
 
 
 exports.list = async (req, res, next) => {
@@ -28,7 +28,7 @@ exports.list = async (req, res, next) => {
 
     const sports = await Sport.find();
     res.set("X-Total-Count", sports.length);
-    res.json(sports);
+    res.json(sports.map(s => s.transform()));
 
   } catch (error) {
     next(error)
@@ -40,7 +40,7 @@ exports.update = async (req, res, next) => {
   const sport = Object.assign(req.locals.sport, updatedSport);
 
   sport.save()
-    .then(savedSport => res.json(savedSport))
+    .then(savedSport => res.json(savedSport.transform()))
     .catch(e => (next(e)));
 
 };
@@ -50,7 +50,7 @@ exports.create = async (req, res, next) => {
     const sport = new Sport(req.body);
     const savedSport = await sport.save();
     res.status(httpStatus.CREATED);
-    res.json(savedSport);
+    res.json(savedSport.transform());
   } catch (error) {
     next(error);
   }

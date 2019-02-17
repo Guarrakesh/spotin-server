@@ -74,17 +74,17 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   favorite_sports: [
-      new mongoose.Schema({
-    _id: { type: mongoose.Schema.ObjectId, ref: "Sport" },
-    name: String,
-  }, { imestamps: true } )],
+    new mongoose.Schema({
+      _id: { type: mongoose.Schema.ObjectId, ref: "Sport" },
+      name: String,
+    }, { imestamps: true } )],
 
   favorite_competitors: [
-      new mongoose.Schema({
-    _id: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
-    name: String,
-    sport: { type: mongoose.Schema.ObjectId, ref: "Sport" },
-  }, { timestamps: true  })],
+    new mongoose.Schema({
+      _id: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
+      name: String,
+      sport: { type: mongoose.Schema.ObjectId, ref: "Sport" },
+    }, { timestamps: true  })],
 
   favorite_events: {
     type: [{type: mongoose.Schema.ObjectId, ref: "SportEvent"}],
@@ -150,17 +150,19 @@ userSchema.pre('save', async function save(next) {
  */
 userSchema.method({
   transform() {
-     const transformed = {};
-     const fields = ['_id',
-       'name',
-       'email',
-       'picture',
-       'role',
-       'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
+    const transformed = {};
+    const fields = [
+      'name',
+      'email',
+      'id',
+      '_id',
+      'picture',
+      'role',
+      'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
-     fields.forEach((field) => {
-     transformed[field] = this[field];
-     });
+    fields.forEach((field) => {
+      transformed[field] = this[field];
+    });
 
     return transformed;
   },
@@ -243,7 +245,7 @@ userSchema.statics = {
     };
 
     if (password) {
-        if (user && await user.passwordMatches(password)) {
+      if (user && await user.passwordMatches(password)) {
 
         if ((clientType === "business" && user.role !== "business") || clientType === "mobileapp" && user.role !== LOGGED_USER) {
           //Se il login viene dall'App Business, controllo che l'utente trovato sia un business, altrimenti do autenticazione fallita
@@ -275,10 +277,10 @@ userSchema.statics = {
    * @returns {Promise<User[]>}
    */
   list({
-    _end = 10, _order = "DESC",
-    _sort="createdAt", _start = 0,
-    name, email, role, q, id_like
-  }) {
+         _end = 10, _order = "DESC",
+         _sort="createdAt", _start = 0,
+         name, email, role, q, id_like
+       }) {
     let options = omitBy({ name, email, role }, isNil);
 
     if (q) {
@@ -327,8 +329,8 @@ userSchema.statics = {
   },
 
   async oAuthLogin({
-    service, id, email, name, picture
-  }) {
+                     service, id, email, name, picture
+                   }) {
     const user = await this.findOne({ $or: [{ [`services.${service}`]: id }, { email }] });
     if (user) {
       user.services[service] = id;

@@ -80,6 +80,28 @@ const competitorSchema = new mongoose.Schema({
 
 
 competitorSchema.method({
+  transform() {
+    const transformed = {};
+    const fields = ['_id',
+      'id',
+      'sport',
+      'name',
+      'image_versions',
+      'slug',
+      'country',
+      'first_name',
+      'last_name',
+      'full_name',
+      'is_person',
+      'is_club',
+      'appealValue'
+    ];
+    fields.forEach((field) => {
+      transformed[field] = this[field];
+    });
+
+    return transformed;
+  },
   async uploadPicture(file) {
 
     const ext = mime.extension(file.mimetype);
@@ -116,7 +138,7 @@ competitorSchema.pre('save', function(next) {
 
 
   if ((this.isNew && !this.slug) || (this.isPerson && !this.isNew && this.isModified('full_name'))
-    || (!this.isPerson && !this.isNew && this.isModified('name'))) {
+      || (!this.isPerson && !this.isNew && this.isModified('name'))) {
     this.slug = slugify(this.isPerson ? this.full_name : this.name);
 
   }

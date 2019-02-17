@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -13,7 +13,7 @@ import {
   UPDATE,
   DeleteButton,
   ReferenceFieldController,
-   // ReferenceInputController,
+  // ReferenceInputController,
 } from 'react-admin';
 
 import { Typography,
@@ -21,8 +21,8 @@ import { Typography,
   Table,
   TableCell, TableRow, TableHead, TableBody,
   Button,
-    Select,
-    MenuItem,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
 import DateTimeField from '../../components/DateTimeField';
 import dataProvider from '../../../../providers/dataProvider';
@@ -36,9 +36,17 @@ const BroadcastBundleTitle = ({ record }) => {
 
 
 const BroadcastBundleShowView
-    = ({ record }) => {
+    = ({ record, onChangeBroadcasts}) => {
 
+  const [ broadcasts, setBroadcasts ] = useState(record.broadcasts);
 
+  const handleOfferChange = (broadcast, offer) => {
+    const newBroadcasts = broadcasts.map(b =>
+        b.event._id === broadcast.event._id ? { ...broadcast, offer } : b);
+
+    setBroadcasts(newBroadcasts);
+    onChangeBroadcasts(newBroadcasts);
+  };
   return (
       <CardContentInner>
         <Typography variant="display3">{record.business.name}</Typography>
@@ -60,52 +68,62 @@ const BroadcastBundleShowView
           </TableHead>
           <TableBody>
 
-          {record.broadcasts.map((broadcast, index) => (
-                  <TableRow key={index}>
-                    <TableCell>
-                      <Link to={broadcast._id ? '/broadcasts/'+broadcast._id : "#"}>
-                        <Typography variant="body2">
-                          {broadcast.event.name}
-                        </Typography>
-                        <Typography variant="caption">
-                          {moment(broadcast.event.start_at).format("DD/MM/YY [alle] HH:mm")}
-                        </Typography>
+            {broadcasts.map((broadcast, index) => (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Link to={broadcast._id ? '/broadcasts/'+broadcast._id : "#"}>
+                      <Typography variant="body2">
+                        {broadcast.event.name}
+                      </Typography>
+                      <Typography variant="caption">
+                        {moment(broadcast.event.start_at).format("DD/MM/YY [alle] HH:mm")}
+                      </Typography>
 
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                        <Typography variant="caption">
-                          {record.published
-                              ? <ReferenceFieldController basePath="broadcasts"
-                                                          record={broadcast} source="_id"
-                                                          resource="broadcasts" reference="broadcasts">
-                                {({ referenceRecord }) => (
-                                    referenceRecord && referenceRecord.offer && referenceRecord.offer.value
-                                        ? <Typography color="succes">
-                                          {referenceRecord.offer.title || `-${referenceRecord.offer.value}%`}</Typography>
-                                        : <Typography color="warning">Offerta non impostata</Typography>
-                                )}
-                              </ReferenceFieldController>
-                              : <ReferenceFieldController basePath="businesses" record={record.business}
-                                                          reference="businesses"
-                                                          source="_id">
-                                {({referenceRecord}) => referenceRecord && referenceRecord.offers ? (
-                                    <Select>
-                                      {referenceRecord.offers.map((offer, index) => (
-                                              <MenuItem key={index} value={offer}>
-                                                {offer.type === 0 ? offer.title : `-${offer.value}%`}
-                                              </MenuItem>
-                                          )
-                                      )}
-                                    </Select>
-                                ) : null
-                                }</ReferenceFieldController>
+                    </Link>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="caption">
+                      {record.published
+                          ? <ReferenceFieldController basePath="broadcasts"
+                                                      record={broadcast} source="_id"
+                                                      resource="broadcasts" reference="broadcasts">
+                            {({ referenceRecord }) => (
+                                referenceRecord && referenceRecord.offer && referenceRecord.offer.value
+                                    ? <Typography color="succes">
+                                      {referenceRecord.offer.title || `-${referenceRecord.offer.value}%`}</Typography>
+                                    : <Typography color="warning">Offerta non impostata</Typography>
+                            )}
+                          </ReferenceFieldController>
+                          : <ReferenceFieldController basePath="businesses" record={record.business}
+                                                      reference="businesses"
+                                                      source="_id">
+                            {({referenceRecord}) => {
 
-                          }
-                        </Typography>
-                    </TableCell>
-                  </TableRow>
-          ))}
+                              if (!broadcasts || !referenceRecord || !referenceRecord.offers) return null;
+                              const selectedOffer = referenceRecord.offers.find(o => broadcast.offer && o._id === broadcast.offer._id);
+                              console.log(selectedOffer, referenceRecord.offers);
+                              return referenceRecord && referenceRecord.offers ? (
+                                  <Select
+                                      fullWidth
+                                      inputProps={{ id: 'select-offer'}}
+                                      onChange={(e) => handleOfferChange(broadcast, e.target.value)}
+                                      value={selectedOffer || undefined}>
+                                    {referenceRecord.offers.map((offer, index) => (
+                                            <MenuItem key={index} value={offer}>
+                                              {offer.type === 0 ? offer.title : `-${offer.value}%`}
+                                            </MenuItem>
+                                        )
+                                    )}
+                                  </Select>
+
+                              ) : null
+                            }}</ReferenceFieldController>
+
+                      }
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+            ))}
           </TableBody>
 
         </Table>
@@ -114,10 +132,13 @@ const BroadcastBundleShowView
   )
 
 };
-const PublishButton = connect(undefined, { showNotification, push })(({ push, record, showNotification }) => {
+/* eslint-disable */
+const PublishButton = connect(undefined, { showNotification, push })(({ push, record, showNotification, broadcasts }) => {
 
   const handleClick = () => {
-    const updated = { ...record, published: true };
+
+    const updated = { ...record, broadcasts, published: true };
+
     dataProvider(UPDATE, 'broadcastbundles', { id: record.id, data: updated })
         .then(() => {
           showNotification('Bundle pubblicato!');
@@ -140,29 +161,36 @@ PublishButton.propTypes = {
   record: PropTypes.object,
   showNotification: PropTypes.func,
 };
-const BroadcastBundleShowActions = ({ basePath, data }) => (
+const BroadcastBundleShowActions = ({ basePath, data, broadcasts }) => (
     <CardActions>
       <DeleteButton/>
       <EditButton basePath={basePath} disabled record={data}/>
-      <PublishButton record={data}/>
+      <PublishButton record={data} broadcasts={broadcasts}/>
     </CardActions>
 );
 BroadcastBundleShowActions.propTypes = {
   basePath: PropTypes.string,
   data: PropTypes.object,
+  broadcasts: PropTypes.array,
 }
 const BroadcastBundleShow = (props) => {
 
+  const [broadcasts, setBroadcasts] = useState([]);
+
+  const handleChangeBroadcasts = newBroadcasts => {
+    setBroadcasts(newBroadcasts);
+  };
   return (
-      <Show actions={<BroadcastBundleShowActions/>}
+      <Show actions={<BroadcastBundleShowActions broadcasts={broadcasts}/>}
             title={<BroadcastBundleTitle/>} {...props}>
-        <BroadcastBundleShowView/>
+        <BroadcastBundleShowView onChangeBroadcasts={handleChangeBroadcasts}/>
       </Show>
   )
 };
 
 BroadcastBundleShowView.propTypes = {
   record: PropTypes.object,
+  onChangeBroadcasts: PropTypes.func,
 
 };
 export default BroadcastBundleShow;

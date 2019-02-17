@@ -21,10 +21,7 @@ const broadcastBundleSchema = mongoose.Schema({
         name: String,
         start_at: Date,
       }, { _id: false }),
-      offer: new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, ref: "BusinessOffer"},
-        title: String,
-      }, { _id: false }),
+      offer: offerSchema,
       is_replaced: Boolean, // Se il locale l'ha rimpiazzato con un'altro evento
       is_user_addedd: Boolean, // Se è stato aggiunta manualmente dall'utente
       spots: Number,
@@ -63,6 +60,7 @@ broadcastBundleSchema.methods = {
           const newBroadcast = new Broadcast({
             event: broadcast.event._id,
             business: this.business._id,
+            offer: broadcast.offer,
           });
           totalSpots += business.paySpots(broadcast.spots);
           await newBroadcast.save();
@@ -108,7 +106,7 @@ broadcastBundleSchema.statics = {
   },
 
   getOfferFor(event) {
-    return {};
+    return undefined;
   },
   calculateSpots(broadcastBundle) {
 
