@@ -33,7 +33,7 @@ const sportSchema = new mongoose.Schema({
   },
   appealValue: Number,
   image_versions: [imageVersionSchema],
-
+  has_competitors: Boolean,
 
 });
 
@@ -43,6 +43,27 @@ sportSchema.pre('save', function(next) {
     this.slug = slugify(this.name);
   }
   next();
+});
+
+sportSchema.method({
+  transform() {
+    const transformed = {};
+    const fields = ['_id',
+      'id',
+      'active',
+      'slug',
+      'image_versions',
+      'appealValue',
+      'has_competitors',
+      'duration',
+        'name',
+    ];
+    fields.forEach((field) => {
+      transformed[field] = this[field];
+    });
+
+    return transformed;
+  },
 });
 sportSchema.statics = {
   async get(id) {

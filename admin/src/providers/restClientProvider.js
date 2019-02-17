@@ -76,6 +76,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
           break;
         }
 
+        console.log("aaaaa", params.data, JSON.stringify(params.data));
         options.body = JSON.stringify(params.data);
         break;
       case CREATE:

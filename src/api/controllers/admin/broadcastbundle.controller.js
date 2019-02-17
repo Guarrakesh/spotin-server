@@ -5,6 +5,7 @@ const { omit } = require('lodash');
 const { handler: errorHandler } = require('../../middlewares/error');
 const { Business } = require('../../models/business.model');
 const { Broadcast } = require('../../models/broadcast.model');
+const offerSchema = require('../../models/offer.schema');
 const { BroadcastBundle } = require('../../models/broadcastbundle.model');
 const EventsAppealEvaluator = require('../../models/appeal/StandardEventsAppealEvaluator');
 const ApiError = require('../../utils/APIError');
@@ -78,7 +79,10 @@ exports.update = async (req, res, next) => {
   try {
     const { bundle } = req.locals;
     const updatedBundle = Object.assign(bundle, req.body);
+
+
     if (updatedBundle.isModified('published')) {
+      req.locals.bundle = updatedBundle;
       return await publish(req, res, next);
     } else {
 

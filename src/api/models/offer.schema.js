@@ -12,7 +12,7 @@ const offerSchema = new mongoose.Schema({
   type: {
     type: Number,
     enum: types,
-    required: true
+    required: true,
   },
   value: Number,
 

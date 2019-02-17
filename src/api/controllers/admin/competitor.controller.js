@@ -18,7 +18,7 @@ exports.load = async (req, res, next, id) => {
   }
 };
 
-exports.get = (req, res) => res.json(req.locals.competitor);
+exports.get = (req, res) => res.json(req.locals.competitor.transform());
 
 
 exports.list = async (req, res, next) => {
@@ -41,6 +41,7 @@ exports.list = async (req, res, next) => {
       limit: parseInt(_end - _start)
     });
 
+    competitors.docs = competitors.docs.map(c => c.transform());
     res.json(competitors);
   } catch (error) {
     next(error)
@@ -57,7 +58,7 @@ exports.create = async (req, res, next) => {
     }
 
     res.status(httpStatus.CREATED);
-    res.json(savedComp);
+    res.json(savedComp.transform());
 
   } catch (error) {
     next(error);
@@ -76,7 +77,7 @@ exports.update = async (req, res, next) => {
     if (req.file && req.file.fieldname == "picture") {
       await savedComp.uploadPicture(req.file);
     }
-    res.json(savedComp);
+    res.json(savedComp.transform());
   } catch (error) {
     next(error);
   }
