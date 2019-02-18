@@ -77,7 +77,7 @@ const userSchema = new mongoose.Schema({
     new mongoose.Schema({
       _id: { type: mongoose.Schema.ObjectId, ref: "Sport" },
       name: String,
-    }, { imestamps: true } )],
+    }, { timestamps: true } )],
 
   favorite_competitors: [
     new mongoose.Schema({
@@ -157,6 +157,7 @@ userSchema.method({
       'id',
       '_id',
       'picture',
+        'favorite_competitors',
       'role',
       'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
