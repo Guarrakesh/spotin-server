@@ -105,7 +105,8 @@ sportEventSchema.pre('save', async function(next) {
  */
 sportEventSchema.methods.transform = function(user = null) {
   const transformed = {};
-  const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
+  const fields = ['providers','sport','competition','_id',
+    'has_competitors', 'competitors', 'name','description', 'start_at', 'spots'];
   fields.forEach((field) => {
     if (field === "competitors" && typeof this.competitors === "object") {
       transformed[field] = this.competitors.map(competitor => {
