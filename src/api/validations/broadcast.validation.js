@@ -13,7 +13,7 @@ module.exports = {
         value: Joi.number().default(10),
         type: Joi.number().default(1)
       }).required(),
-      plus: Joi.boolean().default(false)
+      newsfeed: Joi.number(),
 
     }
   }

@@ -44,11 +44,6 @@ const broadcastSchema = new mongoose.Schema({
 broadcastSchema.pre('save', function (next) {
   const self = this;
 
-  if (this.plus === true) {
-    this.newsfeed = 1;
-  } else {
-    this.newsfeed = 0;
-  }
   SportEvent.findById(this.event).exec((err, event) => {
     if (err) return next();
     if (!self.start_at) {
