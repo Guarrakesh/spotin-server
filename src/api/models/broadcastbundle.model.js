@@ -37,7 +37,7 @@ const broadcastBundleSchema = mongoose.Schema({
   published_at: Date,
 
 
-}, { timestamps: true, strict: false });
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, strict: false });
 
 
 broadcastBundleSchema.methods = {

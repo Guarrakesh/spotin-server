@@ -35,7 +35,7 @@ const sportSchema = new mongoose.Schema({
   image_versions: [imageVersionSchema],
   has_competitors: Boolean,
 
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 sportSchema.pre('save', function(next) {
 
@@ -57,6 +57,8 @@ sportSchema.method({
       'has_competitors',
       'duration',
         'name',
+        'created_at',
+        'updated_at',
     ];
     fields.forEach((field) => {
       transformed[field] = this[field];

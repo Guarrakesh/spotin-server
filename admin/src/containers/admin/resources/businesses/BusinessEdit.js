@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import {Chip, List as MuiList, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {
   ArrayField,
   ArrayInput,
@@ -23,6 +23,7 @@ import {
   RadioButtonGroupInput,
   LongTextInput,
 } from 'react-admin';
+import moment from "moment";
 
 import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
@@ -79,17 +80,29 @@ const BusinessEditToolbar = props => {
 };
 
 const BusinessEditAside = ({ record }) => (
-    <div style={{ width: 200, margin: '1em' }}>
-      <Typography variant="title">Dettagli</Typography>
+    <div>
+
       {record && (
-          <React.Fragment>
-          <Typography variant="body1">
-            Data aggiunta: {record.createdAt }
-          </Typography>
-          <Typography variant="body1">
-           Ultima modifica { record.updatedAt }
-          </Typography>
-          </React.Fragment>
+          <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
+            <ListItem variant="body1">
+              <ListItemText primary="Data aggiunta"
+                            secondary={ moment(record.created_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="Ultima modifica"
+                            secondary={ moment(record.updated_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            {record.bundle &&
+            <ListItem>
+              <Chip
+                  label="Creato con un bundle"
+                  variant="body1"
+              />
+            </ListItem>
+            }
+          </MuiList>
 
         )}
     </div>
