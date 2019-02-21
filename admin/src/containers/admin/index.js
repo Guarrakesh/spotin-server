@@ -1,5 +1,7 @@
 import React from 'react';
 import {Admin as AdminBase, Resource} from 'react-admin';
+import italianMessages from 'ra-language-italian';
+import englishMessages from 'ra-language-english';
 
 import { UserList, UserEdit, UserCreate } from './resources/users';
 import { SportList, SportEdit, SportCreate } from './resources/sports';
@@ -35,11 +37,18 @@ const AdminRoutes = [
   <Resource name="broadcastbundles" list={BroadcastBundleList} edit={BroadcastBundleEdit}
   create={BroadcastBundleCreate} show={BroadcastBundleShow}/>
 ];
+
+const messages = {
+  it: italianMessages,
+  en: englishMessages,
+};
+const i18nProvider = locale => messages[locale];
 /* eslint-enable */
 const Admin = () => (
 
     <AdminBase dataProvider={dataProvider}
                authProvider={authProvider}
+               locale="it" i18nProvider={i18nProvider}
                theme={theme}
                history={history}
     >

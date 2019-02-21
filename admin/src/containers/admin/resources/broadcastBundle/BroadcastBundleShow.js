@@ -23,6 +23,8 @@ import { Typography,
   Button,
   Select,
   MenuItem,
+    Icon,
+  IconButton,
 } from "@material-ui/core";
 import DateTimeField from '../../components/DateTimeField';
 import dataProvider from '../../../../providers/dataProvider';
@@ -47,6 +49,11 @@ const BroadcastBundleShowView
     setBroadcasts(newBroadcasts);
     onChangeBroadcasts(newBroadcasts);
   };
+  const handleRemoveBroadcast = index => {
+    const newBroadcasts = broadcasts.filter((_, i) => i !== index);
+    setBroadcasts(newBroadcasts);
+    onChangeBroadcasts(newBroadcasts);
+  };
   return (
       <CardContentInner>
         <Typography variant="display3">{record.business.name}</Typography>
@@ -62,6 +69,7 @@ const BroadcastBundleShowView
         <Table>
           <TableHead>
             <TableRow>
+              {record && !record.published_at && <TableCell>#</TableCell>}
               <TableCell>Broadcast</TableCell>
               <TableCell>Offerta</TableCell>
             </TableRow>
@@ -70,6 +78,13 @@ const BroadcastBundleShowView
 
             {broadcasts.map((broadcast, index) => (
                 <TableRow key={index}>
+                  {record && !record.published_at && <TableCell width="50px">
+                    <IconButton onClick={() => handleRemoveBroadcast(index)} color="primary"
+                                aria-label="Rimuovi broadcast">
+                      <Icon>remove</Icon>
+                    </IconButton>
+                  </TableCell>
+                  }
                   <TableCell>
                     <Link to={broadcast._id ? '/broadcasts/'+broadcast._id : "#"}>
                       <Typography variant="body2">
@@ -150,7 +165,7 @@ const PublishButton = connect(undefined, { showNotification, push })(({ push, re
         })
   };
   return record ? (
-      <Button disabled={record.published} color="primary" onClick={handleClick}>
+      <Button disabled={record.published || !broadcasts || broadcasts.length === 0} color="primary" onClick={handleClick}>
         {record.published ? "Pubblicato" : "Pubblica"}</Button>
   ) : null;
 
@@ -163,7 +178,7 @@ PublishButton.propTypes = {
 };
 const BroadcastBundleShowActions = ({ basePath, data, broadcasts }) => (
     <CardActions>
-      <DeleteButton/>
+      <DeleteButton basePath={basePath} record={data} resource="broadcastbundles"/>
       <EditButton basePath={basePath} disabled record={data}/>
       <PublishButton record={data} broadcasts={broadcasts}/>
     </CardActions>
@@ -174,8 +189,7 @@ BroadcastBundleShowActions.propTypes = {
   broadcasts: PropTypes.array,
 }
 const BroadcastBundleShow = (props) => {
-
-  const [broadcasts, setBroadcasts] = useState([]);
+  const [broadcasts, setBroadcasts] = useState(props.broadcasts || []);
 
   const handleChangeBroadcasts = newBroadcasts => {
     setBroadcasts(newBroadcasts);
