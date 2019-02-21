@@ -35,8 +35,9 @@ const broadcastSchema = new mongoose.Schema({
 
   start_at: Date,
   end_at: Date,
+  bundle: { ref: 'BroadcastBundle', type: mongoose.Schema.ObjectId },
 
-});
+}, { timestamps: true });
 
 /* broadcastSchema.method({
  }); */

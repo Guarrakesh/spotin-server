@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-
+import { Typography } from '@material-ui/core';
 import {
   ArrayField,
   ArrayInput,
@@ -77,13 +78,34 @@ const BusinessEditToolbar = props => {
   )
 };
 
+const BusinessEditAside = ({ record }) => (
+    <div style={{ width: 200, margin: '1em' }}>
+      <Typography variant="title">Dettagli</Typography>
+      {record && (
+          <React.Fragment>
+          <Typography variant="body1">
+            Data aggiunta: {record.createdAt }
+          </Typography>
+          <Typography variant="body1">
+           Ultima modifica { record.updatedAt }
+          </Typography>
+          </React.Fragment>
+
+        )}
+    </div>
+);
+BusinessEditAside.propTypes = {
+  record: PropTypes.object
+};
+
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
 
   return (
       <Edit
-
+          aside={<BusinessEditAside/>}
           title={<Title/>} { ...props}>
+
         <TabbedForm
             toolbar={<BusinessEditToolbar/>}
 

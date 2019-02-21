@@ -1,10 +1,12 @@
 import React from 'react';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import MomentUtils from '@date-io/moment';
+
+import Admin from './containers/admin';
+
 import './App.css';
 
 
-import Admin from './containers/admin';
 
 class App extends React.Component {
 
@@ -12,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
-        <Admin/>
+        <Admin />
       </MuiPickersUtilsProvider>
     )
   }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+  import React, {useState} from 'react';
 import {get} from 'lodash';
 import moment from 'moment';
 /* eslint-disable */
@@ -14,6 +14,7 @@ const businessDayInputParser = (value => {
   let hour, minute;
 
   if (value instanceof moment) {
+
     hour = parseInt(value.hour(), 10);
     minute = parseInt(value.minute(), 10);
   } else {
@@ -21,16 +22,28 @@ const businessDayInputParser = (value => {
     minute = parseInt(value.split(":")[1], 10);
   }
 
-  const parsed = hour * 60 + minute; //Restituisce i minuti
-  return parsed;
+  const date = new Date();
+  let parsed = hour * 60 + minute + date.getTimezoneOffset(); //Restituisce i minuti
+  return normalizeMinutes(parsed);
 });
+
+const normalizeMinutes = minutes => {
+  // Normalizza il valore nel range [0,1440].
+  let parsed = minutes;
+  if (minutes < 0) {
+    parsed = 1440 - Math.abs(parsed);
+  } else if (minutes > 1440) {
+    parsed = minutes - 1440;
+  }
+  return parsed;
+};
 const businessDayInputFormatter = (value => {
 
   if (typeof value === "number") {
 
-
-    const n = Math.abs(value / 60); // Rendo positivo
-    const h = Math.floor(n)
+    const date = new Date();
+    const n = Math.abs(normalizeMinutes(value - date.getTimezoneOffset()) / 60);
+    const h = Math.floor(n);
     const m = Math.floor((n - h)*60);
     const hours = h.toString().length == 2 ? h.toString() : `0${h}`;
 
