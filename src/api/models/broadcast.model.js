@@ -37,7 +37,7 @@ const broadcastSchema = new mongoose.Schema({
   end_at: Date,
   bundle: { ref: 'BroadcastBundle', type: mongoose.Schema.ObjectId },
 
-}, { timestamps: true });
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 /* broadcastSchema.method({
  }); */

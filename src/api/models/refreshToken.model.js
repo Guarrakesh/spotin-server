@@ -23,7 +23,7 @@ const refreshTokenSchema = new mongoose.Schema({
     required: true,
   },
   expires: { type: Date },
-});
+}, { createdAt: 'created_at', updatedAt: 'updated_at' });
 
 refreshTokenSchema.statics = {
 

@@ -30,12 +30,12 @@ const BroadcastEditAside = ({ record }) => (
           <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
             <ListItem variant="body1">
               <ListItemText primary="Data aggiunta"
-                            secondary={ moment(record.createdAt).format('D/M/Y H:m') }
+                            secondary={ moment(record.created_at).format('D/M/Y H:m') }
               />
             </ListItem>
             <ListItem>
               <ListItemText primary="Ultima modifica"
-                            secondary={ moment(record.updatedAt).format('D/M/Y H:m') }
+                            secondary={ moment(record.updated_at).format('D/M/Y H:m') }
               />
             </ListItem>
             {record.bundle &&

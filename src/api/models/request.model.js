@@ -70,7 +70,7 @@ const requestSchema = new mongoose.Schema({
   }
 
 
-}, { minimize: false, timestamps: { createdAt: 'created_at'} });
+}, { minimize: false, timestamps:{ createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 
 requestSchema.statics = {

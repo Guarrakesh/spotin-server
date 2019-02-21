@@ -113,7 +113,7 @@ const businessSchema = new mongoose.Schema({
     ref: 'User'
   },
   offers: [offerSchema]
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 
 
@@ -200,6 +200,8 @@ businessSchema.methods = {
       "cover_versions",
       "providers",
       "pictures",
+      "created_at",
+      "updated_at",
       "business_hours", "tradeName"], fieldsToOmit);
     //Solo il proprietario può vedere tutte le info del locale
 

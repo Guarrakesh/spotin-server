@@ -76,7 +76,7 @@ const competitorSchema = new mongoose.Schema({
     default: true,
   },
   appealValue: Number,
-});
+}, { createdAt: 'created_at', updatedAt: 'updated_at' });
 
 
 competitorSchema.method({
@@ -94,7 +94,9 @@ competitorSchema.method({
       'full_name',
       'is_person',
       'is_club',
-      'appealValue'
+      'appealValue',
+      'created_at',
+      'updated_at',
     ];
     fields.forEach((field) => {
       transformed[field] = this[field];
