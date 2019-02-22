@@ -121,7 +121,7 @@ const userSchema = new mongoose.Schema({
 
 
 }, {
-  timestamps: true,
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
 });
 
 /**
@@ -159,7 +159,7 @@ userSchema.method({
       'picture',
         'favorite_competitors',
       'role',
-      'createdAt', "updatedAt", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
+      'created_at', "updated_at", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
     fields.forEach((field) => {
       transformed[field] = this[field];

@@ -56,7 +56,7 @@ const sportEventSchema = new mongoose.Schema({
   providers: [String],
 
   appealValue: Number,
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 
 
@@ -105,7 +105,7 @@ sportEventSchema.pre('save', async function(next) {
  */
 sportEventSchema.methods.transform = function(user = undefined) {
   const transformed = {};
-  const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
+  const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots', 'created_at', 'updated_at'];
   fields.forEach((field) => {
     if (field === "competitors" && typeof this.competitors === "object") {
       transformed[field] = this.competitors.map(competitor => {
