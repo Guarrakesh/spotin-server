@@ -37,7 +37,7 @@ const broadcastBundleSchema = mongoose.Schema({
   published_at: Date,
 
 
-}, { timestamps: true, strict: false });
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, strict: false });
 
 
 broadcastBundleSchema.methods = {
@@ -61,10 +61,12 @@ broadcastBundleSchema.methods = {
             event: broadcast.event._id,
             business: this.business._id,
             offer: broadcast.offer,
+            bundle: this._id,
           });
           totalSpots += business.paySpots(broadcast.spots);
           await newBroadcast.save();
           broadcast._id = newBroadcast._id;
+
         }
         await this.save();
       }

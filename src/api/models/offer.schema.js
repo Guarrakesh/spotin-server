@@ -19,6 +19,6 @@ const offerSchema = new mongoose.Schema({
   description: String,
 
 
-});
+}, { createdAt: 'created_at', updatedAt: 'updated_at' });
 
 module.exports = offerSchema;

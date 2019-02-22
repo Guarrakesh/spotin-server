@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-
+import {Chip, List as MuiList, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {
   ArrayField,
   ArrayInput,
@@ -22,6 +23,7 @@ import {
   RadioButtonGroupInput,
   LongTextInput,
 } from 'react-admin';
+import moment from "moment";
 
 import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
@@ -77,13 +79,46 @@ const BusinessEditToolbar = props => {
   )
 };
 
+const BusinessEditAside = ({ record }) => (
+    <div>
+
+      {record && (
+          <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
+            <ListItem variant="body1">
+              <ListItemText primary="Data aggiunta"
+                            secondary={ moment(record.created_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="Ultima modifica"
+                            secondary={ moment(record.updated_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            {record.bundle &&
+            <ListItem>
+              <Chip
+                  label="Creato con un bundle"
+                  variant="body1"
+              />
+            </ListItem>
+            }
+          </MuiList>
+
+        )}
+    </div>
+);
+BusinessEditAside.propTypes = {
+  record: PropTypes.object
+};
+
 const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
 
   return (
       <Edit
-
+          aside={<BusinessEditAside/>}
           title={<Title/>} { ...props}>
+
         <TabbedForm
             toolbar={<BusinessEditToolbar/>}
 

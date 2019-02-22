@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {
+  Chip,
+  ListItemText,
+  ListSubheader,
+  List as MuiList,
+  ListItem} from "@material-ui/core";
+import moment from 'moment';
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
   RadioButtonGroupInput, Edit, Filter, DisabledInput, LongTextInput,
   DateField} from 'react-admin';
@@ -16,6 +22,37 @@ const ReservationCountField = ({record}) => (
 );
 ReservationCountField.propTypes = {
   record: PropTypes.object,
+};
+
+const BroadcastEditAside = ({ record }) => (
+    <div>
+      {record && (
+          <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
+            <ListItem variant="body1">
+              <ListItemText primary="Data aggiunta"
+                            secondary={ moment(record.created_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="Ultima modifica"
+                            secondary={ moment(record.updated_at).format('D/M/Y H:m') }
+              />
+            </ListItem>
+            {record.bundle &&
+            <ListItem>
+              <Chip
+                  label="Creato con un bundle"
+                  variant="body1"
+              />
+            </ListItem>
+            }
+          </MuiList>
+
+      )}
+    </div>
+);
+BroadcastEditAside.propTypes = {
+  record: PropTypes.object
 };
 
 const BroadcastFilter = (props) => (
@@ -79,9 +116,10 @@ export const BroadcastCreate = (props) => (
 
 
         <RadioButtonGroupInput
+            parse={v => parseInt(v, 10)}
             label="Tipo offerta" source="offer.type" choices={[
-          {id: "0", name: 'Prezzo fisso'},
-          {id: "1", name: 'Sconto in percentuale'},
+          {id: 0, name: 'Prezzo fisso'},
+          {id: 1, name: 'Sconto in percentuale'},
         ]}/>
 
 
@@ -98,7 +136,9 @@ export const BroadcastCreate = (props) => (
 
 
 export const BroadcastEdit = (props) => (
-    <Edit {...props}>
+    <Edit
+        aside={<BroadcastEditAside/>}
+        {...props}>
       <SimpleForm defaultValue={{offer: { type: "1"}}}>
         <DisabledInput source="_id"/>
         <EventAutocompleteInput/>
@@ -120,9 +160,10 @@ export const BroadcastEdit = (props) => (
             source="offer.description" label="Descrizione offerta"/>
 
         <RadioButtonGroupInput
+            parse={v => parseInt(v, 10)}
             label="Tipo offerta" source="offer.type" choices={[
-          {id: "0", name: 'Prezzo fisso'},
-          {id: "1", name: 'Sconto in percentuale'},
+          {id: 0, name: 'Prezzo fisso'},
+          {id: 1, name: 'Sconto in percentuale'},
         ]}/>
 
 
@@ -136,11 +177,7 @@ export const BroadcastEdit = (props) => (
                        options={{ format: "dd/MM/YYYY, HH:mm:ss"}}/>
 
 
-        <RadioButtonGroupInput
-            label="Tipo offerta" source="offer.type" choices={[
-          {id: "0", name: 'Prezzo fisso'},
-          {id: "1", name: 'Sconto in percentuale'},
-        ]}/>
+
 
       </SimpleForm>
     </Edit>
