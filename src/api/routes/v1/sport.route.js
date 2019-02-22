@@ -48,7 +48,7 @@ router
 router
   .route('/:id')
 
-  .get(authorize([LOGGED_USER, BUSINESS]), controller.get)
+  .get(controller.get)
 
 
 

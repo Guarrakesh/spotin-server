@@ -49,7 +49,7 @@ exports.load = async (req, res, next, id) => {
  * Get SportEvent
  * @public
  */
-exports.get = (req, res) => res.json(req.locals.event.transform(req.locals.loggedUser));
+exports.get = (req, res) => res.json(req.locals.event.transform(req.locals ? req.locals.loggedUser : undefined));
 
 
 
@@ -94,7 +94,7 @@ exports.list = async (req, res, next) => {
 
 
   try {
-    const { loggedUser } = req.locals;
+    const { loggedUser } = req.locals || {};
     let filter= sanitizeQueryParams(req.query);
     const {_end = 10, _start = 0, _order = 1, _sort = "start_at" } = req.query;
     const { locals } = req;

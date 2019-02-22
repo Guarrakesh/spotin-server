@@ -103,7 +103,7 @@ sportEventSchema.pre('save', async function(next) {
  * @memberOf SportEvent
  * @param user
  */
-sportEventSchema.methods.transform = function(user = null) {
+sportEventSchema.methods.transform = function(user = undefined) {
   const transformed = {};
   const fields = ['providers','sport','competition','_id','competitors', 'name','description', 'start_at', 'spots']
   fields.forEach((field) => {
