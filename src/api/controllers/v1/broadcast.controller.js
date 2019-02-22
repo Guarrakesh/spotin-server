@@ -14,7 +14,7 @@ const { BUSINESS, ADMIN } = require('../../middlewares/auth');
 
 exports.load = async (req, res, next, id) => {
   try {
-    const { loggedUser } = req.locals;
+    const { loggedUser } = req.locals || {};
     const broadcast = await Broadcast.get(id);
 
     broadcast.reserved = broadcast.reservations.find(r => loggedUser.reservations.includes(r._id.toString())) !== undefined;
@@ -81,7 +81,7 @@ exports.create = async (req, res, next) => {
 
 exports.list = async (req, res, next) => {
   try {
-    const { loggedUser } = req.locals;
+    const { loggedUser } = req.locals || {};
     // TODO: Gestire geolocalizzazione
 
     let broadcasts;
@@ -263,7 +263,7 @@ exports.list = async (req, res, next) => {
     broadcasts.docs = broadcasts.docs.map(broadcast => ({
       ...broadcast,
       reserved: broadcast.reservations
-        .find(r => r.user.toString() === loggedUser._id.toString()) !== undefined,
+        .find(r => loggedUser && r.user.toString() === loggedUser._id.toString()) !== undefined,
     }));
 
     res.json(broadcasts);

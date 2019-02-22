@@ -20,18 +20,18 @@ router.param('id', competitionController.load);
 
 router
   .route('/')
-  .get(authorize([LOGGED_USER, BUSINESS]), competitionController.list)
+  .get(competitionController.list)
 
   .post(authorize(ADMIN), [upload.single('picture'),validate(createCompetition)], competitionController.create);
 
 router
   .route('/:id')
-  .get(authorize([LOGGED_USER, BUSINESS]), competitionController.get)
+  .get(competitionController.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateCompetition)], competitionController.update)
   .delete(authorize(ADMIN), competitionController.remove);
 router
   .route('/:id/events')
-  .get(authorize([LOGGED_USER, BUSINESS]), eventController.list);
+  .get(eventController.list);
 
 
 

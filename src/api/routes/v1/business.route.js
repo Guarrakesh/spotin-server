@@ -14,18 +14,18 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(controller.list);
 
 
 router
   .route('/:id')
-  .get(authorize([LOGGED_USER, BUSINESS]), controller.get)
+  .get(controller.get)
   .patch(authorize(ADMIN), [upload.single('picture'),validate(updateBusiness)], controller.update);
 
 
 router
   .route('/:id/past-offers')
-  .get(authorize(BUSINESS), controller.pastOffers);
+  .get(controller.pastOffers);
 
 
 module.exports = router;
