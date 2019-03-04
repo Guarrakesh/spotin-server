@@ -22,6 +22,7 @@ module.exports = {
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   s3WebsiteEndpoint: 'https://dockaddkf7nie.cloudfront.net',
+  s3Region: process.env.AWS_S3_REGION,
 
   //Mailer
   mailerEmailID: "info@spotin.it",

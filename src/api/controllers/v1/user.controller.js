@@ -7,6 +7,8 @@ const { Broadcast } = require('../../models/broadcast.model');
 const { SportEvent } = require('../../models/sportevent.model');
 const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
 const { Reservation } = require('../../models/reservation.model');
+const amazon = require("../../utils/amazon");
+
 const mongoose = require('mongoose');
 const moment = require('moment');
 
@@ -426,6 +428,19 @@ exports.registerFcmToken = async (req, res, next) => {
 
     res.status(httpStatus.CREATED);
     res.end();
+  } catch (e) {
+    next(e);
+  }
+};
+
+exports.getPictureUploadURL = async (req, res, next) => {
+  try {
+    const { loggedUser } = req.locals;
+    const { meta } = req.body;
+    const ext = mime.extension(meme.type);
+    const Key = `images/users/${loggedUser.id}.${ext}`;
+    const signedUrl = await amazon.getUploadSignedUrl(Key);
+    res.json({URL: signedUrl, user: { id: loggedUser.id, picture: loggedUser.picture }})
   } catch (e) {
     next(e);
   }
