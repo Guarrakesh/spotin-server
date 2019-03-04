@@ -126,6 +126,10 @@ router
    */
   .delete(authorize(LOGGED_USER, ownerCheck), controller.remove);
 
+router
+    .route('/:userId/picture_upload_url')
+    .get(authorize(LOGGED_USER, ownerCheck), controller.getPictureUploadURL);
+
 
 router
   .route('/:userId/events')
