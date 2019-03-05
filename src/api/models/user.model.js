@@ -9,18 +9,29 @@ const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const mongoosePaginate = require('mongoose-paginate');
+const mime = require('mime-to-extensions');
+const sizeOf = require('image-size');
+
 const { sportSchema } = require('./sport.model');
 const { reservationSchema } = require('./reservation.model');
 const { broadcastSchema } = require('./broadcast.model');
+const { imageSchema } = require('./image');
+const { s3WebsiteEndpoint } = require('../../config/vars');
+const amazon = require("../utils/amazon");
 
 const { ADMIN, BUSINESS, LOGGED_USER } = require('../middlewares/auth');
 
 const { Business } = require('./business.model');
+
+const imageSizes = [
+  { width: 800, height: 800 },
+  { width: 400, height: 400 },
+  { width: 150, height: 150 },
+];
+
 /**
  * User Roles
  */
-
-
 const roles = [LOGGED_USER, ADMIN, BUSINESS];
 
 /**
@@ -116,8 +127,8 @@ const userSchema = new mongoose.Schema({
     competitor: { type: mongoose.Schema.ObjectId, ref: "Competitor" },
     name: String,
     hits: Number
-  }, { _id: false })]
-
+  }, { _id: false })],
+  photo: [imageSchema]
 
 
 }, {
@@ -158,6 +169,7 @@ userSchema.method({
       '_id',
       'picture',
         'favorite_competitors',
+        'photo',
       'role',
       'created_at', "updated_at", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
@@ -192,6 +204,37 @@ userSchema.method({
     const businesses = await Business.find({user: this._id});
 
     return businesses || [];
+  },
+  s3Path() {
+    return `images/users/${this.id}`;
+  },
+
+  async uploadPhoto(file, meta) {
+    const ext = mime.extension(file.mimetype);
+    try {
+
+      //Cancello prima tutta la cartella
+      const data = await amazon.uploadImage(file.buffer, `${this.s3Path()}/photo.${ext}`);
+      const {width, height} = await sizeOf(file.buffer);
+      //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
+      const photo = {
+        versions: [
+          { url: data.Location, width, height }
+          ],
+        ext,
+        ...meta,
+      };
+
+
+      const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
+      const fileName = "photo." + ext;
+      photo.versions = photo.versions.concat(this.constructor.makeImageVersions(basePath, fileName));
+      this.photo = photo;
+      await this.save();
+      //await this.update({_id: savedComp._id}, { $set: {image_versions: [{url: data.Location, width, height}] }}).exec();
+    } catch (error) {
+      throw Error(error);
+    }
   }
 });
 
@@ -344,6 +387,22 @@ userSchema.statics = {
       services: { [service]: id }, email, password, name, picture
     });
   },
+
+  makeImageVersions(basePath, fileName) {
+
+    const _basePath = basePath.replace(/^\/|\/$/g, ''); // Rimuovi i trailing e leading slash
+    const _fileName = fileName.replace(/^\/|\/$/g, '');
+
+    const versions = [];
+    imageSizes.forEach(({ width, height }) => {
+      versions.push({
+        url: `${_basePath}/${width}x${height}/${_fileName}`,
+        width,
+        height
+      });
+    });
+    return versions;
+  }
 };
 userSchema.plugin(mongoosePaginate);
 /**

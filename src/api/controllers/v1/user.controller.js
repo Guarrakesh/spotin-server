@@ -433,6 +433,19 @@ exports.registerFcmToken = async (req, res, next) => {
   }
 };
 
+exports.uploadPhoto = async (req, res, next) => {
+  try {
+    const { loggedUser } = req.locals;
+    if (req.file && req.file.fieldname == "photo") {
+      await loggedUser.uploadPhoto(req.file, req.body || {});
+    }
+
+    res.json(loggedUser.transform());
+  } catch (e) {
+    next(e);
+  }
+};
+
 exports.getPictureUploadURL = async (req, res, next) => {
   try {
     const { loggedUser } = req.locals;
