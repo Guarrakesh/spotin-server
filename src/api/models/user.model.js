@@ -128,7 +128,9 @@ const userSchema = new mongoose.Schema({
     name: String,
     hits: Number
   }, { _id: false })],
-  photo: imageSchema,
+  photo: {
+    type: imageSchema
+  },
 
 
 }, {
