@@ -1,5 +1,6 @@
 const express = require('express');
 const validate = require('express-validation');
+const multer = require('multer');
 const controller = require('../../controllers/v1/user.controller.js');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {
@@ -18,6 +19,7 @@ const {
   registerFcmToken
 } = require('../../validations/user.validation');
 
+const upload = multer({ limits: { fileSize: 1024 * 1024 * 10 } });
 const router = express.Router();
 
 
@@ -127,8 +129,9 @@ router
   .delete(authorize(LOGGED_USER, ownerCheck), controller.remove);
 
 router
-    .route('/:userId/picture_upload_url')
-    .get(authorize(LOGGED_USER, ownerCheck), controller.getPictureUploadURL);
+    .route('/:userId/photo_upload')
+    .post(authorize(LOGGED_USER, ownerCheck), [upload.single('photo')], controller.uploadPhoto);
+   // .get(authorize(LOGGED_USER, ownerCheck), controller.getPictureUploadURL);
 
 
 router
