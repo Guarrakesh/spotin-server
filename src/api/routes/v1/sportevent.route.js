@@ -14,13 +14,13 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(authorize([LOGGED_USER], null, true), controller.list)
   .post(authorize(ADMIN), validate(createEvent), controller.create)
 
 ;
 router
   .route('/:id')
-  .get(controller.get)
+  .get(authorize([LOGGED_USER], null, true), controller.get)
   .patch(authorize(ADMIN), validate(updateEvent), controller.update)
   .delete(authorize(ADMIN), controller.remove);
 

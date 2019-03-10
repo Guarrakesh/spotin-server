@@ -260,10 +260,11 @@ exports.list = async (req, res, next) => {
       limit: parseInt(_end - _start, 10),
       lean: true,
     });
+
     broadcasts.docs = broadcasts.docs.map(broadcast => ({
       ...broadcast,
       reserved: broadcast.reservations
-        .find(r => loggedUser && r.user.toString() === loggedUser._id.toString()) !== undefined,
+        .find(r => loggedUser && r.user.toString() === loggedUser.id) !== undefined,
     }));
 
     res.json(broadcasts);
