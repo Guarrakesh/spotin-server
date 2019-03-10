@@ -17,7 +17,7 @@ const BUSINESS = 'business';
  * @param ownerCallback La funzione che, se data, controlla se l'utente loggato è il proprietario di questa risorsa.
  *                      Se non lo è, restituisce un 401 - Unauthorized
  */
-const handleJWT = (req, res, next, roles, ownerCallback) => async (err, user, info) => {
+const handleJWT = (req, res, next, roles, ownerCallback, userRequired = true) => async (err, user, info) => {
 
   const error = err || info;
   const logIn = Promise.promisify(req.logIn);
@@ -32,7 +32,13 @@ const handleJWT = (req, res, next, roles, ownerCallback) => async (err, user, in
     await logIn(user, { session: false });
     req.locals = Object.assign({}, req.locals, {loggedUser: user});
   } catch (e) {
-    return next(apiError);
+    if (userRequired) {
+      // Se l'endpoint richiesta l'utente e non è stato possibile loggare
+      // restituisci 401
+      return next(apiError);
+    } else {
+      next();
+    }
   }
 
 
@@ -51,7 +57,7 @@ const handleJWT = (req, res, next, roles, ownerCallback) => async (err, user, in
     return next(apiError);
   }
 
-  if (ownerCallback && !ownerCallback(req, loggedUser)) {
+  if (typeof ownerCallback === "function" && !ownerCallback(req, loggedUser)) {
 
     return next(apiError);
   }
@@ -82,10 +88,10 @@ exports.LOGGED_USER = APP_USER;
 exports.BUSINESS = BUSINESS;
 
 
-exports.authorize = (roles = User.roles, ownerCallback) => (req, res, next) =>
+exports.authorize = (roles = User.roles, ownerCallback, userRequired = true) => (req, res, next) =>
   passport.authenticate(
     'jwt', { session: false },
-    handleJWT(req, res, next, roles, ownerCallback),
+    handleJWT(req, res, next, roles, ownerCallback, userRequired),
   )(req, res, next);
 
 exports.oAuth = service =>

@@ -17,7 +17,7 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(controller.list)
+  .get(authorize([LOGGED_USER], null, true), controller.list)
   /**
    * @api {patch} v1/sports Create a Sport
    * @apiDescription Create a new Sport
@@ -48,7 +48,7 @@ router
 router
   .route('/:id')
 
-  .get(controller.get)
+  .get(authorize([LOGGED_USER], null, true), controller.get)
 
 
 
