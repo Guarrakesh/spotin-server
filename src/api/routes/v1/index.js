@@ -11,6 +11,7 @@ const businessRoute = require('./business.route');
 const competitorRoutes = require('./competitor.route');
 const reservationRoutes = require('./reservation.route');
 const contactRequestRoutes = require('./contactRequest.route');
+const activityRoutes = require('./activity.route');
 const router = express.Router();
 
 /**
@@ -34,6 +35,7 @@ router.use('/businesses', businessRoute);
 router.use('/competitors', competitorRoutes);
 router.use('/reservations', reservationRoutes);
 router.use('/contact-requests', contactRequestRoutes);
+router.use('/activities', activityRoutes);
 
 
 
