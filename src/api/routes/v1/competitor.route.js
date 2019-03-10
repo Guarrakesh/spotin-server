@@ -12,12 +12,12 @@ router.param('id', controller.load);
 
 router
   .route('/')
-  .get(authorize([LOGGED_USER], null, true), controller.list)
+  .get(authorize([LOGGED_USER], null, false), controller.list)
   .post(authorize(ADMIN), [upload.single('picture'), validate(createCompetitor)], controller.create)
 ;
 router
   .route('/:id')
-  .get(authorize([LOGGED_USER], null, true), controller.get)
+  .get(authorize([LOGGED_USER], null, false), controller.get)
   .patch(authorize(ADMIN), [upload.single('picture'), validate(updateCompetitor)], controller.update)
   .delete(authorize(ADMIN), controller.remove)
 ;
