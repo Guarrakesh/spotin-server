@@ -222,7 +222,7 @@ exports.reserveBroadcast = async (req, res, next) => {
     const { loggedUser: user } = req.locals;
 
 
-    const { broadcast: broadcastId } = req.body;
+    const { broadcast: broadcastId, peopleNum } = req.body;
 
     const broadcast = await  Broadcast.findById(broadcastId);
     if (!broadcast) {
@@ -237,7 +237,8 @@ exports.reserveBroadcast = async (req, res, next) => {
     const reservation = new Reservation({
       user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
       broadcast: broadcast,
-      created_at: (new Date()).toISOString()
+      created_at: (new Date()).toISOString(),
+      peopleNum,
     });
 
     const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId},

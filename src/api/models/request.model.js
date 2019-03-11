@@ -1,19 +1,15 @@
 const mongoose = require('mongoose');
-const httpStatus = require('http-status');
-
-const moment = require('moment-timezone');
-
 const mongoosePaginate = require('mongoose-paginate');
-const { slugify } = require('lodash-addons');
-const { imageVersionSchema } = require('./image');
 const pointSchema = require('./point.schema');
 
 const broadcastRequestSchema = new mongoose.Schema({
   event: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'SportEvent',
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   },
   maxDistance: {
     type: Number,

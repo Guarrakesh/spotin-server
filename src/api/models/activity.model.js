@@ -1,4 +1,5 @@
 // @flow
+
 const mongoose = require('mongoose');
 const pointSchema = require('./point.schema');
 
@@ -29,5 +30,7 @@ const activity = new mongoose.Schema({
 }, { timestamps: true });
 
 
+activity.index({  createdAt: 1 , 'meta.user': 1 }, { sparse: true });
+activity.index({  createdAt: 1, entityId: 1, 'meta.location': '2dsphere' }, { sparse: true });
 exports.ACTIVITY_TYPES = ACTIVITY_TYPES;
 exports.Activity = mongoose.model('Activity', activity, 'activities');

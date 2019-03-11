@@ -21,8 +21,8 @@ const reservationSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
     required: true,
-  }
-
+  },
+  peopleNum: Number,
 
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
