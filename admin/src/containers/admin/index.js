@@ -1,6 +1,6 @@
 import React from 'react';
 import {Admin as AdminBase, Resource} from 'react-admin';
-import italianMessages from 'ra-language-italian';
+import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
 
 import { UserList, UserEdit, UserCreate } from './resources/users';
@@ -17,6 +17,7 @@ import dataProvider from '../../providers/dataProvider';
 import authProvider from '../../providers/authProvider';
 import history from '../../history';
 import theme from './theme';
+import {BroadcastReviewList, BroadcastReviewShow} from "./resources/broadcastReviews";
 /* eslint-disable */
 const AdminRoutes = [
   <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
@@ -35,7 +36,8 @@ const AdminRoutes = [
             show={BroadcastRequestShow}/>,
 
   <Resource name="broadcastbundles" list={BroadcastBundleList} edit={BroadcastBundleEdit}
-  create={BroadcastBundleCreate} show={BroadcastBundleShow}/>
+  create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
+  <Resource name="broadcastreviews" list={BroadcastReviewList} show={BroadcastReviewShow}/>
 ];
 
 const messages = {
