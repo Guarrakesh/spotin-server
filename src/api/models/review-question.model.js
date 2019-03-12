@@ -2,14 +2,32 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 
 const offeredAnswerSchema = new mongoose.Schema({
-  value: Number,
-  text: String,
+  value: {
+    type: Number,
+    required: true,
+  },
+  text: {
+    type: String,
+    required: true,
+  },
 });
 const broadcastReviewQuestionSchema = new mongoose.Schema({
-  text: String,
-  multiplier: Number,
-  offeredAnswers: [offeredAnswerSchema],
-  order: Number,
+  text: {
+    type: String,
+    required: true,
+  },
+  multiplier: {
+    type: Number,
+    default: 1,
+  },
+  offeredAnswers: {
+    type: [offeredAnswerSchema],
+    required: true,
+  },
+  order: {
+    type: Number,
+    default: 1,
+  },
 });
 
 
