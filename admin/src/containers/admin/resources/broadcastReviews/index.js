@@ -6,15 +6,12 @@ import {
   ShowButton,
   ReferenceField,
   DateField } from 'react-admin';
-import ListActions from "./ListActions";
 
 
 export { default as BroadcastReviewShow } from './BroadcastReviewShow';
 
 export const BroadcastReviewList = (props) => (
-  <List {...props} filter={{requestType: 1}}
-    actions={<ListActions/>}
-    >
+  <List {...props}>
     <Datagrid>
       <ReferenceField reference="users" source="user" label="Utente">
         <TextField source="name" label="Utente"/>
