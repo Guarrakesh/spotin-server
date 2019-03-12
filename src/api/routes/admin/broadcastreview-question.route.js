@@ -4,6 +4,7 @@ const validate = require('express-validation');
 const { authorize, ADMIN } = require('../../middlewares/auth');
 
 const router = express.Router();
+router.param('id', controller.load);
 
 router
     .route('/')

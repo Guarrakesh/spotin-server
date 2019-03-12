@@ -29,7 +29,7 @@ exports.create = async(req, res, next) => {
   try {
     const question = new BroadcastReviewQuestion(req.body);
     const saved = await question.save();
-    res.status = httpStatus.CREATED;
+    res.status(httpStatus.CREATED);
     res.json(saved);
   } catch(error) {
     next(error);
