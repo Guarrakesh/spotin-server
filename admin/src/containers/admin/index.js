@@ -1,7 +1,5 @@
 import React from 'react';
 import {Admin as AdminBase, Resource} from 'react-admin';
-import { Route } from 'react-router-dom';
-
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
 
