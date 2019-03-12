@@ -73,7 +73,7 @@ broadcastReviewSchema.methods = {
   }
 };
 
-broadcastReviewSchema.createIndex({ business: 1 });
+broadcastReviewSchema.index({ business: 1 });
 
 broadcastReviewSchema.plugin(mongoosePaginate);
 exports.BroadcastReview = mongoose.model('BroadcastReview', broadcastReviewSchema, 'broadcastreviews');

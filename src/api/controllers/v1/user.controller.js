@@ -240,7 +240,7 @@ exports.reserveBroadcast = async (req, res, next) => {
       created_at: (new Date()).toISOString(),
       peopleNum,
     });
-
+    console.log(req.body);
     const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId},
       { $push: {reservations: reservation}}, { 'new': true});
     //Prendo l'id della reservation generata da mongoose e la pusho nell'oggetto reservations dell'utente
