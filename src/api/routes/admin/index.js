@@ -12,6 +12,7 @@ const competitorRoutes = require('./competitor.route');
 const reservationRoutes = require('./reservation.route');
 const requestRoutes = require('./request.route');
 const bBundleRoutes = require('./broadcastbundle.route');
+const bReviewQuestion = require('./broadcastreview-question.route');
 const router = express.Router();
 
 
@@ -37,8 +38,5 @@ router.use('/competitors', competitorRoutes);
 router.use('/reservations', reservationRoutes);
 router.use('/requests', requestRoutes);
 router.use('/broadcastbundles', bBundleRoutes);
-
-
-
-
+router.use('/broadcastreview_questions', bReviewQuestion);
 module.exports = router;

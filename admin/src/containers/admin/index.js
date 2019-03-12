@@ -1,5 +1,7 @@
 import React from 'react';
 import {Admin as AdminBase, Resource} from 'react-admin';
+import { Route } from 'react-router-dom';
+
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
 
@@ -37,7 +39,8 @@ const AdminRoutes = [
 
   <Resource name="broadcastbundles" list={BroadcastBundleList} edit={BroadcastBundleEdit}
   create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
-  <Resource name="broadcastreviews" list={BroadcastReviewList} show={BroadcastReviewShow}/>
+  <Resource name="broadcastreviews" list={BroadcastReviewList} show={BroadcastReviewShow}/>,
+  <Resource name="broadcastreviews_questions"/>
 ];
 
 const messages = {
