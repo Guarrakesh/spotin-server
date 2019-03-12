@@ -4,20 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewShow.js" mnemonic="6" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="user image upload (fix)">
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewQuestionList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcastreview-question.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcastreview.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/routes/admin/broadcastreview-question.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/routes/admin/broadcastreview.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Reservation peopleNum property&#10;[ADMIN &amp; SERVER] Broadcast review flow">
+      <change afterPath="$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview-question.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/tests/unit/broadcastreview.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/ListActions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/review-questions.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/review-question.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/reservation.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/reservation.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/models/review.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/review.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/admin/index.js" afterDir="false" />
     </list>
@@ -51,58 +43,17 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="546">
-                  <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#159#209#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewQuestionList.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewShow.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="65">
-                  <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-300">
-                  <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastreview-question.route.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="130">
-                  <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+                <state relative-caret-position="65">
+                  <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/routes/admin/competitor.route.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -115,17 +66,15 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastreview.controller.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-68" />
-              </provider>
+            <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastreview.model.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastreview-question.controller.js">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview-question.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+                <state relative-caret-position="91">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" />
                 </state>
               </provider>
             </entry>
@@ -133,21 +82,37 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="245">
-                  <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+                <state relative-caret-position="262">
+                  <caret line="42" column="38" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/index.js">
+            <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="104">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="39">
+                  <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/business.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-936" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/unit/sportevent.model.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastbundle.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-338" />
               </provider>
             </entry>
           </file>
@@ -155,31 +120,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/request.model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="152">
-                  <caret line="72" column="18" selection-start-line="72" selection-start-column="2" selection-end-line="81" selection-end-column="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/services/authProviders.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/models/review.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="244">
-                  <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+                <state relative-caret-position="55">
+                  <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -223,12 +168,37 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="131">
-                  <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+                <state relative-caret-position="38">
+                  <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="162">
+                  <caret line="123" column="51" selection-start-line="123" selection-start-column="51" selection-end-line="123" selection-end-column="51" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/user.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="537" column="1" selection-start-line="537" selection-start-column="1" selection-end-line="537" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-195" />
               </provider>
             </entry>
           </file>
@@ -323,7 +293,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" />
         <option value="$PROJECT_DIR$/src/api/models/offer.schema.js" />
         <option value="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" />
@@ -355,8 +324,6 @@
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/request.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js" />
         <option value="$PROJECT_DIR$/src/api/models/review-questions.model.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewShow.js" />
@@ -364,7 +331,6 @@
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/ListActions.js" />
         <option value="$PROJECT_DIR$/admin/src/App.js" />
         <option value="$PROJECT_DIR$/admin/package.json" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastReviews/BroadcastReviewQuestionList.js" />
@@ -373,6 +339,10 @@
         <option value="$PROJECT_DIR$/src/api/routes/admin/broadcastreview-question.route.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastreview-question.controller.js" />
         <option value="$PROJECT_DIR$/src/api/models/review-question.model.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview-question.test.js" />
         <option value="$PROJECT_DIR$/src/api/models/review.model.js" />
       </list>
     </option>
@@ -480,14 +450,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -495,7 +457,7 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="middlewares" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -503,6 +465,28 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -941,14 +925,7 @@
       <workItem from="1552309448156" duration="10185000" />
       <workItem from="1552321657093" duration="1462000" />
       <workItem from="1552333152100" duration="35000" />
-      <workItem from="1552397556867" duration="5377000" />
-    </task>
-    <task id="LOCAL-00094" summary="Aggiunti filtri a Utenti e Locali">
-      <created>1541605515989</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1541605515989</updated>
+      <workItem from="1552397556867" duration="6974000" />
     </task>
     <task id="LOCAL-00095" summary="Implementato logger con Winston e puliti alcuni console log">
       <created>1541630683863</created>
@@ -1286,7 +1263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552333176755</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Reservation peopleNum property&#10;[ADMIN &amp; SERVER] Broadcast review flow">
+      <created>1552403010867</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1552403010873</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1322,7 +1306,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1253708000" />
+    <option name="totallyTimeSpent" value="1255305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1337,7 +1321,7 @@
     <frame x="0" y="27" width="1366" height="681" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25093076" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25093076" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
@@ -1351,8 +1335,8 @@
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.75651526" weight="0.2766727" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47505584" visible="true" weight="0.054249547" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5249441" side_tool="true" visible="true" weight="0.054249547" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47505584" visible="true" weight="0.51898736" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.5249441" side_tool="true" visible="true" weight="0.51898736" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1427,7 +1411,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="[SERVER] Modificato ordine sport secondo appealValue&#10;[ADMIN] Aggiunto filtro per evento e business in broadcast list" />
     <MESSAGE value="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente" />
     <MESSAGE value="[SERVER]&#10;Aggregation su broadcast e altri fix" />
     <MESSAGE value="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)" />
@@ -1452,7 +1435,8 @@
     <MESSAGE value="[API] Endpoint per il signedUrl per upload immagine utente" />
     <MESSAGE value="user image upload" />
     <MESSAGE value="user image upload (fix)" />
-    <option name="LAST_COMMIT_MESSAGE" value="user image upload (fix)" />
+    <MESSAGE value="Reservation peopleNum property&#10;[ADMIN &amp; SERVER] Broadcast review flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reservation peopleNum property&#10;[ADMIN &amp; SERVER] Broadcast review flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1521,68 +1505,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/providers/fileUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/competitor.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competition.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/vars.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="11" column="13" selection-start-line="11" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/business.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1417">
-          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -1698,13 +1620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/node_modules/react-admin/esm/Admin.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -1802,20 +1717,6 @@
         <state relative-caret-position="-68" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastreview.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastreview-question.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/request.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42">
@@ -1837,39 +1738,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/review.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastreview-question.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-156" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastreview-question.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/StandardEventsAppealEvaluator.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/sportevent.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastbundle.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastreview.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/business.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-936" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastreview.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/broadcastreview-question.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/competitor.route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="123" column="51" selection-start-line="123" selection-start-column="51" selection-end-line="123" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="38">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview-question.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/user.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="537" column="1" selection-start-line="537" selection-start-column="1" selection-end-line="537" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/review.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
         </state>
       </provider>
     </entry>
