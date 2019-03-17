@@ -37,6 +37,7 @@ export const ReservationList = (props) => (
         <TextField source="name" label="Locale"/>
       </ReferenceField>
       <DateField source="created_at" showTime/>
+      <TextField source="peopleNum" label="Numero persone"/>
       <BooleanField source="used" label="Utilizzata"/>
 
       <EditButton disabled/>

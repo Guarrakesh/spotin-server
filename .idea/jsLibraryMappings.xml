@@ -2,8 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{spotin-server/node_modules}" />
-    <file url="file://$PROJECT_DIR$/admin" libraries="{spotin-server/admin/node_modules}" />
-    <file url="PROJECT" libraries="{Aws-sdk, Faker JS, expect-DefinitelyTyped, filesystem-DefinitelyTyped, mocha-DefinitelyTyped, react-DefinitelyTyped, spotin-server/admin/node_modules, spotin-server/node_modules}" />
-    <includedPredefinedLibrary name="ECMAScript 6" />
+    <file url="PROJECT" libraries="{Aws-sdk, expect-DefinitelyTyped, filesystem-DefinitelyTyped, mocha-DefinitelyTyped, react-DefinitelyTyped, spotin-server/node_modules}" />
   </component>
 </project>

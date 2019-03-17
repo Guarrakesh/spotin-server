@@ -21,8 +21,8 @@ const reservationSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
     required: true,
-  }
-
+  },
+  peopleNum: Number,
 
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
@@ -30,12 +30,12 @@ const finalAggregationStages = [
   { $unwind: "$reservations"},
   { $addFields: {
     broadcast: "$$ROOT",
-
+    peopleNum: "$reservations.peopleNum",
     user: "$reservations.user",
     used: "$reservations.used",
     created_at: "$reservations.created_at",
     _id: "$reservations._id"
-  }
+  },
   },
   { $project: {
     "broadcast.start_at": 0,
