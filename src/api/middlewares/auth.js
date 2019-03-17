@@ -37,7 +37,7 @@ const handleJWT = (req, res, next, roles, ownerCallback, userRequired = true) =>
       // restituisci 401
       return next(apiError);
     } else {
-      next();
+      return next();
     }
   }
 
