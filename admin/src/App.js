@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
-        <Admin />
+        <Admin/>
       </MuiPickersUtilsProvider>
     )
   }
