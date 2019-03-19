@@ -13,6 +13,5 @@
     <orderEntry type="library" name="expect-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="filesystem-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="mocha-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="Faker JS" level="project" />
   </component>
 </module>

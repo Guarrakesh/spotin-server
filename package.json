@@ -11,7 +11,7 @@
     "yarn": "*"
   },
   "scripts": {
-    "prestart": "yarn docs",
+
     "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
     "staging": "cross-env NODE_ENV=staging pm2 start ./src/index",
     "server": "nodemon ./src/index.js",
