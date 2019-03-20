@@ -14,7 +14,6 @@ module.exports = {
       providers: Joi.array().items(Joi.string()),
       start_at: Joi.date().iso().required(),
 
-      spots: Joi.number()
     }
   },
   // PUT /v1/Events/:EventId
@@ -27,7 +26,6 @@ module.exports = {
       competitors: Joi.array().items(Joi.object({competitor: Joi.string().required()})),
       start_at: Joi.date().iso().required(),
 
-      spots: Joi.number()
     },
     params: {
       id: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
@@ -44,7 +42,6 @@ module.exports = {
       start_at: Joi.date().iso(),
       providers: Joi.array().items(Joi.string()),
 
-      spots: Joi.number()
     },
     params: {
       id: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

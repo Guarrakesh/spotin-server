@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[API] Auth middlware ix">
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="[react-router] conflitto tra versioni">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/sportevent.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/sportevent.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/validations/sportevent.validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/validations/sportevent.validation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -114,7 +119,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="265">
+                <state relative-caret-position="32">
                   <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
                 </state>
               </provider>
@@ -125,75 +130,10 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
+            <entry file="file://$PROJECT_DIR$/src/api/models/activity.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4545">
-                  <caret line="303" column="50" selection-start-line="293" selection-start-column="5" selection-end-line="303" selection-end-column="50" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/App.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/App.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                    <element signature="e#159#209#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1740">
-                  <caret line="116" column="35" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/admin/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="354">
-                  <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+                <state relative-caret-position="345">
+                  <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -210,8 +150,80 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
+                <state relative-caret-position="45">
+                  <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#47#115#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+                  <folding>
+                    <element signature="e#253#450#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="274">
+                  <caret line="69" column="104" selection-start-line="69" selection-start-column="104" selection-end-line="69" selection-end-column="104" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="244">
+                  <caret line="60" column="114" selection-start-line="60" selection-start-column="114" selection-end-line="60" selection-end-column="114" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/validations/sportevent.validation.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="572">
+                  <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="774">
+                  <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="64">
+                  <caret line="108" column="113" selection-start-line="108" selection-start-column="108" selection-end-line="108" selection-end-column="113" />
                 </state>
               </provider>
             </entry>
@@ -229,8 +241,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>event.competitors</find>
-      <find>ApiError</find>
       <find>source</find>
       <find>react</find>
       <find>re</find>
@@ -259,6 +269,8 @@
       <find>loggedUser</find>
       <find>ownerCall</find>
       <find>bcrypt</find>
+      <find>push</find>
+      <find>spot</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -308,11 +320,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleCreate.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/helpers/businessInputValueMatcher.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js" />
         <option value="$PROJECT_DIR$/src/api/routes/admin/broadcastbundle.route.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleCreateForm.js" />
         <option value="$PROJECT_DIR$/admin/src/providers/dataProvider.js" />
@@ -323,7 +330,6 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/providers/restClientProvider.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/sports.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/sport.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js" />
@@ -331,7 +337,6 @@
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/users/index.js" />
         <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/userhit.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/sport.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/request.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/refreshToken.model.js" />
@@ -344,7 +349,6 @@
         <option value="$PROJECT_DIR$/src/api/models/user.model.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/activity.route.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/index.js" />
-        <option value="$PROJECT_DIR$/src/api/models/activity.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/activity.controller.js" />
         <option value="$PROJECT_DIR$/src/api/validations/activity.validation.js" />
         <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
@@ -359,6 +363,14 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/admin/package.json" />
+        <option value="$PROJECT_DIR$/src/api/models/activity.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/point.schema.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
+        <option value="$PROJECT_DIR$/src/api/validations/sportevent.validation.js" />
+        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
       </list>
     </option>
   </component>
@@ -395,6 +407,107 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="broadcastBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="broadcastRequests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="events" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="validations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -828,21 +941,7 @@
       <workItem from="1552842933110" duration="921000" />
       <workItem from="1553015946584" duration="559000" />
       <workItem from="1553016607216" duration="1240000" />
-      <workItem from="1553091523778" duration="1094000" />
-    </task>
-    <task id="LOCAL-00094" summary="Aggiunti filtri a Utenti e Locali">
-      <created>1541605515989</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1541605515989</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Implementato logger con Winston e puliti alcuni console log">
-      <created>1541630683863</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1541630683863</updated>
+      <workItem from="1553091523778" duration="2471000" />
     </task>
     <task id="LOCAL-00096" summary="Implementato logger con Winston e puliti alcuni console log">
       <created>1541631548564</created>
@@ -1173,7 +1272,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553017205520</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="[react-router] conflitto tra versioni">
+      <created>1553092716782</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1553092716783</updated>
+    </task>
+    <task id="LOCAL-00144" summary="[react-router] conflitto tra versioni">
+      <created>1553093347342</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1553093347342</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1209,7 +1322,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1223061000" />
+    <option name="totallyTimeSpent" value="1224438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1222,8 +1335,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2658527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2658527" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
@@ -1237,7 +1351,7 @@
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.18557537" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" visible="true" weight="0.32711038" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" visible="true" weight="0.32711038" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5130305" side_tool="true" weight="0.32368898" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
@@ -1313,7 +1427,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="[SERVER] Modificato ordine sport secondo appealValue&#10;[ADMIN] Aggiunto filtro per evento e business in broadcast list" />
     <MESSAGE value="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente" />
     <MESSAGE value="[SERVER]&#10;Aggregation su broadcast e altri fix" />
     <MESSAGE value="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)" />
@@ -1338,7 +1451,8 @@
     <MESSAGE value="[SERVER &amp; API] Activity tracking" />
     <MESSAGE value="[API] Fixed unauthenticated routes" />
     <MESSAGE value="[API] Auth middlware ix" />
-    <option name="LAST_COMMIT_MESSAGE" value="[API] Auth middlware ix" />
+    <MESSAGE value="[react-router] conflitto tra versioni" />
+    <option name="LAST_COMMIT_MESSAGE" value="[react-router] conflitto tra versioni" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1407,45 +1521,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts/broadcasts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="20" selection-start-line="29" selection-start-column="10" selection-end-line="48" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/offer.schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/express.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/passport-http-bearer/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1464,13 +1539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1541,13 +1609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/activity.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1558,24 +1619,10 @@
     <entry file="file://$PROJECT_DIR$/src/api/middlewares/error.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/activity.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/activity.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1664,7 +1711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
+        <state relative-caret-position="32">
           <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
         </state>
       </provider>
@@ -1729,6 +1776,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/validations/activity.validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/activity.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1736,17 +1804,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
+    <entry file="file://$PROJECT_DIR$/src/api/models/activity.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="345">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/package.json">
+    <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        <state relative-caret-position="45">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding>
+            <element signature="e#47#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#253#450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="69" column="104" selection-start-line="69" selection-start-column="104" selection-end-line="69" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="60" column="114" selection-start-line="60" selection-start-column="114" selection-end-line="60" selection-end-column="114" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/validations/sportevent.validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="108" column="113" selection-start-line="108" selection-start-column="108" selection-end-line="108" selection-end-column="113" />
         </state>
       </provider>
     </entry>
