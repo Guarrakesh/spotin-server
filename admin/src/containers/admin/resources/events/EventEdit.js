@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
-  TextInput, NumberInput, ReferenceInput,
+  TextInput, ReferenceInput,
   LongTextInput, FormDataConsumer,AutocompleteInput,
   ArrayInput, SimpleFormIterator, SelectArrayInput,
   required,
 
   minLength,
-  number,
   maxLength} from 'react-admin';
   import { DateTimeInput } from '../../components/DateTimeInput';
 
