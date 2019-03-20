@@ -35,3 +35,19 @@ exports.create = async(req, res, next) => {
     next(error);
   }
 };
+
+exports.update = async (req, res, next) => {
+  const question = Object.assign(req.locals.reviewQuestion, req.body );
+  question.save()
+      .then(saved => res.json(saved))
+      .catch(e => next(e))
+
+};
+
+exports.remove = async (req, res, next) => {
+  const { reviewQuestion } = req.locals;
+
+  reviewQuestion.remove()
+      .then(() => res.status(httpStatus.NO_CONTENT).end())
+      .catch(e => next(e));
+}

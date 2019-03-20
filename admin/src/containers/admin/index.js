@@ -26,19 +26,21 @@ const AdminRoutes = [
   <Resource name="businesses" list={BusinessList} options={{label: "Businesses"}} create={BusinessCreate} edit={BusinessEdit}/>,
   <Resource name="events" list={EventList} edit={EventEdit} create={EventCreate}/>,
 
-  <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />,
+  <Resource name="users" list={UserList}
+            options={{label: "Utenti"}}
+            edit={UserEdit} create={UserCreate} />,
   <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} edit={BroadcastEdit} />,
   <Resource name="reservations"
-            options={{label: "Reservations"}}
+            options={{label: "Prenotazioni"}}
             list={ReservationList}/>,
   <Resource name="requests" list={BroadcastRequestList}
-            options={{label: "Broadcast Requests"}}
+            options={{label: "Richieste Broadcast"}}
             show={BroadcastRequestShow}/>,
 
-  <Resource name="broadcastbundles" list={BroadcastBundleList} edit={BroadcastBundleEdit}
+  <Resource name="broadcastbundles" options={{label:"Bundles"}} list={BroadcastBundleList} edit={BroadcastBundleEdit}
   create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
-  <Resource name="broadcastreviews" list={BroadcastReviewList} show={BroadcastReviewShow}/>,
-  <Resource name="broadcastreviews_questions"/>
+  <Resource name="broadcastreviews" options={{label:"Recensioni"}} list={BroadcastReviewList} show={BroadcastReviewShow}/>,
+  <Resource name="broadcastreview_questions" options={{label:"Domande recensioni"}}/>
 ];
 
 const messages = {

@@ -39,6 +39,6 @@ router.use('/competitors', competitorRoutes);
 router.use('/reservations', reservationRoutes);
 router.use('/requests', requestRoutes);
 router.use('/broadcastbundles', bBundleRoutes);
-router.use('/broadcastsreviews', bReviewRoutes);
+router.use('/broadcastreviews', bReviewRoutes);
 router.use('/broadcastreview_questions', bReviewQuestionRoutes);
 module.exports = router;

@@ -1,7 +1,8 @@
+const httpStatus = require('http-status');
+
 const { handler: errorHandler } = require('../../middlewares/error');
 const ApiError = require('../../utils/APIError');
 const { BroadcastReview } = require('../../models/review.model');
-
 exports.load = async (req, res, next, id) => {
   try {
     const review = await BroadcastReview.get(id);
@@ -22,3 +23,14 @@ exports.list = async (req, res, next) => {
     next(e);
   }
 };
+
+exports.create = async (req, res, next) => {
+  try {
+    const review = new BroadcastReview(req.body);
+    await review.save();
+    res.status(httpStatus.CREATED);
+    res.json(review);
+  } catch (e) {
+    next(e);
+  }
+}

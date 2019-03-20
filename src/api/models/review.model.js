@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
+const { BroadcastReviewQuestion } = require('./review-question.model');;
 
 const broadcastReviewSchema = new mongoose.Schema({
-  broadcast: {
+  broadcastId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Broadcast'
   },
-  event: {
+  eventId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'SportEvent',
   },
-  business: {
+  businessId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business'
   },
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
@@ -29,6 +30,11 @@ const broadcastReviewSchema = new mongoose.Schema({
   personalRating: Number,
   rating: Number,
   personalNotes: String,
+  status: {
+    type: Number,
+    enum: [0,1,-1], // 0 - In attesa di revisione, 1 - Pubblicata, -1 - Rifiutata
+    default: 0,
+  }
 
 
 
@@ -38,17 +44,17 @@ const broadcastReviewSchema = new mongoose.Schema({
 broadcastReviewSchema.statics = {
   async get(id) {
     try {
-      let broadcast;
+      let broadcastReview;
 
       if (mongoose.Types.ObjectId.isValid(id)) {
-        broadcast = await this.findById(id).exec();
+        broadcastReview = await this.findById(id).exec();
       }
-      if (broadcast) {
-        return broadcast;
+      if (broadcastReview) {
+        return broadcastReview;
       }
 
       throw new APIError({
-        message: 'Brodcast does not exist',
+        message: 'BrodcastReview does not exist',
         status: httpStatus.NOT_FOUND,
       });
     } catch (error) {
@@ -67,13 +73,44 @@ broadcastReviewSchema.statics = {
   }
 };
 
+broadcastReviewSchema.pre('save', async function() {
+  try {
+    const questionIds = this.answers.map(ans => ans.questionId);
+    let questions = await BroadcastReviewQuestion.find({_id: {$in: questionIds}}).sort({order: 1}).exec();
+    for (const answer of this.answers) {
+      const question = questions.find(q => q.id === answer.questionId);
+      const dbAnswer = question.offeredAnswers.find(a => a.id === answer.answerId);
+
+      answer.questionText = question.text;
+      answer.questionMultiplier = question.multiplier;
+      answer.answerText = dbAnswer.text;
+      answer.answerValue = dbAnswer.value;
+    }
+    await this.calculateRating();
+    return next();
+  } catch (error) {
+    next(error);
+  }
+
+});
 broadcastReviewSchema.methods = {
+  /**
+   * Calcola il punteggio della recensione da 1 a 5
+   */
   async calculateRating() {
+    const weightSum = this.answers.reduce((acc, ans) => acc + ans.questionMultiplier, 0);
+
+    const personalRatingWeight = 1;
+    const personalRating = personalRatingWeight * this.personalRating; // Il voto personale è pesato con 1 (neutro)
+    // Ogni domanda ha un suo peso, per cui effettuo una media pesata sui punteggi delle risposte
+    this.rating = this.answers.reduce((acc, ans) =>
+      acc + (ans.questionMultiplier * Math.min(Math.max(ans.answerValue,1), 5))// Faccio clamping tra 1 e 5 e sommo
+    , personalRating) / (weightSum + personalRatingWeight);
 
   }
 };
 
-broadcastReviewSchema.index({ business: 1 });
+broadcastReviewSchema.index({ businessId: 1 });
 
 broadcastReviewSchema.plugin(mongoosePaginate);
 exports.BroadcastReview = mongoose.model('BroadcastReview', broadcastReviewSchema, 'broadcastreviews');
