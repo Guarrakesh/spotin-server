@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
+
 import { push } from 'react-router-redux'; // eslint-disable-line
 import {
   Show,
@@ -13,6 +13,7 @@ import {
   UPDATE,
   DeleteButton,
   ReferenceFieldController,
+    Link,
   // ReferenceInputController,
 } from 'react-admin';
 

@@ -49,6 +49,7 @@ const sportEventSchema = new mongoose.Schema({
     required: true
   },
   //Il prezzo (in spot) dell'evento
+  // Deprecato
   spots: {
     type: Number,
     default: 0

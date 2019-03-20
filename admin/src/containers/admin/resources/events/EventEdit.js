@@ -59,7 +59,6 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
           label="Data evento" validate={validateDate}
         source="start_at" /> */}
           <DateTimeInput validate={validateDate} source="start_at"  options={{ format: "dd/MM/YYYY, HH:mm:ss" }}/>
-        <NumberInput source="spots"  validate={[required(), number()]}/>
         <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
         <DisabledInput source="appealValue"/>
       </FormTab>

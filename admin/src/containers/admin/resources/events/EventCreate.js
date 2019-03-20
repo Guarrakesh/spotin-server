@@ -68,7 +68,6 @@ const EventCreate = (props) => (
             <DateTimeInput validate={validateDate} source="start_at"
                            label="Inizio evento"
                            options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
-        <NumberInput source="spots" validate={[required(), number()]}/>
           <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
     </FormTab>
       <FormTab label="Competitors">

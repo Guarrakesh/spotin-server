@@ -1,8 +1,7 @@
 import React from 'react';
 /* eslint-disable*/
-import { List, Datagrid, TextField, ShowButton } from 'react-admin';
+import { List, Datagrid, TextField, ShowButton, Link } from 'react-admin';
 import get from 'lodash/get'
-import { Link } from 'react-router-dom';
 import Check from '@material-ui/icons/Check';
 import Clock from '@material-ui/icons/Timer';
 import DateTimeField from '../../components/DateTimeField';
