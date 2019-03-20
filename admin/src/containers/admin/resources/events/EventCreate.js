@@ -7,12 +7,11 @@ import MomentUtils from 'material-ui-pickers/utils/moment-utils'
 
 
 
-import { TabbedForm, FormTab, Create, SelectInput, TextInput, NumberInput, ReferenceInput, LongTextInput, FormDataConsumer,
+import { TabbedForm, FormTab, Create, SelectInput, TextInput, ReferenceInput, LongTextInput, FormDataConsumer,
 ArrayInput, SimpleFormIterator,AutocompleteInput,SelectArrayInput,
   required,
 
   minLength,
-  number,
   maxLength} from 'react-admin';
 
 import { DateTimeInput } from '../../components/DateTimeInput';
