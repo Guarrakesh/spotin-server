@@ -44,11 +44,10 @@ describe('BroadcastBundle Model', () => {
     });
     it("Should throw error if no events are provided", async () => {
 
-      expect(BroadcastBundle.buildBundle(business, [])).to.eventually.throw(Error('Non ci sono eventi da trasmettere.'));
+      expect(BroadcastBundle.buildBundle(business, [])).to.eventually.be.rejectedWith('Non ci sono eventi da trasmettere.');
 
     });
 
-    it("")
   });
 
 
