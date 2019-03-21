@@ -119,6 +119,7 @@ module.exports = {
       userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}).required(),
       location: Joi.string().required().max(128),
       note: Joi.string().allow('').max(250),
+      email: Joi.string().email().required(),
     },
   },
 

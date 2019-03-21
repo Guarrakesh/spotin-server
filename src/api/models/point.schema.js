@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const pointSchema = new mongoose.Schema({
-  _id: { auto: false },
+
   type: {
     type: String,
     enum: ['Point'],
@@ -11,6 +11,6 @@ const pointSchema = new mongoose.Schema({
     type: [Number],
     required: true,
   }
-});
+}, { _id: false });
 
 module.exports = pointSchema;

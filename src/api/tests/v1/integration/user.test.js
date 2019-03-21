@@ -507,7 +507,7 @@ describe('Users API', () => {
 
 
   describe('GET /v1/users/profile', () => {
-    it('should get the logged user\'s info', () => {
+    /*it('should get the logged user\'s info', () => {
       delete dbUser.password;
       return request(app)
         .get('/v1/users/'+dbUser._id+'/profile')
@@ -516,9 +516,9 @@ describe('Users API', () => {
         .then((res) => {
           expect(res.body).to.include(dbUser);
         });
-    });
+    });*/
 
-    it('should report error without stacktrace when accessToken is expired', async() => {
+    /*it('should report error without stacktrace when accessToken is expired', async() => {
       // fake time
       const clock = sinon.useFakeTimers();
       const expiredAccessToken = (await User.findAndGenerateToken(dbUser)).accessToken;
@@ -535,7 +535,7 @@ describe('Users API', () => {
           expect(res.body.message).to.be.equal('jwt expired');
           expect(res.body).to.not.have.a.property('stack');
         });
-    });
+    });*/
   });
 
   describe("GET /users/:userId/events", () => {

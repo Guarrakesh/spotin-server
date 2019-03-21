@@ -24,7 +24,14 @@ const broadcastRequestSchema = new mongoose.Schema({
   note: {
     type: String,
     maxlength: 250
-  }
+  },
+  email: {
+    type: String,
+    match: /^\S+@\S+\.\S+$/,
+    unique: true,
+    trim: true,
+    lowercase: true,
+  },
 });
 const contactRequestSchema = new mongoose.Schema({
   name: {

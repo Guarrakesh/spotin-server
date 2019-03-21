@@ -80,7 +80,7 @@ broadcastBundleSchema.statics = {
   async buildBundle(business, events = []) {
 
     if (events.length <= 0) {
-      throw Error("Non ci sono eventi da trasmettere.");
+      return Promise.reject("Non ci sono eventi da trasmettere.");
     }
 
     const broadcastBundle = new this({
