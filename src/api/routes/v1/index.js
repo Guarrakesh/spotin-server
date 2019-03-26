@@ -13,6 +13,8 @@ const reservationRoutes = require('./reservation.route');
 const contactRequestRoutes = require('./contactRequest.route');
 const activityRoutes = require('./activity.route');
 const broadcastRequestRoutes = require('./broadcast-request.route');
+const bReviewRoutes = require('./broadcastreview.route');
+
 const router = express.Router();
 
 /**
@@ -37,6 +39,7 @@ router.use('/competitors', competitorRoutes);
 router.use('/reservations', reservationRoutes);
 router.use('/contact-requests', contactRequestRoutes);
 router.use('/broadcast-requests', broadcastRequestRoutes);
+router.use('/broadcastreviews', bReviewRoutes);
 router.use('/activities', activityRoutes);
 
 

@@ -74,7 +74,6 @@ broadcastReviewSchema.statics = {
 broadcastReviewSchema.pre('save', async function(next) {
   try {
     await this.denormalize();
-    this.rating = await this.calculateRating();
     return next();
   } catch (error) {
     next(error);
@@ -84,43 +83,17 @@ broadcastReviewSchema.pre('save', async function(next) {
 broadcastReviewSchema.methods = {
 
   denormalize: async function () {
-    const questionIds = this.answers.map(ans => ans.questionId);
     const broadcast = await Broadcast.findById(this.broadcastId);
     // Denormalizzo questi due dati per ricavali subito, senza effettuare
     // Lookup inutili. Bisogna stare attenti se si aggiorna il broadcast,
     // ad aggiornare anche questi id. se cambiano.
     this.eventId = broadcast.event;
     this.businessId = broadcast.business;
-    let questions = await BroadcastReviewQuestion.find({_id: {$in: questionIds}}).sort({order: 1}).exec();
-    for (const answer of this.answers) {
-      const question = questions.find(q => q.id == answer.questionId);
-      const dbAnswer = question.offeredAnswers.find(a => a.id == answer.answerId);
-
-      answer.questionText = question.text;
-      answer.questionMultiplier = question.multiplier;
-      answer.answerText = dbAnswer.text;
-      answer.answerValue = dbAnswer.value;
-    }
+    return this;
   },
 
-  /**
-   * Calcola il punteggio della recensione da 1 a 5
-   */
-  async calculateRating() {
-    // Se non è stato ancora denormalizzato, lo faccio ora
-    if (!this.businessId) {
-      this.denormalize();
-    }
-    const weightSum = this.answers.reduce((acc, ans) => acc + ans.questionMultiplier, 0);
 
-    const personalRatingWeight = 1;
-    const personalRating = personalRatingWeight * this.personalRating; // Il voto personale è pesato con 1 (neutro)
-    // Ogni domanda ha un suo peso, per cui effettuo una media pesata sui punteggi delle risposte
-    return this.answers.reduce((acc, ans) =>
-      acc + (ans.questionMultiplier * Math.min(Math.max(ans.answerValue,1), 5))// Faccio clamping tra 1 e 5 e sommo
-    , personalRating) / (weightSum + personalRatingWeight);
 
-  }
 };
 
 broadcastReviewSchema.index({ businessId: 1 });
