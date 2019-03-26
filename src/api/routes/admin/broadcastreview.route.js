@@ -10,7 +10,7 @@ router
     .route('/')
     .get(authorize(ADMIN), controller.list)
 
-    .post(authorize(ADMIN), validate(createValidation), controller.create)
+    .post(authorize(ADMIN), validate(createValidation), controller.create);
 router
     .route('/:id')
     .get(authorize(ADMIN), controller.get);

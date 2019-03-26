@@ -40,7 +40,7 @@ const AdminRoutes = [
   <Resource name="broadcastbundles" options={{label:"Bundles"}} list={BroadcastBundleList} edit={BroadcastBundleEdit}
   create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
   <Resource name="broadcastreviews" options={{label:"Recensioni"}} list={BroadcastReviewList} show={BroadcastReviewShow}/>,
-  <Resource name="broadcastreview_questions" options={{label:"Domande recensioni"}}/>
+
 ];
 
 const messages = {

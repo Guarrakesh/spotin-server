@@ -57,10 +57,14 @@ const handleJWT = (req, res, next, roles, ownerCallback, userRequired = true) =>
     return next(apiError);
   }
 
-  if (typeof ownerCallback === "function" && !ownerCallback(req, loggedUser)) {
+  if (typeof ownerCallback === "function") {
+    const ownerCallbackResult = await ownerCallback(req, loggedUser);
+    if (!ownerCallbackResult) {
+      return next(apiError);
+    }
 
-    return next(apiError);
   }
+
 
   if (loggedUser.role === ADMIN) {
     req.user = user;
