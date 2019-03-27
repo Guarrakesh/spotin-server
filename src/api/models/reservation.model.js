@@ -3,6 +3,7 @@ const httpStatus = require('http-status');
 
 const { omitBy, isNil, pick} = require('lodash');
 const { pagination } = require('../utils/aggregations');
+const { broadcastReviewSchema } = require('./review.model');
 const moment = require('moment');
 const reservationSchema = new mongoose.Schema({
 
@@ -15,6 +16,7 @@ const reservationSchema = new mongoose.Schema({
     ref: "Broadcast"
   },
 
+  review: broadcastReviewSchema,
   created_at: Date,
 
   used: {
@@ -90,7 +92,8 @@ reservationSchema.statics = {
   },
   async findByBroadcast(id) {
     //TODO
-  }
+  },
+
 };
 
 exports.reservationSchema = reservationSchema;

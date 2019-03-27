@@ -10,14 +10,13 @@ import { BusinessList, BusinessEdit, BusinessCreate } from './resources/business
 import { EventList, EventEdit, EventCreate } from './resources/events';
 import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/competitors';
 import { BroadcastList, BroadcastCreate, BroadcastEdit } from './resources/broadcasts/broadcasts';
-import { ReservationList } from './resources/reservations';
+import {ReservationList, ReservationShow} from './resources/reservations';
 import { BroadcastRequestList, BroadcastRequestShow } from './resources/broadcastRequests';
 import { BroadcastBundleList, BroadcastBundleCreate, BroadcastBundleShow, BroadcastBundleEdit } from "./resources/broadcastBundle";
 import dataProvider from '../../providers/dataProvider';
 import authProvider from '../../providers/authProvider';
 import history from '../../history';
 import theme from './theme';
-import {BroadcastReviewList, BroadcastReviewShow} from "./resources/broadcastReviews";
 /* eslint-disable */
 const AdminRoutes = [
   <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
@@ -32,14 +31,16 @@ const AdminRoutes = [
   <Resource name="broadcasts" list={BroadcastList} create={BroadcastCreate} edit={BroadcastEdit} />,
   <Resource name="reservations"
             options={{label: "Prenotazioni"}}
-            list={ReservationList}/>,
+            list={ReservationList}
+            show={ReservationShow}
+  />,
   <Resource name="requests" list={BroadcastRequestList}
             options={{label: "Richieste Broadcast"}}
             show={BroadcastRequestShow}/>,
 
   <Resource name="broadcastbundles" options={{label:"Bundles"}} list={BroadcastBundleList} edit={BroadcastBundleEdit}
   create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
-  <Resource name="broadcastreviews" options={{label:"Recensioni"}} list={BroadcastReviewList} show={BroadcastReviewShow}/>,
+
 
 ];
 
