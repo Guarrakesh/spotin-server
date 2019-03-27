@@ -1,5 +1,6 @@
 const express = require('express');
-const controller = require('../../controllers/admin/broadcastreview.controller');
+const mongoose = require('mongoose');
+const controller = require('../../controllers/v1/broadcastreview.controller');
 const validate = require('express-validation');
 const { authorize, LOGGED_USER } = require('../../middlewares/auth');
 const { create: createValidation } = require('../../validations/broadcastreview.validation');
@@ -14,10 +15,16 @@ router.param('id', controller.load);
  * @returns {Promise<boolean>}
  */
 const ownerCheck  = async (req, loggedUser) => {
-  if (req.body && req.body.userId && req.body.broadcastId && loggedUser.id.toString() === req.body.userId) {
+  if (req.body && req.body.userId && req.body.reservationId && loggedUser.id.toString() === req.body.userId) {
+    const { userId, reservationId } = req.body;
     const broadcast = await Broadcast.findOne({
-      _id: req.body.broadcastId,
-      reservations: { $elemMatch: { user: req.body.userId } }
+      'reservations._id': mongoose.Types.ObjectId(reservationId),
+      reservations: {
+        $elemMatch: {
+          _id: mongoose.Types.ObjectId(reservationId),
+          user:mongoose.Types.ObjectId(userId)
+        }
+      }
     });
     return !!broadcast;
 
@@ -28,7 +35,7 @@ const ownerCheck  = async (req, loggedUser) => {
 router
     .route('/')
 
-    .post(authorize(LOGGED_USER, ownerCheck), validate(createValidation), controller.create);
+    .post( validate(createValidation), authorize(LOGGED_USER, ownerCheck), controller.create);
 router
     .route('/:id')
     .get(authorize(LOGGED_USER), controller.get);

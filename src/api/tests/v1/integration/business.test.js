@@ -68,6 +68,22 @@ describe("Business API", () => {
 
           })
     });
+    it("should return paginated businesses", async () => {
+      await factory(Business, null, 5).create();
+      return request(app)
+          .get('/v1/businesses?_end=3&_start=0')
+          .set('Authorization', `Bearer ${userAccessToken}`)
+          .expect(httpStatus.OK)
+          .then(res => {
+            expect(res.body).to.be.an('object');
+            expect(res.body).to.have.property('total');
+            //expect(res.body.total).to.be.equal(8);
+            expect(res.body).to.have.property('docs');
+            expect(res.body.docs).to.have.lengthOf(3);
+
+          })
+    });
+
   });
 
 

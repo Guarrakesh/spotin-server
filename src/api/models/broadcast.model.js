@@ -57,6 +57,18 @@ broadcastSchema.pre('save', function (next) {
   });
 });
 
+broadcastSchema.methods = {
+  async review(userId, reservationId, review) {
+    this.reservations = this.reservations.map(reservation => {
+      if (reservation._id.toString() === reservationId.toString()) {
+        reservation.review = review;
+      }
+      return reservation;
+    });
+    return await this.save();
+
+  },
+};
 broadcastSchema.statics = {
   /**
    * Get broadcast

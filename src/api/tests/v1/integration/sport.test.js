@@ -98,7 +98,7 @@ describe('Sports API', async () => {
         })
     });
 
-    it('should return a sport', async () => {
+    it.skip('should return a sport', async () => {
 
       return request(app)
         .get(`/v1/sports/${sport._id}`)

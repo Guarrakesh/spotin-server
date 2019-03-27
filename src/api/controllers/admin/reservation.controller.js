@@ -8,7 +8,24 @@ const { Broadcast } = require('../../models/broadcast.model.js');
 const { omit } = require('lodash');
 const User = require('../../models/user.model.js');
 
-
+exports.get = async (req, res, next) => {
+  try {
+    const result = await Broadcast.findOne({
+      'reservations._id': req.params.id,
+    }, {
+      "reservations.$": 1, event: 1, business: 1 }).lean();
+    if (result.reservations) {
+      return res.json({
+        ...result.reservations[0],
+        event: result.event,
+        business: result.business,
+      });
+    }
+    next(new ApiError({status: 404}))
+  } catch (error) {
+    next(error);
+  }
+};
 exports.create = async (req, res, next) => {
   try {
     const { user } = req;
@@ -70,5 +87,27 @@ exports.list = async (req, res, next) => {
     res.json(reservations);
   } catch (error) {
     next(error);
+  }
+};
+
+
+exports.review = async (req, res, next) => {
+  try {
+    // L'update accetta solo il cambiamento di status
+    const { status } = req.body;
+    const updated = await Broadcast.findOneAndUpdate({
+          'reservations': {
+            $elemMatch: {
+              "review._id": mongoose.Types.ObjectId(req.params.reviewId),
+              "review.status": 0
+            }
+          }
+        }, {
+          $set: { "reservations.$.review.status": status }
+        }, { new: true });
+    res.json(updated);
+
+  } catch (e) {
+    next(e);
   }
 };
