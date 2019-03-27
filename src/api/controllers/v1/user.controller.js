@@ -122,7 +122,7 @@ exports.listReservations = async (req, res, next) => {
     //let reservations = {docs: []};
 
     const reservations = await Reservation.findByUserId(loggedUser._id, {
-      include_past_events: false,
+      include_past_events: true,
       sort: { field: "created_at", order: -1 }
     });
 
