@@ -5,11 +5,14 @@ import {
   Tab,
   TextField,
   ReferenceField,
-    DateField,
-    BooleanField,
+  DateField,
+  BooleanField,
+
 
 } from 'react-admin';
 import ReviewTabContent from './ReviewTabContent';
+
+/* eslint-disable */
 
 const ReservationShow
     = ({
@@ -33,14 +36,15 @@ const ReservationShow
             <BooleanField source="used" label="Utilizzata"/>
           </Tab>
           <Tab label="Recensione">
-
             <ReviewTabContent/>
+
 
           </Tab>
         </TabbedShowLayout>
       </Show>
   )
 };
+
 
 
 export default ReservationShow;

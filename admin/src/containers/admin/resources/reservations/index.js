@@ -5,31 +5,39 @@ import { List, Datagrid,
   EditButton, ReferenceField, DateField,
   Filter, ReferenceInput, AutocompleteInput,
   ShowButton} from 'react-admin';
-
+import { red, green, orange } from '@material-ui/core/colors';
+import { Chip, withStyles } from '@material-ui/core';
 import EventAutocompleteInput from '../events/EventAutocompleteInput';
 
 export {default as ReservationShow} from './ReservationShow';
 
+const reviewStatusStyle = {
+  pending: {
+    backgroundColor: orange[400], color: '#fff'
+  },
+  confirmed: { backgroundColor: green[400], color: '#fff' },
+  rejected: { backgroundColor: red[400], color: '#fff' },
+}
+const ReviewStatus = withStyles(reviewStatusStyle)(({classes, record }) => {
+  let status, className;
 
-const ReviewStatus = ({ record }) => {
-  let status = null;
   if (record.review) {
-    switch(record.review.status) {
-      case 0: { status = "Pending"; break; }
-      case 1: { status = "Confermata"; break; }
-      case -1: { status = "Rifiutata"; break; }
+    switch(parseInt(record.review.status)) {
+      case 0: { status = "Pending"; className = classes.pending; break; }
+      case 1: { status = "Confermata"; className = classes.confirmed; break; }
+      case -1: { status = "Rifiutata"; className = classes.rejected; break; }
       default: { status = "Non definito"; }
     }
   }
   return (
-      <span>
+      <Chip className={className} label=
         {status || "Non effettuata"}
-      </span>
+      />
   );
-};
+});
 ReviewStatus.propTypes = {
   record: PropTypes.object,
-}
+};
 
 const ReservationFilter = (props) => (
   <Filter {...props}>
