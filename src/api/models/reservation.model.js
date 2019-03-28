@@ -31,21 +31,22 @@ const reservationSchema = new mongoose.Schema({
 const finalAggregationStages = [
   { $unwind: "$reservations"},
   { $addFields: {
-    broadcast: "$$ROOT",
-    peopleNum: "$reservations.peopleNum",
-    user: "$reservations.user",
-    used: "$reservations.used",
-    created_at: "$reservations.created_at",
-    _id: "$reservations._id"
-  },
+      broadcast: "$$ROOT",
+      peopleNum: "$reservations.peopleNum",
+      user: "$reservations.user",
+      used: "$reservations.used",
+      created_at: "$reservations.created_at",
+      _id: "$reservations._id",
+      review: "$reservations.review",
+    },
   },
   { $project: {
-    "broadcast.start_at": 0,
-    "broadcast.end_at": 0,
-    business: 0,
-    reservations: 0,
-    "broadcast.reservations": 0
-  } }
+      "broadcast.start_at": 0,
+      "broadcast.end_at": 0,
+      business: 0,
+      reservations: 0,
+      "broadcast.reservations": 0,
+    } }
 ];
 
 
@@ -69,10 +70,10 @@ reservationSchema.statics = {
     if (!include_past_events) match.end_at =  { $gte: moment().toDate() };
     const result = await Broadcast.aggregate([
       { $match: {
-        ...match
-      } },
+          ...match
+        } },
       ...finalAggregationStages,
-        { $match: filter },
+      { $match: filter },
       ...pagination({skip, limit, sort}),
     ]);
     return result.length === 1 ? result[0] : {docs: [], total: 0};

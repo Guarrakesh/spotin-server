@@ -22,7 +22,8 @@ const ownerCheck  = async (req, loggedUser) => {
       reservations: {
         $elemMatch: {
           _id: mongoose.Types.ObjectId(reservationId),
-          user:mongoose.Types.ObjectId(userId)
+          user:mongoose.Types.ObjectId(userId),
+          review: { $exists: false }
         }
       }
     });
@@ -35,7 +36,7 @@ const ownerCheck  = async (req, loggedUser) => {
 router
     .route('/')
 
-    .post( validate(createValidation), authorize(LOGGED_USER, ownerCheck), controller.create);
+    .post(validate(createValidation), authorize(LOGGED_USER, ownerCheck), controller.create);
 router
     .route('/:id')
     .get(authorize(LOGGED_USER), controller.get);

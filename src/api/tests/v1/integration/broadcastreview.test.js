@@ -108,5 +108,23 @@ describe('BroadcastReview API', () => {
           })
           .expect(httpStatus.BAD_REQUEST)
     })
+    it('Should give Bad Request if user has already reviewed this reservation', async () => {
+      broadcast.reservations[0].review = {
+        ...reviewMock,
+        status: 1,
+      };
+      await broadcast.save();
+      return request(app)
+          .post('/v1/broadcastreviews')
+          .set('Authorization', `Bearer ${userAccessToken}`)
+          .send({
+            ...reviewMock,
+            userId: user.id,
+            reservationId: reservation.id,
+          })
+          .expect(httpStatus.UNAUTHORIZED)
+    })
+
+
   });
 });

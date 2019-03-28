@@ -99,7 +99,7 @@ exports.review = async (req, res, next) => {
           'reservations': {
             $elemMatch: {
               "review._id": mongoose.Types.ObjectId(req.params.reviewId),
-              "review.status": 0
+              //"review.status": 0
             }
           }
         }, {
