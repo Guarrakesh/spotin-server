@@ -110,7 +110,7 @@ exports.list = async (req, res, next) => {
 
       filter.start_at = { "$gte": date, "$lte": moment(date).endOf('day')}
     }
-    if (!req.query.include_past_events)  {
+    if (!req.query.id_like && !req.query.include_past_events)  {
       // Di default il server restituisce eventi tra la data attuale e due settimane dopo
       // A meno ché non venga specificato, nella query "include_past_events"
       // In quel caso vengono ricercati utenti in tutti i tempiya tutti i luoghi e tutti i laghi
