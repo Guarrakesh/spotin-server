@@ -1,11 +1,10 @@
 const httpStatus = require('http-status');
 const { handler: errorHandler } = require('../../middlewares/error');
-const ApiError = require('../../utils/APIError');
-const mailer = require('../../utils/nodemailer');
+
+const { omit } = require('lodash');
 const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
 const { SportEvent } = require('../../models/sportevent.model');
 
-const { email } = require('../../../config/vars');
 
 
 
@@ -21,10 +20,11 @@ exports.create = async (req, res, next) => {
     const request = new Request();
     request.requestType = TYPE_BROADCAST_REQUEST;
     const { userPosition: position } = req.body;
-    const userPosition = {
+
+    const userPosition = position ? {
       type: "Point",
       coordinates: [position.longitude,position.latitude]
-    };
+    } : {};
 
     request.broadcastRequest = {
       ...omit(req.body, 'userPosition'),
