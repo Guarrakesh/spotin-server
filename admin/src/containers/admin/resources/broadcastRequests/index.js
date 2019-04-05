@@ -9,16 +9,23 @@ import {
 
 
 export { default as BroadcastRequestShow } from './BroadcastRequestShow';
+/* eslint-disable */
+const UserReferenceField = ({ record, ...props }) => (
+    record.broadcastRequest && record.broadcastRequest.user ?
+        <ReferenceField record={record} reference="users" source="broadcastRequest.user" label="Utente" {...props} >
+          <TextField source="name" label="Utente"/>
+        </ReferenceField>
+        : <span>Anonimo</span>
+);
+/* eslint-enable */
+
 
 export const BroadcastRequestList = (props) => (
   <List {...props} filter={{requestType: 1}}>
     <Datagrid>
-      <ReferenceField reference="users" source="broadcastRequest.user" label="Utente">
-        <TextField source="name" label="Utente"/>
-      </ReferenceField>
-      <ReferenceField reference="events" source="broadcastRequest.event" label="Evento">
-        <TextField source="name" label="Evento"/>
-      </ReferenceField>
+
+      <UserReferenceField/>
+      <TextField source="broadcastRequest.email" label="Email"/>
       <TextField source="broadcastRequest.numOfPeople" label="Numero persone"/>
       <TextField source="broadcastRequest.maxDistance" label="Distanza massima"/>
       <TextField source="broadcastRequest.location" label="Zona preferita"/>
