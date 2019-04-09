@@ -11,6 +11,7 @@ const amazon = require("../../utils/amazon");
 
 const mongoose = require('mongoose');
 const moment = require('moment');
+const eventEmitter = require('../../emitters');
 
 /**
  * Load user and append to req.
@@ -249,6 +250,11 @@ exports.reserveBroadcast = async (req, res, next) => {
       { $push: {reservations: new mongoose.mongo.ObjectId(reservationId)}});
 
     reservation.broadcast = updatedBroadcast;
+
+    const eventName = (await broadcast.getEvent()).name;
+    const businessName = (await broadcast.getBusiness()).name;
+    eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
+
     res.status = httpStatus.CREATED;
     res.json(reservation);
 
@@ -390,6 +396,8 @@ exports.requestBroadcast = async (req, res, next) => {
     };
 
     await request.save();
+
+    eventEmitter.emit('user-broadcast-request', user, event, request);
 
     res.status(httpStatus.NO_CONTENT);
     res.json();

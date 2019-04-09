@@ -112,7 +112,9 @@ const businessSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   },
-  offers: [offerSchema]
+  offers: [offerSchema],
+
+  quickerMenuURL: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 
@@ -202,7 +204,8 @@ businessSchema.methods = {
       "pictures",
       "created_at",
       "updated_at",
-      "business_hours", "tradeName"], fieldsToOmit);
+      "business_hours", "tradeName",
+      "quickerMenuURL"], fieldsToOmit);
     //Solo il proprietario può vedere tutte le info del locale
 
 

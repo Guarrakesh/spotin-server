@@ -10,7 +10,7 @@ const { pagination } = require('../utils/aggregations');
 const { imageVersionSchema } = require('./image');
 const offerSchema = require('./offer.schema');
 const { SportEvent } = require('./sportevent.model');
-
+const { Business } = require('./business.model');
 
 const broadcastSchema = new mongoose.Schema({
 
@@ -68,6 +68,21 @@ broadcastSchema.methods = {
     return await this.save();
 
   },
+
+  async getEvent() {
+    if (this._event) {
+      return this._event;
+    }
+    this._event = await SportEvent.findById(this.event);
+    return this._event;
+  },
+  async getBusiness() {
+    if (this._business) {
+      return this._business;
+    }
+    this._business = await Business.findById(this.business);
+    return this._business;
+  }
 };
 broadcastSchema.statics = {
   /**
