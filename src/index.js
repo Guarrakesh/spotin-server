@@ -6,6 +6,7 @@ const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 const express = require('express');
 const path = require('path');
+require('./api/listeners/subscriptions');
 // open mongoose connection
 
 mongoose.connect();

@@ -193,6 +193,8 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <NumberInput source="seats"/>
             <NumberInput source="tvs"/>
             <TextInput source="target"/>
+            <TextInput label="URL Quicker Menu" source="quickerMenuURL"/>
+
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
 
 
