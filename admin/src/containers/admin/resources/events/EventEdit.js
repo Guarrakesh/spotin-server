@@ -13,7 +13,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
 
   const providers = [
     {id: "sky", name: "Sky"},
-    {id: "mediaset-premium", name:"Mediaset Premium"},
+    {id: "dazn-business", name:"DAZN Business"},
     {id: "dazn", name: "DAZN"},
     {id: "digitale-terrestre", name: "Digitale Terrestre"},
   ];
