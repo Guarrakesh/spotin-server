@@ -12,7 +12,12 @@ const smtpTransport = nodemailer.createTransport({
 });
 
 const handlebarsOptions = {
-  viewEngine: 'handlebars',
+  //viewEngine: 'handlebars',
+  viewEngine: {
+    extName: '.html',
+    partialsDir: './src/email/tmp',
+    viewPath:  path.resolve("./src/email/"),
+  },
   partialsDir: './src/email/tmp',
   viewPath:  path.resolve("./src/email/"),
   extName: ".html"
