@@ -11,7 +11,6 @@
     "yarn": "*"
   },
   "scripts": {
-
     "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
     "staging": "cross-env NODE_ENV=staging pm2 start ./src/index",
     "server": "nodemon ./src/index.js",
@@ -71,6 +70,8 @@
   "dependencies": {
     "@babel/preset-flow": "^7.0.0",
     "@google/maps": "^0.5.5",
+    "apollo-server": "^2.4.8",
+    "apollo-server-express": "^2.4.8",
     "async": "^2.6.1",
     "aws-sdk": "^2.284.1",
     "axios": "^0.18.0",
@@ -87,6 +88,8 @@
     "express-validation": "^1.0.2",
     "faker": "^4.1.0",
     "geolib": "^2.0.24",
+    "graphql": "^14.2.1",
+    "graphql-tools": "^4.0.4",
     "helmet": "^3.5.0",
     "heroku-logger": "^0.3.1",
     "http-status": "^1.0.1",
