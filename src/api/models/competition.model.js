@@ -6,7 +6,7 @@ const APIError = require('../utils/APIError');
 const { imageVersionSchema } = require('./image');
 const { slugify } = require('lodash-addons');
 const { pagination } = require('../utils/aggregations');
-
+const { Sport } = require('./sport.model');
 
 const imageSizes = [
   { width: 32, height: 32 },
@@ -142,6 +142,10 @@ competitionSchema.method({
       throw Error(error);
     }
 
+  },
+
+  async getSport() {
+    return await Sport.findById(this.sport).exec();
   }
 
 });

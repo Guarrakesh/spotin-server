@@ -151,7 +151,12 @@ sportEventSchema.methods.getOverlaps = function(event) {
       ||
       (broadcastableEventEnd >= eventToBroadcastStart && broadcastableEventEnd <= eventToBroadcastEnd));
 };
-
+sportEventSchema.methods.getCompetition = async function () {
+  return await Competition.findById(this.competition);
+};
+sportEventSchema.methods.getCompetitors = async function () {
+  return await Competitor.find({_id: { $in: this.competitors.map(c => c.competitor)}});
+};
 
 sportEventSchema.statics = {
 

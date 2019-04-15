@@ -11,7 +11,7 @@ const adminRoutes = require('../api/routes/admin');
 const { logs } = require('./vars');
 const strategies = require('./passport');
 const error = require('../api/middlewares/error');
-
+const { ApolloServer } = require('apollo-server-express');
 const analytics = require('../api/middlewares/analytics');
 
 //const winstonConfig = require('./winston');
@@ -98,5 +98,12 @@ app.use(error.converter);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
+
+// Apollo GraphQL
+const server = new ApolloServer({
+
+  schema: require('../graphql/schema'),
+});
+server.applyMiddleware({ app, path: '/graphql' });
 
 module.exports = app;
