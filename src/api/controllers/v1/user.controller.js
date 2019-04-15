@@ -435,7 +435,7 @@ exports.registerFcmToken = async (req, res, next) => {
       { $addToSet: { fcmTokens: { deviceId, token } } });
 
     res.status(httpStatus.CREATED);
-    res.end();
+    res.json({_id: deviceId, deviceId, token });
   } catch (e) {
     next(e);
   }
