@@ -35,8 +35,7 @@ exports.sportEventResolvers = {
       };
       if (args.inTheFuture) options.start_at =  { $gte: Date.now() };
 
-      return SportEvent.find(options).exec();
-
+      return SportEvent.find(options).limit(args.limit || 10).exec();
     }
   },
 
