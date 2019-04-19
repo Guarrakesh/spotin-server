@@ -24,7 +24,7 @@ exports.Competition = `
 exports.competitionResolvers = {
   Query: {
     async getCompetitions(obj, args, context, info) {
-      const competitions =  await Competition.find({name: { "$regex": args.name, "$options": "i" }});
+      const competitions =  await Competition.find({name: { "$regex": args.name, "$options": "i" }}).limit(args.limit || 10).exec()
       return competitions;
     }
   },

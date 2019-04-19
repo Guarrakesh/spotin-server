@@ -61,9 +61,16 @@ const types = `
 const searchResolvers = {
   Query: {
     async search(parent, args, c, i) {
+      const searchArgs = {
+        ...args.input,
+        limit: 10,
+      };
       const results = [
-        ...(await competitionResolvers.Query.getCompetitions(parent, args.input, c, i)),
-        ...(await sportEventResolvers.Query.getSportEvents(parent, args.input, c, i)),
+        ...(await competitionResolvers.Query.getCompetitions(parent, searchArgs, c, i)),
+        ...(await sportEventResolvers.Query.getSportEvents(parent, { 
+          ...searchArgs,
+          inTheFuture: false,
+        }, c, i)),
       ];
       return results;
     },
