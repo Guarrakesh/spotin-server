@@ -51,6 +51,7 @@ const types = `
   
   input SearchInput {
     name: String!
+    entityLimit: Int
   }
   
  
@@ -63,8 +64,9 @@ const searchResolvers = {
     async search(parent, args, c, i) {
       const searchArgs = {
         ...args.input,
-        limit: 10,
+        limit: args.input.entityLimit,
       };
+
       const results = [
         ...(await competitionResolvers.Query.getCompetitions(parent, searchArgs, c, i)),
         ...(await sportEventResolvers.Query.getSportEvents(parent, { 
@@ -72,6 +74,7 @@ const searchResolvers = {
           inTheFuture: false,
         }, c, i)),
       ];
+
       return results;
     },
   },
