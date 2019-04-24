@@ -103,6 +103,9 @@ app.use(error.handler);
 const server = new ApolloServer({
 
   schema: require('../graphql/schema'),
+  context: ({req}) => {
+    return { req }
+  }
 });
 server.applyMiddleware({ app, path: '/graphql' });
 
