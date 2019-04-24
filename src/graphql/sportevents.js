@@ -33,9 +33,12 @@ exports.sportEventResolvers = {
       const options = {
         name: { "$regex": args.name, "$options": "i" },
       };
-      if (args.inTheFuture) options.start_at =  { $gte: Date.now() };
+      if (args.inTheFuture) {
+        options.start_at =  { $gte: Date.now() };
 
-      return SportEvent.find(options).limit(args.limit || 10).exec();
+      }
+
+      return SportEvent.find(options).limit(args.limit || 10).sort({start_at: 1})
     }
   },
 

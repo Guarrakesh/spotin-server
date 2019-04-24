@@ -184,6 +184,20 @@ businessSchema.methods = {
   },
 
 
+  isNowOpen() {
+    const today = new Date();
+    let day = (today.getDay() - 1) % 7;
+    if (day === -1) day = 6;
+    if (this.business_hours && this.business_hours[day]) {
+
+      const currentDay = this.business_hours[day];
+      const minutes = today.getHours() * 60;
+      console.log(minutes);
+      return !!currentDay.openings.find(o => minutes > o.opening && minutes < o.close);
+    }
+    return false;
+
+  },
   transform(fieldsToOmit = []) {
     const transformed = {};
     let fields = difference(['_id',

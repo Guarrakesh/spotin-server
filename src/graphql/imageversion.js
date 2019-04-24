@@ -5,4 +5,12 @@ exports.ImageVersion = `
     height: Int
     
   }
+  
+  type Image {
+    versions: [ImageVersion]
+    ext: String
+    fileName: String
+    mime: String
+    order: String
+  }
 `;
