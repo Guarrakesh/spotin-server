@@ -157,7 +157,9 @@ sportEventSchema.methods.getCompetition = async function () {
 sportEventSchema.methods.getCompetitors = async function () {
   return await Competitor.find({_id: { $in: this.competitors.map(c => c.competitor)}});
 };
-
+sportEventSchema.methods.getSport = async function () {
+  return await Sport.findById(this.sport);
+};
 sportEventSchema.statics = {
 
 

@@ -21,7 +21,7 @@ const activity = new mongoose.Schema({
   },
   activityParams: new mongoose.Schema({}, { strict: false, _id: false }),
   meta: new mongoose.Schema({
-    location: pointSchema,
+    location: new mongoose.Schema({}, { strict: false, _id: false }),
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
