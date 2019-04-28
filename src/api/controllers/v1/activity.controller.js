@@ -31,7 +31,7 @@ exports.create = async (req, res, next) => {
     res.json({ message: 'OK'});
 
   } catch (e) {
-    next(e);
+    res.end();
   }
 }
 ;

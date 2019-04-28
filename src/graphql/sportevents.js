@@ -4,15 +4,19 @@ exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
+    getSportEvent(id: ID!): SportEvent
   }
     type NestedCompetition {
     id: String!
     name: String
+    image_versions: [ImageVersion]
+    competitorsHaveLogo: Boolean
   }
   type NestedCompetitor {
     id: String!
     name: String!
     image_versions: [ImageVersion]
+   
   }
   type SportEvent {
     id: ID!
@@ -39,6 +43,9 @@ exports.sportEventResolvers = {
       }
 
       return SportEvent.find(options).limit(args.limit || 10).sort({start_at: 1})
+    },
+    async getSportEvent(obj, args) {
+      return SportEvent.findById(args.id);
     }
   },
 
