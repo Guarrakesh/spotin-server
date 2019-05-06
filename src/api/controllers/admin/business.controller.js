@@ -98,13 +98,25 @@ exports.list = async (req, res, next) => {
   }
 };
 
+const sanitizeFormData = formData => {
+  ["offers", "business_hours"].forEach(field => {
+    try {
+      formData[field] = JSON.parse(formData[field]);
+    } catch (e) {
+    }
+  });
+  return formData;
 
+};
 exports.update = async (req, res, next) => {
 
 
-  const body = omit(req.body, ['cover_versions', 'pictures', '_id', 'picture']);
-
-
+  let body = omit(req.body, ['cover_versions', 'pictures', '_id', 'picture']);
+  if (req.files) {
+    // c'è un upload, per cui la richiesta è in multipart/form-data
+    // per cui tutti i nested obejct, devo parsarli in JSON
+    body = sanitizeFormData(body);
+  }
   let updatedBusiness = Object.assign(req.locals.business, body);
   if (req.files) {
     if (req.files.picture && req.files.picture.length > 0) {
@@ -124,12 +136,17 @@ exports.update = async (req, res, next) => {
 
 };
 
+
 exports.create = async (req, res, next) => {
   try {
 
-    const params = req.body;
-
-    const business = new Business(params);
+    let body = req.body;
+    if (req.files) {
+      // c'è un upload, per cui la richiesta è in multipart/form-data
+      // per cui tutti i nested obejct, devo parsarli in JSON
+      body = sanitizeFormData(body);
+    }
+    const business = new Business(body);
     const saved = await  business.save();
 
     if (req.files) {
