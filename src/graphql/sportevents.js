@@ -6,17 +6,18 @@ exports.SportEvent = `
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
     getSportEvent(id: ID!): SportEvent
   }
-    type NestedCompetition {
+  type NestedCompetition {
     id: String!
     name: String
     image_versions: [ImageVersion]
     competitorsHaveLogo: Boolean
+    color: String
   }
   type NestedCompetitor {
     id: String!
     name: String!
     image_versions: [ImageVersion]
-   
+   color: String
   }
   type SportEvent {
     id: ID!
@@ -53,6 +54,13 @@ exports.sportEventResolvers = {
     sport: async parent => await parent.getSport(),
     competition: async parent => await parent.getCompetition(),
     competitors: async parent => await parent.getCompetitors(),
+
   },
+  NestedCompetition: {
+    color: async parent => await parent.getColorLazy(),
+  },
+  NestedCompetitor: {
+    color: async parent => await parent.getColorLazy(),
+  }
 
 };

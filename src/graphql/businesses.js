@@ -43,6 +43,8 @@ exports.Business = `
     pictures: [Image]
     cover_versions: [ImageVersion]
     quickerMenuURL: String
+    type: [String]
+    fullAddress: String
     
   }
 `;
@@ -72,7 +74,8 @@ exports.businessResolvers = {
         parent.business_hours[4],
         parent.business_hours[5],
       ]
-    }
+    },
+    fullAddress: parent => `${parent.address.street} ${parent.address.number} (${parent.address.city})`
 
 
 

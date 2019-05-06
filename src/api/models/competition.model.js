@@ -7,6 +7,7 @@ const { imageVersionSchema } = require('./image');
 const { slugify } = require('lodash-addons');
 const { pagination } = require('../utils/aggregations');
 const { Sport } = require('./sport.model');
+const Vibrant = require('node-vibrant');
 
 const imageSizes = [
   { width: 32, height: 32 },
@@ -41,6 +42,7 @@ const competitionSchema = new mongoose.Schema({
   },
   image_versions: [imageVersionSchema],
   appealValue: Number,
+  color: String,
 });
 
 
@@ -116,7 +118,7 @@ competitionSchema.method({
   async uploadPicture(file) {
 
     const ext = mime.extension(file.mimetype);
-    const slug = slugify(this.name);
+    const slug = `${slugify(this.name)}_${this.id}`;
     try {
       const data = await uploadImage(file.buffer, `images/competition-logos/${slug}.${ext}`);
       const { width, height } = await sizeOf(file.buffer);
@@ -146,6 +148,19 @@ competitionSchema.method({
 
   async getSport() {
     return await Sport.findById(this.sport).exec();
+  },
+  async getColorLazy() {
+
+    if (!this.color) {
+
+      if (this.image_versions && this.image_versions[0]) {
+        const palette = await Vibrant.from(this.image_versions[0].url).getPalette();
+        this.color = palette.Vibrant.getHex();
+        this.save();
+        return palette.Vibrant.getHex();
+      }
+    }
+    return this.color;
   }
 
 });

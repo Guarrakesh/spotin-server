@@ -17,6 +17,7 @@ exports.Competition = `
     country: String
     image_versions: [ImageVersion]
     slug: String 
+    color: String
     
   }
 `;
@@ -32,7 +33,8 @@ exports.competitionResolvers = {
   },
 
   Competition: {
-    sport: async parent => await parent.getSport()
+    sport: async parent => await parent.getSport(),
+    color: async parent => await parent.getColorLazy(),
   },
 
 };
