@@ -1,17 +1,9 @@
 const mongoose = require('mongoose');
-const httpStatus = require('http-status');
-const { omitBy, isNil } = require('lodash');
-const bcrypt = require('bcryptjs');
-const moment = require('moment-timezone');
-const jwt = require('jwt-simple');
-const uuidv4 = require('uuid/v4');
-const APIError = require('../utils/APIError');
-const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
-const Sport = require('./sport.model.js');
+
 const mongoosePaginate = require('mongoose-paginate');
 const { slugify }  = require('lodash-addons');
 const { imageVersionSchema } = require('./image');
-
+const Vibrant = require('node-vibrant');
 
 /* Endpoint per ottenere, on the fly, le immagini ridimensionate */
 const { s3WebsiteEndpoint } = require('../../config/vars');
@@ -75,6 +67,7 @@ const competitorSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  color: String,
   appealValue: Number,
 }, { createdAt: 'created_at', updatedAt: 'updated_at' });
 
@@ -107,9 +100,9 @@ competitorSchema.method({
   async uploadPicture(file) {
 
     const ext = mime.extension(file.mimetype);
-
+    const slug = `${slugify(this.name)}_${this.id}`;
     try {
-      const data = await uploadImage(file.buffer, `images/competitor-logos/${this.slug}.${ext}`);
+      const data = await uploadImage(file.buffer, `images/competitor-logos/${slug}.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
       this.image_versions = [{url: data.Location, width, height}];
@@ -146,7 +139,20 @@ competitorSchema.pre('save', function(next) {
   }
   next();
 });
+competitorSchema.methods.getColorLazy = async function() {
 
+  if (!this.color) {
+    if (this.image_versions && this.image_versions[0]) {
+      const palette = await Vibrant.from(this.image_versions[0].url).getPalette();
+      this.color = palette.Vibrant.getHex();
+      this.save();
+      return palette.Vibrant.getHex();
+    }
+    return null;
+  }
+  return this.color;
+
+};
 competitorSchema.plugin(mongoosePaginate);
 exports.competitorSchema = competitorSchema
 exports.Competitor = mongoose.model('Competitor',competitorSchema);

@@ -12,6 +12,7 @@ const { Competition, competitionResolvers } = require('./competitions');
 const { ImageVersion } = require('./imageversion');
 const { SportEvent, sportEventResolvers } = require('./sportevents');
 const { Business, businessResolvers } = require('./businesses');
+const { Broadcast, broadcastResolvers } = require('./broadcasts');
 const types = `
   
   type Mutation {
@@ -71,7 +72,7 @@ const searchResolvers = {
         ...(await competitionResolvers.Query.getCompetitions(parent, searchArgs, c, i)),
         ...(await sportEventResolvers.Query.getSportEvents(parent, { 
           ...searchArgs,
-          inTheFuture: false,
+          inTheFuture: true,
         }, c, i)),
       ];
 
@@ -90,7 +91,12 @@ const searchResolvers = {
 
 
 module.exports = makeExecutableSchema({
-  typeDefs: [ImageVersion, Competition, SportEvent, Business, types],
-  resolvers: merge(searchResolvers, competitionResolvers, sportEventResolvers, businessResolvers),
+  typeDefs: [ImageVersion, Competition, SportEvent, Business, Broadcast, types],
+  resolvers: merge(
+      searchResolvers,
+      competitionResolvers,
+      sportEventResolvers,
+      businessResolvers,
+      broadcastResolvers),
 
 });

@@ -130,53 +130,69 @@ broadcastSchema.statics = {
     const { _end = 10, _start = 0, _order = 1, _sort = 'start_at' } = options;
     const { latitude, longitude, radius } = options;
     const now = moment().toDate();
-    filterQuery = {
-      ...filterQuery,
-      end_at: { $gte: now },
-      start_at: { $lte: now },
-    };
 
+    if (filterQuery.event) filterQuery.event = mongoose.Types.ObjectId(filterQuery.event);
 
     let results = await this.aggregate([
-        /* Il problema è in questi primi 3 stage, dove bisogna stabilire il criterio per prendere i businesses */
-      { $group: {
-        _id: "$event", numOfBusinesses: { $sum: 1 },
-        broadcast: { $push: "$$ROOT"}
-      }},
-      { $unwind: "$broadcast"},
-      { $replaceRoot: { newRoot: "$broadcast"}},
       { $match: filterQuery },
       {
         $lookup: {
+          from: 'sport_events',
+          localField: 'event',
+          as: 'eventObj',
+          foreignField: '_id',
+        },
+      },
+      {
+        $unwind: {
+          path: '$event',
+        },
+      },
+
+      {
+        $lookup: {
           from: 'businesses',
-          let: { businessId: '$business' },
-          as: 'business',
+          let: {
+            businessId: '$business',
+          },
+          as: 'businessObj',
           pipeline: [
             {
               $geoNear: {
-                near: {type: 'Point', coordinates: [parseFloat(longitude), parseFloat(latitude)]},
+                near: {
+                  type: 'Point',
+                  coordinates: [
+                    parseFloat(longitude), parseFloat(latitude),
+                  ],
+                },
                 distanceField: 'dist.calculated',
-                distanceMultiplier: 1 / 1000, // meters to km
+                distanceMultiplier: 1 / 1000,
                 spherical: true,
-                maxDistance: radius,
+                maxDistance: (radius),
                 includeLocs: 'dist.location',
               },
+            }, {
+              $match: {
+                $expr: {
+                  $eq: [
+                    '$_id', '$$businessId',
+                  ],
+                },
+              },
+            }, {
+              $project: {
+                _id: 1,
+                dist: 1,
+                name: 1,
+              },
             },
-            { $match: { $expr: { $eq: ["$_id", "$$businessId" ] } } } ,
-            { $project: { _id: 1, dist: 1, name: 1 }},
-          ]
-        }
+          ],
+        },
       },
-      {$unwind: '$business' },
-      { $sort: { 'business.dist.calculated': 1 } },
-      { $addFields: {
-        business: "$business._id",
-        distance: "$business.dist"
-      }},
+
       ...pagination({
         skip: _start,
         limit: _end - _start,
-       // sort: { field: 'data.start_at', order: 1 },
       }),
     ]);
     if (results.length === 0) return { docs: [], total: 0, near: {} };
