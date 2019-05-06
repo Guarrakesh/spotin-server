@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/api/tests/unit/broadcastreview.test.js" line="45" mnemonic="0" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="pointschema rimosso da activity.model">
-      <change afterPath="$PROJECT_DIR$/src/graphql/broadcasts.js" afterDir="false" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/broadcast.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/broadcast.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/competition.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/competition.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/competitor.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/competitor.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/businesses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/businesses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/competitions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/competitions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/sportevents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/sportevents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/business.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/business.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/image.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +22,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/spotin_server$Spotin_Tests.dat" NAME="Spotin Tests Coverage Results" MODIFIED="1553706842974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/spotin_server$Business_Model.dat" NAME="Business Model Coverage Results" MODIFIED="1547223582667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/spotin_server$Spotin_Tests.dat" NAME="Spotin Tests Coverage Results" MODIFIED="1549737360529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/spotin_server$Business_API.dat" NAME="Business API Coverage Results" MODIFIED="1545395423926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
@@ -39,95 +36,84 @@
     <favorites_list name="spotin-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37977406">
+    <splitter split-orientation="horizontal" split-proportion="0.6238806">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ApproveReviewButton.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+                <state relative-caret-position="468">
+                  <caret line="42" selection-start-line="42" selection-end-line="42" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#21#57#0" expanded="true" />
+                    <element signature="e#333#398#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1430">
+                  <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1482">
+                  <caret line="114" column="29" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2415">
-                  <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
+                <state relative-caret-position="364">
+                  <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graphql/competitions.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/providers/restClientProvider.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1755">
-                  <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1185">
-                  <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+                <state relative-caret-position="520">
+                  <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/competitor.model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graphql/imageversion.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1470">
-                  <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+                <state relative-caret-position="266">
+                  <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -137,64 +123,93 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js">
+            <entry file="file://$PROJECT_DIR$/admin/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+                <state relative-caret-position="338">
+                  <caret line="26" column="32" selection-start-line="26" selection-end-line="27" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graphql/businesses.js">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="703">
-                  <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/factories/broadcast.factory.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+                <state relative-caret-position="112">
+                  <caret line="258" column="26" selection-start-line="258" selection-start-column="26" selection-end-line="258" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/api/factories/business.factory.js">
+            <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="89" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="32" selection-end-column="89" />
+                <state relative-caret-position="-429">
+                  <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1470">
-                  <caret line="98" selection-start-line="98" selection-end-line="98" />
+                <state>
+                  <folding>
+                    <element signature="e#2#40#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
+            <entry file="file://$PROJECT_DIR$/src/api/models/image.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+                <state relative-caret-position="91">
+                  <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competitor.controller.js">
+            <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="795">
-                  <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+                <state relative-caret-position="250">
+                  <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/config/express.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="103" selection-start-line="103" selection-end-line="103" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/broadcastreview.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1612">
+                  <caret line="124" column="41" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="41" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="715">
+                  <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcastreview.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="18" selection-start-line="18" selection-end-line="18" />
                 </state>
               </provider>
             </entry>
@@ -212,6 +227,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>redux-for</find>
+      <find>export</find>
+      <find>nam</find>
       <find>reduxForm</find>
       <find>REDUX_FORM_NAME</find>
       <find>DateTime</find>
@@ -229,19 +247,16 @@
       <find>ownerCall</find>
       <find>bcrypt</find>
       <find>spot</find>
-      <find>push</find>
       <find>number</find>
       <find>text</find>
-      <find>userAcc</find>
-      <find>dazn</find>
-      <find>process.env.NODE_ENV</find>
-      <find>Sport</find>
-      <find>isNowOpe</find>
-      <find>getSport</find>
-      <find>sport</find>
-      <find>slugify</find>
-      <find>listNear</find>
-      <find>eve</find>
+      <find>_id</find>
+      <find>BroadcastReview</find>
+      <find>user</find>
+      <find>Review</find>
+      <find>revord</find>
+      <find>rev</find>
+      <find>push</find>
+      <find>broadcasts</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -265,17 +280,17 @@
       <dir>$PROJECT_DIR$/admin/node_modules/react-admin</dir>
       <dir>$PROJECT_DIR$/admin/node_modules/ra-ui-materialui</dir>
       <dir>$PROJECT_DIR$/admin/node_modules/ra-data-json-server</dir>
+      <dir>$PROJECT_DIR$/src/api</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/business/assets/jss</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography</dir>
       <dir>$PROJECT_DIR$/src/api/controllers</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/business</dir>
       <dir>$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src</dir>
       <dir>$PROJECT_DIR$/src/api/routes/admin</dir>
+      <dir>$PROJECT_DIR$/admin/src</dir>
       <dir>$PROJECT_DIR$/src/api/models</dir>
       <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/src/api/tests/v1/integration</dir>
-      <dir>$PROJECT_DIR$/src/api</dir>
-      <dir>$PROJECT_DIR$/admin/src</dir>
       <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
   </component>
@@ -291,76 +306,78 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/validations/broadcastreview-question.validation.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/unit/broadcastbundle.test.js" />
         <option value="$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview-question.test.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastreview.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/broadcastreview.route.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/broadcastreview.validation.js" />
-        <option value="$PROJECT_DIR$/src/api/models/review.model.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/v1/integration/user.test.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/admin/integration/business.test.js" />
+        <option value="$PROJECT_DIR$/src/api/validations/broadcastreview-question.validation.js" />
+        <option value="$PROJECT_DIR$/src/api/models/review-question.model.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/contactRequest.route.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/user.route.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcast-request.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/models/request.model.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcast-request.route.js" />
+        <option value="$PROJECT_DIR$/src/api/validations/user.validation.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/index.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcastreview.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/middlewares/auth.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcastreview.route.js" />
         <option value="$PROJECT_DIR$/src/api/tests/unit/broadcastreview.test.js" />
+        <option value="$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js" />
+        <option value="$PROJECT_DIR$/src/api/factories/reservation.factory.js" />
         <option value="$PROJECT_DIR$/src/api/factories/broadcastreview.factory.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/sport.route.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/v1/integration/sport.test.js" />
+        <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/review.model.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/mocks/reviewMock.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcastreview.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/broadcastreview.route.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
+        <option value="$PROJECT_DIR$/src/api/validations/broadcastreview.validation.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastreview.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview.test.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/reservation.route.js" />
+        <option value="$PROJECT_DIR$/src/api/models/reservation.model.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ratingLabels.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/RatingScore.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReservationShow.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReviewTabContent.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ApproveReviewButton.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/RejectReviewButton.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcastreview.route.js" />
         <option value="$PROJECT_DIR$/src/api/tests/v1/integration/broadcastreview.test.js" />
         <option value="$PROJECT_DIR$/admin/package.json" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/contact.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcast-request.route.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcast-request.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/point.schema.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/index.js" />
-        <option value="$PROJECT_DIR$/src/api/emitters/index.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/api/listeners/subscriptions.js" />
-        <option value="$PROJECT_DIR$/src/email/admin-broadcast-request-notify.html" />
-        <option value="$PROJECT_DIR$/src/api/validations/user.validation.js" />
-        <option value="$PROJECT_DIR$/src/email/admin-reservation-notify.html" />
+        <option value="$PROJECT_DIR$/admin/public/index.html" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/user.controller.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventEdit.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" />
-        <option value="$PROJECT_DIR$/src/api/utils/nodemailer.js" />
-        <option value="$PROJECT_DIR$/src/api/listeners/send_admin_email_on_reservation.js" />
-        <option value="$PROJECT_DIR$/src/api/listeners/send_admin_email_on_broadcast_request.js" />
-        <option value="$PROJECT_DIR$/src/graphql/sports.js" />
-        <option value="$PROJECT_DIR$/src/graphql/searchable.js" />
-        <option value="$PROJECT_DIR$/src/graphql/imageversion.js" />
-        <option value="$PROJECT_DIR$/src/config/express.js" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/api/models/business.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/activity.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/activity.model.js" />
-        <option value="$PROJECT_DIR$/src/graphql/sportevents.js" />
-        <option value="$PROJECT_DIR$/src/graphql/competitions.js" />
-        <option value="$PROJECT_DIR$/src/api/models/competition.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/competitor.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
-        <option value="$PROJECT_DIR$/src/graphql/broadcasts.js" />
-        <option value="$PROJECT_DIR$/src/graphql/schema.js" />
-        <option value="$PROJECT_DIR$/src/graphql/businesses.js" />
+        <option value="$PROJECT_DIR$/src/api/models/image.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
       </list>
     </option>
   </component>
   <component name="JsFlowSettings">
-    <service-enabled>false</service-enabled>
+    <service-enabled>true</service-enabled>
     <exe-path />
-    <other-services-enabled>false</other-services-enabled>
+    <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1319" />
+    <option name="x" value="56" />
+    <option name="y" value="27" />
+    <option name="width" value="1221" />
+    <option name="height" value="611" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,7 +393,42 @@
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="here" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="businesses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -388,13 +440,6 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -407,19 +452,59 @@
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="email" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="graphql" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,18 +515,25 @@
     <property name="editor.config.accepted" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="$PROJECT_DIR$/node_modules/eslint" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spotin-webapp" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/Guarrakesh/spotin-webapp.git" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin/public" />
+      <recent name="$PROJECT_DIR$/src/api/tests/admin/integration" />
+      <recent name="$PROJECT_DIR$/src/api/routes/v1" />
+      <recent name="$PROJECT_DIR$/src/api/validations" />
+      <recent name="$PROJECT_DIR$/src/api/routes/admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/api/models/appeal" />
@@ -449,13 +541,6 @@
       <recent name="$PROJECT_DIR$/src/api/models" />
       <recent name="$PROJECT_DIR$/src/api/_tests" />
       <recent name="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcasts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/email" />
-      <recent name="$PROJECT_DIR$/src/api/controllers/v1" />
-      <recent name="$PROJECT_DIR$/src/api/routes/v1" />
-      <recent name="$PROJECT_DIR$/src/api/validations" />
-      <recent name="$PROJECT_DIR$/src/api/routes/admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,7 +555,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Spotin Tests">
+  <component name="RunManager" selected="Node.js.business.controller.js">
     <configuration name="Password Reset Template" type="JavascriptDebugType" uri="http://localhost:63343/chrome-extension/index.html">
       <method v="2" />
     </configuration>
@@ -484,6 +569,9 @@
       <method v="2" />
     </configuration>
     <configuration name="SpotInServer" type="NodeJSConfigurationType" node-parameters="/usr/bin/nodemon" path-to-js-file="src/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="business.controller.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="Docker test" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
@@ -508,7 +596,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="Business API" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="Business API" type="mocha-javascript-test-runner" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -565,15 +653,16 @@
       <item itemvalue="JavaScript Debug.Password Reset Template" />
       <item itemvalue="JavaScript Debug.Unnamed" />
       <item itemvalue="JavaScript Debug.password-reset.html" />
-      <item itemvalue="Mocha.Spotin Tests" />
       <item itemvalue="Mocha.Business API" />
+      <item itemvalue="Mocha.Spotin Tests" />
       <item itemvalue="Mocha.Business Model" />
       <item itemvalue="Node.js.SpotInServer" />
+      <item itemvalue="Node.js.business.controller.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.business.controller.js" />
         <item itemvalue="Mocha.Business Model" />
-        <item itemvalue="Mocha.Business API" />
       </list>
     </recent_temporary>
   </component>
@@ -848,39 +937,86 @@
       <workItem from="1553015946584" duration="559000" />
       <workItem from="1553016607216" duration="1240000" />
       <workItem from="1553091523778" duration="8165000" />
-      <workItem from="1553100688289" duration="4696000" />
-      <workItem from="1553369260434" duration="524000" />
-      <workItem from="1553439875600" duration="125000" />
-      <workItem from="1553636699095" duration="2798000" />
-      <workItem from="1553713945584" duration="3383000" />
-      <workItem from="1553859575651" duration="1373000" />
-      <workItem from="1554389826002" duration="785000" />
-      <workItem from="1554462331938" duration="2605000" />
-      <workItem from="1554552156737" duration="166000" />
-      <workItem from="1554759754656" duration="1964000" />
-      <workItem from="1554806643631" duration="3370000" />
-      <workItem from="1554912569060" duration="331000" />
-      <workItem from="1554913811735" duration="2214000" />
-      <workItem from="1554973348704" duration="598000" />
-      <workItem from="1555004151146" duration="574000" />
-      <workItem from="1555009266282" duration="966000" />
-      <workItem from="1555239658414" duration="6413000" />
-      <workItem from="1555321071041" duration="709000" />
-      <workItem from="1555408401684" duration="646000" />
-      <workItem from="1555697060771" duration="1996000" />
-      <workItem from="1555749265899" duration="1264000" />
-      <workItem from="1555751046130" duration="16000" />
-      <workItem from="1555781310785" duration="1525000" />
-      <workItem from="1555860048070" duration="7817000" />
-      <workItem from="1556021383886" duration="598000" />
-      <workItem from="1556105217556" duration="2205000" />
-      <workItem from="1556131067452" duration="24000" />
-      <workItem from="1556476640771" duration="2467000" />
-      <workItem from="1556646898393" duration="9412000" />
-      <workItem from="1556704569509" duration="1917000" />
-      <workItem from="1556800062942" duration="3467000" />
-      <workItem from="1556905308044" duration="1142000" />
-      <workItem from="1556965023663" duration="1211000" />
+      <workItem from="1553100688289" duration="4482000" />
+      <workItem from="1553172184797" duration="2449000" />
+      <workItem from="1553176502372" duration="13427000" />
+      <workItem from="1553518557027" duration="1260000" />
+      <workItem from="1553559531608" duration="780000" />
+      <workItem from="1553691597811" duration="4000" />
+      <workItem from="1553691631175" duration="19318000" />
+      <workItem from="1553768554023" duration="296000" />
+      <workItem from="1553777901801" duration="13203000" />
+      <workItem from="1553869140520" duration="2157000" />
+      <workItem from="1555080836964" duration="2532000" />
+      <workItem from="1555333494710" duration="6416000" />
+      <workItem from="1555458649844" duration="514000" />
+      <workItem from="1555504802167" duration="2527000" />
+      <workItem from="1555679674638" duration="616000" />
+      <workItem from="1555753132214" duration="2349000" />
+      <workItem from="1556546087016" duration="3545000" />
+    </task>
+    <task id="LOCAL-00103" summary="Heroku logger">
+      <created>1542292460932</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1542292460932</updated>
+    </task>
+    <task id="LOCAL-00104" summary="---">
+      <created>1543411068880</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1543411068881</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Reservation model">
+      <created>1543564482563</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1543564482563</updated>
+    </task>
+    <task id="LOCAL-00106" summary="[SERVER] Modificato ordine sport secondo appealValue&#10;[ADMIN] Aggiunto filtro per evento e business in broadcast list">
+      <created>1543945772136</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1543945772137</updated>
+    </task>
+    <task id="LOCAL-00107" summary="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente">
+      <created>1544447172263</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1544447172263</updated>
+    </task>
+    <task id="LOCAL-00108" summary="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente">
+      <created>1544457907271</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1544457907272</updated>
+    </task>
+    <task id="LOCAL-00109" summary="[SERVER]&#10;Aggregation su broadcast e altri fix">
+      <created>1545248544175</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1545248544175</updated>
+    </task>
+    <task id="LOCAL-00110" summary="[SERVER]&#10;Test&#10;Caricamento immagini locale (da finire)">
+      <created>1545900778529</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1545900778530</updated>
+    </task>
+    <task id="LOCAL-00111" summary="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)">
+      <created>1546195812346</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1546195812347</updated>
     </task>
     <task id="LOCAL-00112" summary="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)">
       <created>1546196186017</created>
@@ -1127,141 +1263,78 @@
       <option name="project" value="LOCAL" />
       <updated>1553094400898</updated>
     </task>
-    <task id="LOCAL-00147" summary="Broadcast Review (con testing su Broadcast Review Question)">
-      <created>1553106303551</created>
+    <task id="LOCAL-00147" summary="broadcast review">
+      <created>1553194473012</created>
       <option name="number" value="00147" />
       <option name="presentableId" value="LOCAL-00147" />
       <option name="project" value="LOCAL" />
-      <updated>1553106303552</updated>
+      <updated>1553194473015</updated>
     </task>
-    <task id="LOCAL-00148" summary="Fix Broadcast question route file">
-      <created>1553636761207</created>
+    <task id="LOCAL-00148" summary="[PANNELLO] Gestione recensioni delle prenotazioni&#10;[SERVER] Fix">
+      <created>1553792460601</created>
       <option name="number" value="00148" />
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
-      <updated>1553636761208</updated>
+      <updated>1553792460606</updated>
     </task>
-    <task id="LOCAL-00149" summary="Broadcast Review (nuovo model). Test di integrazione da fare">
-      <created>1553641290100</created>
+    <task id="LOCAL-00149" summary="Favicon &amp; Title">
+      <created>1553794644545</created>
       <option name="number" value="00149" />
       <option name="presentableId" value="LOCAL-00149" />
       <option name="project" value="LOCAL" />
-      <updated>1553641290100</updated>
+      <updated>1553794644545</updated>
     </task>
-    <task id="LOCAL-00150" summary="Include_past_events=true in user reservation list">
-      <created>1553719580584</created>
+    <task id="LOCAL-00150" summary="[API] SportEvent / inclusione eventi passati quando c'e' il parametro id_like o include_past_events">
+      <created>1553885825661</created>
       <option name="number" value="00150" />
       <option name="presentableId" value="LOCAL-00150" />
       <option name="project" value="LOCAL" />
-      <updated>1553719580585</updated>
+      <updated>1553885825662</updated>
     </task>
-    <task id="LOCAL-00151" summary="Fix admin/package.json">
-      <created>1553859668188</created>
+    <task id="LOCAL-00151" summary="..">
+      <created>1555341822426</created>
       <option name="number" value="00151" />
       <option name="presentableId" value="LOCAL-00151" />
       <option name="project" value="LOCAL" />
-      <updated>1553859668189</updated>
+      <updated>1555341822432</updated>
     </task>
-    <task id="LOCAL-00152" summary="Fix admin/package.json">
-      <created>1554464890509</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1554464890509</updated>
-    </task>
-    <task id="LOCAL-00153" summary="[SERVER] Notifiche su prenotazioni e richieste broadcast&#10;Quicker menu URL">
-      <created>1554810885339</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1554810885340</updated>
-    </task>
-    <task id="LOCAL-00154" summary="Fix nodemailer&#10;Eliminato provider Mediaset Premium e aggiunto DAZN Business">
-      <created>1554912894490</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1554912894491</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Fix nodemailer">
-      <created>1554914136602</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1554914136602</updated>
-    </task>
-    <task id="LOCAL-00156" summary="Fix mailto field in listeners">
-      <created>1555239853700</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1555239853701</updated>
-    </task>
-    <task id="LOCAL-00157" summary="graphql server setup">
-      <created>1555327565007</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1555327565008</updated>
-    </task>
-    <task id="LOCAL-00158" summary="graphql server setup">
-      <created>1555751052654</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1555751052654</updated>
-    </task>
-    <task id="LOCAL-00159" summary="graphql">
-      <created>1556131078205</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1556131078205</updated>
-    </task>
-    <task id="LOCAL-00160" summary="pointschema rimosso da activity.model">
-      <created>1556493230963</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1556493230964</updated>
-    </task>
-    <option name="localTasksCounter" value="161" />
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Spotin_Tests - 2019.03.20 at 17h 30m 49s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.27 at 18h 24m 16s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.20 at 17h 32m 16s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.27 at 18h 24m 29s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.20 at 17h 33m 03s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.27 at 18h 24m 40s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.20 at 17h 33m 17s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.27 at 18h 26m 06s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.26 at 23h 59m 28s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.27 at 18h 26m 12s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.27 at 00h 00m 01s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.28 at 17h 56m 02s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.27 at 00h 00m 04s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.28 at 17h 56m 24s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.27 at 00h 00m 20s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.28 at 17h 57m 16s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.27 at 00h 00m 43s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.28 at 17h 57m 27s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Spotin_Tests - 2019.03.27 at 00h 00m 51s.xml">
+    <history-entry file="Spotin_Tests - 2019.03.28 at 17h 58m 15s.xml">
       <configuration name="Spotin Tests" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1299433000" />
+    <option name="totallyTimeSpent" value="1306007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1273,28 +1346,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1316" extended-state="6" />
+    <frame x="0" y="27" width="1366" height="681" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26782197" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25055927" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.37917006" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.33197722" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.15370706" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.77396023" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4887751" weight="0.2839707" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47656557" visible="true" weight="0.34232026" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5234344" side_tool="true" visible="true" weight="0.34232026" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.054945055" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" weight="0.3882784" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51451975" side_tool="true" weight="0.41048825" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
-      <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49901536" weight="0.32872254" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1302,22 +1374,22 @@
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32962668" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2762472" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24199553" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" visible="true" weight="0.081374325" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" visible="true" weight="0.37974682" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.8028933" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.2188065" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.77396023" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.2567812" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" weight="0.30198914" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5130305" side_tool="true" weight="0.32368898" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.07414105" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" visible="true" weight="0.16274865" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51451975" side_tool="true" weight="0.41048825" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1332,16 +1404,6 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -1377,6 +1439,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <MESSAGE value="Broadcast Bundle" />
+    <MESSAGE value="[ADMIN] Gestione business hours locale" />
+    <MESSAGE value="ReactDom upgrate" />
+    <MESSAGE value="[ADMIN] Business hours" />
+    <MESSAGE value="Fix in businessDayInput" />
+    <MESSAGE value="[SERVER] Testing &#10;[PANNELLO] Broadcast Bundle form" />
+    <MESSAGE value="[SERVER] Fix su broadcast senza offerte" />
     <MESSAGE value="[ADMIN] Broadcast bundle" />
     <MESSAGE value="[ADMIN &amp; SERVER] Concluso broadcast bundle" />
     <MESSAGE value="[ADMIN] Broadcast bundle,selezione offerte" />
@@ -1390,19 +1459,12 @@
     <MESSAGE value="[API] Auth middlware ix" />
     <MESSAGE value="[react-router] conflitto tra versioni" />
     <MESSAGE value="Fix" />
-    <MESSAGE value="Broadcast Review (con testing su Broadcast Review Question)" />
-    <MESSAGE value="Fix Broadcast question route file" />
-    <MESSAGE value="Broadcast Review (nuovo model). Test di integrazione da fare" />
-    <MESSAGE value="Include_past_events=true in user reservation list" />
-    <MESSAGE value="Fix admin/package.json" />
-    <MESSAGE value="[SERVER] Notifiche su prenotazioni e richieste broadcast&#10;Quicker menu URL" />
-    <MESSAGE value="Fix nodemailer&#10;Eliminato provider Mediaset Premium e aggiunto DAZN Business" />
-    <MESSAGE value="Fix nodemailer" />
-    <MESSAGE value="Fix mailto field in listeners" />
-    <MESSAGE value="graphql server setup" />
-    <MESSAGE value="graphql" />
-    <MESSAGE value="pointschema rimosso da activity.model" />
-    <option name="LAST_COMMIT_MESSAGE" value="pointschema rimosso da activity.model" />
+    <MESSAGE value="broadcast review" />
+    <MESSAGE value="[PANNELLO] Gestione recensioni delle prenotazioni&#10;[SERVER] Fix" />
+    <MESSAGE value="Favicon &amp; Title" />
+    <MESSAGE value="[API] SportEvent / inclusione eventi passati quando c'e' il parametro id_like o include_past_events" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1469,336 +1531,351 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>res.body.review.rating</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/activity.route.js">
+    <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/broadcastreview.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/request.controller.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/middlewares/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/utils/nodemailer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/email/admin-reservation-notify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/email/admin-broadcast-request-notify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/contactRequest.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/listeners/send_admin_email_on_broadcast_request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-741" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/searchable.js" />
-    <entry file="file://$PROJECT_DIR$/src/api/listeners/subscriptions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="76" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        <state>
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastbundle.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/listeners/send_admin_email_on_reservation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="47" lean-forward="true" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="437" column="11" selection-start-line="437" selection-start-column="11" selection-end-line="437" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="103" column="22" selection-start-line="103" selection-end-line="104" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/image.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="3" selection-start-line="11" selection-start-column="1" selection-end-line="17" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/address.schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/activity.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/express.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/activity.validation.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/point.schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/request.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/broadcast.validation.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@vibrant/core/lib/builder.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@vibrant/color/lib/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/validations/auth.validation.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/activity.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5758">
-          <caret line="436" selection-start-line="436" selection-end-line="436" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/competitions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competitor.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/imageversion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        <state relative-caret-position="572">
+          <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="663">
+          <caret line="51" column="5" selection-start-line="60" selection-start-column="2" selection-end-line="69" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+        <state relative-caret-position="221">
+          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#159#209#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competitor.controller.js">
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcast.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        <state relative-caret-position="533">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/businesses.js">
+    <entry file="file://$PROJECT_DIR$/src/api/tests/admin/integration/business.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+        <state relative-caret-position="845">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/factories/broadcast.factory.js">
+    <entry file="file://$PROJECT_DIR$/src/api/tests/mocks/reviewMock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="182">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/factories/business.factory.js">
+    <entry file="file://$PROJECT_DIR$/src/api/validations/user.validation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="89" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="32" selection-end-column="89" />
+        <state relative-caret-position="128">
+          <caret line="95" column="2" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/node_modules/@material-ui/core/colors/orange.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="62" column="19" selection-start-line="60" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/RatingScore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2080">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#211#413#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/user.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="147" selection-start-line="147" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReservationShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ReviewTabContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ratingLabels.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastRequests/BroadcastRequestShow.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/RejectReviewButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#21#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/unit/broadcastreview.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/providers/dataProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/reservation.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/broadcastreview.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ApproveReviewButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#21#57#0" expanded="true" />
+            <element signature="e#333#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1430">
+          <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="114" column="29" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/providers/restClientProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="113" column="29" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/public/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="26" column="32" selection-start-line="26" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/broadcastreview.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1612">
+          <caret line="124" column="41" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcastreview.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="258" column="26" selection-start-line="258" selection-start-column="26" selection-end-line="258" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessDayInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#2#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
         </state>
       </provider>
     </entry>

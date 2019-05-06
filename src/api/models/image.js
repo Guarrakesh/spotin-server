@@ -5,7 +5,7 @@ const imageVersionSchema = new mongoose.Schema({
   url: String,
   width: Number,
   height: Number
-}, {_id: false });
+}, {_id: false, strict: false});
 
 
 const imageSchema = new mongoose.Schema({

@@ -234,12 +234,13 @@ businessSchema.methods = {
     const ext = mime.extension(file.mimetype);
     try {
 
-      //Cancello prima tutta la cartella
-      await amazon.emptyDir(`images/businesses/${this._id.toString()}/`);
+
+      await amazon.deleteObject(`${this.s3Path()}/cover.jpeg`)
+      //await amazon.emptyDir(`images/businesses/${this._id.toString()}/`);
       const data = await amazon.uploadImage(file.buffer, `images/businesses/${this._id.toString()}/cover.${ext}`);
       const {width, height} = await sizeOf(file.buffer);
       //Image_versions non viene pushato perché quando cambia l'immagine, quella precedente deve venire cancellata
-      this.cover_versions = [{url: data.Location, width, height}];
+      this.cover_versions = [{url: data.Location, width, height, ext}];
 
 
       const basePath = `${s3WebsiteEndpoint}/${this.s3Path()}`;
