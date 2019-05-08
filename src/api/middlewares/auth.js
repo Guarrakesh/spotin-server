@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 const passport = require('passport');
 const User = require('../models/user.model');
 const APIError = require('../utils/APIError');
-
+const promisify = require('util').promisify;
 const ADMIN = 'admin';
 const APP_USER = 'user';
 const BUSINESS = 'business';
@@ -20,7 +20,7 @@ const BUSINESS = 'business';
 const handleJWT = (req, res, next, roles, ownerCallback, userRequired = true) => async (err, user, info) => {
 
   const error = err || info;
-  const logIn = Promise.promisify(req.logIn);
+  const logIn = promisify(req.logIn);
   const apiError = new APIError({
     message: error ? error.message : 'Unauthorized',
     status: httpStatus.UNAUTHORIZED,
