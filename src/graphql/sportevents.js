@@ -1,10 +1,11 @@
 const { SportEvent } = require('../api/models/sportevent.model');
-
+const { getBroadcastByEventAndLocation } = require('./broadcasts');
+const { fromCursorHash, toCursorHash } = require('./utils');
 exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
-    getSportEvent(id: ID!): SportEvent
+    getSportEventWithBroadcasts(id: ID!, location: LocationInput): SportEvent!
   }
   type NestedCompetition {
     id: String!
@@ -28,7 +29,9 @@ exports.SportEvent = `
     description: String
     start_at: String!
     providers: [String]!
+    broadcastFeed(cursor: String, location: LocationInput): BroadcastFeed
   }
+  
 
 `;
 
@@ -45,7 +48,7 @@ exports.sportEventResolvers = {
 
       return SportEvent.find(options).limit(args.limit || 10).sort({start_at: 1})
     },
-    async getSportEvent(obj, args) {
+    async getSportEventWithBroadcasts(obj, args) {
       return SportEvent.findById(args.id);
     }
   },
@@ -54,6 +57,32 @@ exports.sportEventResolvers = {
     sport: async parent => await parent.getSport(),
     competition: async parent => await parent.getCompetition(),
     competitors: async parent => await parent.getCompetitors(),
+
+    broadcastFeed: async (sportEvent, { cursor, location, limit = 2}) => {
+
+      const cursorOptions = {
+            _field: 'distanceFromUser',
+            _cursor: cursor ? parseFloat(fromCursorHash(cursor)) : 0,
+            _limit: limit + 1,
+            _order: 1,
+          };
+
+      const broadcasts = await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions);
+      // Controllo se ci sono altri edge
+      const hasNextPage = broadcasts.length > limit;
+      const edges = hasNextPage ? broadcasts.slice(0, -1) : broadcasts;
+      return  {
+        edges,
+        pageInfo: {
+          hasNextPage,
+          endCursor: edges.length === limit
+              ? toCursorHash(edges[edges.length - 1].distanceFromUser.toString())
+              : cursor,
+        }
+
+      };
+
+    }
 
   },
   NestedCompetition: {
