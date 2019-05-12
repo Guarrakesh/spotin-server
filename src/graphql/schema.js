@@ -31,13 +31,13 @@ const types = `
     hasNextPage: Boolean!
   
     # When paginating backwards, are there more items?
-    hasPreviousPage: Boolean!
+    hasPreviousPage: Boolean
   
     # When paginating backwards, the cursor to continue.
     startCursor: String
   
     # When paginating forwards, the cursor to continue.
-    endCursor: String
+    endCursor: String!
   }
 
   union Searchable = SportEvent | Competition
@@ -53,6 +53,7 @@ const types = `
   input SearchInput {
     name: String!
     entityLimit: Int
+    onlyEvents: Boolean
   }
   
  
@@ -69,13 +70,14 @@ const searchResolvers = {
       };
 
       const results = [
-        ...(await competitionResolvers.Query.getCompetitions(parent, searchArgs, c, i)),
-        ...(await sportEventResolvers.Query.getSportEvents(parent, { 
+          ...(await sportEventResolvers.Query.getSportEvents(parent, {
           ...searchArgs,
           inTheFuture: true,
         }, c, i)),
       ];
-
+      if (!args.onlyEvents) {
+        results.push(...(await competitionResolvers.Query.getCompetitions(parent, searchArgs, c, i)));
+      }
       return results;
     },
   },
