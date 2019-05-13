@@ -41,7 +41,7 @@ exports.SportEvent = `
     cursor: String!
     node: Broadcast!
   }
-
+  
 `;
 
 exports.sportEventResolvers = {
@@ -81,7 +81,7 @@ exports.sportEventResolvers = {
       const hasNextPage = broadcasts.length > limit;
       const nodes = hasNextPage ? broadcasts.slice(0, -1) : broadcasts;
       return  {
-        edges: nodes.map(e => ({ node: e, cursor: e.distanceFromUser })),
+        edges: nodes.map(e => ({ node: e, cursor: toCursorHash(e.distanceFromUser.toString())})),
         pageInfo: {
           hasNextPage,
           endCursor: nodes.length === limit
