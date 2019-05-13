@@ -28,7 +28,7 @@ const types = `
   # Information about pagination in a connection.
   type PageInfo {
     # When paginating forwards, are there more items?
-    hasNextPage: Boolean!
+    hasNextPage: Boolean
   
     # When paginating backwards, are there more items?
     hasPreviousPage: Boolean
@@ -37,7 +37,7 @@ const types = `
     startCursor: String
   
     # When paginating forwards, the cursor to continue.
-    endCursor: String!
+    endCursor: String
   }
 
   union Searchable = SportEvent | Competition

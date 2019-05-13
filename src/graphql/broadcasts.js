@@ -26,10 +26,8 @@ exports.Broadcast = `
     distanceFromUser: Float!
     
   }
-  type BroadcastFeed {
-    pageInfo: PageInfo
-    edges: [Broadcast!]!
-  } 
+  
+  
   
 `;
 

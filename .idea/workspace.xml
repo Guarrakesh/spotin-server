@@ -4,8 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/api/tests/unit/broadcastreview.test.js" line="45" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="..">
-      <change afterPath="$PROJECT_DIR$/src/graphql/utils.js" afterDir="false" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="SportEvent broadcast pagination">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphql/broadcasts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/broadcasts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphql/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/schema.js" afterDir="false" />
@@ -43,8 +42,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
-                  <caret line="76" column="22" lean-forward="true" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+                <state relative-caret-position="76">
+                  <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -79,7 +78,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="556">
+                <state relative-caret-position="1065">
                   <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
                 </state>
               </provider>
@@ -128,7 +127,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/graphql/businesses.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="676">
+                <state relative-caret-position="1095">
                   <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
                 </state>
               </provider>
@@ -152,11 +151,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="536">
-                  <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+                <state relative-caret-position="510">
+                  <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="585">
+                  <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -164,7 +172,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="676">
+                <state relative-caret-position="1470">
                   <caret line="98" selection-start-line="98" selection-end-line="98" />
                 </state>
               </provider>
@@ -328,9 +336,9 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/graphql/utils.js" />
-        <option value="$PROJECT_DIR$/src/graphql/schema.js" />
         <option value="$PROJECT_DIR$/src/graphql/broadcasts.js" />
         <option value="$PROJECT_DIR$/src/graphql/sportevents.js" />
+        <option value="$PROJECT_DIR$/src/graphql/schema.js" />
       </list>
     </option>
   </component>
@@ -340,10 +348,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="2560" />
-    <option name="height" value="1324" />
+    <option name="height" value="1318" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="2" />
@@ -353,7 +361,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -392,6 +399,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -850,14 +858,10 @@
       <workItem from="1557432830664" duration="235000" />
       <workItem from="1557490162069" duration="4563000" />
       <workItem from="1557580656300" duration="994000" />
-      <workItem from="1557694581694" duration="6379000" />
-    </task>
-    <task id="LOCAL-00104" summary="---">
-      <created>1543411068880</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1543411068881</updated>
+      <workItem from="1557694581694" duration="6407000" />
+      <workItem from="1557736529840" duration="40000" />
+      <workItem from="1557743643093" duration="2748000" />
+      <workItem from="1557748668944" duration="271000" />
     </task>
     <task id="LOCAL-00105" summary="Reservation model">
       <created>1543564482563</created>
@@ -1195,7 +1199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557353955630</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="SportEvent broadcast pagination">
+      <created>1557701144720</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1557701144721</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1231,7 +1242,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1326842000" />
+    <option name="totallyTimeSpent" value="1329929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1243,10 +1254,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1326" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26742813" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26742813" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
@@ -1260,8 +1271,8 @@
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.054945055" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4824734" visible="true" weight="0.3887987" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51752657" side_tool="true" visible="true" weight="0.3887987" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.48129186" visible="true" weight="0.38816854" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51870817" side_tool="true" visible="true" weight="0.38816854" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1336,7 +1347,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="Broadcast Bundle" />
     <MESSAGE value="[ADMIN] Gestione business hours locale" />
     <MESSAGE value="ReactDom upgrate" />
     <MESSAGE value="[ADMIN] Business hours" />
@@ -1361,7 +1371,8 @@
     <MESSAGE value="Favicon &amp; Title" />
     <MESSAGE value="[API] SportEvent / inclusione eventi passati quando c'e' il parametro id_like o include_past_events" />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="SportEvent broadcast pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="SportEvent broadcast pagination" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1656,6 +1667,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphql/competitions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1667,6 +1695,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1755">
           <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/competitor.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1691,6 +1733,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/businesses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/factories/broadcast.factory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1702,6 +1751,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
@@ -1719,69 +1775,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/businesses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competition.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competitor.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="76">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+        <state relative-caret-position="510">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
+    <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="76" column="22" lean-forward="true" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+        <state relative-caret-position="585">
+          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
