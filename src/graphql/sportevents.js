@@ -20,6 +20,7 @@ exports.SportEvent = `
     image_versions: [ImageVersion]
    color: String
   }
+  
   type SportEvent {
     id: ID!
     name: String
@@ -29,9 +30,17 @@ exports.SportEvent = `
     description: String
     start_at: String!
     providers: [String]!
-    broadcastFeed(cursor: String, location: LocationInput): BroadcastFeed
+    broadcasts(cursor: String, location: LocationInput): SportEventBroadcastsConnection
   }
-  
+  type SportEventBroadcastsConnection {
+    pageInfo: PageInfo!
+    edges: [SportEventBroadcastsEdge!]!
+    
+  }
+  type SportEventBroadcastsEdge {
+    cursor: String!
+    node: Broadcast!
+  }
 
 `;
 
@@ -58,7 +67,7 @@ exports.sportEventResolvers = {
     competition: async parent => await parent.getCompetition(),
     competitors: async parent => await parent.getCompetitors(),
 
-    broadcastFeed: async (sportEvent, { cursor, location, limit = 2}) => {
+    broadcasts: async (sportEvent, { cursor, location, limit = 10}) => {
 
       const cursorOptions = {
             _field: 'distanceFromUser',
@@ -70,13 +79,13 @@ exports.sportEventResolvers = {
       const broadcasts = await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions);
       // Controllo se ci sono altri edge
       const hasNextPage = broadcasts.length > limit;
-      const edges = hasNextPage ? broadcasts.slice(0, -1) : broadcasts;
+      const nodes = hasNextPage ? broadcasts.slice(0, -1) : broadcasts;
       return  {
-        edges,
+        edges: nodes.map(e => ({ node: e, cursor: e.distanceFromUser })),
         pageInfo: {
           hasNextPage,
-          endCursor: edges.length === limit
-              ? toCursorHash(edges[edges.length - 1].distanceFromUser.toString())
+          endCursor: nodes.length === limit
+              ? toCursorHash(nodes[nodes.length - 1].distanceFromUser.toString())
               : cursor,
         }
 
