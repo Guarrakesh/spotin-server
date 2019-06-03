@@ -5,7 +5,7 @@ exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
-    getSportEventWithBroadcasts(id: ID!, location: LocationInput): SportEvent!
+    getSportEventWithBroadcasts(id: ID!, location: LocationInput): SportEvent
   }
   type NestedCompetition {
     id: String!

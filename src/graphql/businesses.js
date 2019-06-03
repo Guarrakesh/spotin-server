@@ -1,10 +1,12 @@
 const { Business } = require('../api/models/business.model');
 
+const { verifyRecaptchaV3 } = require('../api/utils/google');
 exports.Business = `
   extend type Query {
     getBusinesses: [Business]
     getRandomBusinesses(count: Int): [Business]
   }
+  
   type Point {
     type: String
     latitude: String
@@ -45,8 +47,9 @@ exports.Business = `
     quickerMenuURL: String
     type: [String]
     fullAddress: String
-    
   }
+  
+
 `;
 
 
@@ -61,6 +64,7 @@ exports.businessResolvers = {
       ])
     }
   },
+
   Business: {
     business_hours: parent => {
       if (!parent.business_hours) return [];

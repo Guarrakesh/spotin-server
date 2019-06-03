@@ -438,3 +438,4 @@ businessSchema.plugin(mongoosePaginate);
 exports.Business = mongoose.model('Business', businessSchema, "businesses");
 exports.businessSchema = businessSchema;
 exports.imageSizes = imageSizes;
+exports.businessTypes = types;
