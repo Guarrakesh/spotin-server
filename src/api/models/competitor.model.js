@@ -113,7 +113,7 @@ competitorSchema.method({
       imageSizes.forEach(({width, height}) => {
 
         this.image_versions.push({
-          url: `${basePath}/${width}x${height}/${this.slug}.${ext}`,
+          url: `${basePath}/${width}x${height}/${slug}.${ext}`,
           width: width,
           height: height
         });
