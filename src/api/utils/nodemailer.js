@@ -7,7 +7,7 @@ const {  mailerEmailID, mailerPassword, mailerPort, mailerHost, mailerSecure } =
 const smtpTransport = nodemailer.createTransport({
   port: mailerPort,
   host: mailerHost,
-  secure: mailerSecure,
+  secure: true,
   auth: { user: mailerEmailID, pass: mailerPassword }
 });
 
