@@ -29,7 +29,7 @@ module.exports = {
   mailerPassword: "Nana2018",
   mailerPort: 465,
   mailerHost: "smtps.aruba.it",
-  mailerSecure: true,
+  //mailerSecure: true,
 
   email: {
     noreplyMail: 'noreply@spotin.it',
