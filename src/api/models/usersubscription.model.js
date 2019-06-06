@@ -7,10 +7,10 @@ const subscriptionSchema = new mongoose.Schema({
     trim: true,
 
   },
-  businessType: {
+  businessType: [{
     type: String,
     enum: businessTypes
-  }
+  }],
 
 
 }, { timestamps: true });

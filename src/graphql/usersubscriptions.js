@@ -8,12 +8,12 @@ exports.UserSubscription = `
   
   input UserSubscribeInput {
     email: String!
-    businessType: String
+    businessType: [String]
     recaptchaToken: String!
   }
   type UserSubscription {
     email: String!
-    businessType: String
+    businessType: [String]
     createdAt: String
   }
   type SubscriptionResponse {
@@ -39,12 +39,15 @@ exports.userSubscriptionResolvers = {
       const response = await verifyRecaptchaV3(recaptchaToken);
 
       if (response.data.success && response.data.score > 0.2) {
-        // if ((await UserSubscription.findOne({ email }))) {
-        //   return {
-        //     ok: false,
-        //     errorCode: 10 // email già esistente
-        //   }
-        // }
+        const options = businessType
+            ? { email, "businessType.0": { $exists: true }}
+            : { email };
+        if ((await UserSubscription.findOne(options))) {
+          return {
+            ok: false,
+            errorCode: 10 // email già esistente
+          }
+        }
         const subscription = new UserSubscription({
           email, businessType
         });
@@ -52,7 +55,7 @@ exports.userSubscriptionResolvers = {
         // send email
         const data = {
           to: subscription.email,
-          from: noreplyMail,
+          from: infoMail,
           replyTo: infoMail,
           inReplyTo: "Spot In",
           template: businessType ? 'business-subscription' : 'user-subscription',
