@@ -196,7 +196,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <TextInput label="URL Quicker Menu" source="quickerMenuURL"/>
 
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
-
+            <BooleanInput source="isRecommended" label="Consigliato"/>
 
 
           </FormTab>
