@@ -113,6 +113,7 @@ const businessSchema = new mongoose.Schema({
     ref: 'User'
   },
   offers: [offerSchema],
+  isRecommended: Boolean,
 
   quickerMenuURL: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });

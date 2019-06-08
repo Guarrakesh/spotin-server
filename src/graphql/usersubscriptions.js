@@ -59,7 +59,7 @@ exports.userSubscriptionResolvers = {
           replyTo: infoMail,
           inReplyTo: "Spot In",
           template: businessType ? 'business-subscription' : 'user-subscription',
-          subject: "Benvenuto fra noi | Spot In",
+          subject: "Benvenuto tra noi | Spot In",
           context: {
             subscription,
           }

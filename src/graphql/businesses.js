@@ -4,7 +4,7 @@ const { verifyRecaptchaV3 } = require('../api/utils/google');
 exports.Business = `
   extend type Query {
     getBusinesses: [Business]
-    getRandomBusinesses(count: Int): [Business]
+    getRecommendedBusinesses(count: Int): [Business]
   }
   
   type Point {
@@ -58,10 +58,8 @@ exports.businessResolvers = {
     async getBusinesses(obj, args, context, info) {
       return await Business.find({...args});
     },
-    async getRandomBusinesses(_, args) {
-      return await Business.aggregate([
-        { $sample: { size: args.count || 5 }}
-      ])
+    async getRecommendedBusinesses(_, args = {}) {
+      return await Business.find({ isRecommended: true}).limit(args.count || 6).exec();
     }
   },
 
