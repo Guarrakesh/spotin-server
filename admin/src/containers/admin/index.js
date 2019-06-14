@@ -1,7 +1,8 @@
 import React from 'react';
-import {Admin as AdminBase, Resource} from 'react-admin';
+import {Admin as AdminBase, Resource, ListGuesser, ShowGuesser, EditGuesser} from 'react-admin';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
+import SettingCreate from "./resources/settings/SettingCreate";
 
 import { UserList, UserEdit, UserCreate } from './resources/users';
 import { SportList, SportEdit, SportCreate } from './resources/sports';
@@ -39,9 +40,14 @@ const AdminRoutes = [
             show={BroadcastRequestShow}/>,
 
   <Resource name="broadcastbundles" options={{label:"Bundles"}} list={BroadcastBundleList} edit={BroadcastBundleEdit}
-  create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
-
-
+            create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
+  <Resource
+      name="settings"
+      options={{ label: "Impostazioni"}}
+      list={ListGuesser}
+      create={SettingCreate}
+      show={ShowGuesser}
+      edit={EditGuesser}/>
 ];
 
 const messages = {
