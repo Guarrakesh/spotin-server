@@ -40,8 +40,8 @@ exports.userSubscriptionResolvers = {
 
       if (response.data.success && response.data.score > 0.2) {
         const options = businessType
-            ? { email, "businessType.0": { $exists: true }}
-            : { email };
+            ? { email: email.toLowerCase(), "businessType.0": { $exists: true }}
+            : { email: email.toLowerCase() };
         if ((await UserSubscription.findOne(options))) {
           return {
             ok: false,
@@ -49,7 +49,7 @@ exports.userSubscriptionResolvers = {
           }
         }
         const subscription = new UserSubscription({
-          email, businessType
+          email: email.toLowerCase(), businessType
         });
         await subscription.save();
         // send email

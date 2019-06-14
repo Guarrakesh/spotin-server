@@ -25,8 +25,8 @@ module.exports = {
   s3Region: process.env.AWS_S3_REGION,
 
   //Mailer
-  mailerEmailID: "info@spotin.it",
-  mailerPassword: "Nana2018",
+  mailerEmailID: process.env.EMAIL_ID,
+  mailerPassword: process.env.EMAIL_PASS,
   mailerPort: 465,
   mailerHost: "smtps.aruba.it",
   //mailerSecure: true,
