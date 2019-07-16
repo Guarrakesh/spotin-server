@@ -13,7 +13,7 @@ import {
   UPDATE,
   DeleteButton,
   ReferenceFieldController,
-    Link,
+  Link,
   // ReferenceInputController,
 } from 'react-admin';
 
@@ -24,7 +24,7 @@ import { Typography,
   Button,
   Select,
   MenuItem,
-    Icon,
+  Icon,
   IconButton,
 } from "@material-ui/core";
 import DateTimeField from '../../components/DateTimeField';
@@ -42,6 +42,7 @@ const BroadcastBundleShowView
     = ({ record, onChangeBroadcasts}) => {
 
   const [ broadcasts, setBroadcasts ] = useState(record.broadcasts);
+
 
   const handleOfferChange = (broadcast, offer) => {
     const newBroadcasts = broadcasts.map(b =>
@@ -71,7 +72,9 @@ const BroadcastBundleShowView
           <TableHead>
             <TableRow>
               {record && !record.published_at && <TableCell>#</TableCell>}
-              <TableCell>Broadcast</TableCell>
+              <TableCell>Evento</TableCell>
+              <TableCell>Sport</TableCell>
+              <TableCell>Competizione</TableCell>
               <TableCell>Offerta</TableCell>
             </TableRow>
           </TableHead>
@@ -98,6 +101,30 @@ const BroadcastBundleShowView
                     </Link>
                   </TableCell>
                   <TableCell>
+                    {broadcast.event.sport &&
+                    <Link to={`/sports/${broadcast.event.sport}`}>
+                      <Typography variant="body2">
+                      <ReferenceFieldController basePath="sports" reference="sports"
+                                                record={broadcast.event} source="sport" resource="sports">
+                        {({referenceRecord}) => (referenceRecord && referenceRecord.name)}
+                      </ReferenceFieldController>
+                      </Typography>
+                    </Link>
+                    }
+                  </TableCell>
+                  <TableCell>
+                    {broadcast.event.competition &&
+                    <Link to={`/competitions/${broadcast.event.competition}`}>
+                      <Typography variant="body2">
+                        <ReferenceFieldController basePath="competitions" reference="competitions"
+                                                  record={broadcast.event} source="competition" resource="competitions">
+                          {({referenceRecord}) => (referenceRecord && referenceRecord.name)}
+                        </ReferenceFieldController>
+                      </Typography>
+                    </Link>
+                    }
+                  </TableCell>
+                  <TableCell>
                     <Typography variant="caption">
                       {record.published
                           ? <ReferenceFieldController basePath="broadcasts"
@@ -115,15 +142,22 @@ const BroadcastBundleShowView
                                                       source="_id">
                             {({referenceRecord}) => {
 
+
                               if (!broadcasts || !referenceRecord || !referenceRecord.offers) return null;
-                              const selectedOffer = referenceRecord.offers.find(o => broadcast.offer && o._id === broadcast.offer._id);
-                              console.log(selectedOffer, referenceRecord.offers);
+                              const selectedOffer = referenceRecord.offers.find(o => broadcast.offer && o._id === broadcast.offer._id)
+                                  || referenceRecord.offers.find(o => o.isDefault) || undefined;
+
+                              referenceRecord.offers.forEach((o) => {
+                                if (o.isDefault && !broadcast.offer) {
+                                  handleOfferChange(broadcast, o);
+                                }
+                              });
                               return referenceRecord && referenceRecord.offers ? (
                                   <Select
                                       fullWidth
                                       inputProps={{ id: 'select-offer'}}
                                       onChange={(e) => handleOfferChange(broadcast, e.target.value)}
-                                      value={selectedOffer || undefined}>
+                                      value={selectedOffer}>
                                     {referenceRecord.offers.map((offer, index) => (
                                             <MenuItem key={index} value={offer}>
                                               {offer.type === 0 ? offer.title : `-${offer.value}%`}

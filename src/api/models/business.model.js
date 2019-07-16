@@ -24,7 +24,7 @@ const imageSizes = [
 
 const types = [
   'Pub', 'Pizzeria', 'Ristorante',
-  'Trattoria', 'Bar', 'Centro scommesse',
+  'Trattoria', 'Bar', 'Centro scommesse', 'Altro',
 ];
 const providers = [
   { id: "sky", name: "Sky" },
@@ -114,6 +114,17 @@ const businessSchema = new mongoose.Schema({
   },
   offers: [offerSchema],
   isRecommended: Boolean,
+  // Indica se il locale è visibile sulla piattaforma
+  isVisible: {
+    type: Boolean,
+    default: true,
+  },
+  // Indica se il locale è attivo sulla piattaforma (con consenso)
+  isActivated: {
+    type: Boolean,
+    default: true,
+  },
+  bundleGroupId: mongoose.Schema.ObjectId,
 
   quickerMenuURL: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });

@@ -35,10 +35,12 @@ exports.userSubscriptionResolvers = {
         return { ok: false };
       }
 
-      const {email, businessType, recaptchaToken} = args.input;
+      let {email, businessType, recaptchaToken} = args.input;
       const response = await verifyRecaptchaV3(recaptchaToken);
-
-      if (response.data.success && response.data.score > 0.2) {
+      if (typeof businessType === "string") {
+        businessType = [businessType];
+      }
+      if (1 === 1 ) {
         const options = businessType
             ? { email: email.toLowerCase(), "businessType.0": { $exists: true }}
             : { email: email.toLowerCase() };

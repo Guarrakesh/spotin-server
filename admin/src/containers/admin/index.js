@@ -11,6 +11,7 @@ import { BusinessList, BusinessEdit, BusinessCreate } from './resources/business
 import { EventList, EventEdit, EventCreate } from './resources/events';
 import { CompetitorList, CompetitorEdit, CompetitorCreate } from './resources/competitors';
 import { BroadcastList, BroadcastCreate, BroadcastEdit } from './resources/broadcasts/broadcasts';
+
 import {ReservationList, ReservationShow} from './resources/reservations';
 import { BroadcastRequestList, BroadcastRequestShow } from './resources/broadcastRequests';
 import { BroadcastBundleList, BroadcastBundleCreate, BroadcastBundleShow, BroadcastBundleEdit } from "./resources/broadcastBundle";
@@ -45,6 +46,7 @@ const AdminRoutes = [
       name="settings"
       options={{ label: "Impostazioni"}}
       list={ListGuesser}
+
       create={SettingCreate}
       show={ShowGuesser}
       edit={EditGuesser}/>
