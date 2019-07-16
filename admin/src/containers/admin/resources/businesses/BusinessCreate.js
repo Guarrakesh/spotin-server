@@ -104,8 +104,8 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
             <TextInput label="URL Quicker Menu" source="quickerMenuURL"/>
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
             <BooleanInput source="isRecommended" label="Consigliato"/>
-
-
+            <BooleanInput source="isVisible" label="Visible sulla piattaforma"/>
+            <BooleanInput source="isActivated" label="Locale attivato"/>
 
           </FormTab>
 

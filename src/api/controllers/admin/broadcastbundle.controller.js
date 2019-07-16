@@ -25,7 +25,7 @@ exports.list = async (req, res, next) => {
   try {
 
     const filterQuery = omit(req.query, ['_end', '_sort', '_order', '_start']);
-    const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
+    const {_end = 10, _start = 0, _order = -1, _sort = "_id" } = req.query;
 
     broadcasts = await BroadcastBundle.paginate(filterQuery, {
       sort: {[_sort]: _order},

@@ -178,6 +178,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
                 <LongTextInput
                     source="description" label="Descrizione offerta"/>
                 <NumberInput source="value" label="Valore offerta"/>
+                <BooleanInput source="isDefault" label="Offerta di default"/>
 
               </SimpleFormIterator>
             </ArrayInput>
@@ -197,7 +198,8 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
 
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
             <BooleanInput source="isRecommended" label="Consigliato"/>
-
+            <BooleanInput source="isVisible" label="Visible sulla piattaforma"/>
+            <BooleanInput source="isActivated" label="Locale attivato"/>
 
           </FormTab>
           <FormTab label="Immagini">

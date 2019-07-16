@@ -1,16 +1,21 @@
 /* eslint-disable */
 import { createMuiTheme } from '@material-ui/core/styles';
 
-import green from '@material-ui/core/colors/green';
+import indigo from '@material-ui/core/colors/indigo';
+import teal from '@material-ui/core/colors/teal';
+
 import deepPurple from '@material-ui/core/colors/deepPurple';
 
 const spotinTheme = createMuiTheme({
   palette: {
+    primary: {
+      main: teal['A700'],
+      contrastText: '#fff',
+    },
     secondary: {
-      main: green['A400'],
+      main: indigo['A400'],
       contrastText: '#fafafa'
     },
-    primary: deepPurple,
 
   }
 });
