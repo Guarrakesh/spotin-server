@@ -9,14 +9,25 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 const spotinTheme = createMuiTheme({
   palette: {
     primary: {
-      main: teal['A700'],
+      main: indigo['A400'],
       contrastText: '#fff',
     },
     secondary: {
-      main: indigo['A400'],
+      main: teal['A700'],
       contrastText: '#fafafa'
     },
-
+  },
+  overrides: {
+    MuiAppBar: {
+     colorSecondary: {
+       backgroundColor: indigo['A400'],
+     }
+    },
+    MuiButton: {
+      raisedPrimary: {
+        backgroundColor: teal['A700']
+      }
+    }
   }
 });
 
