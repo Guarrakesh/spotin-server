@@ -30,7 +30,7 @@ module.exports = {
       seats: Joi.number(),
       providers: Joi.alternatives([Joi.array().items(Joi.string()), Joi.string()]).required(),
       businessHours: businessHoursValidationSchema,
-      vat: Joi.number().required(),
+      vat: Joi.number(),
       tradeName: Joi.string()
     }
   },
