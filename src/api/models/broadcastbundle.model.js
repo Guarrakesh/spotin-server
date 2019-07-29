@@ -17,11 +17,9 @@ const broadcastBundleSchema = mongoose.Schema({
     new mongoose.Schema({
       _id: { type: mongoose.Schema.ObjectId, ref: "Broadcast"},
       event: new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, ref: "SportEvent" },
         name: String,
         start_at: Date,
-
-      }, { _id: false, strict: false }),
+      }, { strict: false }),
       offer: offerSchema,
       is_replaced: Boolean, // Se il locale l'ha rimpiazzato con un'altro evento
       is_user_addedd: Boolean, // Se è stato aggiunta manualmente dall'utente
@@ -59,7 +57,7 @@ broadcastBundleSchema.methods = {
           }
 
           const newBroadcast = new Broadcast({
-            event: broadcast.event._id,
+            event: broadcast.event.eventId,
             business: this.business._id,
             offer: broadcast.offer,
             bundle: this._id,
@@ -88,11 +86,10 @@ broadcastBundleSchema.statics = {
       business: { _id: business._id, name: business.name },
     });
 
-
     const etbs = this.distributeEvents(events);
     broadcastBundle.broadcasts = etbs.map(etb => ({
           event: {
-            _id: etb._id,
+            eventId: etb._id,
             name: etb.name,
             start_at: etb.start_at,
             competition: etb.competition._id,
