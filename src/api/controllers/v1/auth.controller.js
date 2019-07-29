@@ -98,6 +98,7 @@ exports.forgotPassword = async (req, res, next) => {
     const user = await User.findOne({email: req.body.email, role: LOGGED_USER});
     if (!user) return next(new ApiError({status: 404, message: "User not found."}));
 
+
     user.passwordResetToken = await user.resetToken();
     await user.save();
 
