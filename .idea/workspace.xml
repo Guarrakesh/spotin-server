@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="NewServerProxy, first steps&#10;BusinessController in V1: get only visible businesses">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-exported-files.xml" afterDir="false" />
+    <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Catching the bug....">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,23 +38,15 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="185">
+                <state relative-caret-position="464">
                   <caret line="316" column="99" lean-forward="true" selection-start-line="316" selection-start-column="99" selection-end-line="316" selection-end-column="99" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/theme.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="34" selection-start-line="34" selection-end-line="34" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                    <element signature="e#21#79#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
+            <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -70,8 +61,26 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="499">
-                  <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+                <state relative-caret-position="78">
+                  <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/types/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/types/objectid.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
                 </state>
               </provider>
             </entry>
@@ -79,20 +88,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/broadcastbundle.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="571">
-                  <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+                <state relative-caret-position="321">
+                  <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Procfile">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/package.json">
-              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -197,8 +196,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/.env">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+                <state relative-caret-position="45">
+                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
                 </state>
               </provider>
             </entry>
@@ -234,7 +233,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rev</find>
       <find>push</find>
       <find>broadcasts</find>
       <find>axios</find>
@@ -264,6 +262,7 @@
       <find>response.data</find>
       <find>ObjectId</find>
       <find>even</find>
+      <find>competition</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -355,7 +354,6 @@
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessCreate.js" />
         <option value="$PROJECT_DIR$/src/api/models/offer.schema.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/businesses/BusinessEdit.js" />
-        <option value="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleShow.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/theme.js" />
@@ -364,6 +362,7 @@
         <option value="$PROJECT_DIR$/src/api/validations/business.validation.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/business.controller.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js" />
       </list>
     </option>
@@ -375,10 +374,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="95" />
     <option name="y" value="23" />
-    <option name="width" value="2425" />
-    <option name="height" value="1323" />
+    <option name="width" value="2490" />
+    <option name="height" value="1336" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -517,7 +515,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.New Server Proxy">
+  <component name="RunManager" selected="Node.js.SpotInServer">
     <configuration name="Password Reset Template" type="JavascriptDebugType" uri="http://localhost:63343/chrome-extension/index.html">
       <method v="2" />
     </configuration>
@@ -536,7 +534,7 @@
     <configuration name="user-subscription.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/spotin-server/src/email/user-subscription.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="SpotInServer" type="NodeJSConfigurationType" node-parameters="/usr/bin/nodemon" path-to-js-file="src/index.js" working-dir="$PROJECT_DIR$">
+    <configuration name="SpotInServer" type="NodeJSConfigurationType" node-parameters="/usr/local/bin/nodemon" path-to-js-file="src/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="business.controller.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" working-dir="$PROJECT_DIR$">
@@ -1020,21 +1018,7 @@
       <workItem from="1564235834121" duration="4000" />
       <workItem from="1564252054731" duration="455000" />
       <workItem from="1564332337598" duration="1432000" />
-      <workItem from="1564406310832" duration="2866000" />
-    </task>
-    <task id="LOCAL-00114" summary="[SERVER]&#10;Gestione upload di immagini locale (per ora senza limite)&#10;[ADMIN]&#10;Upload immagini locale (limite 5 immagini)">
-      <created>1546960028955</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1546960028955</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Fix Babel">
-      <created>1547468632718</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1547468632718</updated>
+      <workItem from="1564406310832" duration="5403000" />
     </task>
     <task id="LOCAL-00116" summary="Fix Babel">
       <created>1547469460631</created>
@@ -1365,7 +1349,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563815275867</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Catching the bug....">
+      <created>1564419078427</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1564419078428</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Catching the bug....">
+      <created>1564420296821</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1564420296821</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1401,7 +1399,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1426793000" />
+    <option name="totallyTimeSpent" value="1429330000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1413,10 +1411,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="95" y="23" width="2425" height="1323" extended-state="0" />
+    <frame x="0" y="23" width="2490" height="1336" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17678869" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17213447" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
@@ -1424,14 +1422,14 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47798237" weight="0.2815297" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.47918335" weight="0.27746135" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4783313" visible="true" weight="0.27411574" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49484536" weight="0.3303499" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.45424291" visible="true" weight="0.30381805" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.54575706" side_tool="true" visible="true" weight="0.30381805" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.45382696" weight="0.30381805" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5216687" side_tool="true" visible="true" weight="0.27411574" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49938145" visible="true" weight="0.3295362" />
@@ -1507,7 +1505,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="[ADMIN &amp; SERVER] Concluso broadcast bundle" />
     <MESSAGE value="[ADMIN] Broadcast bundle,selezione offerte" />
     <MESSAGE value="[ADMIN] Broadcast bundle,selezione offerte completata&#10;[API] Resi pubblici gli endpoint GET /v1/sports e GET /v1/competitors&#10;[SERVER] Aggiunta proprietà sport.has_competitors: Boolean" />
     <MESSAGE value="[API] User model transform" />
@@ -1532,7 +1529,8 @@
     <MESSAGE value="Aggiornate credenziali email&#10;Settings API" />
     <MESSAGE value="Business: Aggiunti flag &quot;Visibile sulla piattaforma&quot; e &quot;Attivato&quot;&#10;Bundles: Aggiunte colonne &quot;sport&quot; e &quot;competizione&quot; e offerta di default&#10;Cambiato tema" />
     <MESSAGE value="NewServerProxy, first steps&#10;BusinessController in V1: get only visible businesses" />
-    <option name="LAST_COMMIT_MESSAGE" value="NewServerProxy, first steps&#10;BusinessController in V1: get only visible businesses" />
+    <MESSAGE value="Catching the bug...." />
+    <option name="LAST_COMMIT_MESSAGE" value="Catching the bug...." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1613,39 +1611,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/settings/SettingCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/usersubscriptions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/competitions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="79" column="15" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/node_modules/ra-ui-materialui/esm/input/ImageInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1926,13 +1891,6 @@
     <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="742">
@@ -1940,10 +1898,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/schema/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="316" column="99" lean-forward="true" selection-start-line="316" selection-start-column="99" selection-end-line="316" selection-end-column="99" />
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -1954,17 +1912,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/types/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/types/objectid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="316" column="99" lean-forward="true" selection-start-line="316" selection-start-column="99" selection-end-line="316" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/broadcastbundle.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+        <state relative-caret-position="321">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+        <state relative-caret-position="78">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
         </state>
       </provider>
     </entry>

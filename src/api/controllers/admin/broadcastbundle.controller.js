@@ -71,9 +71,6 @@ exports.create = async (req, res, next) => {
     await bundle.save();
     res.json(bundle);
   } catch (e) {
-    e.stackTraceLimit = 9999;
-    console.log(e.stack, e.message);
-
     next(e);
   }
 };

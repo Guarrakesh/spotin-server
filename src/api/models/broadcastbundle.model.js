@@ -26,7 +26,7 @@ const broadcastBundleSchema = mongoose.Schema({
       is_replaced: Boolean, // Se il locale l'ha rimpiazzato con un'altro evento
       is_user_addedd: Boolean, // Se è stato aggiunta manualmente dall'utente
       spots: Number,
-    }, { _id: false, strict: false})],
+    }, { strict: false})],
 
   totalSpots: Number,
   start: Date, //Inizio periodo (giorno della prima partita trasmessa)
@@ -88,10 +88,11 @@ broadcastBundleSchema.statics = {
       business: { _id: business._id, name: business.name },
     });
 
+
     const etbs = this.distributeEvents(events);
     broadcastBundle.broadcasts = etbs.map(etb => ({
           event: {
-            _id: etb.id,
+            _id: etb._id,
             name: etb.name,
             start_at: etb.start_at,
             competition: etb.competition._id,
