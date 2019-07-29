@@ -36,15 +36,6 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
-                  <caret line="316" column="99" lean-forward="true" selection-start-line="316" selection-start-column="99" selection-end-line="316" selection-end-column="99" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
@@ -61,8 +52,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="78">
-                  <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -88,8 +79,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/models/broadcastbundle.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="321">
-                  <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+                <state relative-caret-position="244">
+                  <caret line="89" selection-start-line="89" selection-end-line="89" />
                 </state>
               </provider>
             </entry>
@@ -376,7 +367,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="2490" />
-    <option name="height" value="1336" />
+    <option name="height" value="1332" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -395,70 +386,6 @@
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="broadcastBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="email" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1018,21 +945,7 @@
       <workItem from="1564235834121" duration="4000" />
       <workItem from="1564252054731" duration="455000" />
       <workItem from="1564332337598" duration="1432000" />
-      <workItem from="1564406310832" duration="5403000" />
-    </task>
-    <task id="LOCAL-00116" summary="Fix Babel">
-      <created>1547469460631</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1547469460631</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Fix Babel">
-      <created>1547469950378</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1547469950378</updated>
+      <workItem from="1564406310832" duration="6637000" />
     </task>
     <task id="LOCAL-00118" summary="Inserito modulo EventsAppealEvaluator">
       <created>1547682532762</created>
@@ -1363,7 +1276,21 @@
       <option name="project" value="LOCAL" />
       <updated>1564420296821</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="Catching the bug....">
+      <created>1564422364672</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1564422364672</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Catching the bug....">
+      <created>1564423232331</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1564423232331</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1399,7 +1326,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1429330000" />
+    <option name="totallyTimeSpent" value="1430564000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1411,25 +1338,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2490" height="1336" extended-state="0" />
+    <frame x="0" y="23" width="2490" height="1332" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17213447" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17213447" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47798237" weight="0.2815297" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4783313" visible="true" weight="0.27411574" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.47711623" visible="true" weight="0.28064516" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.47792628" weight="0.44596773" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49484536" weight="0.3303499" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.45382696" weight="0.30381805" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5216687" side_tool="true" visible="true" weight="0.27411574" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5228838" side_tool="true" visible="true" weight="0.28064516" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49938145" visible="true" weight="0.3295362" />
@@ -1933,27 +1860,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/business.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="316" column="99" lean-forward="true" selection-start-line="316" selection-start-column="99" selection-end-line="316" selection-end-column="99" />
+        <state relative-caret-position="282">
+          <caret line="179" column="8" selection-start-line="179" selection-start-column="8" selection-end-line="179" selection-end-column="8" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/broadcastbundle.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        <state relative-caret-position="244">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        <state relative-caret-position="375">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
         </state>
       </provider>
     </entry>

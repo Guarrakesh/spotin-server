@@ -23,7 +23,9 @@ exports.load = async(req, res, next, id) => {
 
 exports.list = async (req, res, next) => {
   try {
-
+    const mongoose = require('mongoose');
+    const aa  = mongoose.Types.ObjectId(Buffer.from([93,39,72,93,206,239,72,0,32,253,245,184]));
+    console.log(aa);
     const filterQuery = omit(req.query, ['_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = -1, _sort = "_id" } = req.query;
 
