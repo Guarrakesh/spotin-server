@@ -15,7 +15,6 @@ const broadcastBundleSchema = mongoose.Schema({
 
   broadcasts: [
     new mongoose.Schema({
-      _id: { type: mongoose.Schema.ObjectId, ref: "Broadcast"},
       event: new mongoose.Schema({
         name: String,
         start_at: Date,
@@ -90,11 +89,11 @@ broadcastBundleSchema.statics = {
 
     broadcastBundle.broadcasts = etbs.map(etb => ({
           event: {
-            eventId: mongoose.Types.ObjectId(etb.id),
+            eventId: etb.id,
             name: etb.name,
             start_at: etb.start_at,
-            competition: mongoose.Types.ObjectId(etb.competition.id),
-            sport: mongoose.Types.ObjectId(etb.sport.id),
+            competition: etb.competition.id,
+            sport: etb.sport.id,
             competitors: etb.competitors,
           },
           offer: this.getOfferFor(etb),
