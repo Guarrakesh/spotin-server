@@ -87,13 +87,14 @@ broadcastBundleSchema.statics = {
     });
 
     const etbs = this.distributeEvents(events);
+
     broadcastBundle.broadcasts = etbs.map(etb => ({
           event: {
-            eventId: etb._id,
+            eventId: mongoose.Types.ObjectId(etb.id),
             name: etb.name,
             start_at: etb.start_at,
-            competition: etb.competition._id,
-            sport: etb.sport._id,
+            competition: mongoose.Types.ObjectId(etb.competition.id),
+            sport: mongoose.Types.ObjectId(etb.sport.id),
             competitors: etb.competitors,
           },
           offer: this.getOfferFor(etb),
