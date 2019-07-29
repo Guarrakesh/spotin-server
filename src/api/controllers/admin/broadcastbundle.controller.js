@@ -71,7 +71,8 @@ exports.create = async (req, res, next) => {
     await bundle.save();
     res.json(bundle);
   } catch (e) {
-    next(e);
+    return next(new ApiError(({ message: e.stack, isPublic: true })));
+   //next();
   }
 };
 
