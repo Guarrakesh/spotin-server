@@ -37,6 +37,10 @@ exports.list = async (req, res, next) => {
       delete filterQuery['id_like'];
     }
 
+    if (req.query.q) {
+      filterQuery.name = { $regex: req.query.q, $options: "i" };
+      delete filterQuery.q;
+    }
     let competitions = Competition.find(filterQuery);
 
     //handle sort

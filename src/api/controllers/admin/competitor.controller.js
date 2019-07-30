@@ -27,10 +27,15 @@ exports.list = async (req, res, next) => {
     const { _end = 25, _start = 0, _sort = "_id", _order = 1} = req.query;
     const filterQuery = omit(req.query, ['_end', '_order', '_sort', '_start', 'q', 'id_like']);
     if (req.query.q) {
-      filterQuery['name'] = { "$regex": req.query.q, "$options": "i"};
+      filterQuery['$or'] = [
+        { name: { "$regex": req.query.q, "$options": "i"} },
+        { first_name: {"$regex": req.query.q, "$options": "i"} },
+        {last_name:{"$regex": req.query.q, "$options": "i"}}
+
+      ];
     }
     if (req.query.id_like) {
-        filterQuery['_id'] = { $in: decodeURIComponent(req.query.id_like).split('|')};
+      filterQuery['_id'] = { $in: decodeURIComponent(req.query.id_like).split('|')};
 
     }
 
@@ -89,6 +94,6 @@ exports.remove = (req,res, next) => {
   const { competitor } = req.locals;
 
   competitor.remove()
-    .then(() => res.status(httpStatus.NO_CONTENT).end())
-    .catch(e => next(e));
+      .then(() => res.status(httpStatus.NO_CONTENT).end())
+      .catch(e => next(e));
 }

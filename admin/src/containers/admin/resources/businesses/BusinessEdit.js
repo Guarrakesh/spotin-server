@@ -5,6 +5,8 @@ import {Chip, List as MuiList, ListItem, ListItemText, ListSubheader} from '@mat
 import {
   ArrayField,
   ArrayInput,
+  AutocompleteArrayInput,
+  ReferenceArrayInput,
   SimpleFormIterator,
   AutocompleteInput,
   BooleanInput,
@@ -47,7 +49,11 @@ const providers = [
 
 
 const styles = {
-  inlineBlock: { display: 'inline-flex', marginRight: '1em'}
+  inlineBlock: { display: 'inline-flex', marginRight: '1em'},
+  favoriteCompetitors: {
+    flex: 1,
+  },
+
 };
 
 
@@ -104,7 +110,7 @@ const BusinessEditAside = ({ record }) => (
             }
           </MuiList>
 
-        )}
+      )}
     </div>
 );
 BusinessEditAside.propTypes = {
@@ -193,7 +199,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <BooleanInput source="forFamilies"/>
             <NumberInput source="seats"/>
             <NumberInput source="tvs"/>
-            <TextInput source="target"/>
+            <TextInput source="target" />
             <TextInput label="URL Quicker Menu" source="quickerMenuURL"/>
 
             <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
@@ -201,6 +207,32 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <BooleanInput source="isVisible" label="Visible sulla piattaforma"/>
             <BooleanInput source="isActivated" label="Locale attivato"/>
 
+            <ReferenceArrayInput
+                reference="sports"
+                source="favoriteSports"
+                label="Lista sport preferiti dal locale">
+              <AutocompleteArrayInput />
+            </ReferenceArrayInput>
+
+            <ReferenceArrayInput
+                reference="competitions"
+                source="favoriteCompetitions"
+                label="Lista competizioni preferite dal locale">
+              <AutocompleteArrayInput />
+            </ReferenceArrayInput>
+            <ReferenceArrayInput
+                reference="competitors"
+                source="favoriteCompetitors"
+                optionText="name"
+                allowEmpty
+                label="Lista competitor preferiti dal locale">
+              <AutocompleteArrayInput
+
+                  optionText={record => record.isPerson || record.first_name
+                      ? `${record.first_name} ${record.last_name}`
+                      :  record.name}
+              />
+            </ReferenceArrayInput>
           </FormTab>
           <FormTab label="Immagini">
 
@@ -225,4 +257,5 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
   )
 });
 
-export default BusinessEdit;
+
+export default (BusinessEdit);

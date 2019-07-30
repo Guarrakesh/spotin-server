@@ -3,7 +3,7 @@ import React from 'react';
 
 import { withStyles } from '@material-ui/core/styles';
 import { TabbedForm, FormTab, Create, Toolbar,
-  DisabledInput, TextInput, NumberInput, BooleanInput, SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
+  DisabledInput, TextInput, NumberInput, BooleanInput, ReferenceArrayInput, AutocompleteArrayInput,SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
   ImageInput} from 'react-admin';
 import BusinessDayInput from "./BusinessDayInput";
 import  BusinessSaveButton  from "./BusinessSaveButton";
@@ -106,6 +106,34 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
             <BooleanInput source="isRecommended" label="Consigliato"/>
             <BooleanInput source="isVisible" label="Visible sulla piattaforma"/>
             <BooleanInput source="isActivated" label="Locale attivato"/>
+
+
+            <ReferenceArrayInput
+                reference="sports"
+                source="favoriteSports"
+                label="Lista sport preferiti dal locale">
+              <AutocompleteArrayInput />
+            </ReferenceArrayInput>
+
+            <ReferenceArrayInput
+                reference="competitions"
+                source="favoriteCompetitions"
+                label="Lista competizioni preferite dal locale">
+              <AutocompleteArrayInput />
+            </ReferenceArrayInput>
+            <ReferenceArrayInput
+                reference="competitors"
+                source="favoriteCompetitors"
+                optionText="name"
+                allowEmpty
+                label="Lista competitor preferiti dal locale">
+              <AutocompleteArrayInput
+
+                  optionText={record => record.isPerson || record.first_name
+                      ? `${record.first_name} ${record.last_name}`
+                      :  record.name}
+              />
+            </ReferenceArrayInput>
 
           </FormTab>
 

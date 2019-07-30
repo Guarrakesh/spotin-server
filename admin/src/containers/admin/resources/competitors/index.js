@@ -22,7 +22,7 @@ const styles = {
 
 const CompetitorFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Nome" source="name" alwaysOn />
+    <TextInput label="Nome" source="q" alwaysOn />
     <ReferenceInput reference="sports" source="sport">
       <SelectInput label="Sport" source="name" />
     </ReferenceInput>

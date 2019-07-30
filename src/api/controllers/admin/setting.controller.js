@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 exports.load = async (req, res, next, id) => {
   try {
-    const setting = await Setting.get(id);
+    const setting = await Setting.findById(id);
     req.locals = { setting };
     return next();
 

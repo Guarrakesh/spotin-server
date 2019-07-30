@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {FormDataConsumer} from "ra-core";
 import React from 'react';
-import {Create, NumberInput, RadioButtonGroupInput, SimpleForm, TextInput} from 'react-admin';
+import {DisabledInput, Edit, NumberInput, RadioButtonGroupInput, SimpleForm, TextInput} from 'react-admin';
 
 const choices = [
   { id: "string", name: "String" },
@@ -11,20 +11,22 @@ const choices = [
 
 
 
+
+
 const parseValue = (value, type) => {
-  if (type !== "array" || !value ) return value;
+  if (type !== "array" ) return value;
   return value.toString().split(',').map(v => v.trim());
 };
 const formatValue = (value, type) => {
-  if (type !== "array" || Array.isArray(value) || !value) return value;
+  if (type !== "array" || Array.isArray(value)) return value;
   return value.join(',');
 };
-const SettingCreate = (props) => {
+const SettingEdit = (props) => {
 
   return(
-      <Create {...props}>
-        <SimpleForm>
-
+      <Edit {...props}>
+        <SimpleForm >
+          <DisabledInput source="_id"/>
           <TextInput source="section"/>
           <TextInput source="key"/>
           <RadioButtonGroupInput source="type" choices={choices}/>
@@ -33,7 +35,7 @@ const SettingCreate = (props) => {
               if (formData.type !== "number") {
                 return <TextInput
                     format={v => formatValue(v, formData.type)}
-                    parse={v => parseValue(v,formData.type )}
+                    parse={v => parseValue(v, formData.type)}
                     source="value"
                     placeholder={formData.type === "array" ? "value1,value2,value3" : ""}/>
               } else {
@@ -42,11 +44,11 @@ const SettingCreate = (props) => {
             }}
           </FormDataConsumer>
         </SimpleForm>
-      </Create>
+      </Edit>
   );
 };
 
-SettingCreate.propTypes = {
+SettingEdit.propTypes = {
   typeValue: PropTypes.string,
 };
-export default (SettingCreate);
+export default SettingEdit;
