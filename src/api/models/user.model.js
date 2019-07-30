@@ -131,6 +131,11 @@ const userSchema = new mongoose.Schema({
   photo: {
     type: imageSchema
   },
+  locations: [ new mongoose.Schema({
+    type: { type: String, enum: ['Point'] },
+    coordinates: [Number],
+  }, { timestamps: true })
+  ]
 
 
 }, {
@@ -170,8 +175,8 @@ userSchema.method({
       'id',
       '_id',
       'picture',
-        'favorite_competitors',
-        'photo',
+      'favorite_competitors',
+      'photo',
       'role',
       'created_at', "updated_at", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
@@ -222,7 +227,7 @@ userSchema.method({
       const photo = {
         versions: [
           { url: data.Location, width, height }
-          ],
+        ],
         ext,
         ...meta,
       };
@@ -407,6 +412,7 @@ userSchema.statics = {
   }
 };
 userSchema.plugin(mongoosePaginate);
+userSchema.index({ locations: '2dsphere'})
 /**
  * @typedef User
  */

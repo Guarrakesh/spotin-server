@@ -1,14 +1,14 @@
 const httpStatus = require('http-status');
 const moment = require('moment');
-
 const { omit } = require('lodash');
 const { handler: errorHandler } = require('../../middlewares/error');
 const { Business } = require('../../models/business.model');
 const { Broadcast } = require('../../models/broadcast.model');
 const offerSchema = require('../../models/offer.schema');
 const { BroadcastBundle } = require('../../models/broadcastbundle.model');
-const EventsAppealEvaluator = require('../../models/appeal/StandardEventsAppealEvaluator');
+const BusinessBasedEventsAppealEvaluator = require('../../models/appeal/BusinessBasedEventsAppealEvaluator');
 const ApiError = require('../../utils/APIError');
+const { Setting } = require('../../models/setting.model');
 
 exports.load = async(req, res, next, id) => {
   try {
@@ -23,9 +23,7 @@ exports.load = async(req, res, next, id) => {
 
 exports.list = async (req, res, next) => {
   try {
-    const mongoose = require('mongoose');
-    const aa  = mongoose.Types.ObjectId(Buffer.from([93,22,37,229,38,100,194,0,32,165,34,188]));
-    console.log(aa);
+
     const filterQuery = omit(req.query, ['_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = -1, _sort = "_id" } = req.query;
 
@@ -64,7 +62,12 @@ exports.create = async (req, res, next) => {
     if (!events || events.length === 0) {
       return next(new ApiError({ message: 'Non ci sono eventi per questa settimana', status: 422, isPublic: true }));
     }
-    const evaluator = new EventsAppealEvaluator(events);
+
+
+
+    const appealWeights = await Setting.getAppealOptions();
+
+    const evaluator = new BusinessBasedEventsAppealEvaluator(events, business, { appealWeights });
     const evaluatedEventsMap = evaluator.evaluate();
     const sortedEvents = events
         .sort((a, b) => evaluatedEventsMap.get(b.id) - evaluatedEventsMap.get(a.id));

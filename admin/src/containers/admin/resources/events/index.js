@@ -33,18 +33,18 @@ export const DateTimeField = ({record, source}) => {
 
 
 const EventFilter = (props) => (
-  <Filter {...props}>
-    <TextInput label="Nome" source="name" alwaysOn />
-    <ReferenceInput reference="sports" source="sport">
-      <SelectInput label="Sport" source="name" />
-    </ReferenceInput>
-    <ReferenceInput reference="competitions" source="competition">
-      <SelectInput label="Competizione" source="name" />
-    </ReferenceInput>
-    <DateTimeInput source="start_at" 
-    providerOptions={{utils: MomentUtils}}
-     options={{ format: "dd/MM/YYYY", ampm: false, clearable: true}}/>
-  </Filter>
+    <Filter {...props}>
+      <TextInput label="Nome" source="name" alwaysOn />
+      <ReferenceInput reference="sports" source="sport">
+        <SelectInput label="Sport" source="name" />
+      </ReferenceInput>
+      <ReferenceInput reference="competitions" source="competition">
+        <SelectInput label="Competizione" source="name" />
+      </ReferenceInput>
+      <DateTimeInput source="start_at"
+                     providerOptions={{utils: MomentUtils}}
+                     options={{ format: "dd/MM/YYYY", ampm: false, clearable: true}}/>
+    </Filter>
 );
 
 

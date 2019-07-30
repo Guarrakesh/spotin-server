@@ -57,7 +57,11 @@ exports.load = async(req, res, next, id) => {
 
 
 }; */
-exports.get = (req, res) => res.json(req.locals.business);
+exports.get = async (req, res) => {
+  const { business } = req.locals;
+  Business.update({ _id: business._id }, { $inc: { views: 1}});
+  res.json(business);
+};
 
 
 exports.list = async (req, res, next) => {
@@ -141,6 +145,7 @@ exports.create = async (req, res, next) => {
   try {
 
     let body = req.body;
+
     if (req.files) {
       // c'è un upload, per cui la richiesta è in multipart/form-data
       // per cui tutti i nested obejct, devo parsarli in JSON

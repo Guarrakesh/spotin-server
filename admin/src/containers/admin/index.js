@@ -1,8 +1,10 @@
 import React from 'react';
-import {Admin as AdminBase, Resource, ListGuesser, ShowGuesser, EditGuesser} from 'react-admin';
+import {Admin as AdminBase, Resource, ShowGuesser} from 'react-admin';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
 import SettingCreate from "./resources/settings/SettingCreate";
+import SettingEdit from './resources/settings/SettingEdit';
+import SettingList from './resources/settings/SettingList';
 
 import { UserList, UserEdit, UserCreate } from './resources/users';
 import { SportList, SportEdit, SportCreate } from './resources/sports';
@@ -45,11 +47,11 @@ const AdminRoutes = [
   <Resource
       name="settings"
       options={{ label: "Impostazioni"}}
-      list={ListGuesser}
+      list={SettingList}
 
       create={SettingCreate}
       show={ShowGuesser}
-      edit={EditGuesser}/>
+      edit={SettingEdit}/>
 ];
 
 const messages = {

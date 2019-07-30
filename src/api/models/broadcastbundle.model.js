@@ -95,6 +95,7 @@ broadcastBundleSchema.statics = {
             competition: etb.competition.id,
             sport: etb.sport.id,
             competitors: etb.competitors,
+
           },
           offer: this.getOfferFor(etb),
           spots: etb.spots || 0,

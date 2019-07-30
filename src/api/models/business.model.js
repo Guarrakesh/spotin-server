@@ -124,8 +124,18 @@ const businessSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  bundleGroupId: mongoose.Schema.ObjectId,
 
+  favoriteCompetitors: [
+    { type: mongoose.SchemaTypes.ObjectId, ref: 'Competitor'}
+  ],
+  favoriteSports: [
+    { type: mongoose.SchemaTypes.ObjectId, ref: 'Sports'}
+  ],
+  favoriteCompetitions: [
+    { type: mongoose.SchemaTypes.ObjectId, ref: 'Competition'}
+  ],
+
+  views: Number,
   quickerMenuURL: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
