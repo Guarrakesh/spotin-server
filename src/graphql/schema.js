@@ -39,6 +39,9 @@ const types = `
   
     # When paginating forwards, the cursor to continue.
     endCursor: String
+    
+ 
+    
   }
 
   union Searchable = SportEvent | Competition

@@ -1,12 +1,14 @@
 const { SportEvent } = require('../api/models/sportevent.model');
 const { getBroadcastByEventAndLocation } = require('./broadcasts');
 const { fromCursorHash, toCursorHash } = require('./utils');
+const get = require('lodash').get;
 exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
     getSportEventWithBroadcasts(id: ID!, location: LocationInput): SportEvent
   }
+
   type NestedCompetition {
     id: String!
     name: String
@@ -30,7 +32,7 @@ exports.SportEvent = `
     description: String
     start_at: String!
     providers: [String]!
-    broadcasts(cursor: String, location: LocationInput): SportEventBroadcastsConnection
+    broadcasts(cursor: String, location: LocationInput, filter: BroadcastFilter): SportEventBroadcastsConnection
   }
   type SportEventBroadcastsConnection {
     pageInfo: PageInfo!
@@ -67,25 +69,26 @@ exports.sportEventResolvers = {
     competition: async parent => await parent.getCompetition(),
     competitors: async parent => await parent.getCompetitors(),
 
-    broadcasts: async (sportEvent, { cursor, location, limit = 10}) => {
-
+    broadcasts: async (sportEvent, { cursor, location, filter = {}, limit = 5}) => {
+      console.log("aaa", filter);
       const cursorOptions = {
-            _field: 'distanceFromUser',
+            _field: filter.sort || 'distanceFromUser',
             _cursor: cursor ? parseFloat(fromCursorHash(cursor)) : 0,
             _limit: limit + 1,
             _order: 1,
           };
 
-      const broadcasts = await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions);
+
+      const broadcasts = await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions, filter);
       // Controllo se ci sono altri edge
       const hasNextPage = broadcasts.length > limit;
       const nodes = hasNextPage ? broadcasts.slice(0, -1) : broadcasts;
       return  {
-        edges: nodes.map(e => ({ node: e, cursor: toCursorHash(e.distanceFromUser.toString())})),
+        edges: nodes.map(e => ({ node: e, cursor: toCursorHash(get(e, cursorOptions._field).toString())})),
         pageInfo: {
           hasNextPage,
           endCursor: nodes.length === limit
-              ? toCursorHash(nodes[nodes.length - 1].distanceFromUser.toString())
+              ? toCursorHash(get(nodes[nodes.length - 1], cursorOptions._field).toString())
               : cursor,
         }
 

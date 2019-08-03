@@ -7,6 +7,12 @@ exports.Broadcast = `
   input LocationInput {
     lat: Float!
     lng: Float!
+    radius: Float
+  }
+  input BroadcastFilter {
+    types: [String!]
+    sort: String
+    extras: [String!]
   }
   extend type Query {
     getBroadcastsByEventAndLocation(eventId: ID!, location: LocationInput): [Broadcast]
@@ -47,9 +53,33 @@ exports.broadcastResolvers = {
   }
 };
 
-async function getBroadcastByEventAndLocation(eventId, location, pagination = {}) {
+async function getBroadcastByEventAndLocation(eventId, location, pagination = {}, filter = {}) {
+  const { types, extras} = filter;
+  let businessMatchStage = {
+    $expr: {
+      $and: [
+        {   $eq: [
+            '$_id', '$$businessId',
+          ]
+        }
+      ]
+    }
+  };
+
+  if (types && types.length > 0) {
+   // for (const type in types) {
+      businessMatchStage.type = { $all: types };
+   // }
+  }
+  if (extras && extras.length > 0) {
+    for (const extra in extras) {
+      businessMatchStage[extras[extra]] = true;
+    }
+  }
 
   const pipeline = [
+
+
     { $match: { event: mongoose.Types.ObjectId(eventId) } },
     {
       $lookup: {
@@ -70,17 +100,12 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
               distanceField: 'dist.calculated',
               distanceMultiplier: 1 / 1000,
               spherical: true,
-              maxDistance: 9999999,
+              maxDistance: 999999,
               includeLocs: 'dist.location',
             },
           }, {
-            $match: {
-              $expr: {
-                $eq: [
-                  '$_id', '$$businessId',
-                ],
-              },
-            },
+            $match: businessMatchStage
+
           }, {
             $project: {
               _id: 1,
@@ -101,18 +126,19 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
         distanceFromUser: "$businessObj.dist.calculated",
         reservations: 1,
         offer: 1,
-      }},
-
-
+      }
+    },
   ];
-
-  if (pagination._field && pagination._limit) {
+  if (pagination._cursor) {
     pipeline.push({ $match: { [pagination._field]: pagination._order === 1
-          ?  { $gt: pagination._cursor || 0 }
-          :  { $lt: pagination._cursor || 0 }
-    }});
+            ?  { $gt: pagination._cursor || 0 }
+            :  { $lt: pagination._cursor || 0 }
+      }});
+  }
+  if (pagination._field) {
     pipeline.push({ $sort: { [pagination._field]: pagination._order}});
   };
+
   if (pagination._limit) {
     pipeline.push({ $limit: pagination._limit });
   }
