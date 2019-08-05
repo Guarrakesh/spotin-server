@@ -5,6 +5,7 @@ module.exports = {
     body: Joi.object({
       broadcast: Joi.string().required(),
       userId: Joi.string().required(),
+      cheerFor: Joi.string(),
     })
   },
 

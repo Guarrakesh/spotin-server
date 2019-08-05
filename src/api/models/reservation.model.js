@@ -19,6 +19,17 @@ const reservationSchema = new mongoose.Schema({
   review: broadcastReviewSchema,
   created_at: Date,
 
+  // Imposto come oggetto perché in futuro avremo una lista di utenti nella prenotazione
+  cheers: [new mongoose.Schema({
+    userId: mongoose.Schema.ObjectId,
+    /**
+     * Se sono squadre, in cheerFor va "__home__" o "__guest__" oppure l'id della squadra
+     * Se non sono squadre, può andare qualsiasi valore (eg. nome del pilota)
+     */
+    cheerFor: {
+      type: String
+    }
+  }, { _id: false })],
   used: {
     type: Boolean,
     default: false,

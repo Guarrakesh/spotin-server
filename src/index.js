@@ -28,12 +28,3 @@ app.listen(port, '0.0.0.0', () => console.info(`server started on port ${port} (
 * @public
 */
 module.exports = app;
-
-/* TODO:
-
-  Bundle senza offerta
-  Broadcast senza offerta
-  Colore del competitor anche in REST
-  API Per tifo (sia reservation che broadcast)
-  Reservation accetta broadcast senza offerta
- */

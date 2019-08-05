@@ -12,7 +12,7 @@ module.exports = {
         description: Joi.string(),
         value: Joi.number().default(10),
         type: Joi.number().default(1)
-      }).required(),
+      }),
       newsfeed: Joi.number(),
 
     }

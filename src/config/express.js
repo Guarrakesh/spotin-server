@@ -62,6 +62,8 @@ app.use(cors({
       'https://admin.spotin.it',
       'https://spotin-prod.herokuapp.com',
       'http://spotin.it',
+      'http://spotin-dev.herokuapp.com',
+      'http://spotin-staging.herokuapp.com',
       'https://zdmw3jox8g.execute-api.us-east-1.amazonaws.com',
         ];
     if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "staging" || !origin)

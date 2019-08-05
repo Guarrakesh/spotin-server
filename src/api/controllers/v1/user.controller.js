@@ -223,7 +223,7 @@ exports.reserveBroadcast = async (req, res, next) => {
     const { loggedUser: user } = req.locals;
 
 
-    const { broadcast: broadcastId, peopleNum } = req.body;
+    const { broadcast: broadcastId, peopleNum, cheerFor } = req.body;
 
     const broadcast = await  Broadcast.findById(broadcastId);
     if (!broadcast) {
@@ -235,14 +235,38 @@ exports.reserveBroadcast = async (req, res, next) => {
       return next(new ApiError({message: "Hai già prenotato questa offerta.", status: 400}));
 
     }
+    const event = await broadcast.getEvent();
+    const business = await broadcast.getBusiness();
     const reservation = new Reservation({
       user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
       broadcast: broadcast,
       created_at: (new Date()).toISOString(),
       peopleNum,
     });
-    const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId},
-      { $push: {reservations: reservation}}, { 'new': true});
+    if (cheerFor) {
+      // al momento l'utente è solo quello che prenota
+      reservation.cheers = {
+        userId: user.id,
+        cheerFor,
+      }
+    }
+    const operations =  { $push: {reservations: reservation}};
+
+    if (cheerFor) {
+      if (cheerFor === "__home__" && event.competitors.length > 0) {
+        operations.$inc = { 'cheers.home': 1, 'cheers.total': 1 };
+      } else if (cheerFor === "__guest__" && event.competitors.length > 0) {
+        operations.$inc = { 'cheers.guest': 1, 'cheers.total': 1 };
+      } else {
+        operations.$push = { 'cheers.other': cheerFor };
+        operations.$inc = { 'cheers.total': 1 }
+      }
+
+    }
+    const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId}, operations, {
+      new: true
+    });
+
     //Prendo l'id della reservation generata da mongoose e la pusho nell'oggetto reservations dell'utente
     const reservationId = updatedBroadcast.reservations[updatedBroadcast.reservations.length - 1]._id;
 
@@ -251,8 +275,8 @@ exports.reserveBroadcast = async (req, res, next) => {
 
     reservation.broadcast = updatedBroadcast;
 
-    const eventName = (await broadcast.getEvent()).name;
-    const businessName = (await broadcast.getBusiness()).name;
+    const eventName = event.name;
+    const businessName = business.name;
     eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
 
     res.status = httpStatus.CREATED;

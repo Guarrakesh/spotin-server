@@ -147,11 +147,17 @@ const BroadcastBundleShowView
                               const selectedOffer = referenceRecord.offers.find(o => broadcast.offer && o._id === broadcast.offer._id)
                                   || referenceRecord.offers.find(o => o.isDefault) || undefined;
 
+
                               referenceRecord.offers.forEach((o) => {
                                 if (o.isDefault && !broadcast.offer) {
                                   handleOfferChange(broadcast, o);
                                 }
                               });
+                              if ((referenceRecord.offers.length === 0 ||
+                                    referenceRecord.offers.filter( o => o.isDefault).length === 0)
+                                  && !broadcast.offer) {
+                                handleOfferChange(broadcast, {})
+                              }
                               return referenceRecord && referenceRecord.offers ? (
                                   <Select
                                       fullWidth
