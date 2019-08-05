@@ -33,12 +33,12 @@ exports.list = async (req, res, next) => {
     }
 
     const competitors = await Competitor.paginate(filterQuery, {
-      sort: { [_sort]: _order },
+      sort: { [_sort]:  _order },
       offset: parseInt(_start),
       limit: parseInt(_end - _start)
     });
 
-
+    competitors.docs = await Promise.all(competitors.docs.map(c => c.transform()))
     res.json(competitors);
   } catch (error) {
     next(error)

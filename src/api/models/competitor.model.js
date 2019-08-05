@@ -73,7 +73,7 @@ const competitorSchema = new mongoose.Schema({
 
 
 competitorSchema.method({
-  transform() {
+  async transform() {
     const transformed = {};
     const fields = ['_id',
       'id',
@@ -90,8 +90,12 @@ competitorSchema.method({
       'appealValue',
       'created_at',
       'updated_at',
+      'color',
     ];
-    fields.forEach((field) => {
+    fields.forEach(async (field) => {
+      if (field === 'color') {
+          await this.getColorLazy();
+      }
       transformed[field] = this[field];
     });
 

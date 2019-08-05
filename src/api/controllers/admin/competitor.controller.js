@@ -46,7 +46,7 @@ exports.list = async (req, res, next) => {
       limit: parseInt(_end - _start)
     });
 
-    competitors.docs = competitors.docs.map(c => c.transform());
+    competitors.docs = await Promise.all(competitors.docs.map(async c => await c.transform()));
     res.json(competitors);
   } catch (error) {
     next(error)

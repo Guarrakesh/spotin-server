@@ -1,15 +1,16 @@
-import React from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import {
   Chip,
   ListItemText,
+
   ListSubheader,
   List as MuiList,
-  ListItem} from "@material-ui/core";
+  ListItem, Card, withStyles, CardHeader, CardContent, Typography } from "@material-ui/core";
 import moment from 'moment';
 import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
   RadioButtonGroupInput, Edit, Filter, DisabledInput, LongTextInput,
-  DateField} from 'react-admin';
+  DateField, Link } from 'react-admin';
 import get from 'lodash/get';
 
 import EventAutocompleteInput from '../events/EventAutocompleteInput';
@@ -24,33 +25,82 @@ ReservationCountField.propTypes = {
   record: PropTypes.object,
 };
 
-const BroadcastEditAside = ({ record }) => (
+const asideStyle = theme => ({
+  card: {
+    margin: theme.spacing.unit
+  }
+});
+
+const BroadcastEditAside = withStyles(asideStyle)(({ record, classes }) => (
     <div>
       {record && (
-          <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
-            <ListItem variant="body1">
-              <ListItemText primary="Data aggiunta"
-                            secondary={ moment(record.created_at).format('D/M/Y H:m') }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Ultima modifica"
-                            secondary={ moment(record.updated_at).format('D/M/Y H:m') }
-              />
-            </ListItem>
-            {record.bundle &&
-            <ListItem>
-              <Chip
-                  label="Creato con un bundle"
-                  variant="body1"
-              />
-            </ListItem>
-            }
-          </MuiList>
+          <React.Fragment>
+            <MuiList subheader={<ListSubheader>Dettagli</ListSubheader>}>
+              <ListItem variant="body1">
+                <ListItemText primary="Data aggiunta"
+                              secondary={ moment(record.created_at).format('D/M/Y H:m') }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Ultima modifica"
+                              secondary={ moment(record.updated_at).format('D/M/Y H:m') }
+                />
+              </ListItem>
+              {record.bundle &&
+              <ListItem>
+                <Chip
+                    label="Creato con un bundle"
+                    variant="body1"
+                />
+              </ListItem>
+              }
 
+            </MuiList>
+            <Card className={classes.card}>
+              <CardHeader title="Prenotazioni"/>
+              { record.reservations.length > 0 ?
+                  <CardContent>
+                    <Link to={`/reservations/${record.reservations[record.reservations.length-1]._id}/show`}>
+                      <Typography>
+                        Ultima prenotazione:<br/>
+                        {moment(record.reservations[record.reservations.length-1].created_at).format('DD/MM/Y [alle] H:mm')}
+                      </Typography>
+                    </Link>
+
+                  </CardContent>
+                  :
+                  <CardContent>
+                    <Typography color="textSecondary">Nessuna prenotazione</Typography>
+                  </CardContent>
+              }
+            </Card>
+            <Card className={classes.card}>
+              <CardHeader title="Cheers"/>
+              <ListItem variant="body1">
+                <ListItemText primary="Total cheers" secondary={record.cheers ? record.cheers.total : 0} />
+              </ListItem>
+
+              {record.cheers && record.cheers.home &&
+              <ListItem variant="body1">
+                <ListItemText primary="Home cheers" secondary={record.cheers.home}/>
+              </ListItem>
+              }
+              {record.cheers && record.cheers.guest &&
+              <ListItem variant="body1">
+                <ListItemText primary="Guest cheers" secondary={record.cheers.guest}/>
+              </ListItem>
+              }
+              {record.cheers && record.cheers.other.length > 0 &&
+              <ListItem variant="body1">
+                <ListItemText primary="Other" secondary={record.cheers.other.join(',')}/>
+              </ListItem>
+              }
+
+            </Card>
+          </React.Fragment>
       )}
     </div>
-);
+));
 BroadcastEditAside.propTypes = {
   record: PropTypes.object
 };
@@ -92,7 +142,7 @@ export const BroadcastList = (props) => (
 
 export const BroadcastCreate = (props) => (
     <Create {...props}>
-      <SimpleForm defaultValue={{ offer: { type: "1"}}}>
+      <SimpleForm>
 
 
         <EventAutocompleteInput/>
@@ -139,7 +189,7 @@ export const BroadcastEdit = (props) => (
     <Edit
         aside={<BroadcastEditAside/>}
         {...props}>
-      <SimpleForm defaultValue={{offer: { type: "1"}}}>
+      <SimpleForm >
         <DisabledInput source="_id"/>
         <EventAutocompleteInput/>
 

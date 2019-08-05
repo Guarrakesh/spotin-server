@@ -12,7 +12,6 @@ const offerSchema = new mongoose.Schema({
   type: {
     type: Number,
     enum: types,
-    required: true,
   },
   value: Number,
   isDefault: {
@@ -22,6 +21,6 @@ const offerSchema = new mongoose.Schema({
   description: String,
 
 
-}, { createdAt: 'created_at', updatedAt: 'updated_at' });
+}, { createdAt: 'created_at', updatedAt: 'updated_at', _id: false });
 
 module.exports = offerSchema;

@@ -37,6 +37,15 @@ const broadcastSchema = new mongoose.Schema({
   end_at: Date,
   bundle: { ref: 'BroadcastBundle', type: mongoose.Schema.ObjectId },
 
+  cheers: new mongoose.Schema({
+    total: Number,
+    // Caso in cui lo sport has_competitors=true
+    home: Number,
+    guest: Number,
+    // Caso in cui lo sport has_competitors=false
+    other: [String]
+  }, { _id: false })
+
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 /* broadcastSchema.method({
