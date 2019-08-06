@@ -100,7 +100,7 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
               distanceField: 'dist.calculated',
               distanceMultiplier: 1 / 1000,
               spherical: true,
-              maxDistance: 999999,
+              maxDistance: (parseFloat(location.radius) * 1000) || (25*1000),
               includeLocs: 'dist.location',
             },
           }, {
@@ -121,6 +121,7 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
     { $project: {
         event: 1,
         business: 1,
+        name: "$businessObj.name",
         start_at: 1,
         end_at: 1,
         distanceFromUser: "$businessObj.dist.calculated",
