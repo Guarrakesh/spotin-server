@@ -57,7 +57,7 @@ exports.userSubscriptionResolvers = {
         // send email
         const data = {
           to: subscription.email,
-          from: infoMail,
+          from: infoMail ,
           replyTo: infoMail,
           inReplyTo: "Spot In",
           template: businessType ? 'business-subscription' : 'user-subscription',
@@ -66,8 +66,12 @@ exports.userSubscriptionResolvers = {
             subscription,
           }
         };
-        const result = await mailer.sendMail(data);
-        console.log(result);
+        try {
+          await mailer.sendMail(data);
+        } catch (e) {
+          console.error(e);
+        }
+
         return { ok: true, subscription }
       } else {
         return {ok: false, errorCode: 11}

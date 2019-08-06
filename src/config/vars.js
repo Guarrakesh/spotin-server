@@ -27,8 +27,9 @@ module.exports = {
   //Mailer
   mailerEmailID: process.env.EMAIL_ID,
   mailerPassword: process.env.EMAIL_PASS,
-  mailerPort: 465,
-  mailerHost: "smtps.aruba.it",
+  mailerPort: process.env.EMAIL_PORT || 465,
+  mailerHost: process.env.EMAIL_HOST || "smtps.aruba.it",
+  mailerSecure: process.env.EMAIL_SECURE || true,
   //mailerSecure: true,
 
   email: {

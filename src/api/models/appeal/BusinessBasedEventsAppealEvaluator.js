@@ -56,7 +56,7 @@ const defaultOptions = {
  */
 class BusinessBasedEventsAppealEvaluator extends EventsAppealEvaluator {
 
-  weights;
+
 
   constructor(events, business, options) {
     super(events);
