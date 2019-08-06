@@ -17,6 +17,7 @@ const handlebarsOptions = {
     extName: '.html',
     partialsDir: './src/email/tmp',
     viewPath:  path.resolve("./src/email/"),
+    defaultLayout: false,
   },
   partialsDir: './src/email/tmp',
   viewPath:  path.resolve("./src/email/"),
