@@ -7,6 +7,7 @@ exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
+    getNextBroadcastedEvents(limit: Int): [SportEvent]
     getSportEventWithBroadcasts(id: ID!, location: LocationInput, limit: Int): SportEvent
   }
 
@@ -63,6 +64,9 @@ exports.sportEventResolvers = {
     },
     async getSportEventWithBroadcasts(obj, args) {
       return SportEvent.findById(args.id);
+    },
+    async getNextBroadcastedEvents(obj, args) {
+
     }
   },
 
