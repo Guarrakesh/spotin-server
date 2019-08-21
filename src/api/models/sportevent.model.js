@@ -8,12 +8,12 @@ const jwt = require('jwt-simple');
 const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
 const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
-
+const { ObjectId } = require('bson');
 const mongoosePaginate = require('mongoose-paginate');
 const {Competition, competitionSchema} = require('./competition.model');
 const {competitorSchema, Competitor} = require('./competitor.model');
 const {Sport} = require('./sport.model');
-
+const AppealEvaluator = require('./appeal/StandardEventsAppealEvaluator');
 const sportEventSchema = new mongoose.Schema({
 
   sport: {
@@ -31,7 +31,7 @@ const sportEventSchema = new mongoose.Schema({
       competitor: { type: mongoose.Schema.ObjectId,ref: "Competitor"}
 
     })
-    ],
+  ],
 
   name: {
 
@@ -55,7 +55,10 @@ const sportEventSchema = new mongoose.Schema({
     default: 0
   },
   providers: [String],
-
+  appeal: mongoose.Schema({
+    value: Number,
+    calculatedAt: Date,
+  }, { _id: false, timestamps: false }),
   appealValue: Number,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
@@ -86,13 +89,12 @@ sportEventSchema.pre('save', async function(next) {
     if (!competitors || competitors.length !== this.competitors.length) {
       next(Error("Uno o più sfidanti specificati non esistono."));
     }
-    competitors.forEach(competitor => {
-      appealValue += competitor.appealValue;
-    });
-    if (!competitors || competitors.length === 0) {
-      appealValue = appealValue + competition.appealValue * 3;
-    }
-    this.appealValue = appealValue;
+
+    const evaluator = new AppealEvaluator([this]);
+    this.appeal = {
+      value: evaluator.evaluateEvent(this),
+      calculatedAt: Date.now(),
+    };
 
     next();
   } catch (e) {
@@ -152,13 +154,22 @@ sportEventSchema.methods.getOverlaps = function(event) {
       (broadcastableEventEnd >= eventToBroadcastStart && broadcastableEventEnd <= eventToBroadcastEnd));
 };
 sportEventSchema.methods.getCompetition = async function () {
-  return await Competition.findById(this.competition);
+  return ObjectId.isValid(this.competition)
+      ? await Competition.findById(this.competition)
+      :  this.competition;
 };
 sportEventSchema.methods.getCompetitors = async function () {
-  return await Competitor.find({_id: { $in: this.competitors.map(c => c.competitor)}});
+  if (this.competitors.length > 0) {
+    return ObjectId.isValid(this.competitors[0].competitor)
+        ? await Competitor.find({_id: { $in: this.competitors.map(c => c.competitor)}})
+        : this.competitors.map(c => c.competitor);
+  }
+  return null;
 };
 sportEventSchema.methods.getSport = async function () {
-  return await Sport.findById(this.sport);
+  return ObjectId.isValid(this.sport)
+      ? await Sport.findById(this.sport)
+      : this.sport;
 };
 sportEventSchema.statics = {
 

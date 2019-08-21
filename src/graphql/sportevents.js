@@ -1,14 +1,17 @@
+
 const { SportEvent } = require('../api/models/sportevent.model');
-const { getBroadcastByEventAndLocation } = require('./broadcasts');
+const { Broadcast } = require('../api/models/broadcast.model');
+const { getBroadcastByEventAndLocation, getBroadcastsByEvent } = require('./broadcasts');
 const { fromCursorHash, toCursorHash } = require('./utils');
 const get = require('lodash').get;
 const omit = require('lodash').omit;
+const StandardEventsAppealEvaluator = require('../api/models/appeal/StandardEventsAppealEvaluator');
 exports.SportEvent = `
 
   extend type Query {
     getSportEvents(name: String, inTheFuture: Boolean): [SportEvent]
-    getNextBroadcastedEvents(limit: Int): [SportEvent]
-    getSportEventWithBroadcasts(id: ID!, location: LocationInput, limit: Int): SportEvent
+    getNextEvents(limit: Int): [SportEvent]
+    getSportEventWithBroadcasts(id: ID!, limit: Int): SportEvent
   }
 
   type NestedCompetition {
@@ -28,11 +31,11 @@ exports.SportEvent = `
   type SportEvent {
     id: ID!
     name: String
-    sport: NestedSport!
+    sport: Sport!
     competition: NestedCompetition
     competitors: [NestedCompetitor]
     description: String
-    start_at: String!
+    start_at: Date!
     providers: [String]!
     broadcasts(cursor: String, location: LocationInput, filter: BroadcastFilter, limit: Int): SportEventBroadcastsConnection
   }
@@ -59,25 +62,33 @@ exports.sportEventResolvers = {
         options.start_at =  { $gte: Date.now() };
 
       }
-
       return SportEvent.find(options).limit(args.limit || 10).sort({start_at: 1})
     },
     async getSportEventWithBroadcasts(obj, args) {
       return SportEvent.findById(args.id);
     },
-    async getNextBroadcastedEvents(obj, args) {
-
+    getNextEvents: async function (obj, { limit = 10}) {
+      const sportEvents = await SportEvent.find({
+         start_at: {$gte: Date.now(), $lte: (new Date()).setDate((new Date()).getDate() + 7)},
+      }).populate('sport').populate('competitors.competitor').populate('competition')
+          .exec();
+      if (sportEvents.length === 0) {
+        return sportEvents;
+      }
+      console.log(sportEvents.filter(e => e.competition === null).map(e => e._id).join(','));
+      const appealEvaluator = new StandardEventsAppealEvaluator(sportEvents);
+      return appealEvaluator.getSortedEvents().slice(0, limit)
     }
   },
 
   SportEvent: {
     sport: async parent => await parent.getSport(),
-    competition: async parent => await parent.getCompetition(),
+    competition: async parent => parent.getCompetition(),
     competitors: async parent => await parent.getCompetitors(),
 
     broadcasts: async (sportEvent, { cursor, location, filter = {}, limit = 5}) => {
       const cursorOptions = {
-        _field: filter.sort || 'distanceFromUser',
+        _field: filter.sort || location ? 'distanceFromUser' : '_id',
         _cursor: cursor ? fromCursorHash(cursor) : 0,
         _limit: limit + 1,
         _order: 1,
@@ -88,16 +99,17 @@ exports.sportEventResolvers = {
         // Converto in float se è una distanza affinché mongo faccia bene il sorting
         cursorOptions._cursor = parseFloat(cursorOptions._cursor);
       }
-      const broadcasts = await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions, filter);
+      broadcasts = location
+        ? await getBroadcastByEventAndLocation(sportEvent.id, location, cursorOptions, filter)
+        : await getBroadcastsByEvent(sportEvent.id, cursorOptions, filter)
       // Controllo se ci sono altri edge
       const hasNextPage = broadcasts.length > limit;
       const nodes = (hasNextPage ? broadcasts.slice(0, -1) : broadcasts);
-      console.log(get(nodes[nodes.length - 1], cursorOptions._field));
       return  {
         edges: nodes.map(e => ({
           node: omit(e, ['distanceFromUser']),
           cursor: toCursorHash(get(e, cursorOptions._field).toString()),
-          distanceFromUser: e.distanceFromUser
+          distanceFromUser: location ? e.distanceFromUser : null,
         })),
         pageInfo: {
           startCursor: nodes.length > 0 ? toCursorHash(get(nodes[0], cursorOptions._field).toString()) : undefined,

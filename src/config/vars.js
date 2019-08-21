@@ -17,7 +17,11 @@ module.exports = {
   jwtSecret: process.env.JWT_SECRET,
   jwtExpirationInterval: process.env.NODE_ENV == "development" ?  15 : process.env.JWT_EXPIRATION_MINUTES,
   mongo: {
-    uri: process.env.MONGO_URI || process.env.MONGO_URI_TESTS
+    uri: process.env.LOCAL_DB
+        ? process.env.MONGO_URI_LOCAL
+        : process.env.NODE_ENV !== "test"
+            ? process.env.MONGO_URI
+            : process.env.MONGO_URI_TESTS
   },
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,

@@ -7,18 +7,18 @@ const COMPETITION_WEIGHT = 1;
 const COMPETITOR_WEIGHT = 1;
 
 const defaultOptions = {
-  competitorIdKey: "id",
-  competitionIdKey: "id",
-  sportIdKey: "id",
-  eventIdKey: "id",
+  competitorIdKey: "_id",
+  competitionIdKey: "_id",
+  sportIdKey: "_id",
+  eventIdKey: "_id",
   appealValueKey: "appealValue"
 };
 class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
 
 
 
-  constructor(props, options = {}) {
-    super(props);
+  constructor(events = [], options = {}) {
+    super(events);
     this.options = { ...defaultOptions, ...options };
 
     this.sports = this.getAllSports();
@@ -101,12 +101,23 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
 
 
     for (let event of this.events) {
-      this.eventAppealMap.set(event[this.options.eventIdKey], this.evaluateEvent(event))
+
+      this.eventAppealMap.set(
+          event[this.options.eventIdKey],
+          event.appeal ? event.appeal.value : this.evaluateEvent(event)
+      )
     }
     return this.eventAppealMap;
 
   }
 
+  getSortedEvents() {
+    if (this.eventAppealMap.size === 0) {
+      this.evaluate();
+    }
+    return this.events
+        .sort((a, b) => this.eventAppealMap.get(b.id) - this.eventAppealMap.get(a.id));
+  }
 }
 
 

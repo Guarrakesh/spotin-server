@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="SportEvent broadcast pagination">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/sportevent.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/sportevent.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/vars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/vars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphql/broadcasts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/broadcasts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphql/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphql/sportevents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/sportevents.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,105 +27,112 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/spotin_server$Spotin_Tests.dat" NAME="Spotin Tests Coverage Results" MODIFIED="1549737360529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/spotin_server$Business_Model.dat" NAME="Business Model Coverage Results" MODIFIED="1547223582667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/spotin_server$Business_API.dat" NAME="Business API Coverage Results" MODIFIED="1545395423926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-  </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="691" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="spotin-server" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/competitor.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/competitor.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/broadcast.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3264">
-              <caret line="192" column="16" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/utils/aggregations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="27" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/broadcast.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/business.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/appeal/index.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/api/models/broadcastbundle.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competitor.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.64646465">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.env">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="174">
+                  <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/index.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/graphql/utils.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-816" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="95">
+                  <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,9 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>export</find>
-      <find>nam</find>
-      <find>reduxForm</find>
       <find>REDUX_FORM_NAME</find>
       <find>DateTime</find>
       <find>ReferenceIn</find>
@@ -158,6 +170,9 @@
       <find>push</find>
       <find>broadcasts</find>
       <find>png</find>
+      <find>props</find>
+      <find>id</find>
+      <find>.id</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -173,6 +188,7 @@
       <replace>object.modelName</replace>
       <replace>crossing_day_close</replace>
       <replace>location</replace>
+      <replace>._id</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/client/src/assets/sass/lbd</dir>
@@ -207,14 +223,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/routes/v1/user.route.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/v1/broadcast-request.controller.js" />
-        <option value="$PROJECT_DIR$/src/api/models/request.model.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/v1/broadcast-request.route.js" />
-        <option value="$PROJECT_DIR$/src/api/validations/user.validation.js" />
         <option value="$PROJECT_DIR$/src/api/routes/v1/index.js" />
         <option value="$PROJECT_DIR$/src/api/tests/unit/broadcastreview.test.js" />
-        <option value="$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js" />
         <option value="$PROJECT_DIR$/src/api/factories/reservation.factory.js" />
         <option value="$PROJECT_DIR$/src/api/factories/broadcastreview.factory.js" />
         <option value="$PROJECT_DIR$/src/api/tests/v1/integration/business.test.js" />
@@ -252,12 +262,18 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/graphql/utils.js" />
-        <option value="$PROJECT_DIR$/src/graphql/broadcasts.js" />
-        <option value="$PROJECT_DIR$/src/graphql/schema.js" />
-        <option value="$PROJECT_DIR$/src/graphql/sportevents.js" />
         <option value="$PROJECT_DIR$/src/api/models/competitor.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/broadcast.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/broadcastbundle.model.js" />
+        <option value="$PROJECT_DIR$/src/config/vars.js" />
+        <option value="$PROJECT_DIR$/src/api/models/appeal/AppealCache.js" />
+        <option value="$PROJECT_DIR$/src/api/models/appeal/AppealMongoCache.js" />
+        <option value="$PROJECT_DIR$/src/api/models/sportevent.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js" />
+        <option value="$PROJECT_DIR$/src/graphql/schema.js" />
+        <option value="$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js" />
+        <option value="$PROJECT_DIR$/src/graphql/sportevents.js" />
+        <option value="$PROJECT_DIR$/src/graphql/broadcasts.js" />
       </list>
     </option>
   </component>
@@ -267,11 +283,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
-    <option name="y" value="94" />
-    <option name="width" value="1221" />
-    <option name="height" value="611" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="27" />
+    <option name="width" value="1366" />
+    <option name="height" value="681" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -301,16 +316,7 @@
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="appeal" type="462c0819:PsiDirectoryNode" />
+              <item name="graphql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,7 +372,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.business.controller.js">
+  <component name="RunManager" selected="Node.js.SpotInServer">
     <configuration name="Password Reset Template" type="JavascriptDebugType" uri="http://localhost:63343/chrome-extension/index.html">
       <method v="2" />
     </configuration>
@@ -380,6 +386,9 @@
       <method v="2" />
     </configuration>
     <configuration name="SpotInServer" type="NodeJSConfigurationType" node-parameters="/usr/bin/nodemon" path-to-js-file="src/index.js" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="LOCAL_DB" value="1" />
+      </envs>
       <method v="2" />
     </configuration>
     <configuration name="business.controller.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/controllers/admin/business.controller.js" working-dir="$PROJECT_DIR$">
@@ -790,6 +799,14 @@
       <workItem from="1561125183425" duration="65000" />
       <workItem from="1561568948034" duration="883000" />
       <workItem from="1563285594263" duration="36000" />
+      <workItem from="1565782642907" duration="3900000" />
+      <workItem from="1565793274150" duration="2702000" />
+      <workItem from="1565876298289" duration="3211000" />
+      <workItem from="1565896433025" duration="2587000" />
+      <workItem from="1565982487454" duration="2143000" />
+      <workItem from="1566141617102" duration="3918000" />
+      <workItem from="1566231997833" duration="12000" />
+      <workItem from="1566232447788" duration="3021000" />
     </task>
     <task id="LOCAL-00107" summary="[SERVER] &#10; Aggiunto &quot;include_past_events&quot; in /v1/events per ottenere anche eventi passati&#10; Aggiunta registrazione delle hit dell'utente su Sport, competition e competitor&#10; Prenotazioni utente filtrate solo per eventi futuri (per ora)&#10; Aggiunto campo notificationsEnabled nel profilo utente">
       <created>1544447172263</created>
@@ -1170,7 +1187,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1342594000" />
+    <option name="totallyTimeSpent" value="1364869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1182,25 +1199,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="94" width="1221" height="611" extended-state="0" />
+    <frame x="0" y="27" width="1366" height="681" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28654972" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18852459" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.15370706" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.77396023" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.3679417" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.48816028" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.054945055" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.47368422" visible="true" weight="0.1440501" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5263158" side_tool="true" visible="true" weight="0.1440501" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47317436" weight="0.34358048" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5268256" side_tool="true" weight="0.428051" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
       <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49962714" visible="true" weight="0.32967034" />
@@ -1211,24 +1228,25 @@
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32962668" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24199553" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28614008" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.08467901" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48696947" weight="0.081374325" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.2188065" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.77396023" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47952345" weight="0.3679417" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.480898" weight="0.48816028" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49192595" weight="0.3129085" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.07414105" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48548028" visible="true" weight="0.16274865" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51451975" side_tool="true" weight="0.41048825" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49547064" weight="0.054945055" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47317436" weight="0.35336977" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5268256" side_tool="true" weight="0.428051" />
       <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49962714" visible="true" weight="0.32967034" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1315,6 +1333,12 @@
           <line>24</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1382,69 +1406,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/api/routes/v1/broadcastreview.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/reservations/ApproveReviewButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#21#57#0" expanded="true" />
-            <element signature="e#333#398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/reservation.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/sportevent.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="114" column="29" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/s3.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/reservation.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/reservation.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/providers/restClientProvider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/sportevent.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="113" column="29" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1523,29 +1484,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/broadcastBundle/BroadcastBundleList.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1568,24 +1512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphql/competitions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1614,27 +1544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphql/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -1693,9 +1602,6 @@
     <entry file="file://$PROJECT_DIR$/src/api/models/appeal/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/competitor.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -1707,6 +1613,117 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/business.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/vars.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/competition.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/broadcastbundle.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="71" selection-start-line="71" selection-end-line="72" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="2209" selection-start-line="2209" selection-end-line="2209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/appeal/AppealCache.js" />
+    <entry file="file://$PROJECT_DIR$/src/api/models/appeal/AppealMongoCache.js" />
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/sports.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sportevent.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/appeal/StandardEventsAppealEvaluator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/sport.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/appeal/EventsAppealEvaluator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/sportevents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
         </state>
       </provider>
     </entry>
