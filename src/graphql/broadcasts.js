@@ -29,7 +29,7 @@ exports.Broadcast = `
     event: SportEvent
     business: Business
     offer: Offer
-    distanceFromUser: Float!
+    distanceFromUser: Float
     
   }
   
@@ -53,7 +53,8 @@ exports.broadcastResolvers = {
   }
 };
 
-async function getBroadcastByEventAndLocation(eventId, location, pagination = {}, filter = {}) {
+
+const prepareBroadcastsQuery = (eventId, pagination = {}, filter = {}) => {
   const { types, extras} = filter;
   let businessMatchStage = {
     $expr: {
@@ -67,20 +68,40 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
   };
 
   if (types && types.length > 0) {
-   // for (const type in types) {
-      businessMatchStage.type = { $all: types };
-   // }
+    // for (const type in types) {
+    businessMatchStage.type = { $all: types };
+    // }
   }
+
   if (extras && extras.length > 0) {
     for (const extra in extras) {
       businessMatchStage[extras[extra]] = true;
     }
   }
-
   const pipeline = [
+    { $match: { event: mongoose.Types.ObjectId(eventId) } }
+  ];
+  if (pagination._cursor) {
+    pipeline.push({ $match: { [pagination._field]: pagination._order === 1
+            ?  { $gt: pagination._cursor || 0 }
+            :  { $lt: pagination._cursor || 0 }
+      }});
+  }
+  if (pagination._field) {
+    pipeline.push({ $sort: { [pagination._field]: pagination._order}});
+  };
 
-
-    { $match: { event: mongoose.Types.ObjectId(eventId) } },
+  if (pagination._limit) {
+    pipeline.push({ $limit: pagination._limit });
+  }
+  return pipeline;
+};
+async function getBroadcastsByEvent(eventId, pagination, filter) {
+  const pipeline = prepareBroadcastsQuery(eventId, pagination, filter)
+  return await Broadcast.aggregate(pipeline);
+}
+async function getBroadcastByEventAndLocation(eventId, location, pagination = {}, filter = {}) {
+  const locationStages = [
     {
       $lookup: {
         from: 'businesses',
@@ -130,22 +151,11 @@ async function getBroadcastByEventAndLocation(eventId, location, pagination = {}
       }
     },
   ];
-  if (pagination._cursor) {
-    pipeline.push({ $match: { [pagination._field]: pagination._order === 1
-            ?  { $gt: pagination._cursor || 0 }
-            :  { $lt: pagination._cursor || 0 }
-      }});
-  }
-  if (pagination._field) {
-    pipeline.push({ $sort: { [pagination._field]: pagination._order}});
-  };
-
-  if (pagination._limit) {
-    pipeline.push({ $limit: pagination._limit });
-  }
+  const _pipeline = prepareBroadcastsQuery(eventId, pagination, filter);
+  const pipeline = [_pipeline[0], ...locationStages, _pipeline.slice(1)];
   const broadcasts = await Broadcast.aggregate(pipeline);
-
   return broadcasts || [];
 }
 
 exports.getBroadcastByEventAndLocation = getBroadcastByEventAndLocation;
+exports.getBroadcastsByEvent = getBroadcastsByEvent;
