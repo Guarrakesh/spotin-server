@@ -1,10 +1,12 @@
 const { Business } = require('../api/models/business.model');
-
+const { ObjectId } = require('bson');
+const { ApolloError } = require('apollo-server');
 const { verifyRecaptchaV3 } = require('../api/utils/google');
 exports.Business = `
   extend type Query {
+    getBusiness(id: String): Business
     getBusinesses: [Business]
-    getRecommendedBusinesses(count: Int): [Business]
+    getRecommendedBusinesses(count: Int!): [Business]
   }
   
   type Point {
@@ -60,6 +62,10 @@ exports.businessResolvers = {
     },
     async getRecommendedBusinesses(_, args = {}) {
       return await Business.find({ isRecommended: true}).limit(args.count || 6).exec();
+    },
+    async getBusiness(_, { id }) {
+      if (!ObjectId.isValid(id)) throw new ApolloError('resource_not_found', 404);
+      return await Business.findOne({ _id: id }).exec();
     }
   },
 

@@ -12,7 +12,7 @@ const { googleMapsClient } = require('../utils/google');
 
 const { s3WebsiteEndpoint } = require('../../config/vars');
 const amazon = require("../utils/amazon");
-
+const { slugify } = require('lodash-addons');
 const { pagination } = require('../utils/aggregations');
 const offerSchema = require('../models/offer.schema');
 
@@ -135,6 +135,14 @@ const businessSchema = new mongoose.Schema({
     { type: mongoose.SchemaTypes.ObjectId, ref: 'Competition'}
   ],
 
+  slug: {
+    type: String,
+    required: true,
+    default: function() {
+      return slugify(this.name);
+    }
+  },
+
   views: Number,
   quickerMenuURL: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
@@ -145,6 +153,9 @@ businessSchema.pre('save', async function(next) {
   try {
 
 
+    if ((this.isNew && !this.slug) || (!this.isNew && this.isModified('name'))) {
+      this.slug = slugify(this.name);
+    }
     if (this.modifiedPaths().includes('address') || (this.isNew && this.address)) {
       //Uno o piu campi dell'indirizzo sono cambiati, eseguo geocoding
       const { address } = this;
@@ -171,9 +182,11 @@ businessSchema.pre('save', async function(next) {
     return next(err);
   }
 });
+
 businessSchema.post('remove', function(next) {
   amazon.emptyDir(`/images/businesses/${this._id.toString()}/`);
 });
+
 
 businessSchema.methods = {
   async paySpots(spots) {
