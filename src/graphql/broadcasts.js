@@ -20,7 +20,7 @@ exports.Broadcast = `
   
   type Offer {
     type: Int
-    value: Float!
+    value: Float
     title: String
     description: String
   }
@@ -94,68 +94,100 @@ const prepareBroadcastsQuery = (eventId, pagination = {}, filter = {}) => {
   if (pagination._limit) {
     pipeline.push({ $limit: pagination._limit });
   }
-  return pipeline;
+  return [businessMatchStage, pipeline];
 };
 async function getBroadcastsByEvent(eventId, pagination, filter) {
-  const pipeline = prepareBroadcastsQuery(eventId, pagination, filter)
-  return await Broadcast.aggregate(pipeline);
-}
-async function getBroadcastByEventAndLocation(eventId, location, pagination = {}, filter = {}) {
-  const locationStages = [
+  const [businessMatchStage, _pipeline] = prepareBroadcastsQuery(eventId, pagination, filter);
+  const pipeline = [
+    _pipeline[0],
     {
       $lookup: {
         from: 'businesses',
-        let: {
-          businessId: '$business',
-        },
+        let: {businessId: '$business'},
         as: 'businessObj',
         pipeline: [
           {
-            $geoNear: {
-              near: {
-                type: 'Point',
-                coordinates: [
-                  location.lng, location.lat,
-                ],
-              },
-              distanceField: 'dist.calculated',
-              distanceMultiplier: 1 / 1000,
-              spherical: true,
-              maxDistance: (parseFloat(location.radius) * 1000) || (25*1000),
-              includeLocs: 'dist.location',
-            },
-          }, {
-            $match: businessMatchStage
-
-          }, {
-            $project: {
-              _id: 1,
-              dist: 1,
-              name: 1,
-            },
+            $match: businessMatchStage,
           },
-        ],
 
-      }
+        ]
+      },
     },
     { $unwind: "$businessObj"},
+
     { $project: {
         event: 1,
+
         business: 1,
         name: "$businessObj.name",
         start_at: 1,
         end_at: 1,
-        distanceFromUser: "$businessObj.dist.calculated",
         reservations: 1,
+        recommended: { $ifNull: ["$businessObj.isRecommended", false] },
         offer: 1,
       }
-    },
-  ];
-  const _pipeline = prepareBroadcastsQuery(eventId, pagination, filter);
-  const pipeline = [_pipeline[0], ...locationStages, _pipeline.slice(1)];
-  const broadcasts = await Broadcast.aggregate(pipeline);
-  return broadcasts || [];
+    }
+  , ..._pipeline.slice(1)];
+  return await Broadcast.aggregate(pipeline);
 }
+  async function getBroadcastByEventAndLocation(eventId, location, pagination = {}, filter = {}) {
+    const [businessMatchStage, _pipeline] = prepareBroadcastsQuery(eventId, pagination, filter);
 
-exports.getBroadcastByEventAndLocation = getBroadcastByEventAndLocation;
-exports.getBroadcastsByEvent = getBroadcastsByEvent;
+    const locationStages = [
+      {
+        $lookup: {
+          from: 'businesses',
+          let: {
+            businessId: '$business',
+          },
+          as: 'businessObj',
+          pipeline: [
+            {
+              $geoNear: {
+                near: {
+                  type: 'Point',
+                  coordinates: [
+                    location.lng, location.lat,
+                  ],
+                },
+                distanceField: 'dist.calculated',
+                distanceMultiplier: 1 / 1000,
+                spherical: true,
+                maxDistance: (parseFloat(location.radius) * 1000) || (25*1000),
+                includeLocs: 'dist.location',
+              },
+            }, {
+              $match: businessMatchStage
+
+            }, {
+              $project: {
+                _id: 1,
+                dist: 1,
+                name: 1,
+              },
+            },
+          ],
+
+        }
+      },
+      { $unwind: "$businessObj"},
+      { $project: {
+          event: 1,
+          business: 1,
+          recommended: { $ifNull: ["$businessObj.isRecommended", false] },
+          name: "$businessObj.name",
+          start_at: 1,
+          end_at: 1,
+          distanceFromUser: "$businessObj.dist.calculated",
+          reservations: 1,
+          offer: 1,
+        }
+      },
+    ];
+    const pipeline = [_pipeline[0], ...locationStages, ..._pipeline.slice(1)];
+    const broadcasts = await Broadcast.aggregate(pipeline);
+    return broadcasts || [];
+  }
+
+  exports.getBroadcastByEventAndLocation = getBroadcastByEventAndLocation;
+  exports.getBroadcastsByEvent = getBroadcastsByEvent;

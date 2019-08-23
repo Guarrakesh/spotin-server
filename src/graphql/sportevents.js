@@ -88,7 +88,7 @@ exports.sportEventResolvers = {
 
     broadcasts: async (sportEvent, { cursor, location, filter = {}, limit = 5}) => {
       const cursorOptions = {
-        _field: filter.sort || location ? 'distanceFromUser' : '_id',
+        _field: filter.sort ? filter.sort : location ? 'distanceFromUser' : '_id',
         _cursor: cursor ? fromCursorHash(cursor) : 0,
         _limit: limit + 1,
         _order: 1,
@@ -105,6 +105,7 @@ exports.sportEventResolvers = {
       // Controllo se ci sono altri edge
       const hasNextPage = broadcasts.length > limit;
       const nodes = (hasNextPage ? broadcasts.slice(0, -1) : broadcasts);
+
       return  {
         edges: nodes.map(e => ({
           node: omit(e, ['distanceFromUser']),
