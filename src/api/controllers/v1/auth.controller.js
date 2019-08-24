@@ -13,15 +13,15 @@ const { LOGGED_USER } = require('../../middlewares/auth');
 * Returns a formated object with tokens
 * @private
 */
-function generateTokenResponse(user, accessToken) {
+const generateTokenResponse = (user, accessToken) => {
   const tokenType = 'Bearer';
   const refreshToken = RefreshToken.generate(user).token;
   const expiresIn = moment().add(jwtExpirationInterval, 'minutes');
   return {
     tokenType, accessToken, refreshToken, expiresIn,
   };
-}
-
+};
+exports.generateTokenResponse = generateTokenResponse;
 /**
  * Returns jwt token if registration was successful
  * @public
