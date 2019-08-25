@@ -77,7 +77,7 @@ exports.sportEventResolvers = {
       }
       console.log(sportEvents.filter(e => e.competition === null).map(e => e._id).join(','));
       const appealEvaluator = new StandardEventsAppealEvaluator(sportEvents);
-      return appealEvaluator.getSortedEvents().slice(0, limit)
+      return (appealEvaluator.getSortedEvents().slice(0, limit)).sort((e1,e2) => e1.start_at - e2.start_at);
     }
   },
 
