@@ -104,14 +104,24 @@ app.use(error.converter);
 // error handler, send stacktrace only during development
 app.use(error.handler);
 
+app.use('/graphql', (req, res, next) => {
+  passport.authenticate('jwt', { session: false }, (err, user, info) => {
+    if (user) {
+      req.user = user;
+    }
+    next()
+  })(req, res, next);
+});
 // Apollo GraphQL
 const server = new ApolloServer({
 
   schema: require('../graphql/schema'),
-  context: ({req}) => {
-    return { req }
-  }
+  context: ({req}) => ({
+    user: req.user,
+  })
+
 });
 server.applyMiddleware({ app, path: '/graphql' });
 
 module.exports = app;
+

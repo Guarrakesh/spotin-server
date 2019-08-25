@@ -95,7 +95,8 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
     const competitorAppeal = (COMPETITOR_WEIGHT * this.evaluateEventCompetitorAppeal(event)) || 0;
 
 
-    return sportAppeal + competitorAppeal + competitionAppeal;
+    const appeal = sportAppeal + competitorAppeal + competitionAppeal;
+    return appeal;
   }
   evaluate() {
 
@@ -116,7 +117,7 @@ class StandardEventsAppealEvaluator extends EventsAppealEvaluator {
       this.evaluate();
     }
     return this.events
-        .sort((a, b) => this.eventAppealMap.get(b.id) - this.eventAppealMap.get(a.id));
+        .sort((a, b) => this.eventAppealMap.get(b[this.options.eventIdKey]) - this.eventAppealMap.get(a[this.options.eventIdKey]));
   }
 }
 

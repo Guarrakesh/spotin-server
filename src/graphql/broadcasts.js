@@ -1,6 +1,10 @@
 const { Broadcast } = require('../api/models/broadcast.model');
 const { Business } = require('../api/models/business.model');
 const { SportEvent } = require('../api/models/sportevent.model');
+const User = require('../api/models/user.model');
+const { Reservation } = require('../api/models/reservation.model');
+const { ApolloError, AuthenticationError } = require('apollo-server');
+const eventEmitter = require('../api/emitters');
 
 const mongoose = require('mongoose');
 exports.Broadcast = `
@@ -24,6 +28,19 @@ exports.Broadcast = `
     title: String
     description: String
   }
+  type Cheer {
+    userId: ID!
+    cheerFor: String!
+  }
+  type Reservation {
+    id: ID!
+    user: ID!
+    broadcast: Broadcast
+    created_at: Date
+    cheers: [Cheer]
+    peopleNum: Int
+    
+  }
   type Broadcast {
     id: ID!
     event: SportEvent
@@ -32,6 +49,9 @@ exports.Broadcast = `
     distanceFromUser: Float
     
   }
+  extend type Mutation {
+    reserve(broadcast: ID!): Reservation
+  } 
   
   
   
@@ -44,7 +64,47 @@ exports.broadcastResolvers = {
     }
 
   },
+  Mutation: {
+    async reserve(obj, args, context) {
+      if (!context.user) {
+        throw new AuthenticationError();
+      }
 
+      // TODO: portare tutto in una repository/service
+      const { user } = context;
+      const broadcastId = args.broadcast;
+      const broadcast = await  Broadcast.findById(broadcastId);
+      if (!broadcast) {
+        return new ApolloError("Questa trasmissione non esiste",404);
+      }
+      if (broadcast.reservations.find(r => r.user.toString() === user._id.toString())) {
+        return new ApolloError("Hai già prenotato questa offerta.",400);
+      }
+      const reservation = new Reservation({
+        user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
+        broadcast: broadcast,
+        created_at: (new Date()).toISOString(),
+        peopleNum: args.peopleNum,
+      });
+      const operations =  { $push: {reservations: reservation}};
+      const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId}, operations, {
+        new: true
+      });
+      const reservationId = updatedBroadcast.reservations[updatedBroadcast.reservations.length - 1]._id;
+      await User.findOneAndUpdate({_id: user._id},
+          { $push: {reservations: new mongoose.mongo.ObjectId(reservationId)}});
+
+      reservation.broadcast = updatedBroadcast;
+      const event = await broadcast.getEvent();
+      const business = await broadcast.getBusiness();
+      eventEmitter.emit('user-reservation', user, reservation, event.name, business.name);
+
+      return reservation;
+    }
+  },
+  Reservation: {
+    broadcast: async parent => Broadcast.findById(parent.broadcast),
+  },
   Broadcast: {
     business: async parent => Business.findById(parent.business),
     event: parent => SportEvent.findById(parent.event),

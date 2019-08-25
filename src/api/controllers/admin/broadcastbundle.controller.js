@@ -68,9 +68,7 @@ exports.create = async (req, res, next) => {
     const appealWeights = await Setting.getAppealOptions();
 
     const evaluator = new BusinessBasedEventsAppealEvaluator(events, business, { appealWeights });
-    const evaluatedEventsMap = evaluator.evaluate();
-    const sortedEvents = events
-        .sort((a, b) => evaluatedEventsMap.get(b.id) - evaluatedEventsMap.get(a.id));
+    const sortedEvents = evaluator.getSortedEvents();
     const bundle = await BroadcastBundle.buildBundle(business, sortedEvents);
 
     await bundle.save();
