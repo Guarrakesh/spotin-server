@@ -117,6 +117,7 @@ sportEventSchema.methods.transform = function(user = undefined) {
 
             competitor: competitor.competitor._id,
             name: competitor.competitor.name,
+            color: competitor.competitor.color,
             _links: {
               image_versions: competitor.competitor.image_versions
             }
