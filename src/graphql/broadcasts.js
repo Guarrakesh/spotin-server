@@ -28,7 +28,7 @@ exports.Broadcast = `
     title: String
     description: String
   }
-  type Cheer {
+  type ReservationCheer {
     userId: ID!
     cheerFor: String!
   }
@@ -37,20 +37,28 @@ exports.Broadcast = `
     user: ID!
     broadcast: Broadcast
     created_at: Date
-    cheers: [Cheer]
+    cheers: [ReservationCheer]
     peopleNum: Int
     
   }
+  type BroadcastCheers {
+    home: Int
+    total: Int!
+    guest: Int
+    other: [String]
+  } 
   type Broadcast {
     id: ID!
     event: SportEvent
     business: Business
     offer: Offer
     distanceFromUser: Float
+    cheers: BroadcastCheers
     
   }
   extend type Mutation {
     reserve(broadcast: ID!): Reservation
+    cheerFor(reservation: ID!, cheerFor: String!): Broadcast
   } 
   
   
@@ -75,10 +83,10 @@ exports.broadcastResolvers = {
       const broadcastId = args.broadcast;
       const broadcast = await  Broadcast.findById(broadcastId);
       if (!broadcast) {
-        return new ApolloError("Questa trasmissione non esiste",404);
+        throw new ApolloError("Questa trasmissione non esiste",404);
       }
       if (broadcast.reservations.find(r => r.user.toString() === user._id.toString())) {
-        return new ApolloError("Hai già prenotato questa offerta.",400);
+        throw new ApolloError("Hai già prenotato questa offerta.",400);
       }
       const reservation = new Reservation({
         user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
@@ -100,6 +108,30 @@ exports.broadcastResolvers = {
       eventEmitter.emit('user-reservation', user, reservation, event.name, business.name);
 
       return reservation;
+    },
+    async cheerFor(obj, { reservation, cheerFor }, context) {
+      if (!context.user) {
+        throw new AuthenticationError();
+      }
+      const { user } = context;
+
+      const updatedBroadcast = await Broadcast.findOneAndUpdate({
+        "reservations._id": reservation,
+        "reservations.cheers.userId": { $ne: user.id }
+      }, {
+        $push: { 'reservations.$.cheers': { userId: user._id, cheerFor } },
+        $inc: {
+          'cheers.total': 1,
+          'cheers.home': cheerFor === "__home__" ? 1 : 0,
+          'cheers.guest': cheerFor === "__guest__" ? 1 : 0,
+        },
+
+      }, { new: true });
+      if (!updatedBroadcast) {
+        return await Broadcast.findOne({ "reservations._id" : reservation });
+      }
+      return updatedBroadcast;
+
     }
   },
   Reservation: {
