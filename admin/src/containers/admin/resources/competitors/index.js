@@ -65,6 +65,8 @@ export const CompetitorEdit = (props) => (
       <TextInput source="last_name"/>
       <TextInput source="full_name"/>
       <TextField source="country" />
+      <TextInput source="color"/>
+
       <NumberInput source="appealValue" step={1} options={{min:1, max:4}}/>
       <ImageInput source="picture" accept="image/*">
         <ImageField source="src"/>
@@ -91,6 +93,7 @@ export const CompetitorCreate = (props) => (
       <TextInput source="last_name"/>
       <TextInput source="full_name"/>
       <TextField source="country" />
+      <TextInput source="color"/>
       <NumberInput source="appealValue" step={1} options={{min:1, max:4}}/>
         <ImageInput source="picture" accept="image/*">
           <ImageField source="src" title="title"/>

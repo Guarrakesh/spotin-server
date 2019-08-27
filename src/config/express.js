@@ -11,9 +11,8 @@ const adminRoutes = require('../api/routes/admin');
 const { logs } = require('./vars');
 const strategies = require('./passport');
 const error = require('../api/middlewares/error');
-const { ApolloServer } = require('apollo-server-express');
 const analytics = require('../api/middlewares/analytics');
-
+const configureApolloServer = require('./apollo');
 //const winstonConfig = require('./winston');
 /*
  const analyticsMiddleware = (req, res, next) => {
@@ -113,14 +112,7 @@ app.use('/graphql', (req, res, next) => {
   })(req, res, next);
 });
 // Apollo GraphQL
-const server = new ApolloServer({
-
-  schema: require('../graphql/schema'),
-  context: ({req}) => ({
-    user: req.user,
-  })
-
-});
+const server = configureApolloServer();
 server.applyMiddleware({ app, path: '/graphql' });
 
 module.exports = app;
