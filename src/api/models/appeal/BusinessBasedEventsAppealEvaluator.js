@@ -178,6 +178,13 @@ class BusinessBasedEventsAppealEvaluator extends EventsAppealEvaluator {
 
   }
 
+  getSortedEvents() {
+    if (this.eventAppealMap.size === 0) {
+      this.evaluate();
+    }
+    return this.events
+        .sort((a, b) => this.eventAppealMap.get(b[this.options.eventIdKey]) - this.eventAppealMap.get(a[this.options.eventIdKey]));
+  }
 }
 
 

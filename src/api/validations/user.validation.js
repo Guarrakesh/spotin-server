@@ -96,7 +96,7 @@ module.exports = {
   reserveBroadcast: {
     body: {
       broadcast: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
-      cheerFor: Joi.string(),
+      cheerFor: Joi.string().allow(''),
     },
     params: {
       userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required()
