@@ -9,9 +9,9 @@ const requestBroadcast = {
     maxDistance: Joi.number().required(),
     numOfPeople: Joi.number().required(),
     userPosition: Joi.object({latitude: Joi.number(), longitude: Joi.number()}),
-    location: Joi.string().required().max(128),
-    note: Joi.string().allow('').max(250),
-    email: Joi.string().email().required(),
+    businessTypes: Joi.array().items(Joi.string()).required(),
+    email: Joi.string().email(),
+    phone: Joi.string().regex(/^(([+]|00)39)?((3[1-6][0-9]))(\d{6,7})$/g),
   }
 };
 
