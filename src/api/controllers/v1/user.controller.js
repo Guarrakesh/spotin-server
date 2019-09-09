@@ -407,18 +407,18 @@ exports.requestBroadcast = async (req, res, next) => {
 
     const request = new Request();
     request.requestType = TYPE_BROADCAST_REQUEST;
-    const { userPosition: position } = req.body;
-    const userPosition = {
-      type: "Point",
-      coordinates: [position.longitude,position.latitude]
-    };
 
     request.broadcastRequest = {
       ...omit(req.body, 'userPosition'),
       user: loggedUser._id,
-      userPosition
     };
-
+    const { userPosition: position } = req.body;
+    if (position) {
+      request.broadcastRequest.userPosition = {
+        type: "Point",
+        coordinates: [position.longitude, position.latitude]
+      };
+    }
     await request.save();
 
     eventEmitter.emit('user-broadcast-request', user, event, request);

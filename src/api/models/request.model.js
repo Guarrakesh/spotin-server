@@ -11,6 +11,8 @@ const broadcastRequestSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  businessTypes: [String],
+
   maxDistance: {
     type: Number,
   },
@@ -28,9 +30,14 @@ const broadcastRequestSchema = new mongoose.Schema({
   email: {
     type: String,
     match: /^\S+@\S+\.\S+$/,
-    unique: true,
     trim: true,
     lowercase: true,
+  },
+  phone: {
+    required: false,
+    match: /^(([+]|00)39)?((3[1-6][0-9]))(\d{6,7})$/g,
+    trim: true,
+    type: String,
   },
 });
 const contactRequestSchema = new mongoose.Schema({
