@@ -21,6 +21,7 @@ import dataProvider from '../../providers/dataProvider';
 import authProvider from '../../providers/authProvider';
 import history from '../../history';
 import theme from './theme';
+import { CouponCodeCreate, CouponCodeList } from './resources/coupon';
 /* eslint-disable */
 const AdminRoutes = [
   <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
@@ -51,7 +52,11 @@ const AdminRoutes = [
 
       create={SettingCreate}
       show={ShowGuesser}
-      edit={SettingEdit}/>
+      edit={SettingEdit}/>,
+    <Resource name="coupons"
+              options={{ label: "Spot Coin coupon"}}
+              list={CouponCodeList}
+              create={CouponCodeCreate}/>,
 ];
 
 const messages = {

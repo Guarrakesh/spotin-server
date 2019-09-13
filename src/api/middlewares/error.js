@@ -14,6 +14,7 @@ const handler = (err, req, res, next) => {
     message: err.message || httpStatus[err.status],
     errors: err.errors,
     stack: err.stack,
+    internalCode: err.internalCode,
   };
   process.env.NODE_ENV !== "test" && logger.error(`${err.message}`, err);
   if (env !== 'development' && env !== 'test') {
@@ -45,6 +46,7 @@ exports.converter = (err, req, res, next) => {
       message: err.message,
       status: err.status,
       stack: err.stack,
+      internalCode: err.internalCode,
     });
   }
 
