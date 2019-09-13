@@ -14,7 +14,7 @@ const contactRequestRoutes = require('./contactRequest.route');
 const activityRoutes = require('./activity.route');
 const broadcastRequestRoutes = require('./broadcast-request.route');
 const bReviewRoutes = require('./broadcastreview.route');
-
+const couponRoutes = require('./coupon.route');
 const router = express.Router();
 
 /**
@@ -41,6 +41,7 @@ router.use('/contact-requests', contactRequestRoutes);
 router.use('/broadcast-requests', broadcastRequestRoutes);
 router.use('/broadcastreviews', bReviewRoutes);
 router.use('/activities', activityRoutes);
+router.use('/coupon', couponRoutes);
 
 
 

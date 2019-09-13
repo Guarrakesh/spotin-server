@@ -140,7 +140,9 @@ const userSchema = new mongoose.Schema({
     type: { type: String, enum: ['Point'] },
     coordinates: [Number],
   }, { timestamps: true })
-  ]
+  ],
+
+  spotCoins: Number,
 
 
 }, {
