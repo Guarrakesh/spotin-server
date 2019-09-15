@@ -7,24 +7,27 @@ const BaseMongoService = require('./BaseMongoService');
 const USER_COUPON_USED = 'USER_COUPON_USED';
 class UserCouponService extends BaseMongoService {
 
+  constructor() {
+    super(CouponCode);
+  }
   /**
    *
    * @param userId
    * @param couponCode
    * @returns {Promise<CouponCode>}
    */
-  static async applyUserCouponCode(userId, couponCode) {
+  async applyUserCouponCode(userId, couponCode) {
 
    // this.mongoSession = await User.startSession();
    // this.mongoSession.startTransaction();
     try {
-      const { opts } = this.mongoSession || {};
+   //    const { opts } = this.mongoSession || {};
       const coupon = await CouponCode.apply(couponCode, userId);
-      console.log(coupon);
       await User.findOneAndUpdate({ _id: userId }, {
         $inc: { spotCoins: coupon.value }
       }, opts);
-      await PubSub.publish(USER_COUPON_USED, coupon);
+
+      PubSub.publishSync(USER_COUPON_USED, coupon);
       //await this.mongoSession.commitTransaction();
       return coupon;
     } catch (error) {
@@ -36,7 +39,10 @@ class UserCouponService extends BaseMongoService {
 
   }
 
-  static async findAndPaginate(filter, paginateParams) {
+  async create(value, opts) {
+    return await CouponCode.generate({value, ...opts});
+  }
+  async findAndPaginate(filter, paginateParams) {
 
     const results = await CouponCode.paginate(
         this.convertRestFilterParams(filter),
@@ -44,22 +50,6 @@ class UserCouponService extends BaseMongoService {
     );
 
     return results;
-  }
-  static async create(value, opts) {
-
-    return await CouponCode.generate({value, ...opts});
-  }
-  static async findOneById(id) {
-    return CouponCode.findById(id);
-  }
-  static async findOne(opts) {
-    return CouponCode.findOne(opts);
-  }
-  static async find(opts) {
-    return CouponCode.find(opts);
-  }
-  static async remove(id) {
-    return CouponCode.remove({_id: id});
   }
 
 }

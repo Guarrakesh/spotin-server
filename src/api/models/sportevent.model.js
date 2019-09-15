@@ -1,17 +1,11 @@
 // @flow
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
-const { omitBy, isNil } = require('lodash');
-const bcrypt = require('bcryptjs');
-const moment = require('moment-timezone');
-const jwt = require('jwt-simple');
-const uuidv4 = require('uuid/v4');
 const APIError = require('../utils/APIError');
-const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 const { ObjectId } = require('bson');
 const mongoosePaginate = require('mongoose-paginate');
-const {Competition, competitionSchema} = require('./competition.model');
-const {competitorSchema, Competitor} = require('./competitor.model');
+const {Competition} = require('./competition.model');
+const {Competitor} = require('./competitor.model');
 const {Sport} = require('./sport.model');
 const AppealEvaluator = require('./appeal/StandardEventsAppealEvaluator');
 const sportEventSchema = new mongoose.Schema({
