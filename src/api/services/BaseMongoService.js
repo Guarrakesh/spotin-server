@@ -1,6 +1,9 @@
 class BaseMongoService {
 
 
+  constructor(model) {
+    this.model = model;
+  }
   static convertRestPagingParams(query) {
     const { _end = 10, _start = 0, _order = -1, _sort = "_id" } = query;
     return {
@@ -16,6 +19,19 @@ class BaseMongoService {
       delete filterQuery['ids']
     }
     return filterQuery;
+  }
+
+  async findOneById(id) {
+    return this.model.findById(id);
+  }
+  async findOne(opts) {
+    return this.model.findOne(opts);
+  }
+  async find(opts) {
+    return this.model.find(opts);
+  }
+  async remove(id) {
+    return this.model.remove({_id: id});
   }
 
 

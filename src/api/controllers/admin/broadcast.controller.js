@@ -1,7 +1,6 @@
 const httpStatus = require('http-status');
 const ApiError = require('../../utils/APIError');
 const { omit } = require('lodash');
-const { Model } = require('mongoose');
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
 const { SportEvent } = require('../../models/sportevent.model.js');
