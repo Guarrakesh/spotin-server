@@ -27,6 +27,11 @@ const prizeClaimSchema = new mongoose.Schema({
   },
   requestIP: String,
   requestDevice: String,
+
+  transactionId: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'SpotCoinTransaction'
+  }
 }, { timestamps: true });
 
 

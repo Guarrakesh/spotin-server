@@ -8,26 +8,30 @@ class SpotCoinTransactionService {
 
   constructor() {
     this.couponUsedTopic = PubSub.subscribe(USER_COUPON_USED, this.handleCouponUsed)
-    this.prizeRequestedTopic = PubSub.subscribe(PRIZE_CLAIMED, this.handlePrizeRequested);
+    //  this.prizeRequestedTopic = PubSub.subscribe(PRIZE_CLAIMED, this.handlePrizeRequested);
 
   }
 
-  handlePrizeRequested(msg, data) {
+  static async registerPrizeClaimTransaction(data) {
     const { prize, prizeClaim, user } = data;
-    SpotCoinTransaction.create({
+    await User.findOneAndUpdate({ _id: user.id }, {
+      $inc: { spotCoins: prize.cost }
+    });
+
+    const created = await SpotCoinTransaction.create({
       senderId: user.id,
       amount: prize.cost,
       // Se il premio è immediato, completo subito la transazione
       status: prizeClaim.status === PrizeClaimStatusCodes.STATUS_COMPLETED
-        ? StatusCodes.STATUS_COMPLETED
-        : StatusCodes.STATUS_PENDING,
+          ? StatusCodes.STATUS_COMPLETED
+          : StatusCodes.STATUS_PENDING,
       type: TypeCodes.UserToSpotIn,
       meta: {
         requestIP: prizeClaim.requestIp,
         requestDevice: prizeClaim.requestDevice
       }
     });
-
+    return created;
   }
 
 
@@ -44,4 +48,4 @@ class SpotCoinTransactionService {
 
 };
 
-module.exports  = SpotCoinTransactionService;
+module.exports = SpotCoinTransactionService;
