@@ -1,4 +1,4 @@
-const { UserCouponService } = require('../../services/userCouponService');
+const { UserCouponService } = require('../../services/UserCouponService');
 const httpStatus = require('http-status');
 
 

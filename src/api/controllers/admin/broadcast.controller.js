@@ -1,5 +1,4 @@
 const httpStatus = require('http-status');
-const { handler: errorHandler } = require('../../middlewares/error');
 const ApiError = require('../../utils/APIError');
 const { omit } = require('lodash');
 const { Model } = require('mongoose');

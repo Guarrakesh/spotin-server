@@ -1,13 +1,24 @@
-const { UserCouponService } = require('../../services/userCouponService');
+const { UserCouponService } = require('../../services/UserCouponService');
 const httpStatus = require('http-status');
+const { handler: errorHandler } = require('../../middlewares/error');
+const APIError = require('../../utils/APIError');
 
-exports.get = async (req, res, next) => {
+exports.load = async(req, res, next, id) => {
   try {
-    const coupons = await UserCouponService.getAll();
-  } catch (e) {
-    next(e);
+    const coupon = await UserCouponService.findOneById(id);
+    if (!coupon) {
+      next(new APIError({ message: "Coupon does not exists", status: httpStatus.NOT_FOUND } ));
+    }
+    req.locals = { coupon };
+    return next();
+  } catch (error) {
+    return errorHandler(error, req ,res);
   }
 };
+
+exports.get = async (req, res) => res.json(req.locals.coupon);
+
+
 exports.create = async (req, res, next) => {
   try {
     const { value } = req.body;
@@ -22,3 +33,19 @@ exports.create = async (req, res, next) => {
   }
 };
 
+exports.list = async (req, res, next) => {
+  try {
+    res.json(await UserCouponService.findAndPaginate(req.filterParams, req.pagingParams));
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.remove = async (req, res, next) => {
+  try {
+    await UserCouponService.remove(req.locals.coupon.id);
+    res.status(200).end();
+  } catch (e) {
+    next(e);
+  }
+}

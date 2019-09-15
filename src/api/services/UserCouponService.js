@@ -2,9 +2,10 @@ const User = require('../models/user.model');
 const { CouponCode, ErrorCodes} = require('../models/couponcode.model');
 const mongoose = require('mongoose');
 const PubSub = require('pubsub-js');
+const BaseMongoService = require('./BaseMongoService');
 
 const USER_COUPON_USED = 'USER_COUPON_USED';
-class UserCouponService {
+class UserCouponService extends BaseMongoService {
 
   /**
    *
@@ -35,8 +36,30 @@ class UserCouponService {
 
   }
 
+  static async findAndPaginate(filter, paginateParams) {
+
+    const results = await CouponCode.paginate(
+        this.convertRestFilterParams(filter),
+        this.convertRestPagingParams(paginateParams)
+    );
+
+    return results;
+  }
   static async create(value, opts) {
-    return await CouponCode.create({value, ...opts});
+
+    return await CouponCode.generate({value, ...opts});
+  }
+  static async findOneById(id) {
+    return CouponCode.findById(id);
+  }
+  static async findOne(opts) {
+    return CouponCode.findOne(opts);
+  }
+  static async find(opts) {
+    return CouponCode.find(opts);
+  }
+  static async remove(id) {
+    return CouponCode.remove({_id: id});
   }
 
 }
