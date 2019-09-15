@@ -1,5 +1,5 @@
 const PubSub = require('pubsub-js');
-const { USER_COUPON_USED } = require('./userCouponService');
+const { USER_COUPON_USED } = require('./UserCouponService');
 class UserTransaction {
 
   constructor() {

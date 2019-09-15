@@ -89,6 +89,7 @@ couponCodeSchema.statics.apply = async function(code, userId) {
 
 };
 
+couponCodeSchema.plugin(mongoosePaginate);
 exports.couponCodeLibOpts = couponCodeLibOpts;
 exports.couponCodeSchema = couponCodeSchema;
 exports.CouponCode = mongoose.model('CouponCode', couponCodeSchema, 'couponcodes');
