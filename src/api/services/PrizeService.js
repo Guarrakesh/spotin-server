@@ -32,6 +32,15 @@ class PrizeService extends BaseMongoService {
     PubSub.publish(PRIZE_CLAIMED, { prize, prizeClaim, user } );
     return result;
   }
+  async findAndPaginate(filter, paginateParams) {
+
+    const results = await Prize.paginate(
+        PrizeService.convertRestFilterParams(filter),
+        PrizeService.convertRestPagingParams(paginateParams)
+    );
+
+    return results;
+  }
 }
 
 

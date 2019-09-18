@@ -34,7 +34,8 @@ class BaseMongoService {
     return this.model.remove({_id: id});
   }
 
-
-
+  async create(atts, opts) {
+    return this.model.create(atts, opts);
+  }
 }
 module.exports = BaseMongoService;
