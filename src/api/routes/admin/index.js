@@ -14,6 +14,7 @@ const requestRoutes = require('./request.route');
 const bBundleRoutes = require('./broadcastbundle.route');
 const couponRoutes = require('./coupon.route');
 const settingRoutes = require('./setting.route');
+const prizeRoutes = require('./prize.route');
 const router = express.Router();
 
 
@@ -41,5 +42,6 @@ router.use('/requests', requestRoutes);
 router.use('/settings', settingRoutes);
 router.use('/broadcastbundles', bBundleRoutes);
 router.use('/coupons', couponRoutes);
+router.use('/prizes', prizeRoutes);
 
 module.exports = router;

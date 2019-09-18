@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const {imageSchema} = require('./image');
+const mongoosePaginate = require('mongoose-paginate');
 const { slugify } = require('lodash-addons');
 const prizeSchema = new mongoose.Schema({
   name: {
@@ -46,6 +47,6 @@ const prizeSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-
+prizeSchema.plugin(mongoosePaginate);
 exports.prizeSchema = prizeSchema;
 exports.Prize = mongoose.model('Prize', prizeSchema, 'prizes');
