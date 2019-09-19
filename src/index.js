@@ -14,7 +14,7 @@ mongoose.connect();
 
 services.init();
 
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === "heroku_development") {
   // Serve static files
   app.use(express.static(path.join(__dirname, '../admin/build')));
 

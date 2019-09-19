@@ -27,6 +27,11 @@ const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
                 formClassName={classes.inlineBlock} source="name"/>
             <NumberInput
                 validate={[required()]}
+                source="cost"
+                label="Costo (in SpotCoin)"
+            />
+            <NumberInput
+                validate={[required()]}
                 formClassName={classes.inlineBlock} source="availability" label="Disponibilità"/>
             <RichTextInput
                 fullWidth

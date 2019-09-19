@@ -9,7 +9,9 @@ const PrizeList = props => (
         <TextField source="name" label="Nome"/>
         <NumberField source="cost" label="Costo"/>
         <NumberField source="availability" label="Disponibilità"/>
-        <DateField source="grantingTime" label="Tempo di assegnazione"/>
+        <NumberField source="grantingTime" label="Tempo di assegnazione"/>
+        <DateField source="expiresAt"/>
+
         <ShowButton/>
       </Datagrid>
 
