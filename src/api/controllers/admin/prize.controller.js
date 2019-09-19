@@ -24,7 +24,7 @@ exports.create = async (req, res, next) => {
   try {
     const { value } = req.body;
 
-    const result = await prizeService.create(value, req.body);
+    const result = await prizeService.create(req.body);
     if (result) {
       res.status(httpStatus.OK);
       res.json(result);

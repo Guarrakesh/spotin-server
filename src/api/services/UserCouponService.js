@@ -45,8 +45,8 @@ class UserCouponService extends BaseMongoService {
   async findAndPaginate(filter, paginateParams) {
 
     const results = await CouponCode.paginate(
-        this.convertRestFilterParams(filter),
-        this.convertRestPagingParams(paginateParams)
+        UserCouponService.convertRestFilterParams(filter),
+        UserCouponService.convertRestPagingParams(paginateParams)
     );
 
     return results;

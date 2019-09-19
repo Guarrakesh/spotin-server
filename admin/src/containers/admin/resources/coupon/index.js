@@ -39,7 +39,7 @@ export const CouponCodeList = props => (
         <TextField source="code" label="Codice"/>
         <NumberField source="value" label="Valore"/>
         <BooleanField source="used" label="Usato"/>
-        <DateField source="usedBy" label="Usato il"/>
+        <DateField showTime source="usedAt" label="Usato il"/>
         <UsedBy/>
         <ShowButton/>
       </Datagrid>
