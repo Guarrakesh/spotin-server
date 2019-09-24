@@ -25,7 +25,7 @@ class UserCouponService extends BaseMongoService {
       const coupon = await CouponCode.apply(couponCode, userId);
       await User.findOneAndUpdate({ _id: userId }, {
         $inc: { spotCoins: coupon.value }
-      }, opts);
+      });
 
       PubSub.publishSync(USER_COUPON_USED, coupon);
       //await this.mongoSession.commitTransaction();
