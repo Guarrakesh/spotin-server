@@ -14,8 +14,10 @@ import {
   REDUX_FORM_NAME,
   ReferenceInput,
   AutocompleteInput,
+    FormDataConsumer,
   Toolbar,
   SaveButton,
+  BooleanInput,
 
 } from 'react-admin';
 
@@ -23,7 +25,13 @@ const styles = {
   inlineBlock: { display: 'inline-block', marginRight: '1rem'}
 };
 
-const required = value => (value || typeof value === 'number' ? undefined : 'Required')
+const required = value => (value || typeof value === 'number' ? undefined : 'Required');
+const businessValidate = (value, allValues) => {
+  if (!value && !allValues.bulkCreate) {
+    return 'Business is required'
+  }
+};
+
 const BroadcastBundleCreateForm
     = withStyles(styles)(({
 
@@ -49,6 +57,11 @@ const BroadcastBundleCreateForm
 
       handleSubmit(values => {
         destroy();
+        if (values.bulkCreate) {
+          delete values.business;
+        } else if (values.business) {
+          values.bulkCreate = false;
+        }
         save(values, redirect)
       });
   return (
@@ -97,22 +110,30 @@ const BroadcastBundleCreateForm
             </Grid>
             <Grid item xs={4}>
               <p>Business</p>
-              <FormInput basePath={basePath}
-                         translate={translate}
-                         input={
-                           <ReferenceInput
+              <BooleanInput source="bulkCreate" label="Crea per tutti i locali visibili sulla piattaforma"/>
+              <FormDataConsumer>
+                {({ formData }) => (formData && formData.bulkCreate) ? null : (
+                    <FormInput basePath={basePath}
+                               translate={translate}
 
-                               validate={[required]} reference="businesses" source="business">
-                             <AutocompleteInput
-                                 optionText="name"
-                                 inputValueMatcher={businessInputValueMatcher}
-                                 source="name"/>
-                           </ReferenceInput>
-                         }
-                         label="Business"
-                         record={record}
-                         resource={resource}
-              />
+                               input={
+                                 <ReferenceInput
+
+                                     validate={[businessValidate]} reference="businesses" source="business">
+                                   <AutocompleteInput
+
+                                       optionText="name"
+                                       inputValueMatcher={businessInputValueMatcher}
+                                       source="name"/>
+                                 </ReferenceInput>
+                               }
+                               label="Business"
+                               record={record}
+                               resource={resource}
+                    />
+                )}
+              </FormDataConsumer>
+
             </Grid>
           </Grid>
           <Toolbar>
@@ -152,6 +173,7 @@ const enhanced = compose(
     connect((state, props) => ({
       form: props.form || REDUX_FORM_NAME,
       initialValues: {
+        bulkCreate: false,
         start: moment().add(1, 'day').startOf('day'),
         end: moment().add(8,'days').endOf('day'),
 

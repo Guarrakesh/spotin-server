@@ -53,26 +53,36 @@ exports.get = (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const business =  await Business.findById(req.body.business);
+    let businesses;
+    if (req.body.bulkCreate) {
+      businesses = await Business.find({ isVisible: true });
+    } else {
+      businesses = [await Business.findById(req.body.business)]
+    }
 
     const startDate = moment(req.body.start).startOf('day').toISOString();
     const endDate = moment(req.body.end).endOf('day').toISOString();
 
-    const events = await business.getBroadcastableEvents(startDate, endDate);
-    if (!events || events.length === 0) {
-      return next(new ApiError({ message: 'Non ci sono eventi per questa settimana', status: 422, isPublic: true }));
+    let bundles = [];
+    for (const business of businesses) {
+      const events = await business.getBroadcastableEvents(startDate, endDate);
+      if (!events || events.length === 0) {
+        if (req.body.bulkCreate) {
+          continue; // sto facendo bulk create, non do errore e continuo
+        } else {
+          return next(new ApiError({message: 'Non ci sono eventi per questa settimana', status: 422, isPublic: true}));
+        }
+      }
+      const appealWeights = await Setting.getAppealOptions();
+
+      const evaluator = new BusinessBasedEventsAppealEvaluator(events, business, { appealWeights });
+      const sortedEvents = evaluator.getSortedEvents();
+      const bundle = await BroadcastBundle.buildBundle(business, sortedEvents);
+
+      await bundle.save();
+      bundles.push(bundle);
     }
-
-
-
-    const appealWeights = await Setting.getAppealOptions();
-
-    const evaluator = new BusinessBasedEventsAppealEvaluator(events, business, { appealWeights });
-    const sortedEvents = evaluator.getSortedEvents();
-    const bundle = await BroadcastBundle.buildBundle(business, sortedEvents);
-
-    await bundle.save();
-    res.json(bundle);
+    res.json(bundles[0]);
   } catch (e) {
     next(e);
   }
