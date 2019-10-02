@@ -39,7 +39,7 @@ class UserCouponService extends BaseMongoService {
 
   }
 
-  async create(value, opts) {
+  async create(value, opts = {}) {
     return await CouponCode.generate({value, ...opts});
   }
   async findAndPaginate(filter, paginateParams) {
