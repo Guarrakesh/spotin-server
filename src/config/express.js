@@ -60,9 +60,9 @@ app.use(cors({
       'https://api.spotin.it',
       'https://admin.spotin.it',
       'https://spotin-prod.herokuapp.com',
-      'http://spotin.it',
-      'http://spotin-dev.herokuapp.com',
-      'http://spotin-staging.herokuapp.com',
+      'https://spotin.it',
+      'https://spotin-dev.herokuapp.com',
+      'https://spotin-staging.herokuapp.com',
       'https://zdmw3jox8g.execute-api.us-east-1.amazonaws.com',
       "http://18.209.40.224/"
         ];
