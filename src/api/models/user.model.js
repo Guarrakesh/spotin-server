@@ -185,6 +185,7 @@ userSchema.method({
       'favorite_competitors',
       'photo',
       'role',
+        'spotCoins',
       'created_at', "updated_at", "reservations", "favorite_events", "favorite_sports","services", "notificationsEnabled"];
 
     fields.forEach((field) => {
