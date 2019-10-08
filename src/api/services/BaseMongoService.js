@@ -31,6 +31,7 @@ class BaseMongoService {
     return this.model.find(opts);
   }
   async remove(id) {
+
     return this.model.remove({_id: id});
   }
 

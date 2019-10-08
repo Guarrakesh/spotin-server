@@ -1,8 +1,8 @@
 import {AUTH_CHECK, AUTH_ERROR, AUTH_GET_PERMISSIONS, AUTH_LOGIN, AUTH_LOGOUT} from "react-admin";
 
 const AUTH_GET_USER = 'AUTH_GET_USER';
-const loginUri = process.env.NODE_ENV === "production" ? "/admin/auth/login" : "http://localhost:3001/admin/auth/login";
-const refreshUri = process.env.NODE_ENV === "production" ? "/admin/auth/refresh-token" : "http://localhost:3001/admin/auth/refresh-token";
+const loginUri = process.env.NODE_ENV === "production" ? "/admin/auth/login" : "http://192.168.1.5:3001/admin/auth/login";
+const refreshUri = process.env.NODE_ENV === "production" ? "/admin/auth/refresh-token" : "http://192.168.1.5:3001/admin/auth/refresh-token";
 
 let isRefreshing = false;
 const checkAndRefreshToken = () => {

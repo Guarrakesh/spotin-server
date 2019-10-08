@@ -3,7 +3,7 @@ import restClientProvider from './restClientProvider';
 import addUploadFeature from './fileUpload';
 import authProvider from './authProvider';
 
-const apiUrl = process.env.NODE_ENV === "production" ? "/admin" : "http://localhost:3001/admin";
+const apiUrl = process.env.NODE_ENV === "production" ? "/admin" : "http://192.168.1.5:3001/admin";
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
