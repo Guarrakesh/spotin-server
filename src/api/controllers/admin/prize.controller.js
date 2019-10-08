@@ -22,9 +22,17 @@ exports.get = async (req, res) => res.json(req.locals.prize);
 
 exports.create = async (req, res, next) => {
   try {
-    const { value } = req.body;
+    const { restaurantRelatedRules } = req.body;
 
-    const result = await prizeService.create(req.body);
+    const result = await prizeService.create({
+      ...req.body,
+    // c'è bisogno del parse perché poiché c'è un upload il content type è multipart/form-data
+      restaurantRelatedRules: JSON.parse(restaurantRelatedRules)
+    });
+    if (req.file) {
+      await prizeService.uploadImageToS3(result, req.file)
+    }
+
     if (result) {
       res.status(httpStatus.OK);
       res.json(result);

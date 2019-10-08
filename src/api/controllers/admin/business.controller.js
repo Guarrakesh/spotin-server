@@ -1,7 +1,6 @@
 const httpStatus = require('http-status');
 const { handler: errorHandler } = require('../../middlewares/error');
 
-const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
 const { omit } = require('lodash');
 

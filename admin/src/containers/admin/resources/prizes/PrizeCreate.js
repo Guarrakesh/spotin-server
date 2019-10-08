@@ -10,8 +10,8 @@ const styles = () => ({
 const RestaurantRelatedRules = (props) => (
     <fieldset>
       <legend>Restaurant related rules</legend>
-      <NumberInput source="minimumSpending" label="Spesa minima (in EUR)" {...props}/>
-      <NumberInput source="maximumValue" label="Valore massimo (in EUR)" {...props}/>
+      <NumberInput source="restaurantRelatedRules.minimumSpending" label="Spesa minima (in EUR)" {...props}/>
+      <NumberInput source="restaurantRelatedRules.maximumValue" label="Valore massimo (in EUR)" {...props}/>
     </fieldset>
 );
 const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
@@ -31,7 +31,6 @@ const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
                 label="Costo (in SpotCoin)"
             />
             <NumberInput
-                validate={[required()]}
                 formClassName={classes.inlineBlock} source="availability" label="Disponibilità"/>
             <RichTextInput
                 fullWidth
