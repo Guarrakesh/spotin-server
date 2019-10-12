@@ -77,11 +77,15 @@ class PrizeService extends BaseMongoService {
   }
 
   async remove(prize) {
-    if (prize.image) {
-      await amazon.deleteObject(`images/prizes/${prize.image.fileName}.${prize.image.ext}`)
 
+    if (prize.image) {
+      // Elimino tutte le versioni resized
+      prizeImageSize.map(({width, height }) => {
+        amazon.deleteObject(`images/prizes/${width}x${height}/${prize.image.fileName}.${prize.image.ext}`)
+      });
+      amazon.deleteObject(`images/prizes/${prize.image.fileName}.${prize.image.ext}`)
     }
-    return await super.remove(prize.d);
+    return await super.remove(prize.id);
   }
 }
 
