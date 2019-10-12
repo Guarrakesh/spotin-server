@@ -27,7 +27,7 @@ exports.create = async (req, res, next) => {
     const result = await prizeService.create({
       ...req.body,
     // c'è bisogno del parse perché poiché c'è un upload il content type è multipart/form-data
-      restaurantRelatedRules: JSON.parse(restaurantRelatedRules)
+      restaurantRelatedRules: restaurantRelatedRules ? JSON.parse(restaurantRelatedRules) : undefined,
     });
     if (req.file) {
       await prizeService.uploadImageToS3(result, req.file)
@@ -52,7 +52,7 @@ exports.list = async (req, res, next) => {
 
 exports.remove = async (req, res, next) => {
   try {
-    await prizeService.remove(req.locals.prize.id);
+    await prizeService.remove(req.locals.prize);
     res.status(200).end();
   } catch (e) {
     next(e);
