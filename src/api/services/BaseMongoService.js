@@ -38,5 +38,8 @@ class BaseMongoService {
   async create(atts, opts) {
     return this.model.create(atts, opts);
   }
+  async update(id, atts, opts) {
+    return this.model.findOneAndUpdate({ _id: id }, atts, opts);
+  }
 }
 module.exports = BaseMongoService;
