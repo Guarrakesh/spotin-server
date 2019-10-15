@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import { TabbedForm, LongTextInput, required, TextInput, DateInput, ImageField, ImageInput, NumberInput, Create, FormTab } from 'react-admin';
+import { TabbedForm,LongTextInput,DisabledInput, required, TextInput, DateInput, ImageField, ImageInput, NumberInput, Edit, FormTab } from 'react-admin';
 
 const styles = () => ({
   inlineBlock: { display: 'inline-flex', marginRight: '1em'}
@@ -13,11 +13,12 @@ const RestaurantRelatedRules = (props) => (
       <NumberInput source="restaurantRelatedRules.maximumValue" label="Valore massimo (in EUR)" {...props}/>
     </fieldset>
 );
-const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
+const PrizeEdit = withStyles(styles)(({classes, ...props}) => {
   return (
-      <Create { ...props}>
+      <Edit { ...props}>
         <TabbedForm>
           <FormTab label="General">
+            <DisabledInput source="_id"/>
             <ImageInput validation={{ required: true }} source="imageFile" accept="image/*">
               <ImageField source="src"/>
             </ImageInput>
@@ -46,8 +47,8 @@ const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
 
           </FormTab>
         </TabbedForm>
-      </Create>
+      </Edit>
   )
 });
 
-export default PrizeCreate;
+export default PrizeEdit;

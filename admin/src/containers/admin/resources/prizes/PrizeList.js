@@ -1,5 +1,5 @@
 import React from "react";
-import {TextField, NumberField, DateField, ShowButton, List, Datagrid} from 'react-admin';
+import {TextField, EditButton,NumberField, DateField, List, Datagrid} from 'react-admin';
 import VersionedImageField from "../fields/VersionedImageField";
 
 const PrizeList = props => (
@@ -11,8 +11,8 @@ const PrizeList = props => (
         <NumberField source="availability" label="Disponibilità"/>
         <NumberField source="grantingTime" label="Tempo di assegnazione"/>
         <DateField source="expiresAt"/>
-
-        <ShowButton/>
+        <EditButton/>
+        {/*<ShowButton/>*/}
       </Datagrid>
 
     </List>

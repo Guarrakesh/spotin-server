@@ -17,5 +17,6 @@ router
 router
     .route('/:id')
     .get(authorize(ADMIN), prizeController.get)
+    .patch(authorize(ADMIN), prizeController.update)
     .delete(authorize(ADMIN), prizeController.remove);
 module.exports = router;

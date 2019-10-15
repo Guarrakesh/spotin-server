@@ -76,8 +76,7 @@ class PrizeService extends BaseMongoService {
     return results;
   }
 
-  async remove(prize) {
-
+  deleteImage(prize) {
     if (prize.image) {
       // Elimino tutte le versioni resized
       prizeImageSize.map(({width, height }) => {
@@ -85,6 +84,22 @@ class PrizeService extends BaseMongoService {
       });
       amazon.deleteObject(`images/prizes/${prize.image.fileName}.${prize.image.ext}`)
     }
+  }
+
+  /**
+   *
+   * @param prize
+   * @param attributes
+   * @param replace
+   * @returns {Promise<Prize>}
+   */
+  async update(prize, attributes, replace = true) {
+    return await super.update(prize.id,
+        replace ? attributes : { $set: attributes }, { returnNewDocument: true });
+
+  }
+  async remove(prize) {
+    this.deleteImage(prize);
     return await super.remove(prize.id);
   }
 }

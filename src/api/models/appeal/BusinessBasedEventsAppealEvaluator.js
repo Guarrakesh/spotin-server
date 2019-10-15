@@ -25,7 +25,7 @@ const DEFAULT_FAVORITE_COMPETITION_WEIGHT = 2;
 //   id: string;
 //   _id: string;
 //   favoriteCompetitors: string[];
-//   favoriteSports: strin[];
+//   favoriteSports: string[];
 //   [key: string]: any;
 // }
 

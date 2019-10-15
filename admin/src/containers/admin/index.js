@@ -22,7 +22,7 @@ import authProvider from '../../providers/authProvider';
 import history from '../../history';
 import theme from './theme';
 import { CouponCodeCreate, CouponCodeList,CouponCodeShow  } from './resources/coupon';
-import { PrizeList, PrizeCreate} from './resources/prizes'
+import { PrizeList, PrizeCreate, PrizeEdit } from './resources/prizes'
 /* eslint-disable */
 const AdminRoutes = [
   <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
@@ -60,6 +60,7 @@ const AdminRoutes = [
               show={CouponCodeShow}
               create={CouponCodeCreate}/>,
     <Resource name="prizes"
+              edit={PrizeEdit}
               list={PrizeList}
               create={PrizeCreate}
               />
