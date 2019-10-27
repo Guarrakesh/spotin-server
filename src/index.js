@@ -6,13 +6,12 @@ const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 const express = require('express');
 const path = require('path');
-const services = require('./config/services');
+
 require('./api/listeners/subscriptions');
 // open mongoose connection
 
 mongoose.connect();
 
-services.init();
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === "heroku_development") {
   // Serve static files

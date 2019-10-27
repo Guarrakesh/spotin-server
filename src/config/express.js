@@ -13,6 +13,8 @@ const strategies = require('./passport');
 const error = require('../api/middlewares/error');
 const analytics = require('../api/middlewares/analytics');
 const configureApolloServer = require('./apollo');
+const services = require('./services');
+const Container = require('../di/Container');
 //const winstonConfig = require('./winston');
 /*
  const analyticsMiddleware = (req, res, next) => {
@@ -27,6 +29,11 @@ const configureApolloServer = require('./apollo');
  */
 const app = express();
 
+// Container and dependency injection
+const container = Container.getInstance();
+services.init(container);
+
+app.set('container', container);
 // request logging. dev: console | production: file
 app.use(morgan(logs));
 

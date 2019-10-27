@@ -8,7 +8,6 @@ const { SportEvent } = require('../../models/sportevent.model');
 const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
 const { Reservation } = require('../../models/reservation.model');
 const amazon = require("../../utils/amazon");
-
 const mongoose = require('mongoose');
 const moment = require('moment');
 const eventEmitter = require('../../emitters');
@@ -489,4 +488,10 @@ exports.getPictureUploadURL = async (req, res, next) => {
   } catch (e) {
     next(e);
   }
+};
+
+
+exports.getVisitedBusinesses = async (req, res, next) => {
+  const userService = req.app.get('container').get('userService');
+  res.json(userService.getVisitedBusinesses());
 };
