@@ -44,6 +44,7 @@ const PrizeEdit = withStyles(styles)(({classes, ...props}) => {
             <DateInput source="expiresAt"/>
 
             <RestaurantRelatedRules/>
+            <NumberInput source="order"/>
 
           </FormTab>
         </TabbedForm>

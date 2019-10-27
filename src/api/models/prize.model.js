@@ -42,6 +42,7 @@ const prizeSchema = new mongoose.Schema({
     required: true,
     type: Number,
   },
+  order: Number,
 
 
 }, { timestamps: true });

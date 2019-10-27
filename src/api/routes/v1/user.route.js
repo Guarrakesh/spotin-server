@@ -150,6 +150,9 @@ router
   .post(authorize(LOGGED_USER, ownerCheck), validate(reserveBroadcast), controller.reserveBroadcast)
 ;
 router
+    .route('/:userId/visited_businesses')
+    .get(authorize(LOGGED_USER, ownerCheck), controller.getVisitedBusinesses);
+router
   .route('/:userId/reservations/:reservationId')
   .get(authorize(LOGGED_USER, ownerCheck), validate(getReservation), controller.getReservation)
   .delete(authorize(LOGGED_USER, ownerCheck), validate(removeReservation), controller.removeReservation)
