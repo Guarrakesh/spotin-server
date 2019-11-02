@@ -5,8 +5,18 @@ const { omitBy, isNil, pick} = require('lodash');
 const { pagination } = require('../utils/aggregations');
 const { broadcastReviewSchema } = require('./review.model');
 const moment = require('moment');
+
+const ReservationStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  CANCELED: 'CANCELED'
+};
 const reservationSchema = new mongoose.Schema({
 
+  business: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Business',
+  },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User"
@@ -37,7 +47,21 @@ const reservationSchema = new mongoose.Schema({
   },
   peopleNum: Number,
 
-}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
+  checkedInAt: Date,
+  checkedOutAt: Date,
+  cancelledAt: Date,
+  status: {
+    type: String,
+    enum: Object.values(ReservationStatus)
+  },
+  transactions: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Transaction',
+  }],
+  amount: Number,
+
+
+}, { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }});
 
 const finalAggregationStages = [
   { $unwind: "$reservations"},
@@ -110,3 +134,4 @@ reservationSchema.statics = {
 
 exports.reservationSchema = reservationSchema;
 exports.Reservation = mongoose.model('Reservation', reservationSchema);
+exports.ReservationStatus = ReservationStatus;

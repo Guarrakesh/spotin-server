@@ -1,5 +1,5 @@
-const UserTransaction = require('../../services/SpotCoinTransactionService');
-const { USER_COUPON_USED } = require('../../services/UserCouponService');
+const UserTransaction = require('../../../services/SpotCoinTransactionService');
+const { USER_COUPON_USED } = require('../../../services/UserCouponService');
 
 const { expect } = require('chai');
 const { PubSub } = require('pubsub-js');

@@ -1,4 +1,4 @@
-const Injector = require('../../../di/Injector');
+const Injector = require('../../../../di/Injector');
 const {expect} = require('chai');
 
 const Logger = {

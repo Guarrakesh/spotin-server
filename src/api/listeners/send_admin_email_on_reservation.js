@@ -1,6 +1,7 @@
 const mailer = require('.././utils/nodemailer');
 const { email } = require('../../config/vars');
 module.exports = (user, reservation, eventName, businessName) => {
+
   if (process.env.NODE_ENV !== "development") {
     const data = {
       to: "info@spotin.it",
@@ -16,6 +17,8 @@ module.exports = (user, reservation, eventName, businessName) => {
     };
 
     mailer.sendMail(data);
+  } else {
+    console.log("========== EMAIL SENDING ==========");
   }
 
 };

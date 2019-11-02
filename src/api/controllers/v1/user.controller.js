@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const { omit } = require('lodash');
+const { omit, uniq } = require('lodash');
 const User = require('../../models/user.model.js');
 const { handler: errorHandler } = require('../../middlewares/error');
 const ApiError = require('../../utils/APIError')
@@ -221,63 +221,17 @@ exports.reserveBroadcast = async (req, res, next) => {
   try {
     const { loggedUser: user } = req.locals;
 
-
     const { broadcast: broadcastId, peopleNum, cheerFor } = req.body;
 
     const broadcast = await  Broadcast.findById(broadcastId);
     if (!broadcast) {
       return next(new ApiError({message: "Questa trasmissione non esiste", status: 404}));
-
     }
+    const reservationService = req.app.get('container').get('reservationService');
 
-    if (broadcast.reservations.find(r => r.user.toString() === user._id.toString())) {
-      return next(new ApiError({message: "Hai già prenotato questa offerta.", status: 400}));
-
-    }
-    const event = await broadcast.getEvent();
-    const business = await broadcast.getBusiness();
-    const reservation = new Reservation({
-      user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
-      broadcast: broadcast,
-      created_at: (new Date()).toISOString(),
-      peopleNum,
+    const reservation = await reservationService.checkIn(user, broadcast, {
+      peopleNum, cheerFor
     });
-    if (cheerFor) {
-      // al momento l'utente è solo quello che prenota
-      reservation.cheers = {
-        userId: user.id,
-        cheerFor,
-      }
-    }
-    const operations =  { $push: {reservations: reservation}};
-
-    if (cheerFor) {
-      if (cheerFor === "__home__" && event.competitors.length > 0) {
-        operations.$inc = { 'cheers.home': 1, 'cheers.total': 1 };
-      } else if (cheerFor === "__guest__" && event.competitors.length > 0) {
-        operations.$inc = { 'cheers.guest': 1, 'cheers.total': 1 };
-      } else {
-        operations.$push = { 'cheers.other': cheerFor };
-        operations.$inc = { 'cheers.total': 1 }
-      }
-
-    }
-    const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId}, operations, {
-      new: true
-    });
-
-    //Prendo l'id della reservation generata da mongoose e la pusho nell'oggetto reservations dell'utente
-    const reservationId = updatedBroadcast.reservations[updatedBroadcast.reservations.length - 1]._id;
-
-    const updatedUser = await User.findOneAndUpdate({_id: user._id},
-      { $push: {reservations: new mongoose.mongo.ObjectId(reservationId)}});
-
-    reservation.broadcast = updatedBroadcast;
-
-    const eventName = event.name;
-    const businessName = business.name;
-    eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
-
     res.status = httpStatus.CREATED;
     res.json(reservation);
 
@@ -492,6 +446,9 @@ exports.getPictureUploadURL = async (req, res, next) => {
 
 
 exports.getVisitedBusinesses = async (req, res, next) => {
-  const userService = req.app.get('container').get('userService');
-  res.json(userService.getVisitedBusinesses());
+  const resService = req.app.get('container').get('reservationService');
+  const { loggedUser } = req.locals;
+  const completedReservations = await resService.getCompletedReservations(loggedUser);
+
+  res.json(uniq(completedReservations.map(res => res.business)));
 };

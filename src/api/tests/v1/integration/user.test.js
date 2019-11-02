@@ -57,6 +57,7 @@ describe('Users API', () => {
 
   });
 
+
   afterEach(async() => {
     sandbox.restore()
   });
@@ -506,6 +507,28 @@ describe('Users API', () => {
    */
 
 
+  describe('POST /v1/users/:userId/reservations', () => {
+    // TODO: TEST
+    beforeEach(() => {
+
+    });
+    it('should check-in for a broadcast', async () => {
+      return request(app)
+          .post(`/v1/users/${dbUser._id}/reservations`)
+          .set('Authorization', `Bearer ${userAccessToken}`)
+          .send();
+
+      // return request(app)
+      //     .post('/v1/users')
+      //     .set('Authorization', `Bearer ${adminAccessToken}`)
+      //     .send(user)
+      //     .expect(httpStatus.CREATED)
+      //     .then((res) => {
+      //       delete admin.password;
+      //       expect(res.body).to.include(admin);
+      //     });
+    })
+  })
   describe('GET /v1/users/profile', () => {
     /*it('should get the logged user\'s info', () => {
       delete dbUser.password;
