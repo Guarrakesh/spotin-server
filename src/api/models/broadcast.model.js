@@ -11,7 +11,7 @@ const { imageVersionSchema } = require('./image');
 const offerSchema = require('./offer.schema');
 const { SportEvent } = require('./sportevent.model');
 const { Business } = require('./business.model');
-
+const { Reservation } = require('./reservation.model');
 const broadcastSchema = new mongoose.Schema({
 
   business: {
@@ -71,8 +71,10 @@ broadcastSchema.methods = {
     this.reservations = this.reservations.map(reservation => {
       if (reservation._id.toString() === reservationId.toString()) {
         reservation.review = review;
+        Reservation.sync(reservation, this.business);
       }
       return reservation;
+
     });
     return await this.save();
 

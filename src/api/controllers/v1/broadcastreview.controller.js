@@ -28,7 +28,7 @@ exports.create = async (req, res, next) => {
     }
     const review = omit(req.body, ['reservationId', 'userId']);
     await broadcast.review(userId, reservationId, review);
-    const reservation = broadcast.reservations.find(r => r.id === reservationId)
+    const reservation = broadcast.reservations.find(r => r.id === reservationId);
     res.status(httpStatus.CREATED);
     res.json(reservation);
   } catch (e) {

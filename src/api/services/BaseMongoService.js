@@ -24,11 +24,11 @@ class BaseMongoService {
   async findOneById(id) {
     return this.model.findById(id);
   }
-  async findOne(opts) {
-    return this.model.findOne(opts);
+  async findOne(...opts) {
+    return this.model.findOne(...opts);
   }
-  async find(opts) {
-    return this.model.find(opts);
+  async find(...opts) {
+    return this.model.find(...opts);
   }
   async remove(id) {
 
