@@ -278,6 +278,7 @@ exports.reserveBroadcast = async (req, res, next) => {
     const businessName = business.name;
     eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
 
+    Reservation.sync(reservation, business.id);
     res.status = httpStatus.CREATED;
     res.json(reservation);
 
@@ -493,5 +494,10 @@ exports.getPictureUploadURL = async (req, res, next) => {
 
 exports.getVisitedBusinesses = async (req, res, next) => {
   const userService = req.app.get('container').get('userService');
-  res.json(userService.getVisitedBusinesses());
+  res.json(await userService.getVisitedBusinesses(req.locals.user, {
+    type: 1,
+    name: 1,
+    address: 1,
+    slug: 1,
+  }));
 };

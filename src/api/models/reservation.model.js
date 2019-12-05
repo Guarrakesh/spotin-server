@@ -5,6 +5,9 @@ const { omitBy, isNil, pick} = require('lodash');
 const { pagination } = require('../utils/aggregations');
 const { broadcastReviewSchema } = require('./review.model');
 const moment = require('moment');
+
+const { NewReservation } = require('./reservation.model.new');
+
 const reservationSchema = new mongoose.Schema({
 
   user: {
@@ -105,6 +108,26 @@ reservationSchema.statics = {
   async findByBroadcast(id) {
     //TODO
   },
+
+};
+
+reservationSchema.statics.sync = async function(doc, businessId) {
+
+  const result = await NewReservation.create({
+    businessId: businessId,
+    broadcastId: doc.broadcast,
+    userId: doc.user,
+
+    checkedInAt: Date.now(),
+    peopleNum: doc.peopleNum,
+    status: doc.status,
+    review: doc.review,
+    cheers: doc.cheers,
+    used: doc.used,
+
+  });
+  next();
+
 
 };
 
