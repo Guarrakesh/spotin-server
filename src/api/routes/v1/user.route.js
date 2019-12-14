@@ -151,7 +151,7 @@ router
 ;
 router
     .route('/:userId/visited_businesses')
-    .get(controller.getVisitedBusinesses);
+    .get(authorize(LOGGED_USER, ownerCheck), controller.getVisitedBusinesses);
 router
   .route('/:userId/reservations/:reservationId')
   .get(authorize(LOGGED_USER, ownerCheck), validate(getReservation), controller.getReservation)
