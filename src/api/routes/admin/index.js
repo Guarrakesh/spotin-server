@@ -15,8 +15,9 @@ const bBundleRoutes = require('./broadcastbundle.route');
 const couponRoutes = require('./coupon.route');
 const settingRoutes = require('./setting.route');
 const prizeRoutes = require('./prize.route');
+const layoutElementRoutes = require('./layout/layoutelement.route');
+const appLayoutBlockRoutes = require('./layout/applayoutblock.route');
 const router = express.Router();
-
 
 /**
  * GET v1/status
@@ -43,5 +44,8 @@ router.use('/settings', settingRoutes);
 router.use('/broadcastbundles', bBundleRoutes);
 router.use('/coupons', couponRoutes);
 router.use('/prizes', prizeRoutes);
+router.use('/layout-elements', layoutElementRoutes);
+router.use('/app-layout-blocks', appLayoutBlockRoutes);
+
 
 module.exports = router;

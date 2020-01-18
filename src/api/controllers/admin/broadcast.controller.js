@@ -4,6 +4,7 @@ const { omit } = require('lodash');
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { Business } = require('../../models/business.model.js');
 const { SportEvent } = require('../../models/sportevent.model.js');
+const { handler: errorHandler } = require('../../middlewares/error');
 
 const { BUSINESS, ADMIN } = require('../../middlewares/auth');
 exports.load = async(req, res, next, id) => {

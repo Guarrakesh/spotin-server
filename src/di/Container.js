@@ -10,6 +10,11 @@ class Container {
     }
     return Container._instance;
   }
+
+  /**
+   *
+   * @return {Container|*|Container}
+   */
   static getInstance() {
     if (!Container._instance) {
       return new this();
