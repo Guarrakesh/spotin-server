@@ -1,5 +1,5 @@
 import React from 'react';
-import {Admin as AdminBase, Resource, ShowGuesser} from 'react-admin';
+import {Admin as AdminBase, Resource, ShowGuesser, ListGuesser} from 'react-admin';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import englishMessages from 'ra-language-english';
 import SettingCreate from "./resources/settings/SettingCreate";
@@ -23,6 +23,7 @@ import history from '../../history';
 import theme from './theme';
 import { CouponCodeCreate, CouponCodeList,CouponCodeShow  } from './resources/coupon';
 import { PrizeList, PrizeCreate, PrizeEdit } from './resources/prizes'
+import { AppLayoutBlockList,AppLayoutBlockCreate } from './resources/applayoutblocks';
 /* eslint-disable */
 const AdminRoutes = [
   <Resource name="sports" list={SportList} edit={SportEdit} create={SportCreate} />,
@@ -46,6 +47,24 @@ const AdminRoutes = [
 
   <Resource name="broadcastbundles" options={{label:"Bundles"}} list={BroadcastBundleList} edit={BroadcastBundleEdit}
             create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
+
+  <Resource name="coupons"
+            options={{ label: "Spot Coin coupon"}}
+            list={CouponCodeList}
+            show={CouponCodeShow}
+            create={CouponCodeCreate}/>,
+  <Resource name="prizes"
+            edit={PrizeEdit}
+            list={PrizeList}
+            create={PrizeCreate}
+  />,
+  <Resource name="app-layout-blocks"
+            create={AppLayoutBlockCreate}
+            list={AppLayoutBlockList}
+  />,
+  <Resource name="layout-elements"
+            list={ListGuesser}
+  />,
   <Resource
       name="settings"
       options={{ label: "Impostazioni"}}
@@ -54,16 +73,7 @@ const AdminRoutes = [
       create={SettingCreate}
       show={ShowGuesser}
       edit={SettingEdit}/>,
-    <Resource name="coupons"
-              options={{ label: "Spot Coin coupon"}}
-              list={CouponCodeList}
-              show={CouponCodeShow}
-              create={CouponCodeCreate}/>,
-    <Resource name="prizes"
-              edit={PrizeEdit}
-              list={PrizeList}
-              create={PrizeCreate}
-              />
+
 ];
 
 const messages = {

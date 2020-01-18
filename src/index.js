@@ -8,6 +8,7 @@ const express = require('express');
 const path = require('path');
 
 require('./api/listeners/subscriptions');
+require('./api/listeners/pubsub/index').initPublishSubscribeListeners();
 // open mongoose connection
 
 mongoose.connect();

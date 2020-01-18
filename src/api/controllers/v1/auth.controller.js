@@ -1,7 +1,9 @@
 const httpStatus = require('http-status');
+const { PubSub } = require('pubsub-js');
+const moment = require('moment-timezone');
+
 const User = require('../../models/user.model.js');
 const RefreshToken = require('../../models/refreshToken.model.js');
-const moment = require('moment-timezone');
 const { jwtExpirationInterval } = require('../../../config/vars');
 const ApiError = require('../../utils/APIError');
 const mailer = require('../../utils/nodemailer');
@@ -31,6 +33,7 @@ exports.register = async (req, res, next) => {
     const user = await (new User(req.body)).save();
     const userTransformed = user.transform();
     const token = generateTokenResponse(user, user.token());
+    PubSub.publish('USER_REGISTERED', { user });
     res.status(httpStatus.CREATED);
     return res.json({ token, user: userTransformed });
   } catch (error) {

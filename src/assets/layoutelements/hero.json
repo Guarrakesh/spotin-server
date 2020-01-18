@@ -1,0 +1,68 @@
+{
+  "elementType":"hero",
+  "fields":[
+    {
+      "name":"image",
+      "label":"Immagine",
+      "fieldType":"imageUrl",
+      "required":true
+    },
+    {
+      "name":"title",
+      "label":"Titolo",
+      "fieldType":"textbox",
+      "required":false
+    },
+    {
+      "name":"cta",
+      "label":"Call to action",
+      "fieldType":"group",
+      "required":false,
+      "subElements":[
+        {
+          "name":"cta_path",
+          "label":"Path CTA",
+          "fieldType":"textbox",
+          "required":true
+        },
+        {
+          "name":"cta_text",
+          "label":"Testo CTA",
+          "fieldType":"textbox",
+          "required":true
+        },
+        {
+          "name":"cta_icon",
+          "label":"Icona CTA",
+          "fieldType":"textbox",
+          "required":false
+        },
+        {
+          "name":"arguments",
+          "label":"Argomenti navigazione",
+          "fieldType":"array",
+          "arrayElement": {
+              "name":"argument",
+              "label":"Argomento",
+              "fieldType":"group",
+              "subElements":[
+                {
+                  "name":"key",
+                  "label":"Key",
+                  "fieldType":"textbox",
+                  "required":true
+                },
+                {
+                  "name":"value",
+                  "label":"Value",
+                  "fieldType":"textbox",
+                  "required":true
+                }
+              ]
+            }
+
+        }
+      ]
+    }
+  ]
+}
