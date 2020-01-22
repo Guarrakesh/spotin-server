@@ -42,7 +42,7 @@
           "label":"Argomenti navigazione",
           "fieldType":"array",
           "arrayElement": {
-              "name":"argument",
+              "name":"attribute",
               "label":"Argomento",
               "fieldType":"group",
               "subElements":[

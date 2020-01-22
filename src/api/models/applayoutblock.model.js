@@ -15,6 +15,10 @@ const appLayoutBlockSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  name: {
+    required: true,
+    type: String,
+  },
   screen:{
     type: String,
     required: true,

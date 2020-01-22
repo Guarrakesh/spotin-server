@@ -19,8 +19,8 @@ class FieldFormGenerator extends React.Component {
     return (
         <div style={{margin: '1em'}}>
           {this.props.elementType.fields.map(field => (
-              <div  key={field.name}>
-              <ElementTypeField field={field} source={this.props.source}/>
+              <div key={field.name}>
+              <ElementTypeField field={field} source={`${this.props.source}.${field.name}`}/>
               </div>
           ))}
         </div>

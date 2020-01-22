@@ -144,6 +144,10 @@ const userSchema = new mongoose.Schema({
 
   spotCoins: Number,
 
+  referredBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User"
+  },
 
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
