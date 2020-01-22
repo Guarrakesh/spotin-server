@@ -85,7 +85,7 @@ class LayoutElementService  {
       errors.push(`AppLayout block already exists for screen ${lblock.screen} at order ${lblock.order}`);
     } else {
 
-      const layoutElement = await LayoutElement.findOne({ _id: lblock.elementTypeId});
+      const layoutElement = await LayoutElement.findOne({ _id: lblock.elementTypeId}).lean();
       if (!layoutElement) {
         errors.push(`The layout element ${lblock.elementType} does not exists.`);
       } else {
