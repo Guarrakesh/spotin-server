@@ -34,6 +34,7 @@ module.exports = {
   mailerPort: process.env.EMAIL_PORT || 465,
   mailerHost: process.env.EMAIL_HOST || "smtps.aruba.it",
   mailerSecure: process.env.EMAIL_SECURE || true,
+  questioEventUri: process.env.QUESTIO_EVENT_URI,
   //mailerSecure: true,
 
   email: {

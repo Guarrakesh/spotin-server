@@ -15,6 +15,7 @@ const analytics = require('../api/middlewares/analytics');
 const configureApolloServer = require('./apollo');
 const services = require('./services');
 const Container = require('../di/Container');
+
 //const winstonConfig = require('./winston');
 /*
  const analyticsMiddleware = (req, res, next) => {
