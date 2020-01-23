@@ -7,7 +7,7 @@ import { List, Datagrid,
   ShowButton} from 'react-admin';
 import { red, green, orange } from '@material-ui/core/colors';
 import { Chip, withStyles } from '@material-ui/core';
-import EventAutocompleteInput from '../events/EventAutocompleteInput';
+import EventAutocompleteInput from '../sportevents/EventAutocompleteInput';
 
 export {default as ReservationShow} from './ReservationShow';
 

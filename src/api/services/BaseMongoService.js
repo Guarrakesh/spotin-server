@@ -21,6 +21,18 @@ class BaseMongoService {
     return filterQuery;
   }
 
+
+  async paginate(filter, pagingParams) {
+    const params = BaseMongoService.convertRestFilterParams(filter);
+    const paging = BaseMongoService.convertRestPagingParams(pagingParams);
+
+    return {
+      docs: await this.model.find(params).skip(paging.offset).limit(paging.limit).sort(paging.sort),
+      total:await this.model.find(params).count(),
+      limit: paging.limit,
+      offset: paging.offset,
+    }
+  }
   async findOneById(id) {
     return this.model.findById(id);
   }
