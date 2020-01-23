@@ -120,7 +120,6 @@
     "pubsub-js": "^1.7.0",
     "react-bootstrap-sweetalert": "^4.4.1",
     "react-redux": "^5.0.7",
-    "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
     "request-promise": "^4.2.2",
     "sharp": "^0.22.1",

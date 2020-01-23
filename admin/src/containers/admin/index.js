@@ -1,19 +1,19 @@
-import BroadcastsIcon from '@material-ui/icons/LiveTv';
-import SportsIcon from '@material-ui/icons/Sports';
-import CompetitorsIcon from '@material-ui/icons/SportsHandball';
-import BusinessesIcon from '@material-ui/icons/Restaurant';
-import EventsIcon from '@material-ui/icons/Event';
-import UsersIcon from '@material-ui/icons/Person';
-import CompetitionsIcon from '@material-ui/icons/LocalActivity';
-import ReservationsIcon from '@material-ui/icons/EventSeat';
-import ContactRequestsIcon from '@material-ui/icons/ContactSupport'
-import BroadcastBundlesIcon from '@material-ui/icons/GroupWork';
+import EventsIcon from '@material-ui/icons/AccountTree'
 import CouponsIcon from '@material-ui/icons/ConfirmationNumber'
+import ContactRequestsIcon from '@material-ui/icons/ContactSupport'
+import CompetitorsIcon from '@material-ui/icons/EmojiEvents';
 import PrizesIcon from '@material-ui/icons/Euro';
-import AppLayoutBlocksIcon from '@material-ui/icons/ViewQuilt';
-import LayoutElementsIcon from '@material-ui/icons/ViewAgenda';
+import SportEventsIcon from '@material-ui/icons/Event';
+import ReservationsIcon from '@material-ui/icons/EventSeat';
+import BroadcastBundlesIcon from '@material-ui/icons/GroupWork';
+import BroadcastsIcon from '@material-ui/icons/LiveTv';
+import CompetitionsIcon from '@material-ui/icons/LocalActivity';
+import UsersIcon from '@material-ui/icons/Person';
+import BusinessesIcon from '@material-ui/icons/Restaurant';
 import SettingsIcon from '@material-ui/icons/Settings'
-
+import SportsIcon from '@material-ui/icons/Sports';
+import LayoutElementsIcon from '@material-ui/icons/ViewAgenda';
+import AppLayoutBlocksIcon from '@material-ui/icons/ViewQuilt';
 import englishMessages from 'ra-language-english';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import React from 'react';
@@ -34,13 +34,16 @@ import {BusinessCreate, BusinessEdit, BusinessList} from './resources/businesses
 import {CompetitionCreate, CompetitionEdit, CompetitionList} from './resources/competitions';
 import {CompetitorCreate, CompetitorEdit, CompetitorList} from './resources/competitors';
 import {CouponCodeCreate, CouponCodeList, CouponCodeShow} from './resources/coupon';
-import {EventCreate, EventEdit, EventList} from './resources/events';
+import {EventEdit, EventList} from './resources/events';
+import EventCreate from "./resources/events/EventCreate";
+
 import {PrizeCreate, PrizeEdit, PrizeList} from './resources/prizes'
 
 import {ReservationList, ReservationShow} from './resources/reservations';
 import SettingCreate from "./resources/settings/SettingCreate";
 import SettingEdit from './resources/settings/SettingEdit';
 import SettingList from './resources/settings/SettingList';
+import {SportEventCreate, SportEventEdit, SportEventList} from './resources/sportevents';
 import {SportCreate, SportEdit, SportList} from './resources/sports';
 
 
@@ -52,7 +55,7 @@ const AdminRoutes = [
   <Resource name="competitions" icon={CompetitionsIcon} list={CompetitionList} edit={CompetitionEdit} create={CompetitionCreate}/>,
   <Resource name="competitors" icon={CompetitorsIcon} list={CompetitorList} edit={CompetitorEdit} create={CompetitorCreate}/>,
   <Resource name="businesses" icon={BusinessesIcon} list={BusinessList} options={{label: "Businesses"}} create={BusinessCreate} edit={BusinessEdit}/>,
-  <Resource name="events" icon={EventsIcon} list={EventList} edit={EventEdit} create={EventCreate}/>,
+  <Resource name="events" icon={SportEventsIcon} list={SportEventList} edit={SportEventEdit} create={SportEventCreate}/>,
 
   <Resource name="users" icon={UsersIcon} list={UserList}
             options={{label: "Utenti"}}
@@ -97,6 +100,14 @@ const AdminRoutes = [
             list={ListGuesser}
             options={{ label: 'Layout Elements'}}
   />,
+  <Resource
+      name="systemevents"
+      options={{ label: "Eventi di sistema"}}
+      list={EventList}
+      create={EventCreate}
+      icon={EventsIcon}
+
+      edit={EventEdit}/>,
   <Resource
       name="settings"
       options={{ label: "Impostazioni"}}

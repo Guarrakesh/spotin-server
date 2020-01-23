@@ -13,7 +13,7 @@ import { List, Datagrid, TextField, ReferenceField, Create, EditButton, Referenc
   DateField, Link } from 'react-admin';
 import get from 'lodash/get';
 
-import EventAutocompleteInput from '../events/EventAutocompleteInput';
+import EventAutocompleteInput from '../sportevents/EventAutocompleteInput';
 import { DateTimeInput } from '../../components/DateTimeInput';
 import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
 
