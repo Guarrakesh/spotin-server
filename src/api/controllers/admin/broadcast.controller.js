@@ -76,12 +76,7 @@ exports.create = async (req, res, next) => {
 };
 exports.update = async (req, res, next) => {
 
-  const params = req.body;
-
   const updateBroadcast = Object.assign(req.locals.broadcast, req.body);
-
-
-
   updateBroadcast.save()
     .then(savedBus => res.json(savedBus))
     .catch(e => next(e));
@@ -93,7 +88,7 @@ exports.list = async (req, res, next) => {
     //TODO: Gestire geolocalizzazione
     let broadcasts, near = {};
 
-    const filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
+    const     filterQuery = omit(req.query, ['latitude', 'longitude','radius', '_end', '_sort', '_order', '_start']);
     const {_end = 10, _start = 0, _order = 1, _sort = "_id" } = req.query;
     const { latitude, longitude, radius } = req.query;
     if (req.query.id_like) {

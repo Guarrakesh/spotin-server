@@ -17,6 +17,7 @@ const settingRoutes = require('./setting.route');
 const prizeRoutes = require('./prize.route');
 const layoutElementRoutes = require('./layout/layoutelement.route');
 const appLayoutBlockRoutes = require('./layout/applayoutblock.route');
+const eventRoutes = require('./event.route');
 const router = express.Router();
 
 /**
@@ -46,6 +47,6 @@ router.use('/coupons', couponRoutes);
 router.use('/prizes', prizeRoutes);
 router.use('/layout-elements', layoutElementRoutes);
 router.use('/app-layout-blocks', appLayoutBlockRoutes);
-
+router.use('/systemevents', eventRoutes);
 
 module.exports = router;
