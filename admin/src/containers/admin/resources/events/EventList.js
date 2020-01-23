@@ -5,7 +5,7 @@ import React from 'react';
 import {CreateButton, Datagrid, EditButton, List, TextField} from 'react-admin';
 import {connect} from 'react-redux';
 
-import {Route, withRouter} from 'react-router';// eslint-disable-line
+import {Route, z} from 'react-router';// eslint-disable-line
 import {push} from 'react-router-redux';
 import compose from 'recompose/compose';
 import EventCreate from './EventCreate';

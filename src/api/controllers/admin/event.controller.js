@@ -5,9 +5,9 @@ const httpStatus = require('http-status');
 exports.load = async (req, res, next, id) => {
   try {
     eventService = req.app.get('container').get('eventService');
-    res.locals.event = await eventService.findByid(id);
+    res.locals.event = await eventService.findOneById(id);
   } catch (error) {
-    return errorHandler(error, req, res, next);
+    return next(error);
   }
 }
 
@@ -28,7 +28,7 @@ exports.get = async(req, res, next) => {
     const { event } = req.locals;
     res.json(event);
   } catch (e) {
-    return errorHandler(err, req, res, next);
+    return next(error);
   }
 };
 
@@ -41,7 +41,7 @@ exports.remove = async (req, res, next) => {
     res.status(200).end();
 
   } catch (err) {
-    return errorHandler(err, req, res, next);
+    return next(error);
   }
 };
 
@@ -53,7 +53,7 @@ exports.create = async (req, res, next) => {
     res.status = httpStatus.CREATED;
     res.json(created);
   } catch (error) {
-    return errorHandler(error, req, res, next);
+    return next(error);
   }
 };
 
@@ -66,7 +66,7 @@ exports.update = async (req, res, next) => {
     res.json(updatedEvent);
 
   } catch (err) {
-    return errorHandler(err, req, res, next);
+    return next(error);
   }
 
 };
