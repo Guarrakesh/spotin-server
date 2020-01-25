@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import { TabbedForm,LongTextInput,DisabledInput, required, TextInput, DateInput, ImageField, ImageInput, NumberInput, Edit, FormTab } from 'react-admin';
+import { TabbedForm,TextInput, required, DateInput, ImageField, ImageInput, NumberInput, Edit, FormTab } from 'react-admin';
 
 const styles = () => ({
   inlineBlock: { display: 'inline-flex', marginRight: '1em'}
@@ -18,7 +18,7 @@ const PrizeEdit = withStyles(styles)(({classes, ...props}) => {
       <Edit { ...props}>
         <TabbedForm>
           <FormTab label="General">
-            <DisabledInput source="_id"/>
+            <TextInput disabled source="_id"/>
             <ImageInput validation={{ required: true }} source="imageFile" accept="image/*">
               <ImageField source="src"/>
             </ImageInput>
@@ -32,7 +32,7 @@ const PrizeEdit = withStyles(styles)(({classes, ...props}) => {
             />
             <NumberInput
                 formClassName={classes.inlineBlock} source="availability" label="Disponibilità"/>
-            <LongTextInput
+            <TextInput
                 fullWidth
                 validate={[required()]}
                 source="description"/>

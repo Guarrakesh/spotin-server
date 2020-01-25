@@ -2,8 +2,7 @@ import React from 'react';
 
 
 import { withStyles } from '@material-ui/core/styles';
-import { TabbedForm, FormTab, Create, Toolbar,
-  DisabledInput, TextInput, NumberInput, BooleanInput, ReferenceArrayInput, AutocompleteArrayInput,SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
+import { TabbedForm, FormTab, Create, Toolbar, TextInput, NumberInput, BooleanInput, ReferenceArrayInput, AutocompleteArrayInput,SelectArrayInput, ReferenceInput, AutocompleteInput, ImageField,
   ImageInput} from 'react-admin';
 import BusinessDayInput from "./BusinessDayInput";
 import  BusinessSaveButton  from "./BusinessSaveButton";
@@ -44,14 +43,13 @@ const defaultFormValue = {
 
 
 
-
 const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
   return (
       <Create { ...props}>
         <TabbedForm
 
             toolbar={<Toolbar><BusinessSaveButton label="Salva" redirect="list" submitOnEnter={true}/></Toolbar>}
-            defaultValue={defaultFormValue}
+            initialValues={defaultFormValue}
         >
           <FormTab label="General">
             <TextInput source="name"/>
@@ -79,14 +77,15 @@ const BusinessCreate = withStyles(styles)(({classes, ...props}) => {
             <TextInput source="address.province" label="Province"/>
             <TextInput source="address.country" label="Country"/>
             <NumberInput source="address.zip" label="Zip"/>
-            <DisabledInput source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
-            <DisabledInput source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
+            <TextInput disabled source="address.latitude" formClassName={classes.inlineBlock} label="Latitude"/>
+            <TextInput disabled source="address.longitude" formClassName={classes.inlineBlock} label="Longitude"/>
           </FormTab>
           <FormTab label="Orari di apertura">
             {[0,1,2,3,4,5,6].map(day =>
                 (
                     <BusinessDayInput
-                        source={`business_hours.${day}`} key={day} day={day}/>
+
+                        source={`business_hours`} key={day} day={day}/>
                 )
             )}
           </FormTab>

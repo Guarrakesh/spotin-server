@@ -1,6 +1,6 @@
-/* eslint-disable */
 
-import { stringify } from 'query-string';
+
+import { stringify } from 'query-string';// eslint-disable-line
 import {
   fetchUtils,
   GET_LIST,
@@ -76,7 +76,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
           break;
         }
 
-        console.log("aaaaa", params.data, JSON.stringify(params.data));
+
         options.body = JSON.stringify(params.data);
         break;
       case CREATE:

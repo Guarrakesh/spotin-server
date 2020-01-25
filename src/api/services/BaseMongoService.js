@@ -28,7 +28,7 @@ class BaseMongoService {
 
     return {
       docs: await this.model.find(params).skip(paging.offset).limit(paging.limit).sort(paging.sort),
-      total:await this.model.find(params).count(),
+      total: await this.model.find(params).count(),
       limit: paging.limit,
       offset: paging.offset,
     }

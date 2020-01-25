@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import { push } from 'react-router-redux'; // eslint-disable-line
+import { push } from 'connected-react-router'; // eslint-disable-line
 import {
   Show,
   CardContentInner,
-  CardActions,
+  TopToolbar,
   EditButton,
   showNotification,
   UPDATE,
@@ -218,11 +218,11 @@ PublishButton.propTypes = {
   showNotification: PropTypes.func,
 };
 const BroadcastBundleShowActions = ({ basePath, data, broadcasts }) => (
-    <CardActions>
+    <TopToolbar>
       <DeleteButton basePath={basePath} record={data} resource="broadcastbundles"/>
       <EditButton basePath={basePath} disabled record={data}/>
       <PublishButton record={data} broadcasts={broadcasts}/>
-    </CardActions>
+    </TopToolbar>
 );
 BroadcastBundleShowActions.propTypes = {
   basePath: PropTypes.string,

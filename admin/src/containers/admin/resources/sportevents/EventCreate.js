@@ -2,18 +2,17 @@ import React from 'react';
 
 /* eslint-disable */
 
-import MomentUtils from 'material-ui-pickers/utils/moment-utils'
-/* eslint-enable */
+import MomentUtils from '@date-io/moment'/* eslint-enable */
 
 
 
-import { TabbedForm, FormTab, Create, SelectInput, TextInput, ReferenceInput, LongTextInput, FormDataConsumer,
+import { TabbedForm, FormTab, Create, SelectInput, TextInput, ReferenceInput,FormDataConsumer,
 ArrayInput, SimpleFormIterator,AutocompleteInput,SelectArrayInput,
   required,
   minLength,
   maxLength} from 'react-admin';
 
-import { DateTimeInput } from '../../components/DateTimeInput';
+import { DateTimeInput } from 'react-admin-date-inputs';
 
 const providers = [
   {id: "sky", name: "Sky"},
@@ -53,7 +52,7 @@ const SportEventCreate = (props) => (
           }
         </FormDataConsumer>
 
-        <LongTextInput source="description" validate={validateDesc}/>
+        <TextInput multiline source="description" validate={validateDesc}/>
         { /*  <TextInput
             //parse={dateParser}
             type="datetime-local"
@@ -65,7 +64,7 @@ const SportEventCreate = (props) => (
           source="start_at" /> */}
             <DateTimeInput validate={validateDate} source="start_at"
                            label="Inizio evento"
-                           options={{ format: "dd/MM/YYYY, HH:mm:ss",  ampm: false, clearable: true }}/>
+                           options={{ format: "dd/MM/yyyy, HH:mm:ss",  ampm: false, clearable: true }}/>
           <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
     </FormTab>
       <FormTab label="Competitors">
@@ -76,7 +75,7 @@ const SportEventCreate = (props) => (
                 <ReferenceInput
                   filter={{sport: formData.sport}}
                   reference="competitors" source="competitor">
-                  <AutocompleteInput allowEmpty optionValue="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
+                  <AutocompleteInput optionValue="_id" />
                 </ReferenceInput>
 
 

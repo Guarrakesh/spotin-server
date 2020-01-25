@@ -1,35 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
 import {Chip, List as MuiList, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles';
+import moment from "moment";
+import PropTypes from 'prop-types';
+import React from 'react';
 import {
   ArrayField,
   ArrayInput,
   AutocompleteArrayInput,
-  ReferenceArrayInput,
-  SimpleFormIterator,
   AutocompleteInput,
   BooleanInput,
-  DisabledInput,
   Edit,
   FormTab,
   ImageField,
   ImageInput,
   NumberInput,
+  RadioButtonGroupInput,
+  ReferenceArrayInput,
   ReferenceInput,
   SelectArrayInput,
+  SimpleFormIterator,
   SingleFieldList,
   TabbedForm,
   TextInput,
   Toolbar,
-  RadioButtonGroupInput,
-  LongTextInput,
 } from 'react-admin';
-import moment from "moment";
-
-import BusinessMapField from './BusinessMapField';
 import VersionedImageField from "../fields/VersionedImageField";
 import BusinessDayInput from "./BusinessDayInput";
+
+import BusinessMapField from './BusinessMapField';
 import BusinessSaveButton from "./BusinessSaveButton";
 
 const types = [
@@ -60,16 +58,29 @@ const styles = {
 const Title = ({record}) => { //eslint-disable-line react/prop-types
   return <span>{record ? record.name : ''}</span>
 };
-const defaultFormValue = {
-  business_hours: {
-    0: { openings: [] },
-    1: { openings: [] },
-    2: { openings: [] },
-    3: { openings: [] },
-    4: { openings: [] },
-    5: { openings: [] },
-    6: { openings: [] }}
+const defaultFormValue = () => {
+  return {
+    business_hours: {
+      0: { openings: [] },
+      1: { openings: [] },
+      2: { openings: [] },
+      3: { openings: [] },
+      4: { openings: [] },
+      5: { openings: [] },
+      6: { openings: [] }
+    }
+  };
 };
+
+
+//
+// const stringifyKeys = values =>
+//     Object.keys(values).reduce((result, key) => {
+//       result[`key${key}`] = values[key];
+//       return result
+//     }, {});
+//
+
 
 const BusinessEditToolbar = props => {
 
@@ -126,12 +137,11 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
           title={<Title/>} { ...props}>
 
         <TabbedForm
+            initialValues={defaultFormValue()}
             toolbar={<BusinessEditToolbar/>}
-
-            defaultValue={defaultFormValue}
         >
           <FormTab label="General">
-            <DisabledInput label="id" source="_id"/>
+            <TextInput disabled label="id" source="_id"/>
             <TextInput source="name"/>
             <SelectArrayInput choices={types} source="type" label="Business Type"/>
             <TextInput source="phone"/>
@@ -158,15 +168,15 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
             <TextInput source="address.province" label="Province"/>
             <TextInput source="address.country" label="Country"/>
             <NumberInput source="address.zip" label="Zip"/>
-            <DisabledInput source="address.location.coordinates[1]" formClassName={classes.inlineBlock} label="Latitude"/>
-            <DisabledInput source="address.location.coordinates[0]" formClassName={classes.inlineBlock} label="Longitude"/>
+            <TextInput disabled source="address.location.coordinates[1]" formClassName={classes.inlineBlock} label="Latitude"/>
+            <TextInput disabled source="address.location.coordinates[0]" formClassName={classes.inlineBlock} label="Longitude"/>
             <BusinessMapField isMarkerShown source="address.location.coordinates"/>
           </FormTab>
           <FormTab label="Orari di apertura">
             {[0,1,2,3,4,5,6].map(day =>
                 (
                     <BusinessDayInput
-                        source={`business_hours.${day}`} key={day} day={day}/>
+                        source={`business_hours`} key={day} day={day}/>
                 )
             )}
           </FormTab>
@@ -181,7 +191,7 @@ const BusinessEdit = withStyles(styles)(({classes, ...props}) => {
                   {id: 1, name: 'Sconto in percentuale'},
                 ]}/>
                 <TextInput source="title" label="Titolo offerta"/>
-                <LongTextInput
+                <TextInput
                     source="description" label="Descrizione offerta"/>
                 <NumberInput source="value" label="Valore offerta"/>
                 <BooleanInput source="isDefault" label="Offerta di default"/>

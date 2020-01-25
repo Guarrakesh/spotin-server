@@ -80,7 +80,8 @@ export default (type, params) => {
     case AUTH_LOGOUT: {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      break;
+      return Promise.resolve();
+
     }
     case AUTH_ERROR: {
       if (401 === params.status || 403 === params.status) {

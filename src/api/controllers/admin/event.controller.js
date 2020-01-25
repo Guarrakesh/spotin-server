@@ -5,9 +5,10 @@ const httpStatus = require('http-status');
 exports.load = async (req, res, next, id) => {
   try {
     eventService = req.app.get('container').get('eventService');
-    res.locals.event = await eventService.findOneById(id);
+    req.locals = { event: await eventService.findOneById(id) };
+    return next();
   } catch (error) {
-    return next(error);
+    return errorHandler(error, res, res);
   }
 }
 

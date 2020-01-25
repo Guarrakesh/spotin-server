@@ -1,14 +1,9 @@
-import CardActions from "@material-ui/core/CardActions/CardActions";
-import Drawer from "@material-ui/core/Drawer/Drawer";
 import withStyles from '@material-ui/core/styles/withStyles'
+import {push} from 'connected-react-router';
 import React from 'react';
-import {CreateButton, Datagrid, EditButton, List, TextField} from 'react-admin';
+import {Datagrid, EditButton, List, TextField} from 'react-admin';
 import {connect} from 'react-redux';
-
-import {Route, z} from 'react-router';// eslint-disable-line
-import {push} from 'react-router-redux';
 import compose from 'recompose/compose';
-import EventCreate from './EventCreate';
 
 const styles = {
   drawerContent: {
@@ -20,11 +15,7 @@ const NumberOfFields = ({ record }) => (
     <span>{Object.keys(record.parameters).length}</span>
 );
 
-const EventListActions = ({ basePath }) => (
-    <CardActions>
-      <CreateButton basePath={basePath}/>
-    </CardActions>
-)
+
 class EventList extends React.Component {
 
 
@@ -33,12 +24,12 @@ class EventList extends React.Component {
   };
 
   render() {
-    const classes = this.props.classes;
+
 
     return (
         <React.Fragment>
 
-          <List title="System Events" {...this.props} actions={<EventListActions/>}>
+          <List title="System Events" {...this.props} >
             <Datagrid>
               <TextField source="id"/>
               <TextField label="Name" source="name"/>
@@ -47,27 +38,6 @@ class EventList extends React.Component {
               <EditButton/>
             </Datagrid>
           </List>
-
-          <Route
-              path="/systemevents/create">
-            {({match, ...rest}) => {
-              console.log(rest);
-              return (
-
-                  <Drawer
-                      open={!!match}
-                      anchor="right"
-                      onClose={this.handleClose}
-                  >
-                    <EventCreate className={classes.drawerContent}
-                                 onCancel={this.handleClose}
-                                 {...this.props}
-                    />
-                  </Drawer>
-              )
-            }
-            }
-          </Route>
 
         </React.Fragment>
     )

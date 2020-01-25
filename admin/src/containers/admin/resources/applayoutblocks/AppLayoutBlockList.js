@@ -13,6 +13,7 @@ const NumberOfFields = ({ record }) => (
         <ReferenceField label="Element type" source="elementTypeId" reference="layout-elements">
           <TextField source="elementType"/>
         </ReferenceField>
+        <TextField source="name" label="Name"/>
         <TextField label="Screen" source="screen"/>
         <NumberField label="Order" source="order"/>
         <TextField label="Before element identifier" source="beforeElementIdentifier"/>

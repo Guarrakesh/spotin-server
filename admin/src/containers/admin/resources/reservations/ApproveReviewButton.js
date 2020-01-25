@@ -4,7 +4,7 @@ import {showNotification, UPDATE} from "ra-core";
 import dataProvider from "../../../../providers/dataProvider";
 import {Button, withStyles, createStyles } from "@material-ui/core";
 import React from "react";
-import { push } from 'react-router-redux'; // eslint-disable-line
+import { push } from 'connected-react-router'; // eslint-disable-line
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { green } from '@material-ui/core/colors';
 const ApproveReviewButton = ({ push, record, showNotification, classes, ...props }) => {

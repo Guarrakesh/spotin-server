@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import { TabbedForm, LongTextInput, required, TextInput, DateInput, ImageField, ImageInput, NumberInput, Create, FormTab } from 'react-admin';
+import { TabbedForm, TextInput, required, DateInput, ImageField, ImageInput, NumberInput, Create, FormTab } from 'react-admin';
 
 const styles = () => ({
   inlineBlock: { display: 'inline-flex', marginRight: '1em'}
@@ -31,7 +31,7 @@ const PrizeCreate = withStyles(styles)(({classes, ...props}) => {
             />
             <NumberInput
                 formClassName={classes.inlineBlock} source="availability" label="Disponibilità"/>
-            <LongTextInput
+            <TextInput
                 fullWidth
                 validate={[required()]}
                 source="description"/>

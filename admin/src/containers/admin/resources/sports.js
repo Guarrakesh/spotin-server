@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, Edit, Create, EditButton, BooleanField, BooleanInput,
-  DisabledInput, SimpleForm, TextInput, NumberInput } from 'react-admin';
+   SimpleForm, TextInput, NumberInput } from 'react-admin';
 
 export const SportList = (props) => (
   <List {...props}>
@@ -24,7 +24,7 @@ const SportTitle = ({ record }) => { //eslint-disable-line react/prop-types
 export const SportEdit = (props) => (
   <Edit title={<SportTitle/>} {...props}>
     <SimpleForm>
-      <DisabledInput source="_id" />
+      <TextInput disabled source="_id" />
       <TextInput source="name"/>
       <TextInput source="slug"/>
       <NumberInput source="duration" label="Durata (in minuti)"/>

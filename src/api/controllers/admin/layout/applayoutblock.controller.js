@@ -3,9 +3,11 @@ const httpStatus = require('http-status');
 exports.load = async(req, res, next, id) => {
   try {
     const layoutElementService = req.app.get('container').get('layoutElementService');
-    req.locals.appLayoutBlock = layoutElementService.getAppLayoutBlockById(id);
+    req.locals = { appLayoutBlock: await layoutElementService.getAppLayoutBlockById(id) };
+    return next();
   } catch (error) {
-    return errorHandler(error, req, res);
+    console.log(error);
+    return next(error);
   }
 };
 

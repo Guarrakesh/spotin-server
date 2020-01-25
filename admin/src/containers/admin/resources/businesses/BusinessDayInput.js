@@ -1,31 +1,16 @@
-  import React, {useState} from 'react';
+import MomentUtils from "@date-io/moment";
+import {Button, Checkbox, FormControlLabel, Grid} from '@material-ui/core'
 import {get} from 'lodash';
 import moment from 'moment';
 /* eslint-disable */
 import PropTypes from 'prop-types';
+import React, {useState} from 'react';
 
-import {TimePicker} from 'material-ui-pickers';
-import {Button, Checkbox, FormControlLabel, Grid} from '@material-ui/core'
-import {Field, FieldArray} from 'redux-form'; // eslint-disable-line
+import {TimeInput} from 'react-admin-date-inputs'
+import {useFormState, useForm} from 'react-final-form'; // eslint-disable-line
+import {FieldArray} from "react-final-form-arrays";
 
 const dayNames = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì" ,"Sabato" , "Domenica"];
-
-const businessDayInputParser = (value => {
-  let hour, minute;
-
-  if (value instanceof moment) {
-
-    hour = parseInt(value.hour(), 10);
-    minute = parseInt(value.minute(), 10);
-  } else {
-    hour = parseInt(value.split(":")[0], 10);
-    minute = parseInt(value.split(":")[1], 10);
-  }
-
-  const date = new Date();
-  let parsed = hour * 60 + minute + date.getTimezoneOffset(); //Restituisce i minuti
-  return normalizeMinutes(parsed);
-});
 
 const normalizeMinutes = minutes => {
   // Normalizza il valore nel range [0,1440].
@@ -37,7 +22,9 @@ const normalizeMinutes = minutes => {
   }
   return parsed;
 };
+
 const businessDayInputFormatter = (value => {
+
 
   if (typeof value === "number") {
 
@@ -52,55 +39,26 @@ const businessDayInputFormatter = (value => {
     return moment(`${hours}:${minutes}`, 'hh:mm');
   }
 
+
   return value;
 
 });
-const renderTimeField = ({
-                           input,
-                           label,
-                           meta: { touched, error },
-                           ...custom
-                         }) => {
 
-
-
-  return (
-      <TimePicker
-          autoOk
-
-          label={label}
-          type="time"
-          errorText={touched && error}
-          {...input}
-          {...custom}
-          value={input.value}
-          keyboard
-          id="outlined-full-width"
-          style={{margin: 8}}
-          placeholder="12:00"
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          ampm={false}
-
-
-      />
-  )
-}
-
-const renderOpening = (opening, index, fields) => (
+const renderOpening = (name, index, fields) => (
     <React.Fragment>
       <Grid item xs={5}>
-        <Field normalize={businessDayInputParser} format={businessDayInputFormatter}
-               name={`${opening}.open`} component={renderTimeField} label="Apertura"/>
+        <TimeInput
+            options={{ ampm: false,  format: 'HH:mm'  }}
+            providerOptions={{ utils: MomentUtils, }}
+            format={businessDayInputFormatter}
+            name={`${name}.open`} label="Apertura"/>
       </Grid>
       <Grid item xs={5}>
-        <Field
-            normalize={businessDayInputParser} format={businessDayInputFormatter}
-            name={`${opening}.close`} component={renderTimeField} label="Chiusura"/>
+        <TimeInput
+            providerOptions={{ utils: MomentUtils }}
+            options={{ ampm: false, format: 'HH:mm' }}
+            format={businessDayInputFormatter}
+            name={`${name}.close`}  label="Chiusura"/>
       </Grid>
       <Grid item xs={2}>
         <Button
@@ -135,12 +93,13 @@ const renderOpening = (opening, index, fields) => (
 
 const BusinessDayInput = ({ fields}) => {
 
+
   return (
       <Grid container spacing={16}>
 
-        {fields.map(renderOpening)}
+        {fields.map((name, index) => renderOpening(name, index, fields))}
         <Grid item xs={12}>
-          <Button mini  size="small" onClick={() => fields.push({})}>Aggiungi apertura/chisura</Button>
+          <Button mini  size="small" onClick={() => fields.push({ open: 0, close: 0})}>Aggiungi apertura/chisura</Button>
         </Grid>
       </Grid>
   )
@@ -161,9 +120,12 @@ BusinessDayInput.propTypes = {
 const BusinessDayInputField = (props) => {
 
 
-  const value = get(props.record, props.source);
+  const source = `${props.source}.${props.day}.openings`;
+  const stringifiedSource = `${props.source}.key${props.day}.openings`;
 
-  const [open, setOpen] = useState(value ? value.openings.length > 0 : false);
+  const state = useFormState();
+  const initialValue = get(state.values, source);
+  const [open, setOpen] = useState(initialValue.length > 0);
 
   return (
       <React.Fragment>
@@ -172,15 +134,20 @@ const BusinessDayInputField = (props) => {
             control={<Checkbox
                 label={dayNames[props.day]}
                 checked={open}
-                onChange={(e, v) => setOpen(v)}
+                onChange={(e, v) => setOpen(!open)}
 
             />}
             label={`${dayNames[props.day]} aperto`}
         />
-        {open ? <FieldArray component={BusinessDayInput} name={`${props.source}.openings`}/> : null}
+        {open ? <FieldArray
+            initialValue={initialValue}
+            component={BusinessDayInput}
+            name={stringifiedSource}/> : null}
       </React.Fragment>
   )
 
 
 }
+
+
 export default BusinessDayInputField;

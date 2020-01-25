@@ -4,9 +4,6 @@ const multer = require('multer');
 const controller = require('../../controllers/v1/user.controller.js');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {
-  listUsers,
-  createUser,
-  replaceUser,
   updateUser,
   addFavoriteEvent,
   removeFavoriteEvent,

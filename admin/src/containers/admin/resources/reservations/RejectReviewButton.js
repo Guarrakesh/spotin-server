@@ -8,7 +8,7 @@ import {Button} from "@material-ui/core";
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { red } from '@material-ui/core/colors';
 import React from "react";
-import { push } from 'react-router-redux'; // eslint-disable-line
+import { push } from 'connected-react-router'; // eslint-disable-line
 
 const RejectReviewButton = connect(undefined, { showNotification, push })
 (({ push, record, showNotification, classes }) => {

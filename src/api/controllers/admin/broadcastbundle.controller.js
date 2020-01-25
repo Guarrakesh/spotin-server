@@ -70,7 +70,7 @@ exports.create = async (req, res, next) => {
         if (req.body.bulkCreate) {
           continue; // sto facendo bulk create, non do errore e continuo
         } else {
-          return next(new ApiError({message: 'Non ci sono eventi per questa settimana', status: 422, isPublic: true}));
+          return next(new ApiError({message: 'Non ci sono eventi per questo periodo', status: 422, isPublic: true}));
         }
       }
       const appealWeights = await Setting.getAppealOptions();
@@ -81,6 +81,10 @@ exports.create = async (req, res, next) => {
 
       await bundle.save();
       bundles.push(bundle);
+    }
+
+    if (!bundles[0]) {
+      return next(new ApiError({message: 'Non ci sono eventi per questo periodo', status: 422, isPublic: true}));
     }
     res.json(bundles[0]);
   } catch (e) {

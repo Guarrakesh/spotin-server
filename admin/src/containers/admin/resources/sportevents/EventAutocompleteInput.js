@@ -25,7 +25,7 @@ const EventAutocompleteInput = ({record}) => (
     <AutocompleteInput source="name"
 
                        optionText={eventSelectOptionRenderer}
-                       inputValueMatcher={eventInputValueMatcher}
+                       // inputValueMatcher={eventInputValueMatcher}
                        translateChoice={false}
     />
   </ReferenceInput>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton,
-  DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+   TextInput, ReferenceInput, SelectInput, SimpleForm } from 'react-admin';
 
 export const PostList = (props) => (
   <List {...props}>
@@ -25,12 +25,12 @@ const PostTitle = ({ record }) => { //eslint-disable-line react/prop-types
 export const PostEdit = (props) => (
   <Edit title={<PostTitle/>} {...props}>
     <SimpleForm>
-      <DisabledInput source="id" />
+      <TextInput disabled source="id" />
       <ReferenceInput label="User" source="userId" reference="users">
         <SelectInput optionText="name" />
       </ReferenceInput>
       <TextInput source="title"/>
-      <LongTextInput source="body"/>
+      <TextInput source="body"/>
     </SimpleForm>
   </Edit>
 );
@@ -41,7 +41,7 @@ export const PostCreate = (props) => (
         <SelectInput optionText="name" />
       </ReferenceInput>
       <TextInput source="title" />
-      <LongTextInput source="body" />
+      <TextInput source="body" />
     </SimpleForm>
   </Create>
 );

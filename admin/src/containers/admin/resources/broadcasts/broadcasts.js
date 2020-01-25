@@ -1,21 +1,41 @@
-import React  from 'react';
-import PropTypes from 'prop-types';
 import {
+  Card,
+  CardContent,
+  CardHeader,
   Chip,
-  ListItemText,
-
-  ListSubheader,
   List as MuiList,
-  ListItem, Card, withStyles, CardHeader, CardContent, Typography } from "@material-ui/core";
-import moment from 'moment';
-import { List, Datagrid, TextField, ReferenceField, Create, EditButton, ReferenceInput, SimpleForm, TextInput, NumberInput, AutocompleteInput,
-  RadioButtonGroupInput, Edit, Filter, DisabledInput, LongTextInput,
-  DateField, Link } from 'react-admin';
+  ListItem,
+  ListItemText,
+  ListSubheader,
+  Typography,
+  withStyles
+} from "@material-ui/core";
 import get from 'lodash/get';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {
+  AutocompleteInput,
+  Create,
+  Datagrid,
+  DateField,
+  Edit,
+  EditButton,
+  Filter,
+  Link,
+  List,
+  TextInput,
+  NumberInput,
+  RadioButtonGroupInput,
+  ReferenceField,
+  ReferenceInput,
+  SimpleForm,
+  TextField,
+} from 'react-admin';
+import {DateTimeInput} from 'react-admin-date-inputs';
 
 import EventAutocompleteInput from '../sportevents/EventAutocompleteInput';
-import { DateTimeInput } from '../../components/DateTimeInput';
-import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
+//import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
 
 
 const ReservationCountField = ({record}) => (
@@ -150,7 +170,7 @@ export const BroadcastCreate = (props) => (
         <ReferenceInput reference="businesses" source="business">
           <AutocompleteInput
               optionText="name"
-              inputValueMatcher={businessInputValueMatcher}
+
               source="name"/>
         </ReferenceInput>
         {/*<NumberInput source="newsfeed"/>*/}
@@ -159,7 +179,7 @@ export const BroadcastCreate = (props) => (
             options={{fullWidth: true}}
             source="offer.title" label="Titolo offerta"/>
 
-        <LongTextInput
+        <TextInput
             source="offer.description" label="Descrizione offerta"/>
 
 
@@ -190,12 +210,12 @@ export const BroadcastEdit = (props) => (
         aside={<BroadcastEditAside/>}
         {...props}>
       <SimpleForm >
-        <DisabledInput source="_id"/>
+        <TextInput disabled source="_id"/>
         <EventAutocompleteInput/>
 
         <ReferenceInput reference="businesses" source="business">
           <AutocompleteInput source="name"
-                             inputValueMatcher={businessInputValueMatcher}
+
                              optionText="name"/>
         </ReferenceInput>
         <NumberInput source="newsfeed"/>
@@ -206,7 +226,7 @@ export const BroadcastEdit = (props) => (
 
 
 
-        <LongTextInput
+        <TextInput
             source="offer.description" label="Descrizione offerta"/>
 
         <RadioButtonGroupInput

@@ -26,7 +26,7 @@ const sanitizeRestProps = (rest) => ({
   formClassName,
   headerClassName,
   label,
-  linkType,
+  link,
   locale,
   record,
   resource,

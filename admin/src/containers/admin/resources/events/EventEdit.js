@@ -1,21 +1,59 @@
-
+import {makeStyles} from "@material-ui/core/styles";
 import React from 'react';
-import {Edit, DisabledInput, NumberInput, ReferenceInput, SelectInput, SimpleForm, TextInput} from 'react-admin';
+import {
+  ArrayInput,
+  BooleanInput,
+  Edit,
+  required,
+  SaveButton,
+  SelectInput,
+  SimpleForm,
+  SimpleFormIterator,
+  TextInput,
+  Toolbar
+} from 'react-admin';
+import DeleteButtonWithConfirmation from "../../components/DeleteButtonWithConfirmationDialog";
+import ParameterReferenceSelectInput from "./ParameterReferenceSelectInput";
+import parameterTypes from "./parameterTypes";
 
+const useStyles = makeStyles({
+  defaultToolbar: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+})
+const EditActions = (props) => {
+  const classes = useStyles();
 
+  return (
+      <Toolbar className={classes.defaultToolbar}>
+
+        <SaveButton {...props}/>
+        <DeleteButtonWithConfirmation {...props} title="Sicuro di continuare?"
+                                      content="Quest evento può essere attualmente usato da codice.
+                                    Rimuovendolo, potresti compromettere il comportamento del sistema."/>
+      </Toolbar>
+  )
+}
 const EventEdit = (props) => {
 
 
   return (
-      <Edit {...props}>
-        <SimpleForm>
-          <DisabledInput label="id" source="_id"/>
-          <ReferenceInput label="Element types" source="elementTypeId" reference="layout-elements">
-            <SelectInput optionText="elementType"/>
-          </ReferenceInput>
-          <TextInput source="screen" label="Screen"/>
-          <NumberInput source="order" label="Order"/>
+      <Edit {...props} >
+        <SimpleForm toolbar={<EditActions/>}>
+          <TextInput disabled label="id" source="_id"/>
 
+            <TextInput source="name" label="Name" validate={required()}/>
+            <TextInput source="slug" disabled label="slug"  validate={required()}/>
+            <ArrayInput source="parameters" label="Parameters">
+              <SimpleFormIterator>
+                <TextInput fullWidth label="Name" source="name"  validate={required()}/>
+                <SelectInput fullWidth label="Type" source="type"  validate={required()} choices={parameterTypes} />
+                <ParameterReferenceSelectInput/>
+                <BooleanInput source="required" label="Required"/>
+              </SimpleFormIterator>
+            </ArrayInput>
 
         </SimpleForm>
       </Edit>

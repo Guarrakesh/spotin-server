@@ -1,5 +1,5 @@
 import React from 'react';
-import {BooleanField, Filter, Datagrid, EditButton, ShowButton, List, TextField, TextInput} from 'react-admin';
+import {BooleanField, TextInput, Filter, Datagrid, EditButton, ShowButton, List, TextField} from 'react-admin';
 import DateTimeField from "../../components/DateTimeField";
 
 

@@ -13,10 +13,10 @@ import { List,
 
 import moment from 'moment';
 import { get } from 'lodash';
-import { DateTimeInput } from '../../components/DateTimeInput';
+import { DateTimeInput } from 'react-admin-date-inputs';
 /* eslint-disable */
 
-import MomentUtils from 'material-ui-pickers/utils/moment-utils'
+import MomentUtils from '@date-io/moment'
 /* eslint-enable */
 export { default as SportEventEdit } from './EventEdit';
 export { default as SportEventCreate } from './EventCreate';

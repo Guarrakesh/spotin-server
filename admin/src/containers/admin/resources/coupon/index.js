@@ -11,7 +11,7 @@ import {
   NumberInput,
   DateInput,
   Edit,
-  DisabledInput,
+
   ReferenceField,
   TextField,
   TextInput,
@@ -60,8 +60,8 @@ export const CouponCodeCreate = props => (
 export const CouponCodeEdit = props => (
     <Edit {...props}>
       <SimpleForm>
-        <DisabledInput source="_id"/>
-        <DisabledInput source="code"/>
+        <TextInput disabled source="_id"/>
+        <TextInput disabled source="code"/>
         <NumberInput source="value" label="Valore"/>
         <DateInput source="Data scadenza"/>
         <TextInput source="type" label="Tipo (opzionale)"/>

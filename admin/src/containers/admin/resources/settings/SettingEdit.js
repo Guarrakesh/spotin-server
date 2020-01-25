@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {FormDataConsumer} from "ra-core";
 import React from 'react';
-import {DisabledInput, Edit, NumberInput, RadioButtonGroupInput, SimpleForm, TextInput} from 'react-admin';
+import {Edit, NumberInput, RadioButtonGroupInput, SimpleForm, TextInput} from 'react-admin';
 
 const choices = [
   { id: "string", name: "String" },
@@ -26,7 +26,7 @@ const SettingEdit = (props) => {
   return(
       <Edit {...props}>
         <SimpleForm >
-          <DisabledInput source="_id"/>
+          <TextInput disabled source="_id"/>
           <TextInput source="section"/>
           <TextInput source="key"/>
           <RadioButtonGroupInput source="type" choices={choices}/>

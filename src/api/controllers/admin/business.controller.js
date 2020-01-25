@@ -120,6 +120,7 @@ exports.update = async (req, res, next) => {
     // per cui tutti i nested obejct, devo parsarli in JSON
     body = sanitizeFormData(body);
   }
+
   let updatedBusiness = Object.assign(req.locals.business, body);
   if (req.files) {
     if (req.files.picture && req.files.picture.length > 0) {
@@ -133,9 +134,14 @@ exports.update = async (req, res, next) => {
       }));
     }
   }
-  updatedBusiness.save()
-      .then(savedBus => res.json(savedBus))
-      .catch(e => next(e));
+  try {
+    const savedBus = await updatedBusiness.save()
+    res.json(savedBus);
+  } catch (ex) {
+    console.log(ex);
+    next(ex);
+  }
+
 
 };
 

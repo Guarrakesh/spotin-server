@@ -14,6 +14,7 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import SportsIcon from '@material-ui/icons/Sports';
 import LayoutElementsIcon from '@material-ui/icons/ViewAgenda';
 import AppLayoutBlocksIcon from '@material-ui/icons/ViewQuilt';
+import polyglotI18nProvider from 'ra-i18n-polyglot';
 import englishMessages from 'ra-language-english';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
 import React from 'react';
@@ -34,8 +35,7 @@ import {BusinessCreate, BusinessEdit, BusinessList} from './resources/businesses
 import {CompetitionCreate, CompetitionEdit, CompetitionList} from './resources/competitions';
 import {CompetitorCreate, CompetitorEdit, CompetitorList} from './resources/competitors';
 import {CouponCodeCreate, CouponCodeList, CouponCodeShow} from './resources/coupon';
-import {EventEdit, EventList} from './resources/events';
-import EventCreate from "./resources/events/EventCreate";
+import {EventEdit, EventList, EventCreate} from './resources/events';
 
 import {PrizeCreate, PrizeEdit, PrizeList} from './resources/prizes'
 
@@ -104,9 +104,8 @@ const AdminRoutes = [
       name="systemevents"
       options={{ label: "Eventi di sistema"}}
       list={EventList}
-      create={EventCreate}
       icon={EventsIcon}
-
+      create={EventCreate}
       edit={EventEdit}/>,
   <Resource
       name="settings"
@@ -123,7 +122,9 @@ const messages = {
   it: italianMessages,
   en: englishMessages,
 };
-const i18nProvider = locale => messages[locale];
+
+const i18nProvider = polyglotI18nProvider(locale => messages[locale], 'it');
+
 /* eslint-enable */
 const Admin = () => (
 

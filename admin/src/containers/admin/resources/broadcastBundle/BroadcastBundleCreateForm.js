@@ -1,25 +1,23 @@
 /* eslint-disable */
-import React from 'react';
+import {Box, withStyles} from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import {reduxForm} from 'redux-form';
-import {connect} from 'react-redux';
-import compose from 'recompose/compose';
-import {Grid, withStyles} from "@material-ui/core";
-import {DateInput, DateTimeInput} from '../../components/DateTimeInput';
-import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
-import moment from 'moment';
+import React, { useCallback} from 'react';
 import {
-  CardContentInner,
-  FormInput, getDefaultValues,
-  REDUX_FORM_NAME,
-  ReferenceInput,
   AutocompleteInput,
-    FormDataConsumer,
-  Toolbar,
-  SaveButton,
   BooleanInput,
-
+  FormDataConsumer,
+  FormInput,
+  FormWithRedirect,
+  ReferenceInput,
+  SaveButton,
+  Toolbar,
+  useCreate,
+  useRedirect,
 } from 'react-admin';
+import {DateInput} from 'react-admin-date-inputs'
+import {useForm, useFormState} from 'react-final-form';
+//import businessInputValueMatcher from '../helpers/businessInputValueMatcher';
 
 const styles = {
   inlineBlock: { display: 'inline-block', marginRight: '1rem'}
@@ -32,125 +30,98 @@ const businessValidate = (value, allValues) => {
   }
 };
 
+const SaveBroadcastBundleButton = ({ handleSubmitWithRedirect, ...props}) => {
+
+
+  const form = useForm();
+  const values = useFormState();
+  const handleClick = useCallback(() => {
+    if (values.bulkCreate) {
+      form.change('business', undefined);
+    } else if (values.business) {
+      form.change('bulkcreate', undefined);
+    }
+    handleSubmitWithRedirect('create');
+
+  }, [form]);
+
+  return <SaveButton {...props} handleSubmitWithRedirect={handleClick}/>
+}
 const BroadcastBundleCreateForm
-    = withStyles(styles)(({
+    = withStyles(styles)((props) => {
 
-                            pristine,
-                            invalid,
-                            submitOnEnter,
-                            handleSubmit,
-                            basePath,
-                            record,
 
-                            resource,
-                            save,
-                            form,
-                            saving,
-                            initialValues,
-                            destroy,
-                            classes,
-                            translate,
-                            ...rest,
-                          }) => {
-
-  const handleSubmitWithRedirect = (redirect = redirect) =>
-
-      handleSubmit(values => {
-        destroy();
-        if (values.bulkCreate) {
-          delete values.business;
-        } else if (values.business) {
-          values.bulkCreate = false;
-        }
-        save(values, redirect)
-      });
   return (
-      <form {...rest}>
-        <CardContentInner>
-          <Grid container spacing={8}>
-            <Grid item xs={8}>
-              <p>Periodo di riferimento</p>
-              <Grid container spacing={24}>
-                <Grid item xs={6}>
+      <FormWithRedirect {...props}
+                        render={formProps => (
+                            <form>
+                              <Box p="1em">
+                                <Box display="flex">
+                                  <Box flex={2} mr="1em">
 
-                  <FormInput
+                                    <Typography variant="h6" gutterBottom>Periodo di riferimento</Typography>
 
-                      basePath={basePath}
-                      input={
-                        <DateInput
+                                    <Box display="flex">
+                                      <Box flex={1} mr="0.5em">
+                                        <DateInput
 
-                            validate={[required]}
-                            options={{ format: "dd/MM/YYYY"}}
-                            formClassName={classes.inlineBlock}
-                            source="start"/>}
-                      record={record}
+                                            validate={[required]}
+                                            formClassName={props.classes.inlineBlock}
+                                            source="start"/>
+                                      </Box>
+                                      <Box flex={1} ml="0.5em">
+                                        <DateInput
 
-                      label="Dal"
-                      resource={resource}
-                  />
-                </Grid>
+                                            validate={[required]}
+                                            formClassName={props.classes.inlineBlock}
+                                            source="end"/>
+                                      </Box>
+                                    </Box>
+                                    <Box mt="1em" />
 
-                <Grid item xs={6}>
-                  <FormInput
-                      translate={translate}
-                      basePath={basePath}
-                      input={<DateInput
+                                    <Typography variant="h6" gutterBottom>Business</Typography>
+                                    <BooleanInput source="bulkCreate" label="Crea per tutti i locali visibili sulla piattaforma"/>
 
-                          validate={[required]}
-                          options={{ format: "dd/MM/YYYY"}}
-                          formClassName={classes.inlineBlock}
-                          source="end"/>}
-                      label="al"
-                      record={record}
-                      resource={resource}
-                  />
+                                    <FormDataConsumer>
+                                      {({ formData }) => (formData && formData.bulkCreate) ? null : (
+                                          <FormInput basePath={props.basePath}
+                                                     translate={props.translate}
 
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={4}>
-              <p>Business</p>
-              <BooleanInput source="bulkCreate" label="Crea per tutti i locali visibili sulla piattaforma"/>
-              <FormDataConsumer>
-                {({ formData }) => (formData && formData.bulkCreate) ? null : (
-                    <FormInput basePath={basePath}
-                               translate={translate}
+                                                     input={
+                                                       <ReferenceInput
 
-                               input={
-                                 <ReferenceInput
+                                                           validate={[businessValidate]} reference="businesses" source="business">
+                                                         <AutocompleteInput
 
-                                     validate={[businessValidate]} reference="businesses" source="business">
-                                   <AutocompleteInput
+                                                             optionText="name"
 
-                                       optionText="name"
-                                       inputValueMatcher={businessInputValueMatcher}
-                                       source="name"/>
-                                 </ReferenceInput>
-                               }
-                               label="Business"
-                               record={record}
-                               resource={resource}
-                    />
-                )}
-              </FormDataConsumer>
+                                                             source="name"/>
+                                                       </ReferenceInput>
+                                                     }
+                                                     label="Business"
+                                                     record={props.record}
+                                                     resource={props.resource}
+                                          />
+                                      )}
+                                    </FormDataConsumer>
 
-            </Grid>
-          </Grid>
-          <Toolbar>
-            <SaveButton basePath={basePath}
-                        label="Crea bundle"
-                        handleSubmitWithRedirect={handleSubmitWithRedirect}
-                        handleSubmit={handleSubmit}
-                        invalid={invalid}
-                        pristine={pristine}
-                        redirect={"show"}
-                        saving={saving}
-                        submitOnEnter={submitOnEnter}
-            />
+                                  </Box>
 
-          </Toolbar>
-        </CardContentInner>
-      </form>
+
+                                </Box>
+                              </Box>
+                              <Toolbar>
+                                <Box display="flex" justifyContent="space-between" width="100%">
+                                  <SaveBroadcastBundleButton
+                                      saving={formProps.saving}
+                                      handleSubmitWithRedirect={formProps.handleSubmitWithRedirect}
+                                  />
+                                </Box>
+                              </Toolbar>
+
+                            </form>
+                        )}
+      />
 
 
   )
@@ -169,23 +140,6 @@ BroadcastBundleCreateForm.propTypes = {
   save:     PropTypes.func,
 };
 
-const enhanced = compose(
-    connect((state, props) => ({
-      form: props.form || REDUX_FORM_NAME,
-      initialValues: {
-        bulkCreate: false,
-        start: moment().add(1, 'day').startOf('day'),
-        end: moment().add(8,'days').endOf('day'),
 
-      },
-      saving: props.saving || state.admin.saving,
 
-    })),
-    reduxForm({
-      destroyOnUnmount: false,
-      enableReinitialize: true,
-      keepDirtyOnReinitialize: true
-    })
-);
-
-export default enhanced(BroadcastBundleCreateForm);
+export default BroadcastBundleCreateForm

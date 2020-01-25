@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, Datagrid, TextField, EmailField, Edit, Create, EditButton,
-  DisabledInput, SelectInput, SimpleForm, TextInput, DateField,
+  SelectInput, SimpleForm, TextInput, DateField,
 
   Filter,
   required,
@@ -85,7 +85,7 @@ const UserTitle = ({ record }) => { //eslint-disable-line react/prop-types
 export const UserEdit = (props) => (
   <Edit title={<UserTitle/>} {...props}>
     <SimpleForm>
-      <DisabledInput source="_id" />
+      <TextInput disabled source="_id" />
       <TextInput source="email" validate={validateEmail}/>
       <TextInput source="name" validate={validateName}/>
       <TextInput source="lastname" validate={validateLastName}/>

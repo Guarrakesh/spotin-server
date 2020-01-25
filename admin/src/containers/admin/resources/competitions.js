@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, ReferenceField, Edit, Create, EditButton, BooleanInput, NumberInput,
-  DisabledInput, ReferenceInput, SimpleForm, AutocompleteInput, TextInput, ImageField, ImageInput, Filter, SelectInput} from 'react-admin';
+   ReferenceInput, SimpleForm, AutocompleteInput, TextInput, ImageField, ImageInput, Filter, SelectInput} from 'react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import StyledImageField from './fields/StyledImageField'; //eslint-disable-line
 
@@ -47,7 +47,7 @@ const CompetitionTitle = ({ record }) => { //eslint-disable-line react/prop-type
 export const CompetitionEdit = (props) => (
   <Edit title={<CompetitionTitle/>} {...props}>
     <SimpleForm>
-      <DisabledInput source="_id" />
+      <TextInput disabled source="_id" />
       <ReferenceInput label="Sport" source="sport" reference="sports">
         <AutocompleteInput source="name"/>
       </ReferenceInput>

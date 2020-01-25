@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
-  TextInput, ReferenceInput,
-  LongTextInput, FormDataConsumer,AutocompleteInput,
+import { TabbedForm, FormTab, Edit,  SelectInput , ReferenceInput,
+  TextInput, FormDataConsumer,AutocompleteInput,
   ArrayInput, SimpleFormIterator, SelectArrayInput,
   required,
 
   minLength,
   maxLength} from 'react-admin';
-  import { DateTimeInput } from '../../components/DateTimeInput';
+  import { DateTimeInput } from 'react-admin-date-inputs';
 
 
   const providers = [
@@ -34,7 +33,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
     <Edit {...props}>
       <TabbedForm>
         <FormTab label="General">
-          <DisabledInput source="_id"/>
+          <TextInput disabled source="_id"/>
           <TextInput source="name" validate={validateName}/>
           <ReferenceInput source="sport" reference="sports" label="Sport"  validate={[required()]}>
             <SelectInput optionText="name"/>
@@ -49,7 +48,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
           }
         </FormDataConsumer>
 
-        <LongTextInput source="description"  validate={validateDesc}/>
+        <TextInput multiline source="description"  validate={validateDesc}/>
         {/* <TextInput type="datetime-local"
       //    parse={dateParser}
           InputLabelProps={{
@@ -57,9 +56,9 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
           }}
           label="Data evento" validate={validateDate}
         source="start_at" /> */}
-          <DateTimeInput validate={validateDate} source="start_at"  options={{ format: "dd/MM/YYYY, HH:mm:ss" }}/>
+          <DateTimeInput validate={validateDate} source="start_at"  options={{ format: "dd/MM/yyyy, HH:mm:ss" }}/>
         <SelectArrayInput choices={providers} source="providers" optionValue="id"/>
-        <DisabledInput source="appealValue"/>
+        <TextInput disabled source="appealValue"/>
       </FormTab>
       <FormTab label="Competitors">
         <FormDataConsumer>
@@ -70,7 +69,7 @@ import { TabbedForm, FormTab, Edit, DisabledInput, SelectInput,
                   <ReferenceInput
                     filter={{sport: formData.sport || record.sport}}
                     reference="competitors" source="competitor">
-                    <AutocompleteInput optionValue="_id" optionText={({name, full_name}) => (name !== undefined ? name : full_name) }/>
+                    <AutocompleteInput optionValue="_id" />
                   </ReferenceInput>
 
 

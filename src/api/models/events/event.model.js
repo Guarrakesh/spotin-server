@@ -8,8 +8,12 @@ const parameterSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['STRING', 'ARRAY', 'BOOLEAN', 'NUMBER', 'TIMESTAMP' ],
+    enum: ['STRING', 'ARRAY', 'BOOLEAN', 'NUMBER', 'TIMESTAMP', 'REFERENCE'],
     default: 'STRING',
+  },
+  reference: {
+    required: false,
+    type: String,
   },
   required: {
     default: false,
