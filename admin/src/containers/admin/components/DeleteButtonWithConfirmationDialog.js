@@ -64,9 +64,9 @@ class DeleteButtonWithConfirmation extends Component {
     this.setState({ showDialog: false });
     const { dispatchCrudDelete, startUndoable, resource, record, basePath, redirect, undoable } = this.props;
     if (undoable) {
-      startUndoable(crudDelete(resource, record.id, record, basePath, redirect));
+      startUndoable(crudDelete(resource, record._id, record, basePath, redirect));
     } else {
-      dispatchCrudDelete(resource, record.id, record, basePath, redirect);
+      dispatchCrudDelete(resource, record._id, record, basePath, redirect);
     }
   };
 
