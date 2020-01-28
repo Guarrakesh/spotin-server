@@ -17,6 +17,8 @@ const bReviewRoutes = require('./broadcastreview.route');
 const couponRoutes = require('./coupon.route');
 const prizeRoutes = require('./prize.route');
 const router = express.Router();
+const { authorize, LOGGED_USER, BUSINESS } = require('../../middlewares/auth');
+const httpStatus = require('http-status');
 
 /**
  * GET v1/status
@@ -44,6 +46,17 @@ router.use('/broadcastreviews', bReviewRoutes);
 router.use('/activities', activityRoutes);
 router.use('/coupon', couponRoutes);
 router.use('/prizes', prizeRoutes);
+
+
+router.route('/notifications/:id/read').get(authorize([LOGGED_USER, BUSINESS]), async (req, res, next, id) => {
+  const notificationService = req.app.get('container').get('notificationService');
+  if (!req.locals || !req.locals.loggedUser) {
+    res.status(httpStatus.UNAUTHORIZED);
+    return res.json({});
+  }
+  const notification = await notificationService.markAsRead(req.locals.loggedUser.id, req.params.id);
+  res.json(notification);
+});
 
 
 

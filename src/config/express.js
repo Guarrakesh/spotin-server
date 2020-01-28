@@ -32,6 +32,7 @@ const app = express();
 
 // Container and dependency injection
 const container = Container.getInstance();
+
 services.init(container);
 
 app.set('container', container);

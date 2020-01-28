@@ -27,7 +27,7 @@ const EditActions = (props) => {
   const classes = useStyles();
 
   return (
-      <Toolbar className={classes.defaultToolbar}>
+      <Toolbar className={classes.defaultToolbar} {...props}>
 
         <SaveButton {...props}/>
         <DeleteButtonWithConfirmation {...props} title="Sicuro di continuare?"

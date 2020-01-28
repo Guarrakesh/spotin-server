@@ -20,6 +20,12 @@ class UserService extends BaseMongoService  {
     }));
     return await this.businessService.find({_id: {$in: businessIds }}, include || {});
   }
+
+  async removeFcmTokens(user, tokens) {
+    return await this.update(user.id, {
+      $pull: { 'fcmTokens' : {  token: { $in: tokens } }}
+      });
+  }
 }
 
 exports.UserService = UserService;

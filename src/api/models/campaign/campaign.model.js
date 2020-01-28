@@ -21,6 +21,7 @@ const rewardRuleSchema = new mongoose.Schema({
   recipientType: {
     type: String,
     required: true,
+    enum: ['user', 'friend'],
   },
   eventName: {
     type: String,
@@ -31,7 +32,8 @@ const rewardRuleSchema = new mongoose.Schema({
 const campaignSchema = new mongoose.Schema({
   campaignType: {
     required: true,
-    type: String
+    type: String,
+    enum: ['referral'],
   },
   name: {
     required: true,

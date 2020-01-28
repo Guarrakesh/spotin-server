@@ -88,6 +88,7 @@
     "express": "^4.15.2",
     "express-validation": "^1.0.2",
     "faker": "^4.1.0",
+    "firebase-admin": "^8.9.2",
     "geolib": "^2.0.24",
     "graphql": "^14.2.1",
     "graphql-tools": "^4.0.4",
