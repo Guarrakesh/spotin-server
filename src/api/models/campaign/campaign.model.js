@@ -1,26 +1,43 @@
 const mongoose = require('mongoose');
+
+const ConditionOperator = {
+  CONTAINS: 'CONTAINS',
+  EQUAL: 'EQUAL',
+  IN: 'IN',
+  NOT_IN: 'NOT_IN',
+  GREATHER_THAN: 'GREATER_THAN',
+  LESS_THAN: 'LESS_THAN',
+  RANDE: 'RANGE'
+};
+const RuleFrequency = {
+  ONCE: 'ONCE',
+  N_TIMES: 'N_TIMES'
+};
+const RecipientType = {
+  USER: 'USER',
+  FRIEND: 'FRIEND',
+  REFERRER: 'REFERRER',
+}
 const RuleEventParameterCondition = new mongoose.Schema({
   parameterName: {
     required: true,
     type: String,
   },
-  parameterValue: {
+  value: {
     required: true,
     type: mongoose.Schema.Types.Mixed
   },
   operator: {
     default: 'EQUAL',
     type: String,
-    enum: [
-      'CONTAINS', 'EQUAL', 'IN', 'NOT_IN', 'GREATER_THAN', 'LESS_THAN', 'RANGE'
-    ]
+    enum: Object.values(ConditionOperator),
   }
 });
 const rewardRuleSchema = new mongoose.Schema({
   recipientType: {
     type: String,
     required: true,
-    enum: ['user', 'friend'],
+    enum: Object.values(RecipientType),
   },
   eventName: {
     type: String,
@@ -28,7 +45,18 @@ const rewardRuleSchema = new mongoose.Schema({
   },
   rewardValue: mongoose.Schema.Types.Mixed,
 
+  frequency: {
+    type: String,
+    required: true,
+    enum: Object.values(RuleFrequency),
+  },
+  numOfTimes: Number,
+
+  rewardAssignmentMessage: String,
+
   eventConditions: [RuleEventParameterCondition],
+
+
 });
 
 const campaignSchema = new mongoose.Schema({
@@ -59,4 +87,6 @@ const campaignSchema = new mongoose.Schema({
 
 
 exports.Campaign = mongoose.model('Campaign', campaignSchema);
-
+exports.ConditionOperator = ConditionOperator;
+exports.RuleFrequency = RuleFrequency;
+exports.RecipientType = RecipientType;

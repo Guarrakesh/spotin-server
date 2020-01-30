@@ -73,7 +73,6 @@ class DeleteButtonWithConfirmation extends Component {
   render() {
     const { showDialog } = this.state;
     const { label = 'ra.action.delete', classes = {}, className, title, content } = this.props;
-    console.log(this.props);
     return (
         <Fragment>
           <Button onClick={this.handleClick} label={label} className={classnames('ra-delete-button', classes.deleteButton, className)} key="button">

@@ -144,7 +144,7 @@ const userSchema = new mongoose.Schema({
 
   spotCoins: Number,
 
-  referredBy: {
+  referrerId: {
     type: mongoose.Schema.ObjectId,
     ref: "User"
   },

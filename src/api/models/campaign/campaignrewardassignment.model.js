@@ -19,11 +19,17 @@ const campaignRewardAssignmentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: false,
   },
+
   rewardValue: {
     required: true,
     type: mongoose.Schema.Types.Mixed,
 
   },
+
+  progress: Number,
+
+  completed: Boolean,
+
   assignedAt: {
     default: () => Date.now(),
     type: Date,

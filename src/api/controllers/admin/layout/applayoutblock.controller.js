@@ -1,4 +1,3 @@
-const { handler: errorHandler } = require('../../../middlewares/error');
 const httpStatus = require('http-status');
 exports.load = async(req, res, next, id) => {
   try {

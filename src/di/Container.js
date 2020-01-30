@@ -7,6 +7,7 @@ class Container {
       Container._instance = this;
       this._services = new Map();
       this._singletons = new Map();
+      this._instances = new Map();
     }
     return Container._instance;
   }
@@ -22,8 +23,12 @@ class Container {
     return Container._instance;
 }
 
-  register(name, definition, dependencies) {
+  register(name, definition, dependencies, options = {}) {
     this._services.set(name, { definition, dependencies });
+
+    if (options.immediateInit) {
+      this.get(name);
+    }
   }
 
   singleton(name, definition, dependencies) {
@@ -35,21 +40,29 @@ class Container {
 
     if (!c) throw new Error('Cannot resolve ' + name);
 
-    if (this._isClass(c.definition)) {
-      if (c.singleton) {
-        const singletonInstance = this._singletons.get(name);
-        if (singletonInstance) {
-          return singletonInstance;
-        } else {
-          const newSingletonInstance = this._createInstance(c);
-          this._singletons.set(name, newSingletonInstance);
-          return newSingletonInstance;
-        }
-      }
-      return this._createInstance(c)
-    } else {
-      return c.definition;
+    if (this._instances.has(name)) {
+      return this._instances.get(name);
     }
+
+
+    let instance;
+    if (this._isClass(c.definition)) {
+      // if (c.singleton) {
+      //   const singletonInstance = this._singletons.get(name);
+      //   if (singletonInstance) {
+      //     return singletonInstance;
+      //   } else {
+      //     const newSingletonInstance = this._createInstance(c);
+      //     this._singletons.set(name, newSingletonInstance);
+      //     return newSingletonInstance;
+      //   }
+      // }
+      instance = this._createInstance(c)
+    } else {
+      instance = c.definition;
+    }
+    this._instances.set(name, instance);
+    return instance;
   }
 
   _getResolvedDependencies(service) {

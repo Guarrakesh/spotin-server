@@ -19,7 +19,7 @@ const layoutElementRoutes = require('./layout/layoutelement.route');
 const appLayoutBlockRoutes = require('./layout/applayoutblock.route');
 const eventRoutes = require('./event.route');
 const router = express.Router();
-
+const campaignRoutes = require('./campaign.route');
 /**
  * GET v1/status
  */
@@ -48,7 +48,7 @@ router.use('/prizes', prizeRoutes);
 router.use('/layout-elements', layoutElementRoutes);
 router.use('/app-layout-blocks', appLayoutBlockRoutes);
 router.use('/systemevents', eventRoutes);
-
+router.use('/campaigns', campaignRoutes);
 router.route('/sendfcm').get(async (req, res) => {
   const notificationService = req.app.get('container').get('notificationService');
   const userService =  req.app.get('container').get('userService');

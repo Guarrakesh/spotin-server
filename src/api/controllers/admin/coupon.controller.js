@@ -6,9 +6,9 @@ const APIError = require('../../utils/APIError');
 const couponService = new UserCouponService();
 exports.load = async(req, res, next, id) => {
   try {
-    const coupon = await couponService.findOneById(id);
+    const coupon = await couponService.findById(id);
     if (!coupon) {
-      next(new APIError({ message: "Coupon does not exists", status: httpStatus.NOT_FOUND } ));
+      return next(new APIError({ message: "Coupon does not exists", status: httpStatus.NOT_FOUND } ));
     }
     req.locals = { coupon };
     return next();

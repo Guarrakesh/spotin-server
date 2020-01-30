@@ -12,6 +12,19 @@ class SpotCoinTransactionService {
 
   }
 
+  static async sendSpotCoin(userId, spotCoins, meta) {
+    await User.findOneAndUpdate({ _id: userId }, {
+      $inc: { spotCoins: spotCoins}
+    });
+    return await SpotCoinTransaction.create({
+      receiverId: userId,
+      amount: spotCoins,
+      status: StatusCodes.STATUS_COMPLETED,
+      type: TypeCodes.SpotInToUser,
+      meta: meta
+    });
+  }
+
   static async registerPrizeClaimTransaction(data) {
     const { prize, prizeClaim, user } = data;
     await User.findOneAndUpdate({ _id: user.id }, {
@@ -33,6 +46,8 @@ class SpotCoinTransactionService {
     });
     return created;
   }
+
+
 
 
   async handleCouponUsed(msg, data) {

@@ -14,6 +14,7 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import SportsIcon from '@material-ui/icons/Sports';
 import LayoutElementsIcon from '@material-ui/icons/ViewAgenda';
 import AppLayoutBlocksIcon from '@material-ui/icons/ViewQuilt';
+import CampaignsIcon from '@material-ui/icons/WbIncandescent';
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import englishMessages from 'ra-language-english';
 import italianMessages from 'ra-language-italian'; // eslint-disable-line
@@ -45,7 +46,7 @@ import SettingEdit from './resources/settings/SettingEdit';
 import SettingList from './resources/settings/SettingList';
 import {SportEventCreate, SportEventEdit, SportEventList} from './resources/sportevents';
 import {SportCreate, SportEdit, SportList} from './resources/sports';
-
+import { CampaignList, CampaignCreate } from './resources/campaigns';
 
 import {UserCreate, UserEdit, UserList} from './resources/users';
 import theme from './theme';
@@ -76,6 +77,9 @@ const AdminRoutes = [
             icon={BroadcastBundlesIcon}
             create={BroadcastBundleCreate} show={BroadcastBundleShow}/>,
 
+    <Resource name="campaigns" list={CampaignList} create={CampaignCreate}
+              icon={CampaignsIcon}
+              />,
   <Resource name="coupons"
             icon={CouponsIcon}
             options={{ label: "Spot Coin coupon"}}

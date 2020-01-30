@@ -6,7 +6,7 @@ const APIError = require('../../utils/APIError');
 const prizeService = new PrizeService();
 exports.load = async(req, res, next, id) => {
   try {
-    const prize = await prizeService.findOneById(id);
+    const prize = await prizeService.findById(id);
     if (!prize) {
       next(new APIError({ message: "Proze does not exists", status: httpStatus.NOT_FOUND } ));
     }

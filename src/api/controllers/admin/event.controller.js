@@ -5,7 +5,7 @@ const httpStatus = require('http-status');
 exports.load = async (req, res, next, id) => {
   try {
     eventService = req.app.get('container').get('eventService');
-    req.locals = { event: await eventService.findOneById(id) };
+    req.locals = { event: await eventService.findById(id) };
     return next();
   } catch (error) {
     return errorHandler(error, res, res);
@@ -19,7 +19,7 @@ exports.list = async(req, res, next) => {
     const paginatedEvents= await eventService.paginate(req.filterParams, req.pagingParams);
     res.json(paginatedEvents);
   } catch (error) {
-    return errorHandler(err, req, res, next);
+    return next(error);
   }
 };
 

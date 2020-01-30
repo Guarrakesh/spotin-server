@@ -10,7 +10,7 @@ const { LayoutElementService } = require('../api/services/LayoutElementService')
 const { NotificationService } = require('../api/services/notification/NotificationService');
 
 const { CampaignService } = require('../api/services/campaigns/CampaignService');
-
+const { CampaignWorkerService } = require('../api/services/campaigns/CampaignWorkerService');
 const firebaseServiceAccout = require('../assets/service-account');
 
 exports.init = function(container) {
@@ -24,7 +24,13 @@ exports.init = function(container) {
   container.register('eventService', EventService);
   container.register('firebaseAdminService', new FirebaseAdminService(firebaseServiceAccout) );
   container.register('notificationService', NotificationService, ['userService', 'firebaseAdminService']);
-  container.register('campaignService', CampaignService, ['userService', 'firebaseAdminService', 'eventService']);
+
+  container.register('campaignService', CampaignService);
+
+  container.register('campaignWorkerService', CampaignWorkerService, ['userService', 'firebaseAdminService', 'eventService'], {
+    immediateInit: true
+  });
+
 
 
 };

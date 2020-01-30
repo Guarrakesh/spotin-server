@@ -64,7 +64,7 @@ class NotificationService {
     let user;
     try {
 
-      user = await this.userService.findOneById(userId);
+      user = await this.userService.findById(userId);
       if (!user || user.fcmTokens.length <= 0) {
         return null;
       }
