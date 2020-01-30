@@ -35,6 +35,11 @@ module.exports = {
   mailerHost: process.env.EMAIL_HOST || "smtps.aruba.it",
   mailerSecure: process.env.EMAIL_SECURE || true,
   questioEventUri: process.env.QUESTIO_EVENT_URI,
+
+  AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+
+
   //mailerSecure: true,
 
   email: {

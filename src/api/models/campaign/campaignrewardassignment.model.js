@@ -35,5 +35,5 @@ const campaignRewardAssignmentSchema = new mongoose.Schema({
 }, { timestamps: false });
 
 
-exports.Campaign = mongoose.model('CampaignRewardAssignment', campaignRewardAssignmentSchema);
+exports.CampaignRewardAssignment = mongoose.model('CampaignRewardAssignment', campaignRewardAssignmentSchema);
 

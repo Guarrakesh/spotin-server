@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-const RuleEventParameter = new mongoose.Schema({
+const RuleEventParameterCondition = new mongoose.Schema({
   parameterName: {
     required: true,
     type: String,
@@ -28,7 +27,10 @@ const rewardRuleSchema = new mongoose.Schema({
     required: true,
   },
   rewardValue: mongoose.Schema.Types.Mixed,
+
+  eventConditions: [RuleEventParameterCondition],
 });
+
 const campaignSchema = new mongoose.Schema({
   campaignType: {
     required: true,
@@ -46,7 +48,12 @@ const campaignSchema = new mongoose.Schema({
   maximumRewardValue: Number,
   rewardAssignmentDelay: Number,
 
-  rewardRules: [rewardRuleSchema],
+  rewardRules: {
+    type: [rewardRuleSchema],
+    required: true,
+  },
+
+  active: Boolean,
 
 }, { timestamps: false });
 
