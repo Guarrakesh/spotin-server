@@ -12,6 +12,7 @@ router.param('id', campaignController.load);
 router
     .route('/')
     .get(authorize(ADMIN), filterRestQuery, campaignController.list)
+    .post(authorize(ADMIN), campaignController.create);
 ;
 
 router

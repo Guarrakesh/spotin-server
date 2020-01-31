@@ -63,6 +63,21 @@ router.route('/sendfcm').get(async (req, res) => {
   }
   res.json({});
 });
+
+router.route('/sendfcm').get(async (req, res) => {
+  const notificationService = req.app.get('container').get('notificationService');
+  const userService =  req.app.get('container').get('userService');
+
+  const user = await userService.findOne({ email: 'minkiazza91@hotmail.it'});
+  if (user) {
+
+    const response= await notificationService.sendToUser(user.id, {
+      notification: { title: "Nuovi eventi!", body: "Scopri i nuovi eventi di questa settimana!", imageUrl: "https://source.unsplash.com/random" },
+    }, true);
+    return res.json(response);
+  }
+  res.json({});
+});
 module.exports = router;
 
 //1FB56EE6-1EAF-4B36-B5B8-37DD20E30FAA

@@ -49,23 +49,24 @@ const CampaignCreateForm = (props) => {
 
                     </Box>
                     <Box flex={1} ml="1em">
-                      <BooleanInput fullWidth source="active"/>
                       <Typography variant="h6" gutterBottom>Reward options</Typography>
+                      <BooleanInput fullWidth source="active"/>
+
                       <Box flex={2}>
                         <SelectInput fullWidth choices={rewardTypes} source="rewardType" validate={required()}/>
                       </Box>
                       <Box display="flex">
                         <Box flex={1} mr="0.5em">
-                          <NumberInput fullWidth source="rewardAssignmentDelay" />
+                          <NumberInput fullWidth source="rewardAssignmentDelay" variant="outlined"/>
                         </Box>
                         <Box flex={1} ml="0.5em">
-                          <NumberInput fullWidth source="maximumRewardValue" label="Maximum Reward Value"/>
+                          <NumberInput fullWidth source="maximumRewardValue" variant="outlined" label="Maximum Reward Value"/>
                         </Box>
                       </Box>
                     </Box>
                   </Box>
 
-                  <RewardRulesForm source="rewardRules" validate={minLength(1)}/>
+                  <RewardRulesForm source="rewardRules" label="" validate={minLength(1)}/>
 
 
 
@@ -74,7 +75,7 @@ const CampaignCreateForm = (props) => {
                   <Box display="flex" justifyContent="space-between" width="100%">
                     <SaveButton
                         saving={formProps.saving}
-                        handleSubmitSithRedirect={formProps.handleSubmitWithRedirect}
+                        handleSubmitWithRedirect={formProps.handleSubmitWithRedirect}
                     />
                     {/*<DeleteButton record={formProps.record} />*/}
                   </Box>

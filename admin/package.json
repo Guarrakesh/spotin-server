@@ -58,6 +58,7 @@
     "ra-language-italian": "^3.0.0",
     "raf": "3.4.0",
     "react": "^16.9.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-admin": "^3.0.0",
     "react-admin-date-inputs": "WiXSL/react-admin-date-inputs#mui-pickers-v3",
     "react-dev-utils": "^5.0.2",

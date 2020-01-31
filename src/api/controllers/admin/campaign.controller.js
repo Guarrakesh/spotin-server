@@ -28,3 +28,19 @@ exports.list = async (req, res, next) => {
     next(error);
   }
 }
+
+
+exports.create = async(req, res, next) => {
+  try {
+
+    const campaignService = req.app.get('container').get('campaignService');
+
+    const result = campaignService.create(req.body);
+
+    res.status(httpStatus.CREATED);
+    res.json(result);
+
+  } catch (e) {
+    next(e);
+  }
+};

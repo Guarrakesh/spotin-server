@@ -7,7 +7,8 @@ const ConditionOperator = {
   NOT_IN: 'NOT_IN',
   GREATHER_THAN: 'GREATER_THAN',
   LESS_THAN: 'LESS_THAN',
-  RANDE: 'RANGE'
+  RANGE: 'RANGE',
+  PRESENT: 'PRESENT',
 };
 const RuleFrequency = {
   ONCE: 'ONCE',
@@ -24,11 +25,11 @@ const RuleEventParameterCondition = new mongoose.Schema({
     type: String,
   },
   value: {
-    required: true,
+    required: false,
     type: mongoose.Schema.Types.Mixed
   },
   operator: {
-    default: 'EQUAL',
+    default: 'PRESENT',
     type: String,
     enum: Object.values(ConditionOperator),
   }

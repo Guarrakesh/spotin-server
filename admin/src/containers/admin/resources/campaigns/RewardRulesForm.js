@@ -1,22 +1,23 @@
-import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormLabel from "@material-ui/core/FormLabel";
+import Typography from "@material-ui/core/Typography";
+import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { useSelector }  from "react-redux";
 import React from 'react';
 import {
   ArrayInput,
   FormDataConsumer,
+  minValue,
   NumberInput,
   ReferenceInput,
+  required,
   SelectInput,
-  SimpleFormIterator,
-  TextInput
+    minLength,
+  SimpleFormIterator
 } from 'react-admin';
-import {useFormState} from "react-final-form";
-import get from 'lodash/get';
+import {useForm, useFormState} from "react-final-form";
+import {useSelector} from "react-redux";
+import EventConditionsField from "./EventConditionsField";
+
 
 const recipientTypes = [
   { id: 'USER', name: 'User' },
@@ -27,51 +28,75 @@ const RuleFrequencies = [
   { id: 'ONCE', name: 'Once'},
   { id: 'N_TIMES', name: 'N_TIMES'},
 ];
+
+
 const RewardRuleField = (props) => {
 
 
   const formState = useFormState();
+  const form = useForm();
   const selectedEventId = get(formState.values, `${props.source}.eventName`);
 
   const systemEvent = useSelector(state => state.admin.resources.systemevents.data[selectedEventId]);
 
 
+  const handleFrequencyChange = () => {
+    const frequency = get(formState.values, `${props.source}.frequency`);
+
+    if (frequency === "ONCE") {
+      form.change( `${props.source}.numOfTimes`, undefined )
+    }
+  };
+
+
   return (
-      <Box p="1em">
+      <Box p="0.5em">
         <Box display="flex">
-          <Box flex={2}>
+          <Box flex={2} mr="1em">
             <Box mt="1em">
-              <SelectInput variant="standard" label="Who is the recipient?" fullWidth choices={recipientTypes} source={`${props.source}.recipientType`}/>
+              <SelectInput variant="standard" validate={required()}  label="Who is the recipient?" fullWidth choices={recipientTypes} source={`${props.source}.recipientType`}/>
             </Box>
             <Box>
-              <ReferenceInput fullWidth variant="standard" label="Which event must be listen to?" reference="systemevents" source={`${props.source}.eventName`}>
+              <ReferenceInput fullWidth variant="standard" validate={required()}  label="Which event must be listen to?" reference="systemevents" source={`${props.source}.eventName`}>
                 <SelectInput optionValue="id" optionText="name"/>
               </ReferenceInput>
             </Box>
 
-            <NumberInput source={`${props.source}.rewardValue`} />
-            <SelectInput choices={RuleFrequencies} source={`${props.source}.frequency`}/>
-            <FormDataConsumer >
-              {({formData}) => (
-                  formData[`${props.source}.frequency`] === 'N_TIMES'
-                      ? <NumberInput  {...props} source={`${props.source}.numOfTimes`}/>
-                      : null
-              )
-              }
-            </FormDataConsumer>
+            <Box mt="1em">
+              <NumberInput label="Reward value" validate={required()} source={`${props.source}.rewardValue`} fullWidth />
+            </Box>
+            <Box display="flex" mt="1em">
+              <Box flex="3" mr="0.5em">
+                <SelectInput label="Frequency" fullWidth
+                             onChange={handleFrequencyChange}
+                             helperText="How much times event must be triggered?"
+                             choices={RuleFrequencies} source={`${props.source}.frequency`}/>
+              </Box>
+              <FormDataConsumer >
+                {({formData}) => (
+                    get(formData,`${props.source}.frequency`) === 'N_TIMES'
+                        ? (
+                            <Box flex={1} ml="0.5em" >
+                              <NumberInput
+                                  validate={minValue(2)}
+                                  fullWidth label="Num of times" source={`${props.source}.numOfTimes`}/>
+                            </Box>
+                        )   : null
 
-            <TextInput source={`${props.source}.rewardAssignmentMessage`}/>
+                )}
+              </FormDataConsumer>
+            </Box>
+
           </Box>
-          <Box flex={1}>
-            <Typography variant="h6" gutterBottom>Event conditions</Typography>
-            {systemEvent && systemEvent.name}
-          </Box>
+          {systemEvent && systemEvent.parameters.length > 0 &&
+          <EventConditionsField systemEvent={systemEvent} {...props}/>
+          }
         </Box>
       </Box>
   )
 };
 RewardRuleField.propTypes = {
-  source: PropTypes.string.isRequired,
+  source: PropTypes.string,
 };
 
 const RewardRulesForm = (props) => {
@@ -79,18 +104,17 @@ const RewardRulesForm = (props) => {
 
   return (
 
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Reward Rules</FormLabel>
-
-        <FormGroup>
-          <ArrayInput {...props}>
-            <SimpleFormIterator style={{ marginTop: "1.2rem"}}>
-              <RewardRuleField/>
+      <Box component="fieldset" mt="1em">
+        <Typography variant="h6">Reward Rules</Typography>
+        <Box>
+          <ArrayInput {...props} validate={[required(), minLength(1)]}>
+            <SimpleFormIterator>
+              <RewardRuleField />
             </SimpleFormIterator>
           </ArrayInput>
-        </FormGroup>
-      </FormControl>
-)
+        </Box>
+      </Box>
+  )
 
 };
 

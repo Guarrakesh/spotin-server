@@ -30,9 +30,16 @@ exports.generateTokenResponse = generateTokenResponse;
  */
 exports.register = async (req, res, next) => {
   try {
+    /**
+     * @var {EventService} eventService
+     */
+    const eventService = req.app.get('container').get('eventService');
+
+
     const user = await (new User(req.body)).save();
     const userTransformed = user.transform();
     const token = generateTokenResponse(user, user.token());
+    eventService.publishEvent('user_signed_up');
     PubSub.publish('USER_REGISTERED', { user });
     res.status(httpStatus.CREATED);
     return res.json({ token, user: userTransformed });

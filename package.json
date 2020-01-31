@@ -13,7 +13,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
     "staging": "cross-env NODE_ENV=staging pm2 start ./src/index",
-    "server": "nodemon ./src/index.js",
+    "server": "nodemon ./src/index.js --ignore ./admin",
     "client": "cd client && yarn start",
     "admin": "cd admin && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn admin\"",

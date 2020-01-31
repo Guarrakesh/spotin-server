@@ -20,6 +20,7 @@ class CampaignWorkerService {
 
     this.campaignSubscriptions = {};
 
+    this.subscribeAllActiveCampaigns();
   }
 
 
@@ -28,7 +29,7 @@ class CampaignWorkerService {
    * @return {Promise<void>}
    */
   async subscribeAllActiveCampaigns() {
-    const activeCampaigns = await Campaign.find({ published: true });
+    const activeCampaigns = await Campaign.find({ active: true });
     if (!activeCampaigns || activeCampaigns.length <= 0) {
       return;
     }
@@ -68,14 +69,27 @@ class CampaignWorkerService {
   }
 
 
-
+  /**
+   * Given a rule and the userId related to the event, choose which is the recipient and get it
+   * @param rewardRule
+   * @param userId
+   * @return {Promise<void>}
+   */
+  async getRecipientId(rewardRule, userId) {
+    if (rewardRule.recipientType === RecipientType.REFERRER) {
+      const user = await this.userService.findById(userId);
+      return user.reffererId;
+    } else if (rewardRule.recipientType === RecipientType.USER) {
+      return userId;
+    }
+  }
   async handleEvent(event, data) {
 
     Logger.log('info', `[CampaignService] Received ${event} event`);
 
 
     const subscribedCampaignIds = Object.keys(this.campaignSubscriptions);
-    const matchedCampaign = await Campaign.find({ published: true, _id: { $in: subscribedCampaignIds }});
+    const matchedCampaign = await Campaign.find({ active: true, _id: { $in: subscribedCampaignIds }});
 
     for(const campaign of matchedCampaign) {
       const matchedRewardRules = await this.getMatchedRewardRules(campaign, event, data);
@@ -83,7 +97,7 @@ class CampaignWorkerService {
       for (const matchedRule of matchedRewardRules) {
         // get, if existing,the rewardassignment
         const campaignRewardAssignment = await CampaignRewardAssignment.findOne({
-          recipientId: matchedRule.data.userId,
+          recipientId: await this.getRecipientId(matchedRule, data.userId),
           campaignId: campaign.id,
           rewardRuleId: matchedRule.id,
           completed: false,
@@ -94,7 +108,7 @@ class CampaignWorkerService {
             campaignRewardAssignment.progress = (campaignRewardAssignment.progress || 0) + 1;
             if (campaignRewardAssignment.progress >= matchedRule.numOfTimes) {
               // rule completed
-              this.completeAndAssignRewardRule(campaignRewardAssignment);
+              this.completeAndAssignRewardRule(campaign, campaignRewardAssignment, matchedRule);
             }
             await campaignRewardAssignment.save();
 
@@ -102,7 +116,7 @@ class CampaignWorkerService {
           // if the frequency is "ONCE" but assignment already exists, it is inconsistent.
           // TODO: send notification
         } else {
-          this.assignReward(matchedRule, campaign, event.userId);
+          this.assignReward(matchedRule, campaign, await this.getRecipientId(matchedRule, data.userId));
         }
       }
 
@@ -146,6 +160,8 @@ class CampaignWorkerService {
    */
   async assignReward(rewardRule, campaign, userId, sendNotification = true) {
     try {
+
+
       const assignment = new CampaignRewardAssignment({
         recipientId: userId,
         campaignId: campaign.id,
@@ -178,32 +194,33 @@ class CampaignWorkerService {
   }
 
   /**
-   * Complete an assignmend and reward the recipient
+   * Complete an assignment and reward the recipient
    * @param assignment
    * @param rewardRule
    * @return {Promise<*>}
    */
-  async completeAndAssignRewardRule(assignment, rewardRule) {
+  async completeAndAssignRewardRule(campaign, assignment, rewardRule) {
 
     try {  // TODO: Check if user exceeds reward maximum ("maximumRewardValue")
 
       assignment.completed = true;
       assignment.assignedAt = Date.now();
 
-      await this.sendReward(campaign, rewardRule, userId);
+      await this.sendReward(campaign, rewardRule, assignment.recipientId);
       await assignment.save();
     } catch (e) {
       return Logger.log('error', `[CampaignService] Error in reward assignment`, {
         assignment: assignment.toObject(),
         rewardRule: rewardRule.toObject(),
         userId: assignment.recipientId,
+        campaignId: campaign.id,
       });
     }
 
     if (!sendNotification) return;
 
-    const user = await this.userService.findById(userId);
-    this.notificationService.sendToUser(userId, {
+    const user = await this.userService.findById(assignment.recipientId);
+    this.notificationService.sendToUser(assignment.recipientId, {
       notification: { title: `Congratulazioni, ${user.name}!`, body: "Hai ricevuto il tuo premio" },
       data: { campaign, rewardRule, assignment }
     }, true);
@@ -268,6 +285,9 @@ class CampaignWorkerService {
       }
       case ConditionOperator.CONTAINS: {
         return Array.isArray(condition.value) && data[condition.parameterName].includes(condition.value);
+      }
+      case ConditionOperator.PRESENT: {
+        return !!data[condition.parameterName]
       }
       default:
         return false;

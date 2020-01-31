@@ -5,33 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Initial setup of Campaign Service and Event Service">
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignShow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/routes/admin/campaign.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/EventConditionsField.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/components/DeleteButtonWithConfirmationDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/components/DeleteButtonWithConfirmationDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/coupon.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/coupon.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/event.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/event.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/layout/applayoutblock.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/layout/applayoutblock.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/prize.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/prize.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/middlewares/restParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/middlewares/restParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/models/campaign/campaign.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/campaign/campaign.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/campaign/campaignrewardassignment.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/campaign/campaignrewardassignment.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/routes/admin/campaign.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/admin/campaign.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/services/BaseMongoService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/BaseMongoService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/services/FirebaseAdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/FirebaseAdminService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/services/SpotCoinTransactionService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/SpotCoinTransactionService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/services/notification/NotificationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/notification/NotificationService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/di/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/di/Container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,44 +44,23 @@
     <favorites_list name="spotin-server" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.35750252">
+    <splitter split-orientation="horizontal" split-proportion="0.45495048">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/models/spotcointransaction.model.js">
+            <entry file="file://$PROJECT_DIR$/src/api/services/BaseMongoService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="615">
-                  <caret line="41" selection-start-line="41" selection-end-line="41" />
+                <state relative-caret-position="782">
+                  <caret line="62" selection-start-line="62" selection-end-line="62" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/AppLayoutBlockCreate.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-                  <folding>
-                    <element signature="e#1#27#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/parameterTypes.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="690">
-                  <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+                <state relative-caret-position="2071">
+                  <caret line="109" column="69" selection-start-line="109" selection-start-column="69" selection-end-line="109" selection-end-column="69" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
                   </folding>
@@ -107,59 +71,65 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="76" lean-forward="true" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
+                <state relative-caret-position="540">
+                  <caret line="36" selection-start-line="36" selection-end-line="36" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/services/BaseMongoService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
-                  <caret line="54" selection-start-line="54" selection-end-line="54" />
-                </state>
-              </provider>
+            <entry file="file://$PROJECT_DIR$/src/api/services/events/EventService.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js">
+            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/EventConditionsField.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="558">
-                  <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="71" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="29">
+                  <caret line="85" column="16" lean-forward="true" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#22#64#0" expanded="true" />
+                    <element signature="e#1118#1173#0" expanded="true" />
+                    <element signature="e#2784#3731#0" />
+                    <element signature="e#3763#4078#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
+            <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#0#55#0" expanded="true" />
-                    <element signature="e#1127#1153#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="405">
+                  <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/routes/admin/campaign.route.js">
+            <entry file="file://$PROJECT_DIR$/admin/node_modules/ra-ui-materialui/esm/button/Button.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+                <state relative-caret-position="285">
+                  <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/admin/node_modules/@material-ui/core/Typography/Typography.d.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="261">
+                  <caret line="77" column="41" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="41" />
                 </state>
               </provider>
             </entry>
@@ -167,64 +137,23 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.5921357">
+        <splitter split-orientation="horizontal" split-proportion="0.551317">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/event.controller.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="270">
-                      <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/routes/admin/event.route.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="210">
-                      <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/middlewares/restParser.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="105">
-                      <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/config/services.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="165">
-                      <caret line="11" column="66" lean-forward="true" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+                    <state relative-caret-position="345">
+                      <caret line="23" selection-start-line="23" selection-end-line="24" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="150">
-                      <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/auth.controller.js">
-                  <provider selected="true" editor-type-id="text-editor" />
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/elementtype.controller.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="525">
-                      <caret line="35" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="26" />
+                    <state relative-caret-position="614">
+                      <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
                     </state>
                   </provider>
                 </entry>
@@ -232,8 +161,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/fields/ElementTypeField.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="420">
-                      <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+                    <state relative-caret-position="554">
+                      <caret line="43" selection-start-line="18" selection-start-column="1" selection-end-line="36" selection-end-column="23" />
                       <folding>
                         <element signature="e#0#56#0" expanded="true" />
                       </folding>
@@ -241,14 +170,29 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/index.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="270">
-                      <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
-                      <folding>
-                        <element signature="e#0#54#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="60">
+                      <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="262">
+                      <caret line="67" selection-start-line="67" selection-end-line="67" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/di/Container.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-174">
+                      <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
                     </state>
                   </provider>
                 </entry>
@@ -256,8 +200,17 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="330">
-                      <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+                    <state relative-caret-position="621">
+                      <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/applayoutblock.controller.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="716">
+                      <caret line="60" column="2" selection-start-line="36" selection-end-line="50" selection-end-column="2" />
                     </state>
                   </provider>
                 </entry>
@@ -266,22 +219,27 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/api/models/events/event.model.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="240">
-                      <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+                    <state relative-caret-position="180">
+                      <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/api/models/campaign/campaign.model.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="168">
+                      <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
                     </state>
                   </provider>
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/api/models/campaign/campaign.model.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="377">
-                      <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-                    </state>
-                  </provider>
+                <entry file="file://$PROJECT_DIR$/.env">
+                  <provider selected="true" editor-type-id="text-editor" />
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
@@ -308,16 +266,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>i18n</find>
-      <find>logout</find>
-      <find>Iterator</find>
-      <find>LongTe</find>
-      <find>LongTextInput</find>
-      <find>TextInput</find>
-      <find>LongT</find>
-      <find>onSubmit</find>
-      <find>save</find>
-      <find>c</find>
       <find>console.lo</find>
       <find>console.l</find>
       <find>normalizeMi</find>
@@ -326,7 +274,6 @@
       <find>star</find>
       <find>start</find>
       <find>Box</find>
-      <find>console.log</find>
       <find>firebase</find>
       <find>NotificationError</find>
       <find>token</find>
@@ -338,6 +285,17 @@
       <find>variant</find>
       <find>console</find>
       <find>PropTy</find>
+      <find>Buttons</find>
+      <find>props</find>
+      <find>onClick</find>
+      <find>status</find>
+      <find>res.status</find>
+      <find>console.log</find>
+      <find>USER_REGISTER</find>
+      <find>EventCondi</find>
+      <find>published</find>
+      <find>assignReward</find>
+      <find>userId</find>
     </findStrings>
     <replaceStrings>
       <replace>Event</replace>
@@ -369,7 +327,6 @@
       <dir>$PROJECT_DIR$/admin/src/containers/business/components/material-ui/Typography</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/business</dir>
       <dir>$PROJECT_DIR$/admin/material-dashboard-pro-react-v1.3.0/src</dir>
-      <dir>$PROJECT_DIR$/src/api/routes/admin</dir>
       <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/src/api/tests/v1/integration</dir>
       <dir>$PROJECT_DIR$/src/graphql</dir>
@@ -380,8 +337,10 @@
       <dir>$PROJECT_DIR$/src/api/controllers</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/admin</dir>
       <dir>$PROJECT_DIR$/admin/src</dir>
-      <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/admin/src/containers/admin/resources</dir>
+      <dir>$PROJECT_DIR$/src/api/routes/admin</dir>
+      <dir>$PROJECT_DIR$/src/api/controllers/admin</dir>
+      <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -407,10 +366,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/AppLayoutBlockEdit.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/parameterTypes.js" />
-        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/referenceTypes.js" />
-        <option value="$PROJECT_DIR$/src/api/models/events/event.model.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/ParameterReferenceSelectInput.js" />
         <option value="$PROJECT_DIR$/src/config/express.js" />
         <option value="$PROJECT_DIR$/src/api/services/notification/NotificationError.js" />
@@ -441,23 +396,27 @@
         <option value="$PROJECT_DIR$/src/api/controllers/admin/coupon.controller.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/AppLayoutBlockList.js" />
-        <option value="$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/FieldFormGenerator.js" />
-        <option value="$PROJECT_DIR$/src/api/models/campaign/campaign.model.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/index.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignList.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignShow.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/components/DeleteButtonWithConfirmationDialog.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
-        <option value="$PROJECT_DIR$/src/api/routes/admin/campaign.route.js" />
-        <option value="$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js" />
         <option value="$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/events/EventCreate.js" />
         <option value="$PROJECT_DIR$/src/api/controllers/admin/event.controller.js" />
         <option value="$PROJECT_DIR$/src/api/middlewares/restParser.js" />
         <option value="$PROJECT_DIR$/src/api/services/BaseMongoService.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RuleEventField.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/EventConditionsField.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/campaign.route.js" />
+        <option value="$PROJECT_DIR$/src/api/models/campaign/campaign.model.js" />
         <option value="$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js" />
+        <option value="$PROJECT_DIR$/src/api/routes/admin/index.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js" />
+        <option value="$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js" />
       </list>
     </option>
   </component>
@@ -467,7 +426,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1328" />
@@ -607,8 +566,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -622,46 +580,7 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="amazon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="campaigns" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -676,7 +595,7 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
@@ -689,24 +608,6 @@
               <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="di" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spotin-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spotin-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="queries" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1398,14 +1299,9 @@
       <workItem from="1580255661535" duration="220000" />
       <workItem from="1580310379281" duration="7518000" />
       <workItem from="1580343815965" duration="32000" />
-      <workItem from="1580390865677" duration="14821000" />
-    </task>
-    <task id="LOCAL-00155" summary="User subscriptions email">
-      <created>1559688517044</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1559688517044</updated>
+      <workItem from="1580390865677" duration="14897000" />
+      <workItem from="1580460009172" duration="3313000" />
+      <workItem from="1580474781415" duration="11506000" />
     </task>
     <task id="LOCAL-00156" summary="User subscriptions email">
       <created>1559838398425</created>
@@ -1743,7 +1639,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580343839992</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="Initial setup of Campaign Service and Event Service">
+      <created>1580428752608</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1580428752609</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1779,7 +1682,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1780331000" />
+    <option name="totallyTimeSpent" value="1795226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1791,10 +1694,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1328" extended-state="0" />
+    <frame x="0" y="23" width="2550" height="1327" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21780229" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20126532" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" weight="0.084285155" />
@@ -1802,16 +1705,16 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.48641196" weight="0.2249191" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.46593148" weight="0.30456027" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.46711305" weight="0.25895765" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.46711305" weight="0.32550606" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4915321" weight="0.31270358" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.2298944" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4942891" weight="0.3131068" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.65695155" visible="true" weight="0.3276699" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.34304845" side_tool="true" visible="true" weight="0.3276699" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4938711" weight="0.3125506" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.6559905" visible="true" weight="0.30526316" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5061289" side_tool="true" weight="0.3125506" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4986215" visible="true" weight="0.32911393" />
-      <window_info anchor="bottom" id="Docker" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="13" weight="0.24939272" />
       <window_info anchor="bottom" id="GraphQL" order="14" sideWeight="0.49938145" visible="true" weight="0.3295362" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2005,72 +1908,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/api/middlewares/error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/utils/amazon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="444" selection-start-line="444" selection-end-line="444" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/FirebaseAdminService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/referralCampaignAdapter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/campaign/campaignrewardassignment.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="43" column="32" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/built/api/services/PrizeService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="74" column="75" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/SpotCoinTransactionService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/di/Injector.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/prize.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -2092,43 +1929,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/coupon.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/di/Container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="146" column="12" selection-start-line="146" selection-start-column="2" selection-end-line="146" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/services/UserCouponService.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/applayoutblock.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/services/LayoutElementService.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -2157,13 +1959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="222" column="53" selection-start-line="222" selection-start-column="53" selection-end-line="222" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/node_modules/@material-ui/core/Select/SelectInput.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -2176,22 +1971,6 @@
         <state>
           <folding>
             <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/spotcointransaction.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2223,58 +2002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-            <element signature="e#1127#1153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/campaign.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/auth.controller.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/elementtype.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/AppLayoutBlockCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="76" lean-forward="true" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/node_modules/ra-ui-materialui/esm/input/TextInput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -2289,6 +2016,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/spotcointransaction.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/AppLayoutBlockCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding>
+            <element signature="e#1#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/parameterTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -2296,13 +2040,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/fields/ElementTypeField.js">
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+        <state relative-caret-position="1155">
+          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/events/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/event.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -2313,27 +2083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="66" lean-forward="true" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/event.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/middlewares/restParser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2341,44 +2090,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/services/BaseMongoService.js">
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/auth.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/elementtype.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/campaign/campaign.model.js">
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/coupon.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/applayoutblocks/fields/ElementTypeField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="43" selection-start-line="18" selection-start-column="1" selection-end-line="36" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/events/event.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="180">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/CampaignCreate.js">
+    <entry file="file://$PROJECT_DIR$/admin/node_modules/@material-ui/core/Button/Button.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        <state relative-caret-position="420">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/campaign.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/layout/applayoutblock.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="60" column="2" selection-start-line="36" selection-end-line="50" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/services/BaseMongoService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/EventConditionsField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="85" column="16" lean-forward="true" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#22#64#0" expanded="true" />
+            <element signature="e#1118#1173#0" expanded="true" />
+            <element signature="e#2784#3731#0" />
+            <element signature="e#3763#4078#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/node_modules/ra-ui-materialui/esm/button/Button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/node_modules/@material-ui/core/Typography/Typography.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="109" column="69" selection-start-line="109" selection-start-column="69" selection-end-line="109" selection-end-column="69" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/RewardRulesForm.js">
+    <entry file="file://$PROJECT_DIR$/src/api/models/campaign/campaign.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/routes/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphql/broadcasts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/di/Container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174">
+          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/containers/admin/resources/campaigns/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/listeners/pubsub/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/services/events/EventService.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/admin/campaign.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/controllers/v1/auth.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/user.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="146" column="12" selection-start-line="146" selection-start-column="2" selection-end-line="146" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/services/campaigns/CampaignWorkerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="77" column="41" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="41" />
         </state>
       </provider>
     </entry>
