@@ -278,7 +278,7 @@ exports.reserveBroadcast = async (req, res, next) => {
     const businessName = business.name;
     eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
 
-    Reservation.sync(reservation, business.id);
+    Reservation.sync(reservation, business.id, event.id );
     res.status = httpStatus.CREATED;
     res.json(reservation);
 

@@ -26,6 +26,10 @@ const reservationSchema = new mongoose.Schema({
     ref: "Broadcast"
   },
 
+  eventId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "SportEvent",
+  },
   userListIds: [{
     type: mongoose.Schema.ObjectId,
     ref: 'User'

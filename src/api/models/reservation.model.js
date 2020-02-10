@@ -111,13 +111,13 @@ reservationSchema.statics = {
 
 };
 
-reservationSchema.statics.sync = async function(doc, businessId) {
+reservationSchema.statics.sync = async function(doc, businessId, eventId) {
 
   const result = await NewReservation.create({
     businessId: businessId,
     broadcastId: doc.broadcast,
     userId: doc.user,
-
+    eventId: eventId,
     checkedInAt: Date.now(),
     peopleNum: doc.peopleNum,
     status: doc.status,
@@ -126,7 +126,8 @@ reservationSchema.statics.sync = async function(doc, businessId) {
     used: doc.used,
 
   });
-  next();
+
+  console.log(result);
 
 
 };
