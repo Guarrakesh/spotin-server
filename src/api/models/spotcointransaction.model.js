@@ -29,7 +29,7 @@ const spotCoinTransactionSchema = new mongoose.Schema({
     required: true,
   },
   type: {
-    enum: TypeCodes,
+    enum: Object.values(TypeCodes),
     required: true,
     type: Number,
   },

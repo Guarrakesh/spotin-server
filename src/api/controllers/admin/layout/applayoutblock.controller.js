@@ -55,7 +55,7 @@ exports.update = async(req, res, next) => {
     const updated = Object.assign(req.locals.appLayoutBlock, req.body);
     const layoutElementService = req.app.get('container').get('layoutElementService');
 
-    const response = await layoutElementService.updateAppLayoutBlock(updated).result;
+    const response = await layoutElementService.updateAppLayoutBlock(updated);
     if (response.result) {
       res.json(updated);
     } else {

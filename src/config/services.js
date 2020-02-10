@@ -27,7 +27,7 @@ exports.init = function(container) {
 
   container.register('campaignService', CampaignService);
 
-  container.register('campaignWorkerService', CampaignWorkerService, ['userService', 'firebaseAdminService', 'eventService'], {
+  container.register('campaignWorkerService', CampaignWorkerService, ['userService', 'notificationService', 'eventService'], {
     immediateInit: true
   });
 

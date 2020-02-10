@@ -1,5 +1,5 @@
 const { Notification } = require('../../models/notification.model');
-
+const Logger = require('heroku-logger');
 const USER_TARGET_RULES = {
   FAVORITE_SPORTS: 'FAVORITE_SPORTS',
   FAVORITE_COMPETITORS: 'FAVORITE_COMPETITORS',
@@ -57,21 +57,24 @@ class NotificationService {
    * @param userId
    * @param message
    * @param stored
-   * @param debug
    * @return {Promise<null|admin.messaging.BatchResponse|boolean|*>}
    */
-  async sendToUser(userId, message, stored = false, debug = true ) {
+  async sendToUser(userId, message, stored = false ) {
     let user;
     try {
 
+      Logger.log('info', `[NotificationService] Sending notification to ${userId}`, message);
       user = await this.userService.findById(userId);
       if (!user || user.fcmTokens.length <= 0) {
         return null;
       }
 
-      return await this.firebaseService.sendNotificationToDevices(message, user.fcmTokens.map(t => t.token ), {}, debug );
-
+      const response = await this.firebaseService.sendNotificationToDevices(message, user.fcmTokens.map(t => t.token ), {} );
+      Logger.log('debug', '[NotificationService] Response from CloudMessaging ', response);
+      return response;
     } catch (error) {
+      Logger.log('error', `[NotificationService] Error sending notification to ${userId}: ${error}`, message);
+
       if (error.requestType) {
         const invalidTokens = this.checkInvalidTokens(error.results, user);
         if (invalidTokens.length > 0)

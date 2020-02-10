@@ -33,13 +33,12 @@ exports.register = async (req, res, next) => {
     /**
      * @var {EventService} eventService
      */
+    const { referrerId } = req.body;
     const eventService = req.app.get('container').get('eventService');
-
-
     const user = await (new User(req.body)).save();
     const userTransformed = user.transform();
     const token = generateTokenResponse(user, user.token());
-    eventService.publishEvent('user_signed_up');
+    eventService.publishEvent('user_signed_up', { referredBy: referrerId, userId: user.id });
     PubSub.publish('USER_REGISTERED', { user });
     res.status(httpStatus.CREATED);
     return res.json({ token, user: userTransformed });
@@ -72,9 +71,15 @@ exports.login = async (req, res, next) => {
  */
 exports.oAuth = async (req, res, next) => {
   try {
+
+    const eventService = req.app.get('container').get('eventService');
+
+
     const { user } = req;
+    const { referrerId } = req.body;
     const accessToken = user.token();
     const token = generateTokenResponse(user, accessToken);
+    eventService.publishEvent('user_signed_up', { referredBy: referrerId, userId: user.id });
     const userTransformed = user.transform();
     return res.json({ token, user: userTransformed });
   } catch (error) {

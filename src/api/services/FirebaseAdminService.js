@@ -38,7 +38,7 @@ class FirebaseAdminService {
    * @throws PushNotificationError
    */
   async sendNotificationToDevice(message, deviceToken, options, debug = false) {
-    const res = await this.messaging.sendToDevice(deviceToken, message, { ...options, dryRun: process.env.NODE_ENV === 'development' ? true : debug });
+    const res = await this.messaging.sendToDevice(deviceToken, message, { ...options, dryRun: process.env.SEND_NOTIFICATION  ? false : debug });
     if (res.failureCount > 0) {
       throw new PushNotificationError(REQUEST_TYPE.singleDevice, res.results, res.successCount, res.failureCount, deviceToken);
     }
@@ -62,7 +62,7 @@ class FirebaseAdminService {
       notification,
       tokens: deviceTokens,
       fcmOptions: options,
-    }, process.env.NODE_ENV === 'development' ? true : debug);
+    }, process.env.SEND_NOTIFICATION  ? false : debug);
 
     if (res.failureCount > 0) {
       return Promise.reject(new PushNotificationError(REQUEST_TYPE.multicast, res.responses, res.successCount, res.failureCount, deviceTokens.length));

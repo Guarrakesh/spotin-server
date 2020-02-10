@@ -1,7 +1,7 @@
 const BaseMongoService = require('../BaseMongoService');
 const { Event } = require('../../models/events/event.model');
 const PubSub = require('pubsub-js');
-
+const Logger = require('heroku-logger');
 class EventService extends BaseMongoService {
 
   constructor() {
@@ -16,6 +16,7 @@ class EventService extends BaseMongoService {
    * @param data
    */
   publishEvent(eventName, data) {
+    Logger.log('info', `Received event ${eventName}`, data);
     this.PubSub.publish(eventName, data);
   }
 

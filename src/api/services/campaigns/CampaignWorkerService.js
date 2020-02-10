@@ -1,9 +1,10 @@
 const omit = require('lodash/omit');
-const { Campaign, ConditionOperator, RecipientType, RuleFrequency } = require('../../models/campaign/campaign.model');
 const { CampaignRewardAssignment } = require('../../models/campaign/campaignrewardassignment.model');
+
+const { Campaign, ConditionOperator, RecipientType, RuleFrequency } = require('../../models/campaign/campaign.model');
 const Logger = require('heroku-logger');
 const SpotCoinTransactionService = require('../SpotCoinTransactionService');
-
+const { ReferralCampaignStrategy } = require('./ReferralCampaignStrategy');
 
 class CampaignWorkerService {
 
@@ -62,68 +63,86 @@ class CampaignWorkerService {
     }
 
     if (!this.campaignSubscriptions[campaign.id]) {
-      const tokens = campaign.rewardRules.map(rule => this.eventService.subscribeTo(rule.eventName, this.handleEvent))
+      const tokens = campaign.rewardRules.map(rule => this.eventService.subscribeTo(rule.eventName, this.handleEvent.bind(this)))
       this.campaignSubscriptions = {...this.campaignSubscriptions, [campaign.id]: tokens };
     }
 
   }
 
 
-  /**
-   * Given a rule and the userId related to the event, choose which is the recipient and get it
-   * @param rewardRule
-   * @param userId
-   * @return {Promise<void>}
-   */
-  async getRecipientId(rewardRule, userId) {
-    if (rewardRule.recipientType === RecipientType.REFERRER) {
-      const user = await this.userService.findById(userId);
-      return user.reffererId;
-    } else if (rewardRule.recipientType === RecipientType.USER) {
-      return userId;
+
+  getCampaignStrategy(campaign) {
+    if (campaign.campaignType === 'referral') {
+      return new ReferralCampaignStrategy();
     }
+
+    throw new Error('Strategy not found for the campaign type ' + campaign.campaignType );
   }
   async handleEvent(event, data) {
 
-    Logger.log('info', `[CampaignService] Received ${event} event`);
+    Logger.log('info', `[CampaignWorkerService] Received ${event} event`);
 
 
-    const subscribedCampaignIds = Object.keys(this.campaignSubscriptions);
-    const matchedCampaign = await Campaign.find({ active: true, _id: { $in: subscribedCampaignIds }});
+    try {
 
-    for(const campaign of matchedCampaign) {
-      const matchedRewardRules = await this.getMatchedRewardRules(campaign, event, data);
+      const subscribedCampaignIds = Object.keys(this.campaignSubscriptions);
+      const matchedCampaign = await Campaign.find({active: true, _id: {$in: subscribedCampaignIds}});
 
-      for (const matchedRule of matchedRewardRules) {
-        // get, if existing,the rewardassignment
-        const campaignRewardAssignment = await CampaignRewardAssignment.findOne({
-          recipientId: await this.getRecipientId(matchedRule, data.userId),
-          campaignId: campaign.id,
-          rewardRuleId: matchedRule.id,
-          completed: false,
-        });
-        if (campaignRewardAssignment) {
-          // Rule must be matched n times, so progress it
-          if (matchedRule.frequency === RuleFrequency.N_TIMES) {
-            campaignRewardAssignment.progress = (campaignRewardAssignment.progress || 0) + 1;
-            if (campaignRewardAssignment.progress >= matchedRule.numOfTimes) {
-              // rule completed
-              this.completeAndAssignRewardRule(campaign, campaignRewardAssignment, matchedRule);
-            }
-            await campaignRewardAssignment.save();
-
-          }
-          // if the frequency is "ONCE" but assignment already exists, it is inconsistent.
-          // TODO: send notification
-        } else {
-          this.assignReward(matchedRule, campaign, await this.getRecipientId(matchedRule, data.userId));
+      for (const campaign of matchedCampaign) {
+        const matchedRewardRules = await this.getMatchedRewardRules(campaign, event, data);
+        for (const matchedRule of matchedRewardRules) {
+          await this.processAssignment(campaign, matchedRule, event, data);
+          // get, if existing,the rewardassignment
         }
       }
-
+    } catch (error) {
+      Logger.error(`[CampaignWorkerService] Error processing the event ${event}: ${error}`,data );
     }
 
 
-    console.log(event, data);
+  }
+
+  async processAssignment(campaign, matchedRule, event, eventData) {
+    const strategy = this.getCampaignStrategy(campaign);
+    const recipientId =  strategy.getRecipientId(matchedRule, eventData);
+    const campaignRewardAssignment = await CampaignRewardAssignment.findOne({
+      recipientId: recipientId,
+      campaignId: campaign.id,
+      rewardRuleId: matchedRule.id,
+      completed: false
+    });
+
+
+    // Assignment already exists
+    if (campaignRewardAssignment) {
+      // Rule must be matched n times, so progress it
+      if (matchedRule.frequency === RuleFrequency.N_TIMES) {
+        campaignRewardAssignment.progress = (campaignRewardAssignment.progress || 0) + 1;
+        await campaignRewardAssignment.save();
+        if (campaignRewardAssignment.progress >= matchedRule.numOfTimes) {
+          // rule completed
+          this.completeAndAssignRewardRule(campaign, campaignRewardAssignment, matchedRule);
+        }
+
+      }
+      // if the frequency is "ONCE" but assignment already exists, it is inconsistent.
+      Logger.log('warn', '[CampaignWorkerService] Assignment already exists, ignoring...')
+    } else {
+      if (matchedRule.frequency === RuleFrequency.ONCE) {
+        this.assignReward(matchedRule, campaign, recipientId);
+      } else {
+        CampaignRewardAssignment.create({
+          recipientId: recipientId,
+          campaignId: campaign.id,
+          rewardType: campaign.rewardType,
+          rewardRuleId: matchedRule.id,
+          rewardValue: matchedRule.rewardValue,
+          progress: 1,
+          completed: false,
+        });
+
+      }
+    }
   }
 
   /**
@@ -136,7 +155,7 @@ class CampaignWorkerService {
   async getMatchedRewardRules(campaign, event, data) {
     const matchedRules = [];
     for (const rule of campaign.rewardRules) {
-      if (!rule.eventName !== event) continue;
+      if (rule.eventName !== event) continue;
 
       if (rule.eventConditions && rule.eventConditions.length > 0) {
         const matchedConditions = rule.eventConditions.filter((cond) => this.checkTaskConditionMet(cond, data));
@@ -159,10 +178,11 @@ class CampaignWorkerService {
    * @return {Promise<void>}
    */
   async assignReward(rewardRule, campaign, userId, sendNotification = true) {
+
+    let assignment;
     try {
 
-
-      const assignment = new CampaignRewardAssignment({
+      assignment = new CampaignRewardAssignment({
         recipientId: userId,
         campaignId: campaign.id,
         rewardType: campaign.rewardType,
@@ -175,7 +195,7 @@ class CampaignWorkerService {
       await this.sendReward(campaign, rewardRule, userId);
       assignment.save();
     } catch (e) {
-      return Logger.log('error', `[CampaignService] Error in reward assignment`, {
+      return Logger.log('error', `[CampaignService] Error in reward assignment ${e}`, {
         rewardRule: rewardRule.toObject(),
         campaign: campaign.toObject(),
         userId,
@@ -184,12 +204,7 @@ class CampaignWorkerService {
     }
 
     if (!sendNotification) return;
-
-    const user = await this.userService.findById(userId);
-    this.notificationService.sendToUser(userId, {
-      notification: { title: `Congratulazioni, ${user.name}!`, body: "Hai ricevuto il tuo premio" },
-      data: { campaign, rewardRule, assignment }
-    }, true);
+    this.sendRewardNotification(assignment);
 
   }
 
@@ -199,7 +214,7 @@ class CampaignWorkerService {
    * @param rewardRule
    * @return {Promise<*>}
    */
-  async completeAndAssignRewardRule(campaign, assignment, rewardRule) {
+  async completeAndAssignRewardRule(campaign, assignment, rewardRule, sendNotification = true) {
 
     try {  // TODO: Check if user exceeds reward maximum ("maximumRewardValue")
 
@@ -209,7 +224,7 @@ class CampaignWorkerService {
       await this.sendReward(campaign, rewardRule, assignment.recipientId);
       await assignment.save();
     } catch (e) {
-      return Logger.log('error', `[CampaignService] Error in reward assignment`, {
+      return Logger.log('error', `[CampaignService] Error in reward assignment ${e}`, {
         assignment: assignment.toObject(),
         rewardRule: rewardRule.toObject(),
         userId: assignment.recipientId,
@@ -219,13 +234,18 @@ class CampaignWorkerService {
 
     if (!sendNotification) return;
 
+    this.sendRewardNotification(assignment);
+
+
+  }
+
+  async sendRewardNotification(assignment) {
     const user = await this.userService.findById(assignment.recipientId);
     this.notificationService.sendToUser(assignment.recipientId, {
       notification: { title: `Congratulazioni, ${user.name}!`, body: "Hai ricevuto il tuo premio" },
-      data: { campaign, rewardRule, assignment }
+      data: { assignmentId: assignment.id  }
     }, true);
   }
-
 
   /**
    * Send a reward to a recipient
@@ -235,13 +255,7 @@ class CampaignWorkerService {
    * @return {Promise<void>}
    */
   async sendReward(campaign, rewardRule, userId) {
-    let recipient;
-    const currentUser =  await this.userService.findById(userId);
-    if (rewardRule.recipientType === RecipientType.USER) {
-      recipient = currentUser;
-    } else if (rewardRule.recipientType === RecipientType.REFERRER) {
-      recipient = await this.userService.findOne({ _id: currentUser.referrerId });
-    }
+    let recipient =  await this.userService.findById(userId);
 
     if (!recipient) {
       throw new Error('Recipient not found!');

@@ -12,6 +12,16 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 const eventEmitter = require('../../emitters');
 
+
+const USER_SYSTEM_EVENTS = {
+  BROADCAST_REQUEST: 'user_requested_broadcast',
+  PROFILE_UPDATE: 'user_updated_profile',
+  SIGNUP: 'user_signed_up',
+  RESERVATION: 'user_joined_sportevent',
+  ADD_FAVORITE_EVENT: 'user_saved_event',
+  CANCEL_RESERVATION: 'user_canceled_join_sportevent'
+
+}
 /**
  * Load user and append to req.
  * @public
@@ -278,6 +288,17 @@ exports.reserveBroadcast = async (req, res, next) => {
     const businessName = business.name;
     eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
 
+    try {
+      const eventService = req.app.get('container').get('eventService');
+      eventService.publishEvent(USER_SYSTEM_EVENTS.RESERVATION, {
+        sportEventId: event.id,
+        competitionId: event.competition,
+        competitorIds: event.competitors.map(com => com.competitor),
+        sportId: event.sport,
+      });
+    } catch (ex) {}
+
+
     Reservation.sync(reservation, business.id);
     res.status = httpStatus.CREATED;
     res.json(reservation);
@@ -294,11 +315,19 @@ exports.removeReservation = async (req, res, next) => {
     const { reservationId } = req.params;
     const broadcast = await Broadcast.findOne({'reservations._id': mongoose.Types.ObjectId(reservationId)});
 
+    const eventService = req.app.get('container').get('eventService');
 
     if (!broadcast) {
       res.status(httpStatus.NOT_FOUND);
       res.end();
     }
+
+
+    try {
+      const eventService = req.app.get('container').get('eventService');
+      eventService.publishEvent(USER_SYSTEM_EVENTS.CANCEL_RESERVATION, { reservationId });
+    } catch (ex) {}
+
 
     if (!!loggedUser.reservations.find(e => e.toString() === reservationId.toString())) {
       loggedUser.reservations = loggedUser.reservations.filter(e => e.toString() !== reservationId);
@@ -337,6 +366,15 @@ exports.addFavoriteEvent = async (req, res, next) => {
 
     const updatedUser = await User.findOneAndUpdate({_id: loggedUser._id},
       { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
+
+    try {
+      const eventService = req.app.get('container').get('eventService');
+      eventService.publishEvent(USER_SYSTEM_EVENTS.ADD_FAVORITE_EVENT, {
+        sportEventId: event.id,
+        sportId: event.sport,
+        competitionId: event.competition,
+      });
+    } catch (ex) {}
 
     event = event.transform(updatedUser);
     res.json(event);
@@ -391,6 +429,7 @@ exports.removeFavoriteEvent = async (req, res, next) => {
   await  User.update({ _id: loggedUser._id }, { $pull: { favorite_events: new mongoose.Types.ObjectId(event._id) } }) ;
 
 
+
   res.status(httpStatus.OK);
   res.end();
 };
@@ -399,6 +438,8 @@ exports.requestBroadcast = async (req, res, next) => {
   try {
     const event = await SportEvent.findById(req.body.event);
 
+
+    const eventService = req.app.get('container').get('eventService');
     const {loggedUser} = req.locals;
     if (!event) {
       res.status(httpStatus.NOT_FOUND);
@@ -421,6 +462,13 @@ exports.requestBroadcast = async (req, res, next) => {
     }
     await request.save();
 
+    try {
+      const eventService = req.app.get('container').get('eventService');
+      eventService.publishEvent(USER_SYSTEM_EVENTS.BROADCAST_REQUEST, {
+        sportEventId: event.id,
+        requestId: request.id,
+      });
+    } catch (ex) {}
     eventEmitter.emit('user-broadcast-request', user, event, request);
 
     res.status(httpStatus.NO_CONTENT);
@@ -449,6 +497,8 @@ exports.listBroadcastRequests = async (req, res, next) => {
 
 exports.registerFcmToken = async (req, res, next) => {
   try {
+
+
     const { loggedUser } = req.locals;
     const { token, deviceId } = req.body;
     await User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
@@ -470,6 +520,10 @@ exports.uploadPhoto = async (req, res, next) => {
     const { loggedUser } = req.locals;
     if (req.file && req.file.fieldname == "photo") {
       await loggedUser.uploadPhoto(req.file, req.body || {});
+      try {
+        const eventService = req.app.get('container').get('eventService');
+        eventService.publishEvent(USER_SYSTEM_EVENTS.PROFILE_UPDATE, {propertiesChanged: ['photo']});
+      } catch (e) {}
     }
 
     res.json(loggedUser.transform());

@@ -60,7 +60,7 @@ exports.create = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   try {
-    eventService = req.app.get('container').get('eventService');
+    const eventService = req.app.get('container').get('eventService');
     const updatedEvent = Object.assign(req.locals.event, req.body);
     await eventService.update(updatedEvent.id, updatedEvent);
 

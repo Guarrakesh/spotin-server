@@ -17,7 +17,6 @@ router
 
 router
   .route('/:id')
-  .get(authorize(ADMIN), campaignController.get);
-
-
+  .get(authorize(ADMIN), campaignController.get)
+  .delete(authorize(ADMIN), campaignController.remove)
 module.exports = router;
