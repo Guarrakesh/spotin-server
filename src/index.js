@@ -6,6 +6,7 @@ const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 const express = require('express');
 const path = require('path');
+const socket = require('socket.io');
 
 require('./api/listeners/subscriptions');
 require('./api/listeners/pubsub/index').initPublishSubscribeListeners();
@@ -23,7 +24,22 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging' 
   });
 }
 // listen to requests
-app.listen(port, '0.0.0.0', () => console.info(`server started on port ${port} (${env})`));
+const server = app.listen(port, '0.0.0.0', () => console.info(`server started on port ${port} (${env})`));
+
+// Socket init
+const io = socket(server);
+io.on('connection', function (socket) {
+  socket.on('INIT_CHECKOUT', function(data) {
+    console.log("received from "+ JSON.stringify(data));
+  });
+});
+// Inject Socket in Res
+app.use(function (req, res, next) {
+  res.io = io;
+});
+
+
+
 
 /**
 * Exports express

@@ -7,6 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const passport = require('passport');
 const appRoutes = require('../api/routes/v1');
+const socketRoutes = require('../api/routes/socket');
 const adminRoutes = require('../api/routes/admin');
 const { logs } = require('./vars');
 const strategies = require('./passport');
@@ -122,6 +123,8 @@ app.use('/graphql', (req, res, next) => {
 // Apollo GraphQL
 const server = configureApolloServer();
 server.applyMiddleware({ app, path: '/graphql' });
+
+
 
 module.exports = app;
 
