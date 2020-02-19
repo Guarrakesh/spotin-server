@@ -7,7 +7,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const passport = require('passport');
 const appRoutes = require('../api/routes/v1');
-const socketRoutes = require('../api/routes/socket');
 const adminRoutes = require('../api/routes/admin');
 const { logs } = require('./vars');
 const strategies = require('./passport');

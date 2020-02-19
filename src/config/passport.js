@@ -13,6 +13,7 @@ const jwtOptions = {
 const jwt = async (payload, done) => {
   try {
     const user = await User.findById(payload.sub);
+
     if (user) return done(null, user);
     return done(null, false);
   } catch (error) {
@@ -30,6 +31,8 @@ const oAuth = service => async (token, done) => {
   }
 };
 
+exports.jwtOptions = jwtOptions;
+exports.jwtVerify = jwt;
 exports.jwt = new JwtStrategy(jwtOptions, jwt);
 exports.facebook = new BearerStrategy(oAuth('facebook'));
 exports.google = new BearerStrategy(oAuth('google'));

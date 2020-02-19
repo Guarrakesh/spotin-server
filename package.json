@@ -116,6 +116,7 @@
     "passport": "^0.4.0",
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "4.0.0",
+    "passport-jwt.socketio": "^0.1.1",
     "pm2": "^2.4.6",
     "prop-types": "^15.6.2",
     "pubsub-js": "^1.7.0",
