@@ -102,7 +102,7 @@ exports.list = async (req, res, next) => {
 };
 
 const sanitizeFormData = formData => {
-  ["offers", "business_hours"].forEach(field => {
+  ["offers", "business_hours", "favoriteCompetitors", "favoriteSports", "favoriteCompetitions"].forEach(field => {
     try {
       formData[field] = JSON.parse(formData[field]);
     } catch (e) {
