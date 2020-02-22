@@ -24,9 +24,8 @@ const socketHandlers = (io) => {
     strategy.authenticate(socket.request, {});
   });
 
-  io.on('connection', function (socket) {
-    checkoutSocket(socket, io);
-  });
+  checkoutSocket(io);
+
 };
 
 module.exports = socketHandlers;

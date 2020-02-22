@@ -15,14 +15,17 @@ const firebaseServiceAccout = require('../assets/service-account');
 exports.init = function(container) {
   container.register('userTransaction', UserTransaction);
   container.register('businessService', BusinessService);
-  container.register('reservationService', ReservationService);
+
   container.register('broadcastService', BroadcastService);
+  container.register('reservationService', ReservationService );
   //container.register('questioService', QuestioService);
   container.register('userService', UserService, ['reservationService', 'broadcastService', 'businessService'] );
   container.register('layoutElementService', LayoutElementService );
   container.register('eventService', EventService);
   container.register('firebaseAdminService', new FirebaseAdminService(firebaseServiceAccout) );
   container.register('notificationService', NotificationService, ['userService', 'firebaseAdminService']);
+
+
 
 };
 

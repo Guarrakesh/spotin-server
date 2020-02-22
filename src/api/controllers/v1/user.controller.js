@@ -6,11 +6,11 @@ const ApiError = require('../../utils/APIError')
 const { Broadcast } = require('../../models/broadcast.model');
 const { SportEvent } = require('../../models/sportevent.model');
 const { Request, TYPE_BROADCAST_REQUEST } = require('../../models/request.model');
-const { Reservation } = require('../../models/reservation.model');
 const amazon = require("../../utils/amazon");
 const mongoose = require('mongoose');
 const moment = require('moment');
 const eventEmitter = require('../../emitters');
+const { ReservationStatus } = require('../../models/reservation.model.new');
 
 /**
  * Load user and append to req.
@@ -83,8 +83,8 @@ exports.update = (req, res, next) => {
   const user = Object.assign(req.locals.user, updatedUser);
 
   user.save()
-    .then(savedUser => res.json(savedUser.transform()))
-    .catch(e => next(User.checkDuplicateEmail(e)));
+      .then(savedUser => res.json(savedUser.transform()))
+      .catch(e => next(User.checkDuplicateEmail(e)));
 };
 
 /**
@@ -110,8 +110,8 @@ exports.remove = (req, res, next) => {
   const { user } = req.locals;
 
   user.remove()
-    .then(() => res.status(httpStatus.NO_CONTENT).end())
-    .catch(e => next(e));
+      .then(() => res.status(httpStatus.NO_CONTENT).end())
+      .catch(e => next(e));
 };
 
 /* Reservations */
@@ -119,82 +119,29 @@ exports.listReservations = async (req, res, next) => {
   try {
     const { loggedUser } = req.locals;
     const { _end = 10, _start = 0, _order = 1, _sort = "_id", id_like } = req.query;
-    //let reservations = {docs: []};
 
-    const reservations = await Reservation.findByUserId(loggedUser._id, {
-      include_past_events: true,
-      sort: { field: "created_at", order: -1 }
+    const container = req.app.get('container');
+    const reservationService = container.get('reservationService');
+    const broadcastService = container.get('broadcastService');
+
+    let reservations = await reservationService.paginate({
+      userId: loggedUser.id,
+      status: ReservationStatus.CHECKED_IN,
+    }, {
+      sort: { field: _sort, _order },
+      offset: parseInt(_start),
+      limit: parseInt(_end - _start),
     });
 
+
+    const broadcastIds = reservations.docs.map(checkIn => checkIn.broadcastId);
+    const broadcasts = await broadcastService.find({ _id: { $in: broadcastIds }});
+    reservations.docs = reservations.docs.map(checkIn => {
+      return Object.assign({}, checkIn.toObject(), { broadcast: broadcasts.find(b => b._id.equals(checkIn.broadcastId)) });
+    });
+    //let reservations = {docs: []};
     res.json(reservations);
-    /*
-     const reservationsDocs = await Broadcast.aggregate([
-     {
-     $match: {
-     'reservations._id': { $in: loggedUser.reservations}
-     },
-     },
-     {
-     $unwind: "$reservations"
-     },
 
-     {
-     $match: {
-     'reservations._id': { $in: loggedUser.reservations }
-     }
-     },
-     {
-     $lookup: {
-     from: 'sport_events',
-     localField: "event",
-     foreignField: "_id",
-     as: "event"
-     }
-     },
-     { $unwind: "event"},
-
-     {
-     $group: {
-     "_id": '$reservations._id',
-     "used": { $first: "$reservations.used"},
-     "created_at": { $first: "$reservations.created_at"},
-     "user": { $first: "$reservations.user"},
-     "broadcast": { $first: '$_id'}
-
-     }
-     },
-     {
-     $lookup: {
-     from: 'broadcasts',
-     localField: 'broadcast',
-     foreignField: '_id',
-     as: 'broadcast'
-     },
-
-     }, {
-     $unwind: "$broadcast"
-     },
-
-     { $limit: parseInt(_end - _start)},
-     { $skip:  parseInt(_start)}
-
-     ]);
-
-
-
-     /!*.limit(parseInt(_end - _start))
-     .skip(parseInt(_start))
-     .deepPopulate('event event.sport event.competition event.competitors.competitor business')
-     .lean();*!/
-
-     //TODO: Gestire il sort generico secondo il campo _sorrt
-     reservations.docs = reservationsDocs.sort((a, b) => _order * (new Date(a.created_at)) - (new Date(b.created_at)) );
-     reservations.offset = _start;
-     reservations.total = loggedUser.reservations.length || 0;
-     //  const reservationDoc = broadcastWithReservation.reservations.find(el => el._id.toString() === userReservationIds[i].toString());
-
-     res.json(reservations);
-     */
   } catch (error) {
     next(error);
   }
@@ -206,10 +153,7 @@ exports.getReservation = async (req, res, next) => {
     if (!reservationId) {
       throw new ApiError({message: "Reservation not found.", status: 404});
     }
-
-
     const reservation = await Broadcast.findOne({'reservations._id': mongoose.Types.ObjectId(reservationId)}, {"reservations.$": 1});
-
     const response = omit(reservation, 'reservations');
     res.json(response);
   } catch (error) {
@@ -217,68 +161,19 @@ exports.getReservation = async (req, res, next) => {
   }
 };
 
+
 exports.reserveBroadcast = async (req, res, next) => {
   try {
+
+    const container = req.app.get('container');
+    const reservationService = container.get('reservationService');
+
     const { loggedUser: user } = req.locals;
-
-
     const { broadcast: broadcastId, peopleNum, cheerFor } = req.body;
 
-    const broadcast = await  Broadcast.findById(broadcastId);
-    if (!broadcast) {
-      return next(new ApiError({message: "Questa trasmissione non esiste", status: 404}));
+    const reservation = await reservationService.checkIn(user, broadcastId, { peopleNum, cheerFor });
 
-    }
 
-    if (broadcast.reservations.find(r => r.user.toString() === user._id.toString())) {
-      return next(new ApiError({message: "Hai già prenotato questa offerta.", status: 400}));
-
-    }
-    const event = await broadcast.getEvent();
-    const business = await broadcast.getBusiness();
-    const reservation = new Reservation({
-      user: { _id: user._id, name: user.name, lastname: user.lastname, email: user.email },
-      broadcast: broadcast,
-      created_at: (new Date()).toISOString(),
-      peopleNum,
-    });
-    if (cheerFor) {
-      // al momento l'utente è solo quello che prenota
-      reservation.cheers = {
-        userId: user.id,
-        cheerFor,
-      }
-    }
-    const operations =  { $push: {reservations: reservation}};
-
-    if (cheerFor) {
-      if (cheerFor === "__home__" && event.competitors.length > 0) {
-        operations.$inc = { 'cheers.home': 1, 'cheers.total': 1 };
-      } else if (cheerFor === "__guest__" && event.competitors.length > 0) {
-        operations.$inc = { 'cheers.guest': 1, 'cheers.total': 1 };
-      } else {
-        operations.$push = { 'cheers.other': cheerFor };
-        operations.$inc = { 'cheers.total': 1 }
-      }
-
-    }
-    const updatedBroadcast = await Broadcast.findOneAndUpdate({_id: broadcastId}, operations, {
-      new: true
-    });
-
-    //Prendo l'id della reservation generata da mongoose e la pusho nell'oggetto reservations dell'utente
-    const reservationId = updatedBroadcast.reservations[updatedBroadcast.reservations.length - 1]._id;
-
-    const updatedUser = await User.findOneAndUpdate({_id: user._id},
-      { $push: {reservations: new mongoose.mongo.ObjectId(reservationId)}});
-
-    reservation.broadcast = updatedBroadcast;
-
-    const eventName = event.name;
-    const businessName = business.name;
-    eventEmitter.emit('user-reservation', user, reservation, eventName, businessName );
-
-    Reservation.sync(reservation, business.id, event.id );
     res.status = httpStatus.CREATED;
     res.json(reservation);
 
@@ -336,7 +231,7 @@ exports.addFavoriteEvent = async (req, res, next) => {
     }
 
     const updatedUser = await User.findOneAndUpdate({_id: loggedUser._id},
-      { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
+        { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
 
     event = event.transform(updatedUser);
     res.json(event);
@@ -363,13 +258,13 @@ exports.listFavoriteEvents = async (req, res, next) => {
 
     const limit = parseInt(_end - _start, 10);
     const events = await SportEvent.paginate(
-      { _id: { $in: loggedUser.favorite_events }, start_at: { $gte: moment().toDate() } },
-      {
-        sort: { [_sort]: _order },
-        offset: parseInt(_start, 10),
-        limit,
-        populate: ['competition'],
-      });
+        { _id: { $in: loggedUser.favorite_events }, start_at: { $gte: moment().toDate() } },
+        {
+          sort: { [_sort]: _order },
+          offset: parseInt(_start, 10),
+          limit,
+          populate: ['competition'],
+        });
 
     events.docs = events.docs.map(event => event.transform(loggedUser));
 
@@ -452,11 +347,11 @@ exports.registerFcmToken = async (req, res, next) => {
     const { loggedUser } = req.locals;
     const { token, deviceId } = req.body;
     await User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
-      { $set: { "array.$": { deviceId, token } } });
+        { $set: { "array.$": { deviceId, token } } });
     // Se l'update precedente non ha avuto effeto (cioè non esiste il deviceId),
     // Allora la seguente lo aggiungerà (altrimenti, la seguente non farà nulla)
     await User.update({ _id: loggedUser._id },
-      { $addToSet: { fcmTokens: { deviceId, token } } });
+        { $addToSet: { fcmTokens: { deviceId, token } } });
 
     res.status(httpStatus.CREATED);
     res.json({_id: deviceId, deviceId, token });

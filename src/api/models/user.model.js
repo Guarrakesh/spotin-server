@@ -107,6 +107,8 @@ const userSchema = new mongoose.Schema({
 
 
   },
+
+  // @deprecated
   reservations: [
     {type: mongoose.Schema.ObjectId, ref: "Broadcast"}
   ],

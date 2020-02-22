@@ -60,7 +60,7 @@ class NotificationService {
    * @param debug
    * @return {Promise<null|admin.messaging.BatchResponse|boolean|*>}
    */
-  async sendToUser(userId, message, stored = false, debug = true ) {
+  async sendToUser(userId, message, stored = false, debug = false ) {
     let user;
     try {
 

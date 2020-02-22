@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
-const httpStatus = require('http-status');
 
-const { omitBy, isNil, pick} = require('lodash');
-const { pagination } = require('../utils/aggregations');
 const { broadcastReviewSchema } = require('./review.model');
-const moment = require('moment');
 
 const ReservationStatus = {
+  CHECKED_IN: 'CHECKED_IN',
+  CHECKING_OUT: 'CHECKING_OUT',
   PENDING: 'PENDING',
-  COMPLETED: 'COMPLETED',
-  CANCELED: 'CANCELED'
+  COMPLETED: 'COMPLETED', // checked out
+  CANCELED: 'CANCELED' // canceled by user
+
 };
 const reservationSchema = new mongoose.Schema({
 
@@ -71,11 +70,15 @@ const reservationSchema = new mongoose.Schema({
       type: String
     }
   }, { _id: false })],
+
+  // @deprecated
   used: {
     type: Boolean,
     default: false,
     required: true,
   },
+
+  spotCoinFactor: Number,
 
 
 

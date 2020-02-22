@@ -66,7 +66,11 @@ const finalAggregationStages = [
 
 reservationSchema.statics = {
 
-
+  /**
+   * @deprecated
+   * @param opts
+   * @return {Promise<{total: number, docs: Array}>}
+   */
   async list(opts = {}) {
 
     const {skip = 0, limit = 10, sort, user, broadcast, business, event, id_like, include_past_events = true} = opts;
@@ -100,6 +104,12 @@ reservationSchema.statics = {
 
     ]);
   },
+  /**
+   * @deprecated
+   * @param id
+   * @param opts
+   * @return {Promise<{total: number, docs: Array}>}
+   */
   async findByUserId(id, opts = {}) {
     const options = opts;
     options.user = mongoose.Types.ObjectId(id);
@@ -124,6 +134,7 @@ reservationSchema.statics.sync = async function(doc, businessId, eventId) {
     review: doc.review,
     cheers: doc.cheers,
     used: doc.used,
+
 
   });
 

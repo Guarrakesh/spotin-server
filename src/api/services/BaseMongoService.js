@@ -33,9 +33,15 @@ class BaseMongoService {
       offset: paging.offset,
     }
   }
+
+  // Some aliases
   async findOneById(id) {
     return this.model.findById(id);
   }
+  async findById(id) {
+    return this.model.findById(id);
+  }
+
   async findOne(...opts) {
     return this.model.findOne(...opts);
   }
