@@ -54,4 +54,5 @@ admin/material-dashboard-react-v1.4.1/*
 
 /admin/material-dashboard-pro-react-v1.3.0/
 /client/
-.idea
+.idea/
+.idea/workspace.xml
