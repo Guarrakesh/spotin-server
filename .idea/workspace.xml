@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf650c62-c235-4ee5-bfba-84e66bc08acf" name="Default" comment="Complete Admin Campaign create form and bufix on CampaignWorkerService">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -68,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="757">
-                  <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+                <state relative-caret-position="784">
+                  <caret line="57" selection-start-line="57" selection-end-line="57" />
                 </state>
               </provider>
             </entry>
@@ -661,18 +660,18 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.Docker test" />
       <item itemvalue="JavaScript Debug.Password Reset Template" />
       <item itemvalue="JavaScript Debug.Unnamed" />
       <item itemvalue="JavaScript Debug.password-reset.html" />
       <item itemvalue="JavaScript Debug.user-subscription.html" />
-      <item itemvalue="Node.js.SpotInServer" />
-      <item itemvalue="Docker.Docker test" />
       <item itemvalue="Mocha.Business API" />
+      <item itemvalue="Mocha.Spotin Tests" />
       <item itemvalue="Mocha.CouponCode Model" />
       <item itemvalue="Mocha.Injector" />
       <item itemvalue="Mocha.New Server Proxy" />
-      <item itemvalue="Mocha.Spotin Tests" />
       <item itemvalue="Mocha.User Transaction" />
+      <item itemvalue="Node.js.SpotInServer" />
     </list>
     <recent_temporary>
       <list>
@@ -1164,13 +1163,6 @@
       <workItem from="1581267915732" duration="180000" />
       <workItem from="1581372800375" duration="45000" />
     </task>
-    <task id="LOCAL-00157" summary="Aggiunto campo isRecommended in business&#10;aggiunta query graphql getRecommendedBusinesses">
-      <created>1559999510415</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1559999510416</updated>
-    </task>
     <task id="LOCAL-00158" summary="Business email">
       <created>1560203344467</created>
       <option name="number" value="00158" />
@@ -1507,7 +1499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580505097729</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Complete Admin Campaign create form and bufix on CampaignWorkerService">
+      <created>1582657167283</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1582657167283</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1543,7 +1542,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1806014000" />
+    <option name="totallyTimeSpent" value="1806071000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2114,8 +2113,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+        <state relative-caret-position="784">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
