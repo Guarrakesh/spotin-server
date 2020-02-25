@@ -20,10 +20,10 @@ const handler = (err, req, res, next) => {
   if (env !== 'development' && env !== 'test') {
     delete response.stack;
   }
-
+  console.log(err);
   res.status(err.status);
-  res.json(response);
-  res.end();
+  return res.json(response);
+
 };
 exports.handler = handler;
 

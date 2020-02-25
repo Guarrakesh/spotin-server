@@ -9,20 +9,18 @@ const { FirebaseAdminService } = require('../api/services/FirebaseAdminService')
 const { LayoutElementService } = require('../api/services/LayoutElementService');
 const { NotificationService } = require('../api/services/notification/NotificationService');
 
-
-const firebaseServiceAccout = require('../assets/service-account');
+const firebaseServiceAccount = require('../assets/service-account');
 
 exports.init = function(container) {
-  container.register('userTransaction', UserTransaction);
   container.register('businessService', BusinessService);
-
   container.register('broadcastService', BroadcastService);
-  container.register('reservationService', ReservationService );
+  container.register('userService', UserService, ['broadcastService', 'businessService'] );
+  container.register('userTransaction', UserTransaction, ['userService', 'businessService']);
+  container.register('reservationService', ReservationService, ['userTransaction']);
   //container.register('questioService', QuestioService);
-  container.register('userService', UserService, ['reservationService', 'broadcastService', 'businessService'] );
   container.register('layoutElementService', LayoutElementService );
   container.register('eventService', EventService);
-  container.register('firebaseAdminService', new FirebaseAdminService(firebaseServiceAccout) );
+  container.register('firebaseAdminService', new FirebaseAdminService(firebaseServiceAccount) );
   container.register('notificationService', NotificationService, ['userService', 'firebaseAdminService']);
 
 

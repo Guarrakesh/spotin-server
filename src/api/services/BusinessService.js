@@ -7,7 +7,13 @@ class BusinessService extends BaseMongoService {
     super(Business);
   }
 
+  async takeSpotCoins(id, amount) {
+    return await this.model.findOneAndUpdate({_id: id }, { $inc: { spotCoins: -amount }});
+  }
 
+  async addSpotCoins(id, amount) {
+    return await this.model.findOneAndUpdate({_id: id }, { $inc: { spotCoins: amount }});
+  }
 
 }
 

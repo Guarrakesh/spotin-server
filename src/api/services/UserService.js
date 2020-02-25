@@ -4,9 +4,8 @@ const { Broadcast} = require('../models/broadcast.model');
 
 class UserService extends BaseMongoService  {
 
-  constructor(reservationService, broadcastService, businessService) {
+  constructor(broadcastService, businessService) {
     super(User);
-    this.reservationService = reservationService;
     this.broadcastService = broadcastService;
     this.businessService = businessService;
   }
@@ -25,6 +24,14 @@ class UserService extends BaseMongoService  {
     return await this.update(user.id, {
       $pull: { 'fcmTokens' : {  token: { $in: tokens } }}
       });
+  }
+
+  async takeSpotCoins(id, amount) {
+    return await this.model.findOneAndUpdate({_id: id }, { $inc: { spotCoins: -amount }});
+  }
+
+  async addSpotCoins(id, amount) {
+    return await this.model.findOneAndUpdate({_id: id }, { $inc: { spotCoins: amount }});
   }
 }
 

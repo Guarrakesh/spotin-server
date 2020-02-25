@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const ApiError = require('../../utils/APIError');
-const { handler: errorHandler } = require('../../middlewares/error');
-const bodyParser = require('body-parser');
 const { Reservation } = require('../../models/reservation.model.js');
 const { Broadcast } = require('../../models/broadcast.model.js');
 const { omit } = require('lodash');
 const User = require('../../models/user.model.js');
-
+const PubSub = require('pubsub-js');
+const { ReservationStatus } = require('../../models/reservation.model.new');
 
 exports.get = async (req, res, next) => {
   try {
@@ -87,8 +86,27 @@ exports.list = async (req, res, next) => {
 
     //TODO: Gestire prenotazioni da business (dato un broadcastId)
 
-
     res.json(reservations);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+exports.checkout = async(req, res, next) => {
+  const container = req.app.get('container');
+  const reservationService = container.get('reservationService');
+
+  try {
+    const reservation = await reservationService.findById(req.query.reservationId);
+    if (!reservation) {
+      throw new ApiError({message: "Check-In not found.", status: 404});
+    }
+
+    await reservationService.checkout(reservation);
+
+    res.status(httpStatus.OK);
+    res.json(reservation);
   } catch (error) {
     next(error);
   }

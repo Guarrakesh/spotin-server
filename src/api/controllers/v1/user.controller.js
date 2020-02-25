@@ -22,7 +22,7 @@ exports.load = async (req, res, next, id) => {
     req.locals = { user };
     return next();
   } catch (error) {
-    return next(errorHandler(error, req, res));
+    return next(error);
   }
 };
 
@@ -83,8 +83,8 @@ exports.update = (req, res, next) => {
   const user = Object.assign(req.locals.user, updatedUser);
 
   user.save()
-      .then(savedUser => res.json(savedUser.transform()))
-      .catch(e => next(User.checkDuplicateEmail(e)));
+    .then(savedUser => res.json(savedUser.transform()))
+    .catch(e => next(User.checkDuplicateEmail(e)));
 };
 
 /**
@@ -110,8 +110,8 @@ exports.remove = (req, res, next) => {
   const { user } = req.locals;
 
   user.remove()
-      .then(() => res.status(httpStatus.NO_CONTENT).end())
-      .catch(e => next(e));
+    .then(() => res.status(httpStatus.NO_CONTENT).end())
+    .catch(e => next(e));
 };
 
 /* Reservations */
@@ -148,14 +148,17 @@ exports.listReservations = async (req, res, next) => {
 };
 exports.getReservation = async (req, res, next) => {
   try {
-    const { loggedUser } = req.locals;
-    const reservationId = loggedUser.reservations.find(e => e == req.params.reservationId);
-    if (!reservationId) {
+    const container = req.app.get('container');
+    const reservationService = container.get('reservationService');
+
+    const broadcastService = container.get('broadcastService');
+    const reservation = await reservationService.findById(req.params.reservationId);
+    if (!reservation) {
       throw new ApiError({message: "Reservation not found.", status: 404});
     }
-    const reservation = await Broadcast.findOne({'reservations._id': mongoose.Types.ObjectId(reservationId)}, {"reservations.$": 1});
-    const response = omit(reservation, 'reservations');
-    res.json(response);
+
+    const broadcast = await broadcastService.findById(reservation.broadcastId);
+    res.json(Object.assign(reservation.toObject(), { broadcast }));
   } catch (error) {
     next(error);
   }
@@ -182,32 +185,17 @@ exports.reserveBroadcast = async (req, res, next) => {
   }
 };
 
+
 exports.removeReservation = async (req, res, next) => {
   try {
-    const { loggedUser } = req.locals;
-
     const { reservationId } = req.params;
-    const broadcast = await Broadcast.findOne({'reservations._id': mongoose.Types.ObjectId(reservationId)});
 
+    const container = req.app.get('container');
+    const reservationService = container.get('reservationService');
 
-    if (!broadcast) {
-      res.status(httpStatus.NOT_FOUND);
-      res.end();
-    }
-
-    if (!!loggedUser.reservations.find(e => e.toString() === reservationId.toString())) {
-      loggedUser.reservations = loggedUser.reservations.filter(e => e.toString() !== reservationId);
-
-      broadcast.reservations = broadcast.reservations.filter(r => r.user.toString() !== loggedUser._id.toString());
-
-      await broadcast.save();
-      await loggedUser.save();
-      res.status(httpStatus.OK);
-      res.end();
-    } else {
-      res.status(httpStatus.BAD_REQUEST);
-      res.end();
-    }
+    await reservationService.cancelCheckIn(reservationId);
+    res.status(httpStatus.OK);
+    res.end();
 
   } catch (e) {
     next(e);
@@ -231,7 +219,7 @@ exports.addFavoriteEvent = async (req, res, next) => {
     }
 
     const updatedUser = await User.findOneAndUpdate({_id: loggedUser._id},
-        { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
+      { $addToSet: { favorite_events: new mongoose.mongo.ObjectId(req.body.event) } }, { new: true });
 
     event = event.transform(updatedUser);
     res.json(event);
@@ -258,13 +246,13 @@ exports.listFavoriteEvents = async (req, res, next) => {
 
     const limit = parseInt(_end - _start, 10);
     const events = await SportEvent.paginate(
-        { _id: { $in: loggedUser.favorite_events }, start_at: { $gte: moment().toDate() } },
-        {
-          sort: { [_sort]: _order },
-          offset: parseInt(_start, 10),
-          limit,
-          populate: ['competition'],
-        });
+      { _id: { $in: loggedUser.favorite_events }, start_at: { $gte: moment().toDate() } },
+      {
+        sort: { [_sort]: _order },
+        offset: parseInt(_start, 10),
+        limit,
+        populate: ['competition'],
+      });
 
     events.docs = events.docs.map(event => event.transform(loggedUser));
 
@@ -347,11 +335,11 @@ exports.registerFcmToken = async (req, res, next) => {
     const { loggedUser } = req.locals;
     const { token, deviceId } = req.body;
     await User.update({ _id: loggedUser._id, "fcmTokens.deviceId": deviceId },
-        { $set: { "array.$": { deviceId, token } } });
+      { $set: { "array.$": { deviceId, token } } });
     // Se l'update precedente non ha avuto effeto (cioè non esiste il deviceId),
     // Allora la seguente lo aggiungerà (altrimenti, la seguente non farà nulla)
     await User.update({ _id: loggedUser._id },
-        { $addToSet: { fcmTokens: { deviceId, token } } });
+      { $addToSet: { fcmTokens: { deviceId, token } } });
 
     res.status(httpStatus.CREATED);
     res.json({_id: deviceId, deviceId, token });

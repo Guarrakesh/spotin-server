@@ -39,7 +39,7 @@ const reservationSchema = new mongoose.Schema({
   cancelledAt: Date,
 
 
-  transactions: [{
+  transactionsIds: [{
     type: mongoose.Schema.ObjectId,
     ref: 'Transaction',
   }],
@@ -78,7 +78,10 @@ const reservationSchema = new mongoose.Schema({
     required: true,
   },
 
-  spotCoinFactor: Number,
+  spotCoinFactor: {
+    type: Number,
+    default: process.env.DEFAULT_SPOT_COIN_FACTOR || 0.01,
+  }
 
 
 

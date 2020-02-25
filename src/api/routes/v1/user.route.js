@@ -2,6 +2,7 @@ const express = require('express');
 const validate = require('express-validation');
 const multer = require('multer');
 const controller = require('../../controllers/v1/user.controller.js');
+const reservationController = require('../../controllers/v1/reservation.controller');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {
   updateUser,
@@ -146,6 +147,10 @@ router
   .get(authorize(LOGGED_USER, ownerCheck), validate(listReservations), controller.listReservations)
   .post(authorize(LOGGED_USER, ownerCheck), validate(reserveBroadcast), controller.reserveBroadcast)
 ;
+
+router
+  .route('/:userId/checkout/:reservationId')
+  .get(authorize(LOGGED_USER, ownerCheck), reservationController.checkout);
 router
     .route('/:userId/visited_businesses')
     .get(authorize(LOGGED_USER, ownerCheck), controller.getVisitedBusinesses);
