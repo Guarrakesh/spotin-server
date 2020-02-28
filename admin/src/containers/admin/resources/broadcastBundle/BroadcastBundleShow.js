@@ -12,15 +12,18 @@ import {
   showNotification,
   UPDATE,
   DeleteButton,
-  ReferenceFieldController,
+  ReferenceField,
+  FunctionField,
   Link,
   // ReferenceInputController,
 } from 'react-admin';
 
-import { Typography,
+import {
+  Typography,
   Chip,
   Table,
   TableCell, TableRow, TableHead, TableBody,
+
   Button,
   Select,
   MenuItem,
@@ -56,6 +59,7 @@ const BroadcastBundleShowView
     setBroadcasts(newBroadcasts);
     onChangeBroadcasts(newBroadcasts);
   };
+
   return (
       <CardContentInner>
         <Typography variant="display3">{record.business.name}</Typography>
@@ -104,10 +108,10 @@ const BroadcastBundleShowView
                     {broadcast.event.sport &&
                     <Link to={`/sports/${broadcast.event.sport}`}>
                       <Typography variant="body2">
-                      <ReferenceFieldController basePath="sports" reference="sports"
+                      <ReferenceField basePath="sports" reference="sports"
                                                 record={broadcast.event} source="sport" resource="sports">
-                        {({referenceRecord}) => (referenceRecord ? referenceRecord.name : null)}
-                      </ReferenceFieldController>
+                        <FunctionField render={({record: referenceRecord}) => (referenceRecord ? referenceRecord.name : null)}/>
+                      </ReferenceField>
                       </Typography>
                     </Link>
                     }
@@ -116,10 +120,10 @@ const BroadcastBundleShowView
                     {broadcast.event.competition &&
                     <Link to={`/competitions/${broadcast.event.competition}`}>
                       <Typography variant="body2">
-                        <ReferenceFieldController basePath="competitions" reference="competitions"
+                        <ReferenceField basePath="competitions" reference="competitions"
                                                   record={broadcast.event} source="competition" resource="competitions">
-                          {({referenceRecord}) => (referenceRecord && referenceRecord.name)}
-                        </ReferenceFieldController>
+                         <FunctionField render={({record: referenceRecord}) => (referenceRecord && referenceRecord.name)}/>
+                        </ReferenceField>
                       </Typography>
                     </Link>
                     }
@@ -127,20 +131,20 @@ const BroadcastBundleShowView
                   <TableCell>
                     <Typography variant="caption">
                       {record.published
-                          ? <ReferenceFieldController basePath="broadcasts"
+                          ? <ReferenceField basePath="broadcasts"
                                                       record={broadcast} source="_id"
                                                       resource="broadcasts" reference="broadcasts">
-                            {({ referenceRecord }) => (
+                            <FunctionField render={({record: referenceRecord }) => (
                                 referenceRecord && referenceRecord.offer && referenceRecord.offer.value
                                     ? <Typography color="succes">
                                       {referenceRecord.offer.title || `-${referenceRecord.offer.value}%`}</Typography>
                                     : <Typography color="warning">Offerta non impostata</Typography>
-                            )}
-                          </ReferenceFieldController>
-                          : <ReferenceFieldController basePath="businesses" record={record.business}
+                            )}/>
+                          </ReferenceField>
+                          : <ReferenceField basePath="businesses" record={record.business}
                                                       reference="businesses"
                                                       source="_id">
-                            {({referenceRecord}) => {
+                            <FunctionField render={({referenceRecord}) => {
 
 
                               if (!broadcasts || !referenceRecord || !referenceRecord.offers) return null;
@@ -173,7 +177,8 @@ const BroadcastBundleShowView
                                   </Select>
 
                               ) : null
-                            }}</ReferenceFieldController>
+                            }}/>
+                        </ReferenceField>
 
                       }
                     </Typography>
