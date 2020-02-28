@@ -106,7 +106,7 @@ const BroadcastBundleShowView
                       <Typography variant="body2">
                       <ReferenceFieldController basePath="sports" reference="sports"
                                                 record={broadcast.event} source="sport" resource="sports">
-                        {({referenceRecord}) => (referenceRecord && referenceRecord.name)}
+                        {({referenceRecord}) => (referenceRecord ? referenceRecord.name : null)}
                       </ReferenceFieldController>
                       </Typography>
                     </Link>
