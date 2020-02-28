@@ -15,6 +15,7 @@ import {
   ReferenceField,
   FunctionField,
   Link,
+  TextField,
   // ReferenceInputController,
 } from 'react-admin';
 
@@ -108,9 +109,9 @@ const BroadcastBundleShowView
                     {broadcast.event.sport &&
                     <Link to={`/sports/${broadcast.event.sport}`}>
                       <Typography variant="body2">
-                      <ReferenceField basePath="sports" reference="sports"
+                      <ReferenceField reference="sports" basePath="/sports"
                                                 record={broadcast.event} source="sport" resource="sports">
-                        <FunctionField render={({record: referenceRecord}) => (referenceRecord ? referenceRecord.name : null)}/>
+                        <TextField source="name" />
                       </ReferenceField>
                       </Typography>
                     </Link>
@@ -120,9 +121,9 @@ const BroadcastBundleShowView
                     {broadcast.event.competition &&
                     <Link to={`/competitions/${broadcast.event.competition}`}>
                       <Typography variant="body2">
-                        <ReferenceField basePath="competitions" reference="competitions"
+                        <ReferenceField basePath="/competitions" reference="competitions"
                                                   record={broadcast.event} source="competition" resource="competitions">
-                         <FunctionField render={({record: referenceRecord}) => (referenceRecord && referenceRecord.name)}/>
+                          <TextField source="name" />
                         </ReferenceField>
                       </Typography>
                     </Link>
@@ -131,20 +132,21 @@ const BroadcastBundleShowView
                   <TableCell>
                     <Typography variant="caption">
                       {record.published
-                          ? <ReferenceField basePath="broadcasts"
+                          ? <ReferenceField linkType={false}
+                                            basePath="/broadcasts"
                                                       record={broadcast} source="_id"
                                                       resource="broadcasts" reference="broadcasts">
                             <FunctionField render={({record: referenceRecord }) => (
                                 referenceRecord && referenceRecord.offer && referenceRecord.offer.value
-                                    ? <Typography color="succes">
+                                    ? <Typography color="success">
                                       {referenceRecord.offer.title || `-${referenceRecord.offer.value}%`}</Typography>
                                     : <Typography color="warning">Offerta non impostata</Typography>
                             )}/>
                           </ReferenceField>
-                          : <ReferenceField basePath="businesses" record={record.business}
+                          : <ReferenceField  linkType={false}  basePath="/businesses" record={record.business}
                                                       reference="businesses"
                                                       source="_id">
-                            <FunctionField render={({referenceRecord}) => {
+                            <FunctionField render={referenceRecord => {
 
 
                               if (!broadcasts || !referenceRecord || !referenceRecord.offers) return null;
