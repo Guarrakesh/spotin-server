@@ -2,11 +2,8 @@
 package-lock.json
 client/yarn.lock
 # Environment variables
-<<<<<<< HEAD
 
-=======
 .env
->>>>>>> c52100a7e05d1a016f4702fa4dee4c40df3e918a
 
 # Logs
 logs
@@ -54,3 +51,6 @@ admin/material-dashboard-react-v1.4.1/*
 
 /admin/material-dashboard-pro-react-v1.3.0/
 /client/
+
+
+.idea
