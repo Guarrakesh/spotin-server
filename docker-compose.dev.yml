@@ -1,4 +1,8 @@
 version: "2"
 services:
   boilerplate-api:
-    command: yarn devnowatch #-- -L
+    command: yarn server
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env.dev

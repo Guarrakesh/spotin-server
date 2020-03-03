@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10.16.0-alpine
 
 EXPOSE 3000
 
@@ -7,8 +7,8 @@ ENV NODE_ENV $NODE_ENV
 
 RUN mkdir /app
 WORKDIR /app
-ADD package.json yarn.lock /app/
-RUN yarn --pure-lockfile
+ADD package.json /app/
+RUN yarn
 ADD . /app
 
-CMD ["yarn", "docker:start"]
+CMD ["yarn"]

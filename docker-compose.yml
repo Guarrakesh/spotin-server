@@ -2,8 +2,7 @@ version: "2"
 services:
   boilerplate-api:
     build: .
-    environment:
-      - NODE_ENV=development
+
     volumes:
       - .:/app
     ports:

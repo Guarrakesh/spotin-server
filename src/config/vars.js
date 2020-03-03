@@ -1,27 +1,12 @@
 const path = require('path');
 
-// import .env variables
-if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== "staging") {
-  require('dotenv').load({
-    allowEmptyValues: true,
-    path: path.join(__dirname, process.env.NODE_ENV === "test" ? '../../.env.test' : '../../.env'),
-
-
-  });
-}
-
-console.log(path.join(__dirname, process.env.NODE_ENV === "test" ? '../../.env.test' : '../../.env'));
 module.exports = {
   env: process.env.NODE_ENV,
-  port: process.env.PORT || 3001,
+  port: process.env.PORT || 3000,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpirationInterval: process.env.NODE_ENV == "development" ?  15 : process.env.JWT_EXPIRATION_MINUTES,
   mongo: {
-    uri: process.env.LOCAL_DB
-        ? process.env.MONGO_URI_LOCAL
-        : process.env.NODE_ENV !== "test"
-            ? process.env.MONGO_URI
-            : process.env.MONGO_URI_TESTS
+    uri: process.env.MONGO_URI
   },
   logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
