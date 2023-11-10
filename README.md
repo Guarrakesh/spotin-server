@@ -1,6 +1,5 @@
 ># SpotIn Server
-
-
+This used to be the server of [Spotin App](https://github.com/Guarrakesh/spotinapp), written in JS with Node and Express. It consistes of an authenticated API layer (REST & GraphQL) and some interesting feature like the [Sports Events Appeal evaluator system](https://github.com/Guarrakesh/spotin-server/tree/master/src/api/models/appeal).
 ## Docker
 
 ```bash
